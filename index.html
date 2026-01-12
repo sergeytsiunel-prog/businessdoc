@@ -40,7 +40,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preload" href="./css/libs/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<script defer src="./css/libs/aos.js"></script>
+<noscript>
+    <link rel="stylesheet" href="./css/libs/aos.css">
+</noscript>
     
     <!-- Иконки Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
