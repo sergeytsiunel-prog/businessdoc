@@ -2,7 +2,7 @@
 // TELEGRAM CONFIGURATION - ВАШИ ТОКЕНЫ
 // ==============================================
 
-const TELEGRAM_TOKEN = '8248183891:AAGqQI1HF50voqYMP-GL0qwuJNJnTCCegOE';
+const TELEGRAM_TOKEN = '8248183891:AAFViXPq1XQJaZYJtiZd3EEl_h4n2JbV_eA';
 const CHAT_ID = '1927712177';
 
 // ==============================================
