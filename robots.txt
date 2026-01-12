@@ -1,0 +1,22 @@
+﻿User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://businessdoc.pro/sitemap.xml
+Host: https://businessdoc.pro
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Social networks
+User-agent: Twitterbot
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /

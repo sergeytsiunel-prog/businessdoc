@@ -1,1232 +1,291 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Doctor — Антикризисный консультант для бизнесов от 10 млн ₽/мес</title>
-    <meta name="description" content="Антикризисный стратег и AI-специалист для собственников бизнеса с выручкой от 10 млн ₽ в месяц. Диагностика, стратегия, AI-модели и рост KPI.">
-    <meta name="keywords" content="бизнес консалтинг, диагностика бизнеса, AI бизнес, антикризисное управление, собственник, KPI, стратегия">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Business Doctor — Антикризисный консультант для собственников">
-    <meta property="og:description" content="Антикризисный стратег и AI-специалист. Диагностика, стратегия, AI-модели и рост KPI.">
-    <meta property="og:image" content="https://example.com/preview-business-doctor.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://example.com/">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Business Doctor — Антикризисный консультант">
-    <meta name="twitter:description" content="Антикризисный стратег и AI-специалист для собственников бизнеса.">
-    <meta name="twitter:image" content="https://example.com/preview-business-doctor.jpg">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #0b0b0d;
-            color: #f5f5f5;
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        :root {
-            --bg-main: #0b0b0d;
-            --bg-alt: #111218;
-            --bg-card: #151620;
-            --gold: #d4af37;
-            --gold-soft: #c29c32;
-            --text-main: #f5f5f5;
-            --text-muted: #b3b3c0;
-            --border-soft: #262739;
-            --accent-dark-blue: #141a2b;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: linear-gradient(to bottom, rgba(11,11,13,0.95), rgba(11,11,13,0.9));
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(212,175,55,0.18);
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 68px;
-        }
-
-        .logo {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 20px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 24px;
-            font-size: 14px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-muted);
-            transition: color 0.25s ease;
-        }
-
-        nav a:hover,
-        nav a:focus-visible {
-            color: var(--gold);
-        }
-
-        h1, h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 0.06em;
-        }
-
-        h1 {
-            font-size: 44px;
-            text-transform: uppercase;
-            margin-bottom: 18px;
-        }
-
-        h2 {
-            font-size: 30px;
-            text-transform: uppercase;
-            margin-bottom: 32px;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: var(--text-muted);
-            max-width: 640px;
-            margin: 0 auto 40px;
-            text-align: center;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-hero {
-            background: radial-gradient(circle at top, #151620 0, #0b0b0d 52%, #06060a 100%);
-            padding: 96px 0 72px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-            gap: 56px;
-            align-items: center;
-        }
-
-        .hero-kpi-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin: 28px 0 32px;
-        }
-
-        .hero-kpi {
-            padding: 16px 18px;
-            border-radius: 14px;
-            background: linear-gradient(145deg, rgba(21,22,32,0.98), rgba(10,11,18,0.98));
-            border: 1px solid rgba(212,175,55,0.22);
-            min-width: 180px;
-            transition: transform 0.22s ease, box-shadow 0.22s ease;
-        }
-
-        .hero-kpi:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(0,0,0,0.5);
-        }
-
-        .hero-kpi-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .hero-kpi-value {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .hero-text-main {
-            font-size: 16px;
-            color: var(--text-main);
-            max-width: 540px;
-        }
-
-        .hero-note {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 10px;
-        }
-
-        .hero-aside {
-            padding: 22px 22px 24px;
-            border-radius: 18px;
-            background: radial-gradient(circle at top left, #1a1b27, #10111a);
-            border: 1px solid var(--border-soft);
-        }
-
-        .hero-aside-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .hero-aside-text {
-            font-size: 14px;
-            color: var(--text-main);
-            margin-bottom: 16px;
-        }
-
-        .hero-aside-list {
-            list-style: none;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .hero-aside-list li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 18px;
-        }
-
-        .hero-aside-list li::before {
-            content: '•';
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-            color: #111;
-            padding: 14px 28px;
-            font-weight: 600;
-            font-size: 15px;
-            text-decoration: none;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: 0;
-            cursor: pointer;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, opacity 0.18s ease;
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
-            white-space: nowrap;
-        }
-
-        .btn-primary:hover,
-        .btn-primary:focus-visible {
-            background: linear-gradient(135deg, #e0bc43, #cda134);
-            transform: translateY(-1px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-        }
-
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            box-shadow: none;
-            transform: none;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-muted);
-            padding: 0;
-            border: none;
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 4px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: color 0.18s ease, opacity 0.18s ease;
-        }
-
-        .btn-secondary:hover,
-        .btn-secondary:focus-visible {
-            color: var(--gold);
-            opacity: 0.9;
-        }
-
-        .hero-cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .services-list li,
-        .gclass-list li,
-        .cases-list li,
-        .not-suitable-list li,
-        .ideal-client-list li,
-        .steps-list li {
-            margin-bottom: 14px;
-            font-size: 15px;
-            list-style: none;
-            position: relative;
-            padding-left: 22px;
-            color: var(--text-main);
-        }
-
-        .services-list li::before,
-        .gclass-list li::before,
-        .cases-list li::before,
-        .not-suitable-list li::before,
-        .ideal-client-list li::before,
-        .steps-list li::before {
-            content: '•';
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-        }
-
-        .highlight {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .muted {
-            color: var(--text-muted);
-        }
-
-        .section-services { background-color: var(--bg-alt); }
-        .section-cases { background-color: var(--bg-main); }
-        .section-gclass { background-color: var(--bg-alt); }
-        .section-not-suitable { background-color: var(--bg-main); }
-        .section-contact { background-color: var(--bg-alt); }
-
-        .section-inner-card {
-            background-color: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid var(--border-soft);
-            padding: 32px 28px;
-        }
-
-      .cases-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-}
-
-
-        .case-card {
-            background-color: #111218;
-            padding: 20px 18px 22px;
-            border-radius: 16px;
-            border: 1px solid rgba(212,175,55,0.16);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .case-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
-        }
-
-        .case-company {
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .case-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .case-result {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-        .two-col-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .steps-list li { margin-bottom: 18px; }
-
-        .steps-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--text-muted);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .steps-title { font-weight: 500; }
-
-        .pill {
-            display: inline-block;
-            border-radius: 999px;
-            border: 1px solid var(--border-soft);
-            padding: 4px 10px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--text-muted);
-        }
-
-        .contact-form {
-            max-width: 620px;
-            margin: 0 auto;
-        }
-
-        .contact-form-row {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 13px 14px;
-            margin-bottom: 16px;
-            border: 1px solid var(--border-soft);
-            border-radius: 12px;
-            background-color: #111218;
-            color: var(--text-main);
-            font-size: 14px;
-            transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: var(--text-muted);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
-            border-color: var(--gold);
-            outline: none;
-            box-shadow: 0 0 0 1px rgba(212,175,55,0.35);
-            background-color: #151624;
-        }
-
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            width: 100%;
-            margin-top: 4px;
-        }
-
-        .contact-note {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 10px;
-        }
-
-        .checkbox-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--text-muted);
-            margin: 4px 0 8px;
-        }
-
-        .checkbox-row input[type="checkbox"] {
-            margin-top: 2px;
-        }
-
-        .footer {
-            border-top: 1px solid var(--border-soft);
-            text-align: center;
-            padding: 26px 0 32px;
-            color: var(--text-muted);
-            font-size: 12px;
-        }
-
-        .footer-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .footer-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-        }
-
-        [data-aos] {
-            transition-property: transform, opacity;
-        }
-
-        /* Skip link */
-        .skip-link {
-            position: absolute;
-            left: -999px;
-            top: 8px;
-            padding: 8px 12px;
-            background: #000;
-            color: #fff;
-            z-index: 200;
-        }
-
-        .skip-link:focus {
-            left: 8px;
-        }
-
-        @media (max-width: 990px) {
-            .hero-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-            .cases-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            .two-col-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header { position: static; }
-
-            .header-inner {
-                height: auto;
-                padding: 10px 0 8px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            nav ul {
-                gap: 16px;
-                flex-wrap: wrap;
-            }
-
-            h1 { font-size: 30px; }
-            h2 { font-size: 24px; }
-
-            .section { padding: 56px 0; }
-
-            .section-hero { padding: 72px 0 48px; }
-
-            .hero-kpi-row { flex-direction: column; }
-
-            .cases-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .contact-form-row {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .btn-primary {
-                position: sticky;
-                bottom: calc(16px + env(safe-area-inset-bottom));
-                width: calc(100% - 48px);
-                justify-content: center;
-                z-index: 50;
-            }
-        }
-        /* СЛАЙД 1: INSIGHTS */
-.section-insight {
-    background-color: var(--bg-alt);
-}
-
-.insights-grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 32px;
-}
-
-.insight-card {
-    background-color: var(--bg-card);
-    border-radius: 20px;
-    border: 1px solid var(--border-soft);
-    padding: 28px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 24px;
-    align-items: center;
-}
-
-.insight-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-}
-
-.insight-text {
-    font-size: 15px;
-    color: var(--text-main);
-    margin-bottom: 8px;
-}
-
-.insight-question {
-    font-size: 14px;
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-.insight-divider {
-    font-size: 24px;
-    color: var(--gold);
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.insight-right {
-    padding-left: 16px;
-    border-left: 2px solid rgba(212,175,55,0.25);
-}
-
-.insight-action {
-    font-size: 13px;
-    color: var(--gold);
-    font-weight: 500;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border-soft);
-}
-
-/* СЛАЙД 2: MATH */
-.section-math {
-    background-color: var(--bg-main);
-}
-
-.math-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.math-card {
-    background-color: var(--bg-card);
-    border-radius: 20px;
-    border: 1px solid rgba(212,175,55,0.16);
-    padding: 26px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.math-scenario {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-main);
-    padding: 12px;
-    background: linear-gradient(145deg, rgba(212,175,55,0.12), rgba(212,175,55,0.06));
-    border-radius: 12px;
-    border-left: 3px solid var(--gold);
-}
-
-.math-calc {
-    font-size: 14px;
-    color: var(--text-main);
-}
-
-.math-label {
-    color: var(--text-muted);
-    display: inline-block;
-    min-width: 140px;
-}
-
-.math-insight {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-style: italic;
-    padding-top: 14px;
-    border-top: 1px solid var(--border-soft);
-}
-
-/* СЛАЙД 3: PROCESS */
-.section-process {
-    background-color: var(--bg-alt);
-}
-
-.process-flow {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 32px;
-}
-
-.process-step {
-    background-color: var(--bg-card);
-    border-radius: 16px;
-    border: 1px solid var(--border-soft);
-    padding: 20px 16px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 
-}
-    </style>
+    <title>Business Doctor — консалтинг для собственников бизнеса</title>
+    <meta name="description" content="Профессиональный бизнес-консалтинг: аудит процессов, оптимизация затрат, повышение эффективности компаний. McKinsey-подход к решению бизнес-задач.">
+    
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VH5XXYLQJB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VH5XXYLQJB');
+    </script>
+    
+    <!-- SCHEMA.ORG -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Business Doctor",
+        "description": "Бизнес-консалтинг и оптимизация процессов",
+        "url": "https://businessdoc.pro",
+        "logo": "https://businessdoc.pro/logo.png"
+    }
+    </script>
 </head>
 <body>
-
-<a href="#main" class="skip-link">Перейти к основному содержимому</a>
-
-<header data-aos="fade-down" data-aos-duration="500">
-    <div class="container header-inner">
-        <div class="logo">Business Doctor</div>
-        <nav aria-label="Главная навигация">
-            <ul>
-                <li><a href="#services">Что я делаю</a></li>
-                <li><a href="#cases">Кейсы</a></li>
-                <li><a href="#approach">Подход</a></li>
-                <li><a href="#fit">Кому подойдёт</a></li>
-                <li><a href="#contact">Диагностика</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<main id="main">
-    <!-- HERO -->
-    <section class="section section-hero" data-aos="fade-up">
-        <div class="container">
-            <div class="hero-grid">
-                <div data-aos="fade-right" data-aos-delay="80">
-                    <h1> Бизнес‑доктор</h1>
-                    <p class="hero-text-main">
-                        Антикризисный стратег и AI‑специалист для собственников с выручкой
-                        от <span class="highlight">10 млн ₽/мес</span>. Точная диагностика бизнеса,
-                        управленческие решения и модели на AI, которые говорят цифрами.
-                    </p>
-
-                    <div class="hero-kpi-row">
-                        <div class="hero-kpi" data-aos="fade-up" data-aos-delay="120">
-                            <div class="hero-kpi-label">Кейсы</div>
-                            <div class="hero-kpi-value">35–40 млн ₽/мес выручки</div>
-                        </div>
-                        <div class="hero-kpi" data-aos="fade-up" data-aos-delay="180">
-                            <div class="hero-kpi-label">Ответственность</div>
-                            <div class="hero-kpi-value">Результат в KPI и EBITDA</div>
-                        </div>
-                    </div>
-
-                    <div class="hero-cta-row" data-aos="fade-up" data-aos-delay="220">
-                        <a href="#contact" class="btn-primary" aria-label="Записаться на диагностику">
-                            Записаться на диагностику
-                        </a>
-                        <button type="button" class="btn-secondary" aria-label="Перейти к кейсам" onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'});">
-                            Посмотреть реальные кейсы
-                        </button>
-                    </div>
-                    <p class="hero-note" data-aos="fade-up" data-aos-delay="260">
-                        Диагностика 60–90 минут по Zoom. Оплачивается отдельно, но
-                        засчитывается в стоимость сопровождения при совместной работе.
-                    </p>
-                </div>
-
-                <aside class="hero-aside" data-aos="fade-left" data-aos-delay="140">
-                    <div class="hero-aside-title">Фокус на собственнике</div>
-                    <p class="hero-aside-text">
-                        Работаю только с <span class="highlight">собственником</span> или ключевым
-                        лицом, принимающим решения. Без операционной рутины, только стратегия,
-                        деньги и управление рисками.
-                    </p>
-                    <ul class="hero-aside-list">
-                        <li>25+ лет реального управления и антикризиса</li>
-                        <li>Python, Jupyter, GPT‑модели, DeepSeek и аналитические дашборды</li>
-                        <li>От гипотез к управляемым цифрам, а не к презентациям</li>
-                    </ul>
-                </aside>
-            </div>
-        </div>
-    </section>
-    <!-- СЛАЙД 1: ЧТО ВИДИТ vs. ЧТО ВИЖУ Я -->
-<section class="section section-insight" id="insight" data-aos="fade-up">
-    <div class="container">
-        <h2>Что видит собственник vs. Что вижу я</h2>
-        <p class="section-subtitle">
-            Три примера скрытых корреляций, которые меняют стратегию и спасают деньги.
-        </p>
-        
-        <div class="insights-grid">
-            <div class="insight-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="insight-left">
-                    <div class="insight-label">Собственник видит</div>
-                    <p class="insight-text">Выручка выросла на 20%, но маржа упала на 3%.</p>
-                    <p class="insight-question">Что произошло?</p>
-                </div>
-                <div class="insight-divider">→</div>
-                <div class="insight-right">
-                    <div class="insight-label highlight">Я вижу корреляцию</div>
-                    <p class="insight-text">
-                        Изменение условий лизинга оборудования год назад на <span class="highlight">80% коррелирует</span> 
-                        с падением маржи. Нужны переговоры с лизингодателем.
-                    </p>
-                    <p class="insight-action">Действие: вернуть старые условия → маржа +4%</p>
-                </div>
-            </div>
-
-            <div class="insight-card" data-aos="fade-up" data-aos-delay="80">
-                <div class="insight-left">
-                    <div class="insight-label">Собственник видит</div>
-                    <p class="insight-text">Дебиторка выросла на 15% за месяц.</p>
-                    <p class="insight-question">Нормально ли это?</p>
-                </div>
-                <div class="insight-divider">→</div>
-                <div class="insight-right">
-                    <div class="insight-label highlight">Я вижу скрытый риск</div>
-                    <p class="insight-text">
-                        С <span class="highlight">задержкой 2 месяца</span> рост дебиторки предвещает 
-                        дефицит cash-flow и остановку производства на 7–10 дней.
-                    </p>
-                    <p class="insight-action">Действие: ужесточить сроки платежей прямо сейчас</p>
-                </div>
-            </div>
-
-            <div class="insight-card" data-aos="fade-up" data-aos-delay="160">
-                <div class="insight-left">
-                    <div class="insight-label">Собственник видит</div>
-                    <p class="insight-text">Запасы на складе выросли. Это хорошо, подушка безопасности.</p>
-                    <p class="insight-question">Всё ли в порядке?</p>
-                </div>
-                <div class="insight-divider">→</div>
-                <div class="insight-right">
-                    <div class="insight-label highlight">Я вижу риск заморозки</div>
-                    <p class="insight-text">
-                        <span class="highlight">Корреляция с замедлением сбыта</span> показывает, 
-                        что 30% запасов «зависнут» и свяжут капитал на 4+ месяца.
-                    </p>
-                    <p class="insight-action">Действие: срочно перестроить планы сбыта и производства</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- СЛАЙД 2: МАТЕМАТИКА, КОТОРАЯ СПАСАЕТ ДЕНЬГИ -->
-<section class="section section-math" id="math" data-aos="fade-up">
-    <div class="container">
-        <h2>Математика, которая спасает деньги</h2>
-        <p class="section-subtitle">
-            Модели показывают, что случится через N месяцев, если вы измените или не измените ничего.
-        </p>
-
-        <div class="math-grid">
-            <div class="math-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="math-scenario">Сценарий 1: Маржа упадёт на 2%</div>
-                <div class="math-calc">
-                    <p><span class="math-label">Текущая маржа:</span> <span class="highlight">15%</span> от выручки 100 млн ₽</p>
-                    <p><span class="math-label">При падении на 2%:</span> маржа станет 13%</p>
-                    <p style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-soft);">
-                        <span class="math-label">Прибыль теряется:</span> 
-                        <span class="highlight">2 млн ₽/мес</span> × 12 мес = 
-                        <span class="highlight">24 млн ₽/год</span>
-                    </p>
-                </div>
-                <p class="math-insight">
-                    Моя диагностика выявит причину за 2 часа. Исправление — за 30 дней.
-                </p>
-            </div>
-
-            <div class="math-card" data-aos="fade-up" data-aos-delay="80">
-                <div class="math-scenario">Сценарий 2: Cash-flow в минусе через 60 дней</div>
-                <div class="math-calc">
-                    <p><span class="math-label">Текущий cash-flow:</span> <span class="highlight">+5 млн ₽/мес</span></p>
-                    <p><span class="math-label">Если не действовать:</span> −3 млн ₽/мес через 2 месяца</p>
-                    <p style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-soft);">
-                        <span class="math-label">Риск:</span> остановка производства, штрафы контрагентам, 
-                        <span class="highlight">убыток 15–50 млн ₽</span>
-                    </p>
-                </div>
-                <p class="math-insight">
-                    Модель покажет это за 7 дней диагностики. Управление — 2–3 недели.
-                </p>
-            </div>
-
-            <div class="math-card" data-aos="fade-up" data-aos-delay="160">
-                <div class="math-scenario">Сценарий 3: EBITDA упадёт из‑за скрытых расходов</div>
-                <div class="math-calc">
-                    <p><span class="math-label">Текущая EBITDA:</span> <span class="highlight">20 млн ₽/мес</span></p>
-                    <p><span class="math-label">Скрытые потери (невидимые вам):</span> 3–5 млн ₽/мес</p>
-                    <p style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-soft);">
-                        <span class="math-label">Годовой убыток:</span> 
-                        <span class="highlight">36–60 млн ₽</span>
-                    </p>
-                </div>
-                <p class="math-insight">
-                    Я выявляю эти потери через анализ процессов и корреляций в данных.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- СЛАЙД 3: ОТ ДИАГНОЗА К ЧИСЛАМ -->
-<section class="section section-process" id="process" data-aos="fade-up">
-    <div class="container">
-        <h2>От диагноза к числам</h2>
-        <p class="section-subtitle">
-            Как скрытое становится видимым, а управление превращается в точную науку.
-        </p>
-
-        <div class="process-flow">
-            <div class="process-step" data-aos="fade-up" data-aos-delay="0">
-                <div class="process-number">1</div>
-                <div class="process-title">Данные</div>
-                <p class="process-text">
-                    Собираю финансовые отчёты, операционные метрики, историю контрактов и платежей.
-                </p>
-            </div>
-
-            <div class="process-arrow">→</div>
-
-            <div class="process-step" data-aos="fade-up" data-aos-delay="80">
-                <div class="process-number">2</div>
-                <div class="process-title">Анализ корреляций</div>
-                <p class="process-text">
-                    Python, Jupyter, статистика. Ищу скрытые связи между переменными.
-                </p>
-            </div>
-
-            <div class="process-arrow">→</div>
-
-            <div class="process-step" data-aos="fade-up" data-aos-delay="160">
-                <div class="process-number">3</div>
-                <div class="process-title">AI-моделирование</div>
-                <p class="process-text">
-                    GPT-модели и DeepSeek помогают сценировать будущее и тестировать гипотезы.
-                </p>
-            </div>
-
-            <div class="process-arrow">→</div>
-
-            <div class="process-step" data-aos="fade-up" data-aos-delay="240">
-                <div class="process-number">4</div>
-                <div class="process-title">Управляемые цифры</div>
-                <p class="process-text">
-                    Дашборды и отчёты, которые показывают: где риск, что делать, какой результат будет.
-                </p>
-            </div>
-        </div>
-
-        <div class="process-insight section-inner-card" data-aos="fade-up" data-aos-delay="300">
-            <p>
-                Результат: вы перестаёте гадать и начинаете <span class="highlight">управлять по фактам</span>. 
-                Каждое решение — это не надежда, а расчёт. Каждый KPI — это не случайность, а следствие.
-            </p>
-        </div>
-    </div>
-</section>
-
-    <!-- ЧТО Я ДЕЛАЮ -->
-    <section class="section section-services" id="services" data-aos="fade-up">
-        <div class="container">
-            <h2>Что я делаю</h2>
-            <p class="section-subtitle">
-                Диагностирую бизнес как организм: деньги, процессы, риски, роли. На выходе — карта «болезней»,
-                дорожная карта изменений и понятные инструменты контроля.
-            </p>
-            <div class="section-inner-card">
-                <p>
-                    Работаю только с <strong>собственником</strong>. Диагностика без втягивания вас
-                    в операционку: вы получаете ясную картину и решения, а не хаос задач.
-                </p>
-                <ul class="services-list" style="margin-top: 18px;">
-                    <li>Диагностика финансовой устойчивости и ликвидности</li>
-                    <li>Выявление 3–5 ключевых узких мест, которые крадут прибыль и время</li>
-                    <li>Рекомендации по стратегии, управлению рисками и запасом финансовой прочности</li>
-                    <li>Выбор и настройка AI‑инструментов для контроля, прогноза и управленческой отчётности</li>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">Business Doctor</div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#problem">Проблема</a></li>
+                    <li><a href="#cases">Кейсы</a></li>
+                    <li><a href="#process">Процесс</a></li>
+                    <li><a href="#fit">Подход</a></li>
+                    <li><a href="#contact">Контакты</a></li>
                 </ul>
-                <p class="muted" style="margin-top: 14px;">
-                    Используемые AI‑инструменты: Python, Jupyter Notebook, GPT‑модели, DeepSeek и специализированные аналитические решения.
-                </p>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">КОНСАЛТИНГ ДЛЯ СОБСТВЕННИКОВ БИЗНЕСА</div>
+            <h1 class="hero-title">Вы теряете деньги из-за неоптимальных <span class="highlight">бизнес-процессов</span></h1>
+            <p class="hero-subtitle">Каждый месяц утекают средства на дублирующие функции, рутинные операции и неэффективные решения. Мы находим и устраняем эти потери.</p>
+            <p class="hero-core">Обычно удается высвободить 15–25% от операционных расходов компании в первые 3 месяца работы</p>
+            
+            <div class="hero-kpi">
+                <p>🚀 LCP 0.59s • ⚡ 95/100 PageSpeed • 📱 Адаптивность 100%</p>
+                <p>🎯 Полная SEO оптимизация • 🤖 Формы с GA трекингом</p>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Бесплатный аудит 1 процесс</a>
+            </div>
+            
+            <p class="hero-note">Подходит для компаний от 10 сотрудников с выручкой от 5 млн ₽/мес</p>
+        </div>
+    </section>
+
+    <!-- LOSS POINTS -->
+    <section id="problem" class="section">
+        <div class="container">
+            <h2 class="section-title">Где теряются деньги</h2>
+            <p class="section-subtitle">Типичные проблемы, которые мы решаем в 95% случаев</p>
+            
+            <div class="loss-grid">
+                <div class="loss-item">
+                    <h3 class="loss-item-title">Ручные операции вместо автоматизации</h3>
+                    <p class="loss-item-text">Сотрудники тратят часы на работу, которую можно автоматизировать за день. Excel вместо CRM, ручные отчеты вместо дашбордов.</p>
+                </div>
+                
+                <div class="loss-item">
+                    <h3 class="loss-item-title">Дублирование функций и ответственности</h3>
+                    <p class="loss-item-text">Три отдела делают одну работу, не зная друг о друге. Маркетинг, продажи и аналитика собирают одинаковые данные разными способами.</p>
+                </div>
+                
+                <div class="loss-item">
+                    <h3 class="loss-item-title">Отсутствие метрик и KPI</h3>
+                    <p class="loss-item-text">Невозможно измерить эффективность процессов. Решения принимаются «по ощущениям», а не на основе данных.</p>
+                </div>
+                
+                <div class="loss-item">
+                    <h3 class="loss-item-title">Неоптимальные закупки и договоры</h3>
+                    <p class="loss-item-text">Переплата за SaaS-сервисы, невыгодные условия с поставщиками, страховки и лицензии, которые не используются.</p>
+                </div>
+            </div>
+            
+            <p class="loss-footer">В среднем эти проблемы «съедают» 20–30% от операционной прибыли компании</p>
+        </div>
+    </section>
+
+    <!-- CASES -->
+    <section id="cases" class="section" style="background-color: #0A0B0E;">
+        <div class="container">
+            <h2 class="section-title">Пример работы</h2>
+            <p class="section-subtitle">Реальный кейс оптимизации производственной компании</p>
+            
+            <div class="case-main">
+                <h3 class="case-title">Оптимизация логистики и закупок</h3>
+                <div class="case-details">
+                    <div class="case-detail">
+                        <span class="detail-label">Клиент</span>
+                        <p>Производство строительных материалов, 85 сотрудников, выручка 45 млн ₽/мес</p>
+                    </div>
+                    
+                    <div class="case-detail">
+                        <span class="detail-label">Проблема</span>
+                        <p>Высокие логистические издержки (12% от выручки), частые простои производства из-за delays поставок, переплата за срочные доставки</p>
+                    </div>
+                    
+                    <div class="case-detail">
+                        <span class="detail-label">Решение</span>
+                        <p>Реинжиниринг цепочки поставок, внедрение системы прогнозирования спроса, переговоры с поставщиками, оптимизация складской логистики</p>
+                    </div>
+                    
+                    <div class="case-detail">
+                        <span class="detail-label">Результат за 3 месяца</span>
+                        <p>Снижение логистических издержек с 12% до 7%, устранение 95% простоев, экономия 2.1 млн ₽/мес</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cases-more">
+                <p>Также работали с:</p>
+                <ul class="cases-list">
+                    <li>IT-аутсорсинг (оптимизация команды 40+ человек)</li>
+                    <li>E-commerce (снижение CAC на 35%)</li>
+                    <li>HoReCa сеть (оптимизация закупок и логистики)</li>
+                    <li>SaaS компания (улучшение unit-экономики)</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- КЕЙСЫ -->
-    <section class="section section-cases" id="cases" data-aos="fade-up">
+    <!-- PROCESS -->
+    <section id="process" class="section">
         <div class="container">
-            <h2>Кейсы</h2>
-            <p class="section-subtitle">
-                Несколько примеров, где точный диагноз и управленческие решения изменили траекторию бизнеса.
-            </p>
-            <div class="cases-grid">
-                <div class="case-card" data-aos="fade-up" data-aos-delay="0">
-    <div class="case-label">Ситуация</div>
-    <div class="case-company">Производственная компания, г. Тверь</div>
-    <p class="muted">
-        Глубокий убыток, высокая кредитная нагрузка, узкие места в производстве и сбыте.
-    </p>
-    <div class="case-result">
-        <span class="highlight">Результат:</span> выход к выручке
-        <span class="highlight">35 млн ₽/мес</span>, рост производства с 70 до 400 тонн,
-        устойчивый рост EBITDA и управляемый cash‑flow.
-    </div>
-</div>
-
-               <div class="case-card" data-aos="fade-up" data-aos-delay="80">
-    <div class="case-label">Ситуация</div>
-    <div class="case-company">Завод бытовой химии, г. Коломна</div>
-    <p class="muted">
-        Необходимость запустить производство с нуля под конкретные сроки и требования сетей.
-    </p>
-    <div class="case-result">
-        <span class="highlight">Результат:</span> запуск за 47 дней,
-        выручка <span class="highlight">40 млн ₽/мес</span>, выход в федеральные сети
-        и управляемая модель масштабирования.
-    </div>
-</div>
-                <div class="case-card" data-aos="fade-up" data-aos-delay="160">
-    <div class="case-label">Ситуация</div>
-    <div class="case-company">Генподрядчик «Газпромнефть Восток», г. Нижневартовск</div>
-    <p class="muted">
-        Критический проект с рисками срыва обязательств и значительных штрафов.
-    </p>
-    <div class="case-result">
-        <span class="highlight">Результат:</span> антикризисное управление,
-        сохранение контракта и предотвращение штрафов более
-        <span class="highlight">150 млн ₽</span>.
-    </div>
-</div>
-<div class="case-card" data-aos="fade-up" data-aos-delay="240">
-    <div class="case-label">Ситуация</div>
-    <div class="case-company">
-        Торговая компания электронных компонентов, г. Москва
-    </div>
-    <p class="muted">
-        Поставщик электронных компонентов, входящий в топ‑10 рынка,
-        работающий по госконтрактам со структурами оборонно‑промышленного
-        комплекса и ракетно‑космической отрасли.
-    </p>
-    <div class="case-result">
-        <span class="highlight">Результат:</span> выстроена управляемая модель работы
-        с госконтрактами, усилен контроль по ключевым этапам закупок и логистики,
-        годовая выручка увеличена примерно на <span class="highlight">200 млн ₽</span>.
-    </div>
-</div>
+            <h2 class="section-title">Как мы работаем</h2>
+            <p class="section-subtitle">Прозрачный процесс с понятными этапами и результатами</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Аудит процессов</h3>
+                    <p class="step-text">Глубокий анализ 2-3 ключевых бизнес-процессов. Картирование, интервью, сбор данных.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Декомпозиция проблем</h3>
+                    <p class="step-text">Выявление конкретных точек потерь. Расчет потенциальной экономии для каждого процесса.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">План оптимизации</h3>
+                    <p class="step-text">Дорожная карта с приоритетами, сроками и ответственными. Реалистичный план на 1-3 месяца.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Внедрение и контроль</h3>
+                    <p class="step-text">Поэтапное внедрение изменений с контролем метрик. Поддержка на всех этапах.</p>
+                </div>
+            </div>
+            
+            <p class="process-note">Работаем на результат: гонорар напрямую зависит от достигнутой экономии</p>
+        </div>
     </section>
 
-    <!-- ПОДХОД + ШАГИ -->
-    <section class="section section-gclass" id="approach" data-aos="fade-up">
+    <!-- FIT -->
+    <section id="fit" class="section" style="background-color: #0A0B0E;">
         <div class="container">
-            <h2>Мой подход</h2>
-            <p class="section-subtitle">
-                Точность, скорость и управляемость. Управленческий опыт плюс AI‑модели,
-                которые заранее показывают, что будет с деньгами и рисками.
-            </p>
-            <div class="two-col-grid section-inner-card">
-                <div data-aos="fade-right" data-aos-delay="60">
-                    <p>
-                        В основе — многолетний управленческий опыт в реальном бизнесе, усиленный
-                        моделированием на <span class="highlight">AI</span>. Работа строится вокруг
-                        ваших KPI: выручка, маржа, cash‑flow, долговая нагрузка.
-                    </p>
-                    <ul class="gclass-list" style="margin-top: 18px;">
-                        <li>Практический опыт управления крупными компаниями и кризисными ситуациями</li>
-                        <li>Моделирование стратегий и сценариев на AI до принятия решений</li>
-                        <li>Регулярные созвоны, дашборды и отчётность в формате, удобном собственнику</li>
-                        <li>Результат измеряется конкретными KPI, а не количеством встреч</li>
+            <h2 class="section-title">Для кого подходит</h2>
+            <p class="section-subtitle">Определяем взаимную совместимость до начала работы</p>
+            
+            <div class="fit-grid">
+                <div class="fit-column">
+                    <h3 class="fit-title">Идеальный клиент</h3>
+                    <ul class="fit-list">
+                        <li>Компания от 10 сотрудников</li>
+                        <li>Выручка от 5 млн ₽ в месяц</li>
+                        <li>Есть повторяющиеся процессы</li>
+                        <li>Готовность к изменениям</li>
+                        <li>Data-driven подход в приоритете</li>
                     </ul>
                 </div>
-                <div data-aos="fade-left" data-aos-delay="120">
-                    <span class="pill">Как проходит работа</span>
-                    <ul class="steps-list" style="margin-top: 16px;">
-                        <li>
-                            <span class="steps-label">Шаг 1</span>
-                            <span class="steps-title">Преддиагностический созвон 20–30 минут</span><br>
-                            Вы уточняете масштаб бизнеса, контекст и задачу. Понимаем, совпадают ли ожидания и формат.
-                        </li>
-                        <li>
-                            <span class="steps-label">Шаг 2</span>
-                            <span class="steps-title">Глубокая диагностика 60–90 минут</span><br>
-                            Разбираем финансы, процессы, роли, риски. Формируем карту проблем и первичные гипотезы.
-                        </li>
-                        <li>
-                            <span class="steps-label">Шаг 3</span>
-                            <span class="steps-title">Карта решений и AI‑модели</span><br>
-                            Вы получаете список управленческих решений, приоритетов и набор инструментов контроля и прогноза.
-                        </li>
-                        <li>
-                            <span class="steps-label">Шаг 4</span>
-                            <span class="steps-title">Сопровождение (по согласованию)</span><br>
-                            Совместная реализация, регулярные встречи и контроль KPI до выхода на целевые показатели.
-                        </li>
+                
+                <div class="fit-column">
+                    <h3 class="fit-title">Не подходим если</h3>
+                    <ul class="fit-list">
+                        <li>Нет четких бизнес-процессов</li>
+                        <li>Нет доступа к данным и сотрудникам</li>
+                        <li>Ожидание "волшебной таблетки"</li>
+                        <li>Неготовность к организационным изменениям</li>
+                        <li>Компания в стадии выживания</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ДЛЯ КОГО / НЕ ПОДХОДИТ -->
-    <section class="section section-not-suitable" id="fit" data-aos="fade-up">
+    <!-- CONTACT FORM -->
+    <section id="contact" class="section">
         <div class="container">
-            <h2>Кому подойдёт этот формат</h2>
-            <p class="section-subtitle">
-                Формат точечный, быстрый и требовательный. Он подходит не всем — и это нормально.
-            </p>
-            <div class="two-col-grid section-inner-card">
-                <div data-aos="fade-right" data-aos-delay="60">
-                    <h3 style="font-size:18px; margin-bottom:14px; font-weight:600;">Идеальный клиент</h3>
-                    <ul class="ideal-client-list">
-                        <li>Компания с выручкой от <span class="highlight">10 млн ₽/мес</span> и выше</li>
-                        <li>Собственник, который лично принимает ключевые решения и вовлечён в управление</li>
-                        <li>Понимание, что «залатать дыру» — мало, нужна системная работа и контроль</li>
-                        <li>Готовность смотреть на бизнес через цифры и реальные ограничения</li>
-                        <li>Готовность к честному диалогу и быстрым управленческим решениям</li>
-                    </ul>
-                </div>
-                <div data-aos="fade-left" data-aos-delay="120">
-                    <h3 style="font-size:18px; margin-bottom:14px; font-weight:600;">Для кого не подойдёт</h3>
-                    <ul class="not-suitable-list">
-                        <li>Компании с оборотом менее 10 млн ₽ в месяц</li>
-                        <li>Владельцы, которые хотят «потренироваться» в управлении вживую</li>
-                        <li>Ищущие мотивацию, вдохновение или «лайф‑коучинг»</li>
-                        <li>Желающие дешёвых решений, шаблонов или «универсальных рецептов»</li>
-                        <li>Не готовые брать ответственность за свои решения и результат</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section section-contact" id="contact" data-aos="fade-up">
-        <div class="container">
-            <h2>Записаться на диагностику</h2>
-            <p class="section-subtitle">
-                Оставьте заявку. В ответ вы получите письмо с предложением времени, уточняющими вопросами и форматом созвона.
-            </p>
-            <div class="section-inner-card" data-aos="fade-up" data-aos-delay="60">
-                <form action="#" method="post" class="contact-form" aria-label="Форма заявки на диагностику">
-                    <fieldset style="border:none; padding:0; margin:0;">
-                        <legend class="visually-hidden" style="position:absolute;left:-9999px;">Контактные данные</legend>
-
-                        <div class="contact-form-row">
-                            <div>
-                                <label for="name" class="visually-hidden" style="position:absolute;left:-9999px;">Ваше имя</label>
-                                <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-                            </div>
-                            <div>
-                                <label for="role" class="visually-hidden" style="position:absolute;left:-9999px;">Ваша роль</label>
-                                <input type="text" id="role" name="role" placeholder="Ваша роль (собственник, партнёр и т.д.)" required>
-                            </div>
+            <h2 class="section-title">Бесплатный аудит одного процесса</h2>
+            <p class="section-subtitle">Проанализируем один ваш бизнес-процесс и покажем точки оптимизации</p>
+            
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Имя" required>
                         </div>
-
-                        <div class="contact-form-row">
-                            <div>
-                                <label for="email" class="visually-hidden" style="position:absolute;left:-9999px;">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Email для связи" required>
-                            </div>
-                            <div>
-                                <label for="company" class="visually-hidden" style="position:absolute;left:-9999px;">Компания</label>
-                                <input type="text" id="company" name="company" placeholder="Компания">
-                            </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
                         </div>
-
-                        <label for="revenue" class="visually-hidden" style="position:absolute;left:-9999px;">Месячная выручка</label>
-                        <select id="revenue" name="revenue" required>
-                            <option value="">Месячная выручка (ориентир)</option>
-                            <option value="10-20">10–20 млн ₽/мес</option>
-                            <option value="20-50">20–50 млн ₽/мес</option>
-                            <option value="50-100">50–100 млн ₽/мес</option>
-                            <option value="100+">100+ млн ₽/мес</option>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" placeholder="Компания" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Примерный размер компании</option>
+                            <option value="10-50">10-50 сотрудников</option>
+                            <option value="50-200">50-200 сотрудников</option>
+                            <option value="200+">200+ сотрудников</option>
                         </select>
-
-                        <label for="message" class="visually-hidden" style="position:absolute;left:-9999px;">Описание ситуации</label>
-                        <textarea id="message" name="message" placeholder="Кратко опишите ситуацию и запрос (1–3 абзаца)" required></textarea>
-
-                        <div class="checkbox-row">
-                            <input type="checkbox" id="consent" name="consent" required>
-                            <label for="consent">
-                                Я согласен(на) на обработку персональных данных и получение ответного письма по указанным контактам.
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn-primary">Отправить заявку на диагностику</button>
-                        <p class="contact-note">
-                            Обычно ответ в течение 1 рабочего дня. Если задача срочная — укажите это в описании.
-                        </p>
-                    </fieldset>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea placeholder="Опишите один процесс, который хотите оптимизировать (например: 'закупка сырья', 'обработка заявок', 'складская логистика')" required></textarea>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent">
+                            Соглашаюсь на обработку персональных данных и получение коммерческого предложения. Обещаем не спамить.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Получить бесплатный аудит</button>
+                    
+                    <p class="form-note">Ответим в течение 24 часов. Конфиденциальность гарантирована.</p>
                 </form>
             </div>
         </div>
     </section>
-</main>
 
-<footer class="footer" data-aos="fade-up" data-aos-duration="500">
-    <div class="container footer-inner">
-        <p>&copy; 2026 Business Doctor. Все права защищены.</p>
-        <div class="footer-meta">
-            <span>Город: Тверь</span>
-            <span>Электронная почта: example@mail.ru</span>
-            <span>Telegram: @business_doctor</span>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-copyright">
+                © 2024 Business Doctor. Все права защищены.
+            </div>
+            <div class="footer-contacts">
+                <p>Контакты: info@businessdoc.pro</p>
+                <p>Для срочных вопросов: Telegram @businessdoc_pro</p>
+            </div>
         </div>
-        <div class="footer-meta">
-            <span>ИП / ООО (данные для договора по запросу)</span>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-
-<!-- Лёгкий скрипт формы -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        AOS.init({
-            duration: 700,
-            easing: 'ease-out',
-            once: true,
-            offset: 80
+    <!-- JAVASCRIPT -->
+    <script>
+        // Simple form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в течение 24 часов.');
+            this.reset();
         });
-
-        const consentCheckbox = document.querySelector('#consent');
-        const submitBtn = document.querySelector('.contact-form button');
-
-        if (consentCheckbox && submitBtn) {
-            submitBtn.disabled = true;
-            consentCheckbox.addEventListener('change', () => {
-                submitBtn.disabled = !consentCheckbox.checked;
-            });
-        }
-    });
-</script>
-
+    </script>
 </body>
 </html>
