@@ -16,6 +16,7 @@ body {
     line-height: 1.6;
     font-size: 16px;
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 .container {
@@ -189,6 +190,7 @@ p {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-primary {
@@ -443,6 +445,11 @@ p {
     border-color: #C8A951;
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9FA3AD;
+}
+
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
@@ -459,6 +466,7 @@ p {
     width: 20px;
     height: 20px;
     margin-top: 2px;
+    accent-color: #C8A951;
 }
 
 .form-checkbox label {
@@ -499,14 +507,54 @@ p {
     margin-bottom: 8px;
 }
 
-/* ===== AOS ANIMATIONS ===== */
-[data-aos] {
-    opacity: 0;
-    transition-property: opacity, transform;
+/* ===== FORM NOTIFICATIONS ===== */
+.form-notification {
+    animation: slideIn 0.3s ease-out;
 }
 
-[data-aos].aos-animate {
-    opacity: 1;
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ===== LOADING STATES ===== */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== INPUT VALIDATION STYLES ===== */
+.input-error {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
@@ -550,6 +598,8 @@ p {
     
     .nav ul {
         gap: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     /* Grids */
@@ -617,6 +667,10 @@ p {
     .hero {
         padding: 100px 0 64px;
     }
+    
+    .nav ul {
+        gap: 16px;
+    }
 }
 
 /* ===== ACCESSIBILITY ===== */
@@ -625,10 +679,10 @@ p {
         scroll-behavior: auto;
     }
     
-    [data-aos] {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 
@@ -642,17 +696,4 @@ p {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-}
-
-/* ===== FORM VALIDATION ===== */
-.form-group input:invalid,
-.form-group select:invalid,
-.form-group textarea:invalid {
-    border-color: #ff6b6b;
-}
-
-.form-group input:valid,
-.form-group select:valid,
-.form-group textarea:valid {
-    border-color: #26d0ce;
 }
