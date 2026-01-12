@@ -1607,3 +1607,135 @@ p {
 ::-webkit-scrollbar-thumb:hover {
     background: #C8A951;
 }
+/* ===== FLOATING CTA IMPROVEMENTS ===== */
+.floating-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.floating-cta .btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #C8A951, #B39947);
+    color: #0E0F12;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(200, 169, 81, 0.3);
+    transition: all 0.3s ease;
+    min-width: auto;
+    width: auto;
+    gap: 4px;
+}
+
+.floating-cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 169, 81, 0.4);
+    background: linear-gradient(135deg, #D4B55C, #C8A951);
+}
+
+.floating-cta .btn i {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.floating-cta .slots-info {
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 2px;
+}
+
+/* Анимация только для десктопа */
+@media (min-width: 769px) {
+    .floating-cta {
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .floating-cta {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        animation: none;
+    }
+    
+    .floating-cta .btn {
+        width: 100%;
+        padding: 10px 16px;
+        border-radius: 12px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+        font-size: 13px;
+    }
+    
+    .floating-cta .btn i {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+    
+    .floating-cta .slots-info {
+        margin-top: 0;
+        margin-left: 8px;
+        font-size: 10px;
+        padding: 1px 6px;
+    }
+    
+    /* Скрываем на очень маленьких экранах при скролле */
+    .floating-cta.hidden-mobile {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    .floating-cta {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+    }
+    
+    .floating-cta .btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+    
+    .floating-cta .btn span:not(.slots-info) {
+        display: none; /* Скрываем текст, оставляем только иконку и слоты */
+    }
+    
+    .floating-cta .btn i {
+        font-size: 16px;
+    }
+    
+    .floating-cta .slots-info {
+        font-size: 11px;
+        padding: 2px 8px;
+        background: rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Скрытие при скролле вниз на мобильных */
+.floating-cta.scroll-hidden {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
