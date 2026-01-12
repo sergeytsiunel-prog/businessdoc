@@ -1,9 +1,9 @@
 ﻿// ==============================================
-// TELEGRAM CONFIGURATION - ВАШИ ТОКЕНЫ
+// TELEGRAM CONFIGURATION
 // ==============================================
 
 const TELEGRAM_TOKEN = '8248183891:AAFViXPq1XQJaZYJtiZd3EEl_h4n2JbV_eA';
-const CHAT_ID = 1927712177; // ЧИСЛО без кавычек!
+const CHAT_ID = 1927712177;
 
 // ==============================================
 // INITIALIZATION
@@ -12,9 +12,6 @@ const CHAT_ID = 1927712177; // ЧИСЛО без кавычек!
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('🚀 Business Doctor website loaded');
     console.log('📅 Загружено:', new Date().toLocaleString('ru-RU'));
-    
-    // Проверяем подключение к Telegram боту
-    await checkTelegramConfig();
     
     // Инициализируем анимации
     initAnimations();
@@ -33,31 +30,38 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Настраиваем плавную прокрутку
     setupSmoothScroll();
     
+    // Настраиваем header эффект при скролле
+    setupHeaderScroll();
+    
+    // Инициализируем анимацию слотов
+    initSlotsAnimation();
+    
     // Добавляем информацию в консоль для разработчика
     console.log('🔧 Доступные команды отладки:');
     console.log('- window.testTelegramBot() - протестировать Telegram бота');
     console.log('- window.businessDoctorDebug.testForm() - заполнить форму тестовыми данными');
+    
+    // Проверяем бота в фоновом режиме (без блокировки загрузки)
+    setTimeout(() => {
+        checkTelegramConfig().then(botAvailable => {
+            if (!botAvailable) {
+                console.warn('⚠️ Telegram бот недоступен. Проверьте настройки.');
+            }
+        });
+    }, 1000);
 });
 
 // ==============================================
-// TELEGRAM CONFIG CHECK & BOT VERIFICATION
+// TELEGRAM CONFIG CHECK
 // ==============================================
 
 async function checkTelegramConfig() {
     console.log('🔧 Проверка конфигурации Telegram...');
     console.log('✅ Токен установлен:', TELEGRAM_TOKEN ? 'Да' : 'Нет');
     console.log('✅ Chat ID установлен:', CHAT_ID ? 'Да' : 'Нет');
-    console.log('✅ Тип Chat ID:', typeof CHAT_ID);
     
     if (!TELEGRAM_TOKEN || !CHAT_ID) {
         console.error('❌ Telegram не настроен! Проверьте TELEGRAM_TOKEN и CHAT_ID');
-        showConfigError();
-        return false;
-    }
-    
-    // Проверяем валидность токена
-    if (!TELEGRAM_TOKEN.includes(':')) {
-        console.error('❌ Неверный формат токена! Токен должен содержать ":"');
         return false;
     }
     
@@ -79,64 +83,16 @@ async function testBotConnection() {
         const result = await response.json();
         
         if (result.ok) {
-            console.log('✅ Бот доступен:');
-            console.log('   👤 Имя:', result.result.first_name);
-            console.log('   📱 Username:', result.result.username);
-            console.log('   🔢 ID:', result.result.id);
-            console.log('   ✅ Статус: Активен');
+            console.log('✅ Бот доступен:', result.result.first_name);
             return true;
         } else {
             console.error('❌ Бот недоступен:', result);
-            
-            if (result.error_code === 401) {
-                console.error('❌ Неверный токен! Проверьте TELEGRAM_TOKEN');
-                alert('❌ Ошибка: Неверный токен Telegram бота. Проверьте настройки.');
-            }
             return false;
         }
     } catch (error) {
         console.error('❌ Ошибка при проверке бота:', error);
-        
-        if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-            console.error('❌ Проблема с сетью или CORS. Проверьте:');
-            console.error('   1. Подключение к интернету');
-            console.error('   2. Доступ к api.telegram.org');
-        }
-        
         return false;
     }
-}
-
-function showConfigError() {
-    const errorHtml = `
-        <div style="
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #EF4444;
-            color: white;
-            padding: 16px 24px;
-            border-radius: 8px;
-            z-index: 9999;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            font-family: 'Inter', sans-serif;
-            max-width: 90%;
-            text-align: center;
-        ">
-            ⚠️ Telegram бот не настроен! Сообщения не будут отправляться.
-        </div>
-    `;
-    
-    const errorDiv = document.createElement('div');
-    errorDiv.innerHTML = errorHtml;
-    document.body.appendChild(errorDiv);
-    
-    setTimeout(() => {
-        if (errorDiv.parentNode) {
-            errorDiv.remove();
-        }
-    }, 10000);
 }
 
 // ==============================================
@@ -159,7 +115,7 @@ function initAnimations() {
 }
 
 // ==============================================
-// FORM HANDLING
+// FORM HANDLING (ОБНОВЛЕННЫЙ)
 // ==============================================
 
 function setupForm(form) {
@@ -211,7 +167,7 @@ function setupForm(form) {
             
             if (success) {
                 console.log('✅ Форма успешно обработана');
-                showSuccessMessage(form, submitBtn, consentCheckbox);
+                showSuccessMessage(form);
             } else {
                 console.error('❌ Ошибка при отправке формы');
                 showErrorMessage();
@@ -223,6 +179,18 @@ function setupForm(form) {
             setButtonLoading(submitBtn, false);
         }
     });
+    
+    // Настройка кнопки "Новая заявка"
+    const newRequestBtn = document.getElementById('newRequestBtn');
+    if (newRequestBtn) {
+        newRequestBtn.addEventListener('click', function() {
+            document.getElementById('successMessage').style.display = 'none';
+            form.style.display = 'block';
+            form.reset();
+            consentCheckbox.checked = false;
+            updateSubmitButtonState(submitBtn, consentCheckbox);
+        });
+    }
     
     console.log('✅ Форма настроена успешно');
 }
@@ -254,9 +222,18 @@ function setupFormValidation(form) {
 
 function updateSubmitButtonState(button, checkbox) {
     const isChecked = checkbox.checked;
-    button.disabled = !isChecked;
-    button.style.opacity = isChecked ? '1' : '0.5';
-    button.style.cursor = isChecked ? 'pointer' : 'not-allowed';
+    const btnText = button.querySelector('.btn-text');
+    
+    if (btnText) {
+        button.disabled = !isChecked;
+        button.style.opacity = isChecked ? '1' : '0.5';
+        button.style.cursor = isChecked ? 'pointer' : 'not-allowed';
+    } else {
+        // Fallback для старой структуры
+        button.disabled = !isChecked;
+        button.style.opacity = isChecked ? '1' : '0.5';
+        button.style.cursor = isChecked ? 'pointer' : 'not-allowed';
+    }
 }
 
 function validateFormBeforeSubmit(form) {
@@ -319,20 +296,38 @@ function getFormValue(form, selector) {
 }
 
 function setButtonLoading(button, isLoading) {
-    if (isLoading) {
-        button.dataset.originalText = button.textContent;
-        button.textContent = 'Отправка...';
-        button.disabled = true;
-        button.style.opacity = '0.7';
-        button.style.cursor = 'wait';
-        button.classList.add('btn-loading');
+    const btnText = button.querySelector('.btn-text');
+    const btnLoading = button.querySelector('.btn-loading');
+    
+    if (btnText && btnLoading) {
+        if (isLoading) {
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'flex';
+            button.disabled = true;
+            button.style.cursor = 'wait';
+        } else {
+            btnText.style.display = 'flex';
+            btnLoading.style.display = 'none';
+            button.disabled = false;
+            button.style.cursor = 'pointer';
+        }
     } else {
-        const originalText = button.dataset.originalText || 'Отправить заявку на диагностику';
-        button.textContent = originalText;
-        button.disabled = false;
-        button.style.opacity = '1';
-        button.style.cursor = 'pointer';
-        button.classList.remove('btn-loading');
+        // Fallback для старой структуры
+        if (isLoading) {
+            button.dataset.originalText = button.textContent;
+            button.textContent = 'Отправка...';
+            button.disabled = true;
+            button.style.opacity = '0.7';
+            button.style.cursor = 'wait';
+            button.classList.add('btn-loading');
+        } else {
+            const originalText = button.dataset.originalText || 'Отправить заявку на диагностику';
+            button.textContent = originalText;
+            button.disabled = false;
+            button.style.opacity = '1';
+            button.style.cursor = 'pointer';
+            button.classList.remove('btn-loading');
+        }
     }
 }
 
@@ -341,9 +336,7 @@ function setButtonLoading(button, isLoading) {
 // ==============================================
 
 async function sendToTelegram(data) {
-    console.log('📡 Начало отправки в Telegram...');
-    console.log('🔑 Токен:', TELEGRAM_TOKEN.substring(0, 10) + '...');
-    console.log('👤 Chat ID:', CHAT_ID, `(тип: ${typeof CHAT_ID})`);
+    console.log('📡 Отправка в Telegram...');
     
     // Формируем сообщение для Telegram
     const message = `📋 НОВАЯ ЗАЯВКА С BUSINESS DOCTOR\n\n` +
@@ -358,7 +351,7 @@ async function sendToTelegram(data) {
                    `🌐 Страница: ${data.page}\n` +
                    `🆔 ID: ${Date.now()}`;
     
-    console.log('📨 Текст сообщения для Telegram:', message);
+    console.log('📨 Текст сообщения для Telegram:', message.substring(0, 100) + '...');
     
     try {
         console.log('🌐 Отправка запроса к Telegram API...');
@@ -379,90 +372,61 @@ async function sendToTelegram(data) {
         
         console.log('📡 Статус ответа:', response.status, response.statusText);
         
-        if (!response.ok) {
-            console.error(`❌ HTTP ошибка: ${response.status}`);
-            
-            if (response.status === 400) {
-                console.error('❌ Неверный запрос к Telegram API');
-            } else if (response.status === 401) {
-                console.error('❌ Неавторизованный доступ (неверный токен)');
-            } else if (response.status === 404) {
-                console.error('❌ Метод не найден (проверьте токен)');
-            }
-        }
-        
         const result = await response.json();
-        console.log('📨 Полный ответ от Telegram API:', result);
         
         if (result.ok) {
             console.log('✅ Сообщение успешно отправлено в Telegram!');
-            console.log('📊 Информация:');
-            console.log('   📍 Message ID:', result.result.message_id);
-            console.log('   👤 Chat ID:', result.result.chat.id);
-            console.log('   📝 Текст:', result.result.text.substring(0, 50) + '...');
-            console.log('   🕐 Время:', new Date(result.result.date * 1000).toLocaleString());
+            console.log('📊 Message ID:', result.result.message_id);
             return true;
         } else {
-            console.error('❌ Ошибка Telegram API:');
-            console.error('   🔢 Код ошибки:', result.error_code);
-            console.error('   📝 Описание:', result.description);
+            console.error('❌ Ошибка Telegram API:', result.description);
             
-            // Определяем тип ошибки
-            let errorMessage = 'Ошибка отправки';
-            
-            if (result.description) {
-                if (result.description.includes('chat not found')) {
-                    errorMessage = 'Чат не найден. Проверьте CHAT_ID.';
-                    console.error('❌ Chat ID не найден! Проверьте:');
-                    console.error('   1. Правильность CHAT_ID');
-                    console.error('   2. Бот добавлен в чат');
-                    console.error('   3. Для личных сообщений: начните диалог с ботом');
-                } else if (result.description.includes('bot was blocked')) {
-                    errorMessage = 'Бот заблокирован пользователем.';
-                    console.error('❌ Бот заблокирован! Разблокируйте бота в Telegram');
-                } else if (result.description.includes('group chat was upgraded')) {
-                    errorMessage = 'Чат был преобразован в супергруппу.';
-                    console.error('❌ Чат преобразован в супергруппу');
-                }
+            // Только логируем ошибку, не показываем alert
+            if (result.description && result.description.includes('chat not found')) {
+                console.error('❌ Chat ID не найден! Проверьте правильность CHAT_ID');
+            } else if (result.description && result.description.includes('bot was blocked')) {
+                console.error('❌ Бот заблокирован пользователем!');
             }
             
-            alert(`❌ ${errorMessage}\n\nПроверьте консоль для подробностей.`);
             return false;
         }
     } catch (error) {
-        console.error('❌ Критическая ошибка при отправке в Telegram:', error);
-        console.error('🔧 Детали ошибки:');
-        console.error('   📛 Название:', error.name);
-        console.error('   💬 Сообщение:', error.message);
-        console.error('   📍 Стек:', error.stack);
-        
-        if (error.name === 'TypeError') {
-            console.error('❌ Возможные причины TypeError:');
-            console.error('   1. Проблема с CORS (используйте прокси или бэкенд)');
-            console.error('   2. Отсутствует подключение к интернету');
-            console.error('   3. Блокировка запроса антивирусом или фаерволом');
-            
-            alert('❌ Ошибка сети. Проверьте:\n1. Подключение к интернету\n2. Настройки безопасности браузера');
-        }
-        
+        console.error('❌ Ошибка сети при отправке в Telegram:', error);
         return false;
     }
 }
 
 // ==============================================
-// UI NOTIFICATIONS
+// UI NOTIFICATIONS (ОБНОВЛЕННЫЕ)
 // ==============================================
 
-function showSuccessMessage(form, button, checkbox) {
-    // Показываем уведомление
+function showSuccessMessage(form) {
+    // Скрываем форму, показываем сообщение об успехе
+    form.style.display = 'none';
+    
+    const successMessage = document.getElementById('successMessage');
+    if (successMessage) {
+        successMessage.style.display = 'block';
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+        // Fallback: показываем уведомление
+        showNotification('✅ Заявка отправлена! Я свяжусь с вами в течение 1 рабочего дня.', 'success');
+    }
+}
+
+function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
-    notification.className = 'form-notification success';
+    notification.className = 'form-notification';
+    
+    const backgroundColor = type === 'success' ? '#10B981' : 
+                          type === 'error' ? '#EF4444' : '#F59E0B';
+    
     notification.innerHTML = `
         <div style="
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #10B981, #059669);
+            background: ${backgroundColor};
             color: white;
             padding: 16px 24px;
             border-radius: 8px;
@@ -472,136 +436,57 @@ function showSuccessMessage(form, button, checkbox) {
             max-width: 400px;
             animation: slideIn 0.3s ease-out;
         ">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                <div style="font-size: 20px;">✅</div>
-                <div style="font-weight: 600;">Заявка отправлена!</div>
-            </div>
-            <div style="font-size: 14px; opacity: 0.9;">
-                Я свяжусь с вами в течение 1 рабочего дня.
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="font-size: 20px;">${type === 'success' ? '✅' : type === 'error' ? '❌' : '⚠️'}</div>
+                <div style="font-weight: 600;">${message}</div>
             </div>
         </div>
     `;
     
     document.body.appendChild(notification);
     
-    // Добавляем анимацию
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Сбрасываем форму
     setTimeout(() => {
-        form.reset();
-        checkbox.checked = false;
-        updateSubmitButtonState(button, checkbox);
-        
-        // Убираем уведомление через 5 секунд
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.remove();
-            }
-            if (style.parentNode) {
-                style.remove();
-            }
-        }, 5000);
-    }, 100);
+        if (notification.parentNode) {
+            notification.remove();
+        }
+    }, 5000);
 }
 
 function showErrorMessage() {
-    const notification = document.createElement('div');
-    notification.innerHTML = `
-        <div style="
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #EF4444, #DC2626);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 8px;
-            z-index: 9999;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            font-family: 'Inter', sans-serif;
-            max-width: 400px;
-            animation: slideIn 0.3s ease-out;
-        ">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                <div style="font-size: 20px;">❌</div>
-                <div style="font-weight: 600;">Ошибка отправки</div>
-            </div>
-            <div style="font-size: 14px; opacity: 0.9;">
-                Пожалуйста, попробуйте позже или свяжитесь напрямую в Telegram.
-            </div>
-        </div>
-    `;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.remove();
-        }
-    }, 5000);
+    showNotification('Ошибка отправки. Пожалуйста, попробуйте позже или свяжитесь напрямую в Telegram.', 'error');
 }
 
 function showNetworkError() {
-    const notification = document.createElement('div');
-    notification.innerHTML = `
-        <div style="
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #F59E0B, #D97706);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 8px;
-            z-index: 9999;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            font-family: 'Inter', sans-serif;
-            max-width: 400px;
-            animation: slideIn 0.3s ease-out;
-        ">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                <div style="font-size: 20px;">⚠️</div>
-                <div style="font-weight: 600;">Ошибка сети</div>
-            </div>
-            <div style="font-size: 14px; opacity: 0.9;">
-                Проверьте подключение к интернету и попробуйте снова.
-            </div>
-        </div>
-    `;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.remove();
-        }
-    }, 5000);
+    showNotification('Ошибка сети. Проверьте подключение к интернету и попробуйте снова.', 'error');
 }
 
 function showInputError(input, message) {
     clearInputError(input);
     
-    input.style.borderColor = '#EF4444';
-    input.style.boxShadow = '0 0 0 2px rgba(239, 68, 68, 0.2)';
+    // Добавляем класс ошибки к родительскому контейнеру
+    const inputContainer = input.closest('.input-with-icon, .textarea-with-icon');
+    if (inputContainer) {
+        inputContainer.classList.add('error');
+    } else {
+        input.style.borderColor = '#EF4444';
+        input.style.boxShadow = '0 0 0 2px rgba(239, 68, 68, 0.2)';
+    }
     
     const errorDiv = document.createElement('div');
     errorDiv.className = 'input-error';
-    errorDiv.style.color = '#EF4444';
-    errorDiv.style.fontSize = '12px';
-    errorDiv.style.marginTop = '4px';
-    errorDiv.style.fontFamily = "'Inter', sans-serif";
     errorDiv.textContent = message;
     
     input.parentNode.appendChild(errorDiv);
 }
 
 function clearInputError(input) {
-    input.style.borderColor = '';
-    input.style.boxShadow = '';
+    const inputContainer = input.closest('.input-with-icon, .textarea-with-icon');
+    if (inputContainer) {
+        inputContainer.classList.remove('error');
+    } else {
+        input.style.borderColor = '';
+        input.style.boxShadow = '';
+    }
     
     const existingError = input.parentNode.querySelector('.input-error');
     if (existingError) {
@@ -619,29 +504,45 @@ function isValidEmail(email) {
 }
 
 function isValidPhone(phone) {
-    // Базовая валидация телефона
     const re = /^[\d\s\-\+\(\)]{10,}$/;
     return re.test(phone.replace(/\s/g, ''));
 }
 
 function setupMobileNav() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.nav');
     
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
+    if (mobileMenuToggle && nav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
             this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            
+            // Блокируем скролл страницы при открытом меню
+            if (nav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
         
         // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        document.querySelectorAll('.nav a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                nav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
                 document.body.style.overflow = '';
             });
+        });
+        
+        // Закрытие меню при клике вне его области
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                nav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     }
 }
@@ -666,14 +567,75 @@ function setupSmoothScroll() {
                 });
                 
                 // Обновляем URL без перезагрузки страницы
-                history.pushState(null, null, href);
+                if (history.pushState) {
+                    history.pushState(null, null, href);
+                }
             }
         });
     });
 }
 
+function setupHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+    
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+            
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                // Прокрутка вниз
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Прокрутка вверх
+                header.style.transform = 'translateY(0)';
+            }
+        } else {
+            header.classList.remove('scrolled');
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
+
+function initSlotsAnimation() {
+    const slotsElements = document.querySelectorAll('#slots-count, #available-slots, #contact-slots');
+    const timerElement = document.querySelector('#timer-hours');
+    
+    if (!slotsElements.length) return;
+    
+    // Функция обновления слотов
+    function updateSlots() {
+        const now = new Date();
+        const hoursPassed = now.getHours() + now.getMinutes() / 60;
+        
+        // Симуляция: каждый час уменьшаем шанс на доступный слот
+        const baseSlots = 3;
+        const slotsTaken = Math.floor(hoursPassed / 8); // Каждые 8 часов "занимается" слот
+        const currentSlots = Math.max(1, baseSlots - slotsTaken); // Минимум 1 слот
+        
+        slotsElements.forEach(el => {
+            el.textContent = currentSlots;
+        });
+        
+        if (timerElement) {
+            const nextSlotHours = 48 - (hoursPassed % 48);
+            timerElement.textContent = Math.floor(nextSlotHours);
+        }
+    }
+    
+    // Обновляем при загрузке и каждые 5 минут
+    updateSlots();
+    setInterval(updateSlots, 5 * 60 * 1000);
+}
+
 // ==============================================
-// TEST FUNCTION (для отладки)
+// TEST FUNCTION
 // ==============================================
 
 window.testTelegramBot = async function() {
@@ -681,7 +643,7 @@ window.testTelegramBot = async function() {
     
     const testData = {
         name: 'Тестовый пользователь',
-        role: 'Собственник',
+        role: 'Собственник бизнеса',
         email: 'test@example.com',
         phone: '+7 (999) 123-45-67',
         company: 'Тестовая компания ООО',
@@ -696,7 +658,6 @@ window.testTelegramBot = async function() {
     console.log('📋 Тестовые данные:', testData);
     
     try {
-        // Сначала проверяем подключение к боту
         const botAvailable = await testBotConnection();
         
         if (!botAvailable) {
@@ -709,25 +670,29 @@ window.testTelegramBot = async function() {
         
         if (success) {
             console.log('✅ Тест пройден успешно!');
-            alert('✅ Тест пройден! Проверьте Telegram бота - должно прийти тестовое сообщение.');
+            showNotification('✅ Тест пройден! Проверьте Telegram бота.', 'success');
         } else {
             console.error('❌ Тест не пройден');
-            alert('❌ Тест не пройден. Проверьте консоль для ошибок.');
+            showNotification('❌ Тест не пройден. Проверьте консоль для ошибок.', 'error');
         }
     } catch (error) {
         console.error('❌ Ошибка при тестировании:', error);
-        alert('❌ Критическая ошибка при тестировании.');
+        showNotification('❌ Критическая ошибка при тестировании.', 'error');
     }
 };
 
 // ==============================================
-// DEBUG UTILITIES (для разработки)
+// DEBUG UTILITIES
 // ==============================================
 
 window.businessDoctorDebug = {
     testForm: function() {
         const form = document.getElementById('contactForm');
         if (form) {
+            // Временно показываем форму, если она скрыта
+            form.style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            
             form.querySelector('#name').value = 'Иван Иванов';
             form.querySelector('#role').value = 'Собственник бизнеса';
             form.querySelector('#email').value = 'ivan@example.com';
@@ -735,15 +700,20 @@ window.businessDoctorDebug = {
             form.querySelector('#company').value = 'ООО "Рога и копыта"';
             form.querySelector('#revenue').value = '20-50';
             form.querySelector('#message').value = 'Нужна помощь в оптимизации бизнес-процессов. Хочу увеличить прибыль на 30% за 6 месяцев.';
-            form.querySelector('#consent').checked = true;
+            
+            const consentCheckbox = form.querySelector('#consent');
+            if (consentCheckbox) {
+                consentCheckbox.checked = true;
+            }
             
             // Обновляем состояние кнопки
             const submitBtn = form.querySelector('#submitBtn');
-            const consentCheckbox = form.querySelector('#consent');
-            updateSubmitButtonState(submitBtn, consentCheckbox);
+            if (submitBtn && consentCheckbox) {
+                updateSubmitButtonState(submitBtn, consentCheckbox);
+            }
             
             console.log('✅ Форма заполнена тестовыми данными');
-            alert('✅ Форма заполнена тестовыми данными');
+            showNotification('✅ Форма заполнена тестовыми данными', 'success');
         } else {
             console.error('❌ Форма не найдена');
         }
@@ -753,11 +723,19 @@ window.businessDoctorDebug = {
         const form = document.getElementById('contactForm');
         if (form) {
             form.reset();
+            form.style.display = 'block';
+            
+            const successMessage = document.getElementById('successMessage');
+            if (successMessage) {
+                successMessage.style.display = 'none';
+            }
             
             // Обновляем состояние кнопки
             const submitBtn = form.querySelector('#submitBtn');
             const consentCheckbox = form.querySelector('#consent');
-            updateSubmitButtonState(submitBtn, consentCheckbox);
+            if (submitBtn && consentCheckbox) {
+                updateSubmitButtonState(submitBtn, consentCheckbox);
+            }
             
             console.log('✅ Форма сброшена');
         }
@@ -798,18 +776,11 @@ window.businessDoctorDebug = {
 
 // Отслеживаем клики по CTA
 document.addEventListener('click', function(e) {
-    const ctaButton = e.target.closest('.btn-primary, .btn-cta, [data-cta]');
+    const ctaButton = e.target.closest('.btn-primary, .floating-cta .btn, [data-cta]');
     
     if (ctaButton) {
-        console.log('🎯 Клик по CTA:', ctaButton.textContent.trim());
-        
-        // Можно добавить отправку в аналитику
-        // if (typeof gtag !== 'undefined') {
-        //     gtag('event', 'cta_click', {
-        //         'event_category': 'engagement',
-        //         'event_label': ctaButton.textContent.trim()
-        //     });
-        // }
+        const buttonText = ctaButton.textContent.trim() || ctaButton.querySelector('span')?.textContent.trim();
+        console.log('🎯 Клик по CTA:', buttonText);
     }
 });
 
@@ -823,14 +794,6 @@ window.addEventListener('scroll', function() {
         if (isVisible && !sectionsViewed.has(section.id)) {
             sectionsViewed.add(section.id);
             console.log('👁️ Просмотрена секция:', section.id);
-            
-            // Аналитика просмотра секций
-            // if (typeof gtag !== 'undefined') {
-            //     gtag('event', 'section_view', {
-            //         'event_category': 'engagement',
-            //         'event_label': section.id
-            //     });
-            // }
         }
     });
 });
@@ -839,14 +802,10 @@ window.addEventListener('scroll', function() {
 // ERROR HANDLING
 // ==============================================
 
-// Глобальный обработчик ошибок
 window.addEventListener('error', function(e) {
     console.error('🚨 Глобальная ошибка:', e.message);
-    console.error('📍 В файле:', e.filename);
-    console.error('🔢 Строка:', e.lineno, 'Колонка:', e.colno);
 });
 
-// Обработчик необработанных промисов
 window.addEventListener('unhandledrejection', function(e) {
     console.error('🚨 Необработанная ошибка Promise:', e.reason);
 });
@@ -855,7 +814,6 @@ window.addEventListener('unhandledrejection', function(e) {
 // PERFORMANCE MONITORING
 // ==============================================
 
-// Мониторинг производительности
 if ('performance' in window) {
     window.addEventListener('load', function() {
         setTimeout(() => {
