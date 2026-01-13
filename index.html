@@ -1,1037 +1,221 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO -->
-    <title>Business Doctor — AI-консультант для бизнеса 10–100 млн ₽/мес | Математика стратегий</title>
-    <meta name="description" content="AI-диагностика бизнеса. Выбор стратегии — не лотерея. Оцифровка решений, математические модели, единственный верный путь с прогнозом KPI.">
-    
-    <!-- Критический CSS -->
-    <style>
-    /* Основные стили для первого экрана */
-    body { margin:0; font-family:sans-serif; background:#0E0F12; color:#fff; }
-    .header { background:rgba(14,15,18,0.95); padding:20px 0; position:sticky; top:0; }
-    .container { max-width:1200px; margin:0 auto; padding:0 20px; }
-    .hero { padding:120px 0; text-align:center; }
-    .btn { background:#C8A951; color:#000; padding:15px 30px; border:none; border-radius:8px; font-weight:600; }
-    /* Остальные стили загружаются позже */
-    </style>
-    
-    <!-- Preload важных ресурсов -->
-    <link rel="preload" href="./css/style.css" as="style">
-    <link rel="preload" href="./js/main.js" as="script">
-    
-    <!-- Остальные стили -->
-    <link rel="stylesheet" href="./css/style.css" media="print" onload="this.media='all'">
-    
-    <!-- Шрифты с font-display: swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
-</head>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    
-    <!-- Иконки Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Наши стили -->
-    <link rel="stylesheet" href="./css/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="shortcut icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Doctor — Антикризисный консультант и AI-стратег</title>
+  <meta name="description" content="Business Doctor помогает собственникам и топ-менеджерам с выручкой 10–100 млн ₽ в месяц схлопнуть хаос вариантов до одного экономически доказанного управленческого решения с использованием AI.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Плавающая CTA кнопка -->
-    <div class="floating-cta">
-        <a href="#contact" class="btn btn-primary">
-            <i class="fas fa-calculator"></i>
-            <span>Рассчитать мой путь</span>
-            <small class="slots-info">Слотов: <span id="slots-count">3</span>/5</small>
-        </a>
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">BUSINESS DOCTOR</div>
+      <nav class="nav">
+        <a href="#philosophy">Подход</a>
+        <a href="#clients">Для кого</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#process">Как идёт работа</a>
+        <a href="#contact" class="nav-cta">Запрос консультации</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-inner">
-                <div class="logo">
-                    <i class="fas fa-stethoscope"></i>
-                    Business Doctor
-                </div>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="#approach"><i class="fas fa-search"></i> Где теряют</a></li>
-                        <li><a href="#cases"><i class="fas fa-chart-line"></i> Кейсы</a></li>
-                        <li><a href="#process"><i class="fas fa-project-diagram"></i> Метод</a></li>
-                        <li><a href="#contact"><i class="fas fa-calculator"></i> Расчет пути</a></li>
-                    </ul>
-                </nav>
-                <button class="mobile-menu-toggle" aria-label="Открыть меню">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
+  <main>
     <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <i class="fas fa-crown"></i>
-                Консалтинг для собственников малого и среднего бизнеса
-            </div>
-            
-            <!-- ОСНОВНОЙ ЗАГОЛОВОК (Вариант Б) -->
-            <h1 class="hero-title">
-                Выбор стратегии — не лотерея.<br>
-                Это уравнение с одним верным решением.
-            </h1>
-            
-            <!-- ПОДЗАГОЛОВОК С КЛЮЧЕВЫМИ ТЕЗИСАМИ -->
-            <div class="hero-subtitle">
-                <p><i class="fas fa-brain"></i> AI-диагностика → Математическая модель → Единственный путь с прогнозом KPI</p>
-                <p><i class="fas fa-chart-bar"></i> Выручка 10–100 млн ₽ в месяц</p>
-                <p><i class="fas fa-balance-scale"></i> Решения в деньгах, а не в презентациях</p>
-            </div>
-            
-            <!-- КЛЮЧЕВОЕ УТП -->
-            <div class="hero-core">
-                <i class="fas fa-calculator"></i>
-                <p>Я не даю варианты "на выбор". Я <strong>оцифровываю</strong> возможные сценарии и нахожу <strong>единственный путь</strong> с максимальной вероятностью успеха и рассчитанным ROI.</p>
-            </div>
-            
-            <!-- KPI ГРИД -->
-            <div class="hero-kpi-grid">
-                <div class="kpi-item">
-                    <div class="kpi-icon"><i class="fas fa-rocket"></i></div>
-                    <div class="kpi-content">
-                        <h3>Результат</h3>
-                        <p>Рост маржи на 15-30% за 6 месяцев</p>
-                    </div>
-                </div>
-                
-                <div class="kpi-item">
-                    <div class="kpi-icon"><i class="fas fa-bullseye"></i></div>
-                    <div class="kpi-content">
-                        <h3>Фокус</h3>
-                        <p>Маржа, cash-flow, прогноз рисков</p>
-                    </div>
-                </div>
-                
-                <div class="kpi-item">
-                    <div class="kpi-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div class="kpi-content">
-                        <h3>Метод</h3>
-                        <p>Математика вместо интуиции</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- CTA -->
-            <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary btn-large">
-                    <i class="fas fa-calculator"></i>
-                    Рассчитать мой стратегический путь
-                </a>
-                <div class="hero-cta-details">
-                    <p><i class="far fa-clock"></i> 60–90 минут диагностики</p>
-                    <p><i class="fas fa-laptop"></i> Онлайн · Конфиденциально</p>
-                    <p><i class="fas fa-lock"></i> Прогноз KPI на 12 месяцев</p>
-                </div>
-            </div>
-            
-            <!-- ТАЙМЕР СЛОТОВ -->
-            <div class="slots-timer">
-                <div class="timer-icon">
-                    <i class="fas fa-hourglass-half"></i>
-                </div>
-                <div class="timer-content">
-                    <p><strong>Свободных слотов на этой неделе: <span id="available-slots">3</span></strong></p>
-                    <p class="timer-text">Следующая диагностика через <span id="timer-hours">48</span> часов</p>
-                </div>
-            </div>
-        </div>
+    <section class="hero section" id="top">
+      <div class="container narrow">
+        <h1 class="fade-up">
+          Когда вариантов слишком много — бизнес уже теряет деньги.
+        </h1>
+        <p class="hero-sub fade-up">
+          От сотни сценариев — к одному решению.
+        </p>
+        <p class="hero-accent fade-up">
+          Business Doctor в союзе с AI схлопывает сотни гипотетических решений до одного управленческого хода и доказывает его цифрами.
+        </p>
+        <a href="#contact" class="btn-primary fade-up">
+          Найти единственный рабочий сценарий
+        </a>
+        <p class="quote">
+          <span class="quote-reveal">
+            В бизнесе, как в медицине: болит не всегда там, где причина.
+          </span>
+        </p>
+      </div>
     </section>
 
-    <!-- Loss Points -->
-    <section class="section loss-points" id="approach">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-exclamation-triangle"></i><br>
-                Где бизнес теряет деньги,<br>
-                пока собственник этого не видит
-            </h2>
-            
-            <div class="loss-grid">
-                <div class="loss-item" data-aos="fade-up">
-                    <div class="loss-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="loss-item-title">Рост выручки ≠ рост прибыли</h3>
-                    <p class="loss-item-text">Маржа снижается быстрее, чем это заметно в P&L. Кейс: -3% маржи = 24 млн ₽ потерь в год.</p>
-                </div>
-                
-                <div class="loss-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="loss-icon">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <h3 class="loss-item-title">Кассовые разрывы маскируются</h3>
-                    <p class="loss-item-text">Запасы и дебиторка создают иллюзию стабильности, пока не наступает кризис ликвидности.</p>
-                </div>
-                
-                <div class="loss-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="loss-icon">
-                        <i class="fas fa-chess-board"></i>
-                    </div>
-                    <h3 class="loss-item-title">Решения без прогноза последствий</h3>
-                    <p class="loss-item-text">Каждое управленческое действие имеет цену — но её никто не считает до реализации.</p>
-                </div>
-                
-                <!-- ДОБАВЛЕННЫЙ 4-Й ПУНКТ -->
-                <div class="loss-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="loss-icon">
-                        <i class="fas fa-crossroads"></i>
-                    </div>
-                    <h3 class="loss-item-title">Стратегический паралич: много путей, нет уверенности</h3>
-                    <p class="loss-item-text">Вы видите варианты A, B, C, но не знаете, какой приведет к цели. Цена неверного выбора — месяцы и миллионы.</p>
-                </div>
-            </div>
-            
-            <div class="loss-footer" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-eye"></i>
-                <p>Я показываю эти точки до того,<br>как они превращаются в системные убытки.</p>
-            </div>
-        </div>
+    <!-- Философия -->
+    <section id="philosophy" class="section">
+      <div class="container narrow fade-up">
+        <h2>ИИ множит проблемы. Я их решаю.</h2>
+        <p>
+          Превращаю генератор советов в вычислительный микроскоп.
+        </p>
+        <p>
+          Результат: не сто вариантов, а одно экономически доказанное решение по искоренению корня проблемы.
+        </p>
+        <p>
+          Реальный бизнес. Реальные ограничения. Одно доказанное решение.
+        </p>
+        <p class="quote">
+          <span class="quote-reveal">
+            Моя задача — найти причину и расписать, как вы к ней больше не вернётесь.
+          </span>
+        </p>
+      </div>
     </section>
 
-    <!-- НОВАЯ СЕКЦИЯ УТП -->
-    <section class="section utp-section">
-        <div class="container">
-            <div class="utp-card" data-aos="fade-up">
-                <div class="utp-icon">
-                    <i class="fas fa-chess-queen"></i>
-                </div>
-                <div class="utp-content">
-                    <h3 class="utp-title">Чем я отличаюсь от других консультантов</h3>
-                    <p class="utp-text">
-                        <strong>Они дают варианты. Я даю решение.</strong><br>
-                        Другие консультанты оставляют вас на перекрестке с картой и пожеланием "удачи". 
-                        Я строю математическую модель вашего бизнеса, рассчитываю outcomes каждого пути и 
-                        нахожу <strong>единственную стратегию с максимальным ROI и минимальным риском</strong>.
-                    </p>
-                    <div class="utp-comparison">
-                        <div class="comparison-bad">
-                            <i class="fas fa-times-circle"></i>
-                            <span>Обычный консалтинг: "Вот 3 варианта, выбирайте"</span>
-                        </div>
-                        <div class="comparison-good">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Мой подход: "Вот единственный путь. Вот расчет, почему он сработает"</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Для кого -->
+    <section class="section dark" id="clients">
+      <div class="container narrow fade-up">
+        <h2>Для кого</h2>
+        <p>
+          Работаю с собственниками и первыми лицами компаний для кого управленческая ошибка — это не про премию, а про годовую прибыль.
+        </p>
+        <ul class="questions">
+          <li>Прибыль падает, хотя выручка растёт.</li>
+          <li>Маркетинг и продажи «что‑то делают», но вы не видите, где именно теряются деньги.</li>
+          <li>Нужно сократить фонд оплаты труда, но страшно провалить сервис и операционку.</li>
+          <li>Вы хотите резать расходы, но боитесь убить оборот и темп роста.</li>
+          <li>В отчётах всё красиво, но внутри ощущение: бизнес стал менее управляемым.</li>
+          <li>Есть ощущение «узкого горлышка», но ни один из топ‑менеджеров не может его чётко назвать.</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Cases -->
-    <section class="section cases-section" id="cases">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-chart-pie"></i><br>
-                Пример: как –3% маржи<br>
-                стоили бизнесу 24 млн ₽ в год
-            </h2>
-            
-            <div class="case-main" data-aos="fade-up">
-                <div class="case-header">
-                    <h3 class="case-title">Производственная компания, г. Тверь</h3>
-                    <div class="case-badge">
-                        <i class="fas fa-industry"></i> Производство
-                    </div>
-                </div>
-                
-                <div class="case-content">
-                    <div class="case-details">
-                        <div class="case-detail">
-                            <div class="detail-icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Ситуация</span>
-                                <p>Глубокий убыток, высокая кредитная нагрузка, узкие места в производстве и сбыте.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="case-detail">
-                            <div class="detail-icon">
-                                <i class="fas fa-search-dollar"></i>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Что увидел я</span>
-                                <p>Изменение условий лизинга оборудования на 80% коррелирует с падением маржи.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="case-detail">
-                            <div class="detail-icon">
-                                <i class="fas fa-calculator"></i>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Математика решения</span>
-                                <p>Рассчитал 5 сценариев. Оптимальный: переговоры + перестройка планов (ROI 320%).</p>
-                            </div>
-                        </div>
-                        
-                        <div class="case-detail">
-                            <div class="detail-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="detail-content">
-                                <span class="detail-label">Результат</span>
-                                <p><strong>Выход к выручке 35 млн ₽/мес</strong>, рост маржи на 4%, управляемый cash-flow.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- График -->
-                    <div class="case-chart">
-                        <div class="chart-bar" style="width: 30%; background-color: #ef4444;">
-                            <span>До: -8% маржа</span>
-                        </div>
-                        <div class="chart-bar" style="width: 70%; background-color: #10b981; margin-left: 10px;">
-                            <span>После: +4% маржа</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cases-more" data-aos="fade-up" data-aos-delay="100">
-                <h3><i class="fas fa-layer-group"></i> Другие кейсы:</h3>
-                <ul class="cases-list">
-                    <li><i class="fas fa-flask"></i> Завод бытовой химии — выбор оптимальной стратегии расширения (ROI 280%)</li>
-                    <li><i class="fas fa-hard-hat"></i> Генподрядчик Газпромнефть — математическая модель предотвращения штрафов</li>
-                    <li><i class="fas fa-store"></i> Торговая компания — оцифровка путей роста, результат +200 млн ₽/год</li>
-                </ul>
-            </div>
-        </div>
+    <!-- Если вы узнаёте себя -->
+    <section id="forwho" class="section">
+      <div class="container narrow fade-up">
+        <h2>Если вы узнаёте себя — мы говорим на одном языке</h2>
+        <ul class="questions">
+          <li>Вы чувствуете, что бизнес стал заложником собственных процессов.</li>
+          <li>Каждое решение по людям, вложениям и сокращениям даётся слишком дорого нервами.</li>
+          <li>Советов много, но никто не берёт на себя ответственность сказать: «делайте вот так».</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Отзывы -->
-    <section class="section testimonials-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-comment-alt"></i><br>
-                Отзывы клиентов (анонимно)
-            </h2>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial" data-aos="fade-up">
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p>"После диагностики увидел, где терял 2 млн ₽ в месяц. За 3 месяца вышли на +15% маржи."</p>
-                    </div>
-                    <div class="testimonial-meta">
-                        <i class="fas fa-building"></i>
-                        <span>Производство, 45 млн ₽/мес</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p>"AI-модель показала риски, которые не видели 3 финансовых директора. Сэкономили 150 млн ₽ на штрафах."</p>
-                    </div>
-                    <div class="testimonial-meta">
-                        <i class="fas fa-hard-hat"></i>
-                        <span>Генподряд, 80 млн ₽/мес</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p>"Наконец-то консультант, который не говорит "это ваш выбор". Показал цифры, я принял решение, результат +30% прибыли."</p>
-                    </div>
-                    <div class="testimonial-meta">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Торговля, 60 млн ₽/мес</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Подход Business Doctor -->
+    <section class="section" id="approach">
+      <div class="container narrow fade-up">
+        <h2>Как я схлопываю варианты до одного решения</h2>
+        <p>
+          Ваша задача — не собрать все возможные мнения, а принять один верный управленческий ход в заданных ограничениях. Мой подход строится вокруг этого.
+        </p>
+        <ul class="tools-list">
+          <li><strong>Диагностика.</strong> Честная картина денег, процессов и управленческих решений, без косметики и самообмана.</li>
+          <li><strong>Карта причин, а не симптомов.</strong> Что реально двигает прибыль, управляемость и риски, а что — лишь следствие.</li>
+          <li><strong>Сценарное моделирование с AI.</strong> Десятки возможных ходов прогоняются через цифры, ограничения и допущения.</li>
+          <li><strong>Выбор одного сценария.</strong> Вы получаете один выбранный путь с обоснованием: почему он, что вы получите, где риски и как их контролировать.</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Process -->
-    <section class="section process-section" id="process">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-project-diagram"></i><br>
-                Как принимаются управленческие решения,<br>
-                которые не приходится «отыгрывать»
-            </h2>
-            
-            <!-- ДОБАВЛЕННЫЙ INTRO -->
-            <div class="process-intro" data-aos="fade-up">
-                <p><strong>Проблема не в отсутствии идей, а в избытке вариантов без понимания последствий.</strong><br>
-                Я устраняю "паралич анализа": перевожу стратегический выбор из области интуиции в область математики.</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step" data-aos="fade-up">
-                    <div class="step-icon">
-                        <div class="step-number">1</div>
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 class="step-title">Диагностика</h3>
-                    <p class="step-text">Где в бизнесе теряются деньги прямо сейчас</p>
-                </div>
-                
-                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-icon">
-                        <div class="step-number">2</div>
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3 class="step-title">Математическое моделирование</h3>
-                    <p class="step-text">Оцифровка всех возможных сценариев и путей</p>
-                </div>
-                
-                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-icon">
-                        <div class="step-number">3</div>
-                        <i class="fas fa-chess-queen"></i>
-                    </div>
-                    <h3 class="step-title">Оптимальный путь</h3>
-                    <p class="step-text">Единственное решение с максимальным ROI и минимальными рисками</p>
-                </div>
-                
-                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-icon">
-                        <div class="step-number">4</div>
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="step-title">KPI-Контроль</h3>
-                    <p class="step-text">Прогноз результата и отслеживание ключевых метрик</p>
-                </div>
-            </div>
-            
-            <div class="process-note" data-aos="fade-up">
-                <div class="tech-stack">
-                    <i class="fab fa-python"></i>
-                    <i class="fas fa-database"></i>
-                    <i class="fas fa-calculator"></i>
-                    <i class="fas fa-chart-bar"></i>
-                </div>
-                <p>Использую Python, математические модели, AI-алгоритмы для анализа.<br>
-                <strong>Цель:</strong> превратить стратегический выбор из искусства в науку.</p>
-            </div>
-        </div>
+    <!-- Инструменты -->
+    <section id="tools" class="section dark">
+      <div class="container narrow fade-up">
+        <h2>Инструменты, когда цена ошибки высока</h2>
+        <ul class="tools-list">
+          <li>BPMN 2.0 — формализованное моделирование ключевых процессов и зон ответственности.</li>
+          <li>Process Mining — извлечение реальных процессов из данных, а не из «как должно быть».</li>
+          <li>TOC (Теория ограничений) — поиск главного «узкого горлышка» бизнеса.</li>
+          <li>Lean / Kaizen — бережливые принципы для устранения потерь без ущерба качеству.</li>
+          <li>Value Stream Mapping — карта потока ценности от первого контакта до денег на счёте.</li>
+          <li>Unit‑экономика и сценарное моделирование — просчёт, что будет с прибылью при разных управленческих ходах.</li>
+          <li>AI‑анализ управленческих данных — поиск нетривиальных связей и проверка управленческих гипотез.</li>
+        </ul>
+        <p class="hero-accent" style="margin-top:24px;">
+          AI — вычислительная мощность. Business Doctor — управленческое решение, которое вы реально готовы выполнить.
+        </p>
+      </div>
     </section>
 
-    <!-- Fit -->
-    <section class="section fit-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-filter"></i><br>
-                Кому подойдёт этот формат
-            </h2>
-            
-            <div class="fit-grid">
-                <div class="fit-column" data-aos="fade-right">
-                    <div class="fit-header success">
-                        <i class="fas fa-check-circle"></i>
-                        <h3 class="fit-title">Идеальный клиент</h3>
-                    </div>
-                    <ul class="fit-list">
-                        <li><i class="fas fa-check"></i> Компания с выручкой 10–100 млн ₽/мес</li>
-                        <li><i class="fas fa-check"></i> Собственник, который принимает решения</li>
-                        <li><i class="fas fa-check"></i> Устал от "вариантов" и хочет "решение"</li>
-                        <li><i class="fas fa-check"></i> Готовность к честному диалогу и быстрым действиям</li>
-                    </ul>
-                </div>
-                
-                <div class="fit-column" data-aos="fade-left">
-                    <div class="fit-header warning">
-                        <i class="fas fa-times-circle"></i>
-                        <h3 class="fit-title">Для кого не подойдёт</h3>
-                    </div>
-                    <ul class="fit-list">
-                        <li><i class="fas fa-times"></i> Оборот менее 10 млн ₽/мес</li>
-                        <li><i class="fas fa-times"></i> Поиск мотивации или лайф-коучинга</li>
-                        <li><i class="fas fa-times"></i> Желание дешёвых шаблонных решений</li>
-                        <li><i class="fas fa-times"></i> Неготовность работать с цифрами и данными</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <!-- Кейсы -->
+    <section class="section dark" id="cases">
+      <div class="container narrow fade-up">
+        <h2>Как выглядит работа на практике</h2>
+        <p>
+          Ниже — типовые сценарии, с которыми приходят клиенты. Цифры и отрасли обобщены, конфиденциальность соблюдена.
+        </p>
+        <ul class="questions">
+          <li><strong>Производство.</strong> Было: разрозненная отчётность, решения «по ощущениям». Стало: единая система управленческих отчётов + AI‑слой для проверки гипотез по цене, марже и запасам.</li>
+          <li><strong>B2B‑сервисы.</strong> Было: рост выручки, но падающая прибыль и постоянные «пожары». Стало: диагностированы точки перегрузки, приоритизированный план изменений, AI‑помощник для контроля ключевых метрик.</li>
+          <li><strong>Компания на грани кризиса.</strong> Было: ощущение «неуправляемости». Стало: карта рисков, сценарный план на 3–6 месяцев и режим еженедельной сверки с собственником.</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="section pricing-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-tag"></i><br>
-                Стоимость и результат
-            </h2>
-            
-            <div class="pricing-card" data-aos="fade-up">
-                <div class="pricing-header">
-                    <h3 class="pricing-title">Математическая диагностика бизнеса</h3>
-                    <div class="pricing-price">
-                        <span class="price">50,000 ₽</span>
-                        <span class="price-note">засчитывается в сопровождение</span>
-                    </div>
-                </div>
-                
-                <div class="pricing-features">
-                    <div class="feature">
-                        <i class="fas fa-calculator"></i>
-                        <span>Полный AI-анализ и математическая модель</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-road"></i>
-                        <span>Единственный оптимальный путь на 6 месяцев</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Прогноз KPI на 12 месяцев с вероятностями</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-comments"></i>
-                        <span>2 консультации по результатам модели</span>
-                    </div>
-                </div>
-                
-                <div class="pricing-footer">
-                    <p><i class="fas fa-shield-alt"></i> <strong>Гарантия:</strong> Если после диагностики не увидите ценность — верну 100%.</p>
-                    <p><i class="fas fa-calculator"></i> <strong>Ключевой результат:</strong> Ясность в выборе стратегии, подкрепленная математикой.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Отличие от коучей -->
+    <section class="section" id="difference">
+      <div class="container narrow fade-up">
+        <h2>Чем Business Doctor отличается</h2>
+        <ul class="questions">
+          <li>Я не коуч и не мотиватор. Вместо «вы сможете» — диагноз, цифры и сценарии.</li>
+          <li>Я не продаю AI ради AI. Если в системе хаос, AI его только ускорит. Сначала — порядок, потом усиление.</li>
+          <li>Я работаю с бизнес‑системой, а не с вашим «мышлением». Решаю задачи компании, а не «личностного роста».</li>
+          <li>Я остаюсь доступным для малого и среднего бизнеса: выручка от 10 до 100 млн рублей в месяц, без корпоративной бюрократии.</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-calculator"></i><br>
-                Рассчитать ваш стратегический путь
-            </h2>
-            
-            <p class="section-subtitle">
-                Оставьте заявку. В ответ получите предложение времени<br>
-                и уточняющие вопросы для построения математической модели.
-            </p>
-            
-            <!-- Уведомление о слотах -->
-            <div class="slots-alert" data-aos="fade-up">
-                <i class="fas fa-bolt"></i>
-                <div class="alert-content">
-                    <p><strong>Свободных слотов на этой неделе: <span id="contact-slots">3</span></strong></p>
-                    <p>Ответ в течение 1 рабочего дня. Если задача срочная — укажите в описании.</p>
-                </div>
-            </div>
-            
-            <div class="contact-form-wrapper" data-aos="fade-up">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Ваше имя</label>
-                            <div class="input-with-icon">
-                                <i class="fas fa-user"></i>
-                                <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="role" class="sr-only">Ваша роль</label>
-                            <div class="input-with-icon">
-                                <i class="fas fa-briefcase"></i>
-                                <input type="text" id="role" name="role" placeholder="Ваша роль (собственник, партнёр)" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <div class="input-with-icon">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" id="email" name="email" placeholder="Email для связи" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="sr-only">Телефон</label>
-                            <div class="input-with-icon">
-                                <i class="fas fa-phone"></i>
-                                <input type="tel" id="phone" name="phone" placeholder="Телефон (необязательно)">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company" class="sr-only">Компания</label>
-                            <div class="input-with-icon">
-                                <i class="fas fa-building"></i>
-                                <input type="text" id="company" name="company" placeholder="Компания (необязательно)">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="revenue" class="sr-only">Месячная выручка</label>
-                            <div class="input-with-icon">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <select id="revenue" name="revenue" required>
-                                    <option value="">Месячная выручка (ориентир)</option>
-                                    <option value="10-20">10–20 млн ₽/мес</option>
-                                    <option value="20-50">20–50 млн ₽/мес</option>
-                                    <option value="50-100">50–100 млн ₽/мес</option>
-                                    <option value="100+">100+ млн ₽/мес</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" class="sr-only">Сообщение</label>
-                        <div class="textarea-with-icon">
-                            <i class="fas fa-crossroads"></i>
-                            <textarea id="message" name="message" placeholder="Опишите вашу ситуацию и ключевой выбор, который нужно сделать (например: расширяться или оптимизировать, нанимать или автоматизировать, инвестировать или выходить и т.д.)" required></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">
-                            <i class="fas fa-shield-alt"></i>
-                            Я согласен(на) на обработку персональных данных
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-block btn-submit" id="submitBtn">
-                        <i class="fas fa-calculator"></i>
-                        <span class="btn-text">Рассчитать мой стратегический путь</span>
-                        <span class="btn-loading" style="display: none;">
-                            <i class="fas fa-spinner fa-spin"></i> Отправка...
-                        </span>
-                    </button>
-                    
-                    <div class="form-note">
-                        <i class="fas fa-lock"></i>
-                        <p>Все данные защищены. Мы не передаём информацию третьим лицам.</p>
-                    </div>
-                </form>
-                
-                <!-- Форма успешно отправлена -->
-                <div id="successMessage" class="success-message" style="display: none;">
-                    <div class="success-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Заявка отправлена!</h3>
-                    <p>Я свяжусь с вами в течение 1 рабочего дня для построения математической модели.</p>
-                    <p>На указанный email придёт подтверждение и уточняющие вопросы.</p>
-                    <button class="btn btn-secondary" id="newRequestBtn">
-                        <i class="fas fa-plus"></i> Новая заявка
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Контакты -->
-            <div class="contact-info" data-aos="fade-up">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Работаю с клиентами по всей России</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-telegram"></i>
-                    <span>Telegram: @businessdoctor</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-file-contract"></i>
-                    <span>ИП / ООО (данные для договора по запросу)</span>
-                </div>
-            </div>
-        </div>
+    <!-- Как мы работаем -->
+    <section class="section" id="process">
+      <div class="container narrow fade-up">
+        <h2>Как мы работаем</h2>
+        <p>
+          Процесс прозрачен. Вы понимаете, за что платите, какие артефакты получаете и как выглядят контрольные точки.
+        </p>
+        <ol class="process">
+          <li><strong>Первичная беседа (30–45 минут).</strong> Описываете ситуацию и ожидания. Я задаю жёсткие, но необходимые вопросы и оцениваю, могу ли быть полезен.</li>
+          <li><strong>Диагностика.</strong> Доступ к ключевым цифрам, отчётам и людям. Формирую карту проблем и причин, а не симптомов.</li>
+          <li><strong>Рабочий документ.</strong> Структурированный отчёт: где болит, почему так, какие сценарии действий возможны.</li>
+          <li><strong>Выбор сценария.</strong> Совместно выбираем один путь из модельных сценариев и фиксируем, что вы хотите получить.</li>
+          <li><strong>Регламент 1–2–3.</strong> Пошаговый план: кто, что и в какие сроки меняет в процессах и управлении, чтобы выйти из кризиса или нарастить прибыль.</li>
+          <li><strong>Контур контроля.</strong> Набор метрик и сигналов, по которым вы видите, что бизнес идёт по новому сценарию, а не откатывается назад.</li>
+        </ol>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-logo">
-                    <i class="fas fa-stethoscope"></i>
-                    Business Doctor
-                </div>
-                
-                <div class="footer-nav">
-                    <h4>Навигация</h4>
-                    <ul>
-                        <li><a href="#approach"><i class="fas fa-chevron-right"></i> Где теряют</a></li>
-                        <li><a href="#cases"><i class="fas fa-chevron-right"></i> Кейсы</a></li>
-                        <li><a href="#process"><i class="fas fa-chevron-right"></i> Метод</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Расчет пути</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contacts">
-                    <h4>Контакты</h4>
-                    <p><i class="fas fa-envelope"></i> Написать в Telegram</p>
-                    <p><i class="fas fa-clock"></i> Ответ в течение 1 дня</p>
-                    <p><i class="fas fa-calculator"></i> Математика стратегий</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="footer-copyright">
-                    <i class="far fa-copyright"></i> 2024 Business Doctor. Все права защищены.
-                </p>
-                <p class="footer-legal">
-                    ИНН: ••••••••• • ОГРНИП: •••••••••••••
-                </p>
-            </div>
-        </div>
-    </footer>
+    <!-- Контакт -->
+    <section class="section" id="contact">
+      <div class="container narrow fade-up">
+        <h2>Запросить личную диагностику</h2>
+        <p>
+          Опишите в нескольких предложениях, что происходит с бизнесом сейчас, и какую точку Б вы хотите видеть. Ответ придёт лично от меня. Без рассылок и ассистентов.
+        </p>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    
-    <!-- Наши скрипты -->
-    <script src="./js/main.js"></script>
-    
-    <script>
-        // Инициализация AOS
-        AOS.init({
-            duration: 600,
-            easing: 'ease-out',
-            once: true,
-            offset: 100,
-            disable: window.innerWidth < 768 ? true : false
-        });
-        
-        // Плавная прокрутка
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#' || href === '#!') return;
-                
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    
-                    const headerHeight = document.querySelector('.header').offsetHeight || 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                    
-                    window.scrollTo({
-                        top: targetPosition - headerHeight,
-                        behavior: 'smooth'
-                    });
-                    
-                    history.pushState(null, null, href);
-                }
-            });
-        });
-        
-        // Мобильное меню
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const nav = document.querySelector('.nav');
-        
-        if (mobileMenuToggle && nav) {
-            mobileMenuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                this.classList.toggle('active');
-                this.setAttribute('aria-label', 
-                    nav.classList.contains('active') ? 'Закрыть меню' : 'Открыть меню');
-            });
-        }
-        
-        // Таймер слотов (симуляция)
-        function updateSlotsTimer() {
-            const slotsElements = document.querySelectorAll('#slots-count, #available-slots, #contact-slots');
-            const timerElement = document.querySelector('#timer-hours');
-            
-            // Симуляция уменьшения слотов со временем
-            const baseSlots = 3;
-            const now = new Date();
-            const hoursPassed = now.getHours() + now.getMinutes() / 60;
-            const slotsTaken = Math.floor(hoursPassed / 8); // Каждые 8 часов "занимается" слот
-            const currentSlots = Math.max(0, baseSlots - slotsTaken);
-            
-            slotsElements.forEach(el => {
-                el.textContent = currentSlots;
-            });
-            
-            if (timerElement) {
-                const nextSlotHours = 48 - (hoursPassed % 48);
-                timerElement.textContent = Math.floor(nextSlotHours);
-            }
-        }
-        
-        // Обновляем каждые 30 минут
-        updateSlotsTimer();
-        setInterval(updateSlotsTimer, 30 * 60 * 1000);
-        
-        console.log('Business Doctor: Математика стратегий');
-    </script>
-    <script>
-// Токен и Chat ID
-const TELEGRAM_TOKEN = '8248183891:AAFViXPq1XQJaZYJtiZd3EEl_h4n2JbV_eA';
-const CHAT_ID = 1927712177;
+        <form class="contact-form">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="text" name="role" placeholder="Роль (собственник, CEO, директор...)" required>
+          <textarea name="context" rows="5" placeholder="Кратко опишите ситуацию: отрасль, оборот, главная боль, горизонт планирования." required></textarea>
+          <input type="email" name="email" placeholder="Рабочий e-mail для ответа" required>
+          <button type="submit" class="btn-primary">Отправить запрос</button>
+        </form>
 
-// Ждем загрузки страницы
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Business Doctor загружен');
-    
-    // Находим форму
-    let form = document.getElementById('contactForm') || 
-               document.querySelector('form[action*="contact"]') ||
-               document.querySelector('form');
-    
-    if (!form) {
-        console.error('❌ Форма не найдена!');
-        alert('ВНИМАНИЕ: Форма не найдена на странице!');
-        return;
-    }
-    
-    console.log('✅ Форма найдена:', form.id || 'без ID');
-    
-    // Вешаем обработчик отправки
-    form.addEventListener('submit', async function(event) {
-        event.preventDefault(); // Останавливаем обычную отправку
-        
-        console.log('📤 Отправка формы...');
-        
-        // Собираем данные из формы
-        const formData = {
-            name: getValue(form, '#name, input[name="name"]'),
-            role: getValue(form, '#role, input[name="role"], select[name="role"]'),
-            email: getValue(form, '#email, input[type="email"]'),
-            phone: getValue(form, '#phone, input[type="tel"], input[name*="phone"]') || 'не указан',
-            company: getValue(form, '#company, input[name="company"]'),
-            revenue: getValue(form, '#revenue, select[name="revenue"]'),
-            message: getValue(form, '#message, textarea[name="message"]'),
-            date: new Date().toLocaleString('ru-RU'),
-            source: 'Математика стратегий'
-        };
-        
-        console.log('📝 Данные формы:', formData);
-        
-        // Проверяем обязательные поля
-        if (!formData.name || !formData.email) {
-            alert('❌ Пожалуйста, заполните имя и email');
-            return;
-        }
-        
-        // Показываем пользователю, что идет отправка
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn ? submitBtn.textContent : '';
-        
-        if (submitBtn) {
-            submitBtn.textContent = 'Расчет пути...';
-            submitBtn.disabled = true;
-        }
-        
-        try {
-            // Формируем сообщение для Telegram
-            const message = `🧮 НОВАЯ ЗАЯВКА: РАСЧЕТ СТРАТЕГИЧЕСКОГО ПУТИ\n\n` +
-                           `👤 Имя: ${formData.name}\n` +
-                           `💼 Роль: ${formData.role || 'не указана'}\n` +
-                           `📧 Email: ${formData.email}\n` +
-                           `📱 Телефон: ${formData.phone}\n` +
-                           `🏢 Компания: ${formData.company || 'не указана'}\n` +
-                           `💰 Выручка: ${formData.revenue || 'не указана'}\n\n` +
-                           `🧭 Ключевой выбор:\n${formData.message || 'нет описания'}\n\n` +
-                           `🕐 Дата: ${formData.date}\n` +
-                           `🌐 Источник: ${formData.source}`;
-            
-            // Отправляем в Telegram
-            const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
-            });
-            
-            const result = await response.json();
-            
-            if (result.ok) {
-                console.log('✅ Сообщение отправлено! ID:', result.result.message_id);
-                
-                // Показываем успех
-                showNotification('✅ Заявка отправлена! Я свяжусь с вами для построения математической модели.', 'success');
-                
-                // Очищаем форму
-                form.reset();
-            } else {
-                console.error('❌ Ошибка Telegram:', result.description);
-                showNotification('❌ Ошибка отправки. Попробуйте позже.', 'error');
-            }
-            
-        } catch (error) {
-            console.error('❌ Ошибка сети:', error);
-            showNotification('❌ Ошибка сети. Проверьте интернет.', 'error');
-        } finally {
-            // Восстанавливаем кнопку
-            if (submitBtn) {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        }
-    });
-    
-    console.log('✅ Форма настроена и готова к работе!');
-});
+        <p class="quote">
+          <span class="quote-reveal">
+            Одна честная диагностика иногда важнее десятков советов. Особенно, когда решения принимаете лично вы.
+          </span>
+        </p>
+      </div>
+    </section>
+  </main>
 
-// Вспомогательная функция для получения значения
-function getValue(form, selector) {
-    const element = form.querySelector(selector);
-    return element ? element.value.trim() : '';
-}
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© Business Doctor, 2026</div>
+      <div>Работаю лично с ограниченным числом проектов одновременно.</div>
+    </div>
+  </footer>
 
-// Функция показа уведомлений
-function showNotification(message, type = 'info') {
-    // Удаляем старое уведомление
-    const oldNotification = document.getElementById('form-notification');
-    if (oldNotification) oldNotification.remove();
-    
-    // Создаем новое
-    const notification = document.createElement('div');
-    notification.id = 'form-notification';
-    notification.innerHTML = message;
-    
-    // Стили в зависимости от типа
-    const styles = {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        padding: '15px 20px',
-        borderRadius: '8px',
-        color: 'white',
-        fontFamily: 'sans-serif',
-        zIndex: '10000',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-        animation: 'slideIn 0.3s ease-out'
-    };
-    
-    if (type === 'success') {
-        Object.assign(styles, {
-            background: 'linear-gradient(135deg, #10B981, #059669)'
-        });
-    } else if (type === 'error') {
-        Object.assign(styles, {
-            background: 'linear-gradient(135deg, #EF4444, #DC2626)'
-        });
-    } else {
-        Object.assign(styles, {
-            background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)'
-        });
-    }
-    
-    // Применяем стили
-    Object.assign(notification.style, styles);
-    
-    // Добавляем на страницу
-    document.body.appendChild(notification);
-    
-    // Удаляем через 5 секунд
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.remove();
-        }
-    }, 5000);
-}
-
-// Добавляем анимацию
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Функция для тестирования
-window.testFormSubmission = async function() {
-    console.log('🧪 Тестируем отправку формы...');
-    
-    const testData = {
-        name: 'Тестовый пользователь',
-        role: 'Собственник бизнеса',
-        email: 'test@example.com',
-        company: 'Тестовая компания',
-        revenue: '20-50 млн',
-        message: 'Нужно выбрать: расширять производство или оптимизировать текущие мощности. Боюсь ошибиться в выборе.',
-        date: new Date().toLocaleString('ru-RU'),
-        source: 'Тест: Математика стратегий'
-    };
-    
-    const message = `🧮 ТЕСТ: РАСЧЕТ СТРАТЕГИЧЕСКОГО ПУТИ\n\n` +
-                   `👤 Имя: ${testData.name}\n` +
-                   `💼 Роль: ${testData.role}\n` +
-                   `📧 Email: ${testData.email}\n` +
-                   `🏢 Компания: ${testData.company}\n` +
-                   `💰 Выручка: ${testData.revenue}\n\n` +
-                   `🧭 Ключевой выбор:\n${testData.message}\n\n` +
-                   `🕐 Дата: ${testData.date}\n` +
-                   `🌐 Это тестовое сообщение`;
-    
-    try {
-        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                text: message,
-                parse_mode: 'Markdown'
-            })
-        });
-        
-        const result = await response.json();
-        
-        if (result.ok) {
-            alert('✅ Тест пройден! Сообщение отправлено в Telegram.');
-            console.log('✅ Тест пройден:', result);
-        } else {
-            alert('❌ Тест не пройден: ' + result.description);
-        }
-    } catch (error) {
-        alert('❌ Ошибка сети: ' + error.message);
-    }
-};
-
-console.log('🎯 Business Doctor: Математика стратегий загружена. Команда: testFormSubmission()');
-</script>
+  <script src="js/script.js"></script>
 </body>
 </html>
