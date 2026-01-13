@@ -1739,3 +1739,275 @@ p {
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
+/* ===== НОВЫЕ СТИЛИ ДЛЯ ОБНОВЛЕННОГО ЛЕНДИНГА ===== */
+
+/* Секция УТП */
+.utp-section {
+    background: linear-gradient(135deg, #1a1c23 0%, #0E0F12 100%);
+    padding: 80px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.utp-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 50px;
+    border: 1px solid rgba(200, 169, 81, 0.15);
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+    max-width: 1000px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+}
+
+.utp-icon {
+    font-size: 3rem;
+    color: #C8A951;
+    flex-shrink: 0;
+    background: rgba(200, 169, 81, 0.1);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid rgba(200, 169, 81, 0.3);
+}
+
+.utp-content {
+    flex: 1;
+}
+
+.utp-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #fff;
+    font-weight: 700;
+    background: linear-gradient(90deg, #C8A951, #e6d19b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.utp-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.utp-text strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.utp-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.comparison-bad, .comparison-good {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 25px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.comparison-bad:hover, .comparison-good:hover {
+    transform: translateX(10px);
+}
+
+.comparison-bad {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-left: 4px solid #ef4444;
+}
+
+.comparison-good {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-left: 4px solid #10b981;
+}
+
+.comparison-bad i {
+    color: #ef4444;
+    font-size: 1.5rem;
+}
+
+.comparison-good i {
+    color: #10b981;
+    font-size: 1.5rem;
+}
+
+.comparison-bad span, .comparison-good span {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Process Intro */
+.process-intro {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border-left: 4px solid #C8A951;
+}
+
+.process-intro p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.process-intro strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Обновленные иконки в Hero */
+.hero-subtitle p i.fa-brain {
+    color: #C8A951;
+}
+
+.hero-subtitle p i.fa-chart-bar {
+    color: #3B82F6;
+}
+
+.hero-subtitle p i.fa-balance-scale {
+    color: #10B981;
+}
+
+.hero-core i.fa-calculator {
+    font-size: 2.5rem;
+    color: #C8A951;
+    background: rgba(200, 169, 81, 0.1);
+    padding: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(200, 169, 81, 0.3);
+}
+
+/* Иконка crossroads в loss-item */
+.loss-item .fa-crossroads {
+    color: #8B5CF6;
+}
+
+/* Обновленные иконки в Process */
+.process-step .fa-calculator {
+    color: #C8A951;
+}
+
+/* Тех стек */
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.tech-stack i {
+    font-size: 2.5rem;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.tech-stack i:hover {
+    color: #C8A951;
+}
+
+.tech-stack .fa-python {
+    color: #3776AB;
+}
+
+.tech-stack .fa-database {
+    color: #3B82F6;
+}
+
+.tech-stack .fa-calculator {
+    color: #10B981;
+}
+
+.tech-stack .fa-chart-bar {
+    color: #EF4444;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .utp-card {
+        flex-direction: column;
+        padding: 40px 30px;
+        gap: 25px;
+    }
+    
+    .utp-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+    }
+    
+    .utp-title {
+        font-size: 1.8rem;
+    }
+    
+    .utp-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .utp-section {
+        padding: 60px 0;
+    }
+    
+    .utp-card {
+        padding: 30px 20px;
+    }
+    
+    .comparison-bad, .comparison-good {
+        padding: 15px 20px;
+    }
+    
+    .comparison-bad span, .comparison-good span {
+        font-size: 1rem;
+    }
+    
+    .process-intro {
+        margin-bottom: 40px;
+        padding: 20px 15px;
+    }
+    
+    .process-intro p {
+        font-size: 1.1rem;
+    }
+    
+    .tech-stack {
+        gap: 20px;
+    }
+    
+    .tech-stack i {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .utp-title {
+        font-size: 1.5rem;
+    }
+    
+    .utp-text {
+        font-size: 1rem;
+    }
+    
+    .comparison-bad, .comparison-good {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}

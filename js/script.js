@@ -826,5 +826,60 @@ if ('performance' in window) {
         }, 0);
     });
 }
+// Если у вас есть отдельный main.js, добавьте туда:
+
+// 1. Анимация для иконок математики
+function animateMathIcons() {
+    const mathIcons = document.querySelectorAll('.fa-calculator, .fa-brain, .fa-project-diagram');
+    mathIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+            icon.style.transform = 'scale(1.2) rotate(5deg)';
+            icon.style.transition = 'transform 0.3s ease';
+        });
+        icon.addEventListener('mouseleave', () => {
+            icon.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+}
+
+// 2. Плавное появление секции УТП при скролле
+function initUTPAnimation() {
+    const utpSection = document.querySelector('.utp-section');
+    if (utpSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(utpSection);
+        utpSection.style.opacity = '0';
+        utpSection.style.transform = 'translateY(20px)';
+        utpSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    }
+}
+
+// 3. Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', () => {
+    animateMathIcons();
+    initUTPAnimation();
+    
+    // Обновляем текст в плавающей кнопке в зависимости от скролла
+    const floatingCta = document.querySelector('.floating-cta span');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500 && floatingCta) {
+            floatingCta.textContent = 'Рассчитать путь';
+        } else if (floatingCta) {
+            floatingCta.textContent = 'Рассчитать мой путь';
+        }
+    });
+});
+
+// 4. Консольное сообщение для отладки
+console.log('%c🧮 Business Doctor: Математика стратегий активна', 
+    'color: #C8A951; font-size: 14px; font-weight: bold;');
 
 console.log('🎯 Business Doctor скрипт загружен и готов к работе!');
