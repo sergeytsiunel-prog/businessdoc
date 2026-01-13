@@ -1,6 +1,6 @@
 ﻿:root {
-  --bg-main: #0e0f12;
-  --bg-dark: #090a0d;
+  --bg-main: #050609;
+  --bg-dark: #050609;
   --text-main: #f5f5f5;
   --text-muted: #b5b5b5;
   --accent: #c8a951;
@@ -15,7 +15,7 @@
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  background: radial-gradient(circle at top, #1b1c21 0, #0e0f12 55%, #050609 100%);
+  background: var(--bg-main); /* чистый чёрный */
   color: var(--text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -46,7 +46,7 @@ h1, h2 {
 .header {
   position: sticky;
   top: 0;
-  background: rgba(9, 10, 13, 0.96);
+  background: rgba(5, 6, 9, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   z-index: 1000;
   backdrop-filter: blur(14px);
@@ -220,7 +220,7 @@ h1, h2 {
 .contact-form input,
 .contact-form textarea {
   padding: 14px 16px;
-  background: #111216;
+  background: #0b0c10;
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
   border-radius: 8px;
