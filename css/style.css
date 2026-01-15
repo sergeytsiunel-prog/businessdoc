@@ -956,3 +956,51 @@ p {
     padding-top: 2rem;
   }
 }
+
+
+/* ============================================== */
+/* FAQ стили */
+/* ============================================== */
+.faq {
+    background: #f8f9fa;
+    padding: 80px 0;
+}
+
+.faq .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.faq-item h3 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.faq-item p {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
