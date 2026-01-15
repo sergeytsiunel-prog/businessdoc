@@ -268,34 +268,17 @@
           Опишите в нескольких предложениях, что происходит с бизнесом сейчас, и какую точку Б вы хотите видеть. Ответ придёт лично от меня. Без рассылок и ассистентов.
         </p>
 
-        <form class="contact-form">
-          <input type="text" name="name" placeholder="Ваше имя" required>
-          <select name="role" required>
-            <option value="" disabled selected>Ваша роль *</option>
-            <option value="owner">Собственник</option>
-            <option value="ceo">CEO / Генеральный директор</option>
-            <option value="finance">Финансовый директор</option>
-            <option value="other">Другое</option>
-          </select>
-
-          <select name="primary_task" required>
-            <option value="" disabled selected>Основная задача на ближайшие 3 месяца *</option>
-            <option value="stop_loss">Остановить падение прибыли</option>
-            <option value="increase_control">Повысить управляемость и контроль</option>
-            <option value="scale">Подготовить компанию к масштабированию</option>
-            <option value="crisis">Выйти из кризиса / сохранить бизнес</option>
-            <option value="other_task">Другое</option>
-          </select>
-
-          <textarea name="context" rows="5" placeholder="Кратко опишите ситуацию: отрасль, оборот, главная боль, горизонт планирования. *" required></textarea>
-          <input type="email" name="email" placeholder="Рабочий e-mail для ответа *" required>
-
-          <label class="checkbox-label">
-            <input type="checkbox" name="data_access">
-            <span>Готов(а) предоставить доступ к обезличенным финансовым данным (P&L, обороты) для более точной предварительной оценки. Это необязательно, но ускорит работу.</span>
-          </label>
-
-          <button type="submit" class="btn-primary">📊 Увидеть узкие места в бизнесе с цифрами</button>
+                <form class="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Ваше имя *" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Рабочий email *" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="3" placeholder="Кратко опишите главную задачу или проблему *" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">📊 Получить план улучшений за 30 минут</button>
         </form>
 
         <p class="quote">
@@ -315,8 +298,4 @@
     </div>
   </footer>
 
-  <script src='js/script.js?v=20260115141247
-
-
-
-
+  <script src='js/script.js?v=20260115142944
