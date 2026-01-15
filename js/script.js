@@ -41,20 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==============================================
-// TELEGRAM BOT CONFIGURATION
+// TELEGRAM FORM HANDLING
 // ==============================================
 
-const TELEGRAM_TOKEN = '8248183891:AAFViXPq1XQJaZYJtiZd3EEl_h4n2JbV_eA';
-const CHAT_ID = '1927712177'; // Важно: строка!
-
-// ==============================================
-// Обработка формы
-// ==============================================
-
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.querySelector('.contact-form');
+  
+  if (!contactForm) {
+    console.error('Форма .contact-form не найдена!');
+    return;
+  }
+  
+  console.log('Форма найдена, настраиваем обработчик...');
+  
   contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
+    console.log('Форма отправляется...');
 
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
@@ -65,24 +67,60 @@ if (contactForm) {
     try {
       // Собираем данные формы
       const formData = new FormData(this);
-      const name = formData.get('name') || 'Не указано';
-      const phone = formData.get('phone') || 'Не указано';
-      const email = formData.get('email') || 'Не указано';
-      const message = formData.get('message') || 'Не указано';
       
-      // Формируем сообщение для Telegram
-      const telegramMessage = `
+      // Для отладки
+      console.log('=== ДАННЫЕ ФОРМЫ ===');
+      for (let [key, value] of formData.entries()) {
+        console.log(key + ':', value);
+      }
+      
+      // Конфигурация Telegram
+      const TELEGRAM_TOKEN = '8248183891:AAFViXPq1XQJaZYJtiZd3EEl_h4n2JbV_eA';
+      const CHAT_ID = '1927712177';
+      
+      // Маппинг значений
+      const roleMap = {
+        'owner': 'Собственник',
+        'ceo': 'CEO / Генеральный директор', 
+        'finance': 'Финансовый директор',
+        'other': 'Другое'
+      };
+      
+      const taskMap = {
+        'stop_loss': 'Остановить падение прибыли',
+        'increase_control': 'Повысить управляемость и контроль',
+        'scale': 'Подготовить компанию к масштабированию',
+        'crisis': 'Выйти из кризиса / сохранить бизнес',
+        'other_task': 'Другое'
+      };
+      
+      // Получаем данные
+      const name = formData.get('name') || 'Не указано';
+      const roleValue = formData.get('role');
+      const role = roleMap[roleValue] || roleValue || 'Не указано';
+      const taskValue = formData.get('primary_task');
+      const task = taskMap[taskValue] || taskValue || 'Не указано';
+      const context = formData.get('context') || 'Не указано';
+      const email = formData.get('email') || 'Не указано';
+      
+      // Формируем сообщение
+      const message = `
 📞 <b>Новая заявка с сайта Business Doctor</b>
 
 👤 <b>Имя:</b> ${name}
-📱 <b>Телефон:</b> ${phone}
+🎯 <b>Роль:</b> ${role}
+🎯 <b>Основная задача:</b> ${task}
 📧 <b>Email:</b> ${email}
-💬 <b>Сообщение:</b> ${message}
+
+💬 <b>Описание ситуации:</b>
+${context}
 
 ⏰ ${new Date().toLocaleString('ru-RU')}
       `.trim();
       
-      // Отправляем в Telegram
+      console.log('Отправляем в Telegram:', message);
+      
+      // Отправляем запрос
       const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
         method: 'POST',
         headers: {
@@ -90,30 +128,33 @@ if (contactForm) {
         },
         body: JSON.stringify({
           chat_id: CHAT_ID,
-          text: telegramMessage,
+          text: message,
           parse_mode: 'HTML'
         })
       });
       
       const result = await response.json();
+      console.log('Ответ Telegram:', result);
       
       if (result.ok) {
         alert('✅ Сообщение отправлено! Я свяжусь с вами в ближайшее время.');
         contactForm.reset();
       } else {
         console.error('Telegram error:', result);
-        alert('❌ Ошибка отправки. Пожалуйста, позвоните по телефону.');
+        alert('❌ Ошибка отправки: ' + (result.description || 'Попробуйте позже'));
       }
       
     } catch (error) {
-      console.error('Network error:', error);
-      alert('❌ Ошибка соединения. Проверьте интернет и попробуйте снова.');
+      console.error('Ошибка сети:', error);
+      alert('❌ Ошибка соединения. Проверьте интернет.');
     } finally {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     }
   });
-}
+  
+  console.log('Обработчик формы настроен');
+});
 
 // Фикс для мобильного меню
 function handleMobileMenu() {
@@ -129,13 +170,3 @@ function handleMobileMenu() {
 
 window.addEventListener('resize', handleMobileMenu);
 window.addEventListener('load', handleMobileMenu);
-
-// ==============================================
-// Дополнительная проверка при загрузке
-// ==============================================
-
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('🚀 Business Doctor website loaded');
-  console.log('📅 Telegram bot configured:', !!TELEGRAM_TOKEN);
-  console.log('📱 Chat ID:', CHAT_ID);
-});
