@@ -1,91 +1,58 @@
 ﻿// ==============================================
-// TELEGRAM BOT CONFIGURATION
+// FRONTEND: безопасная отправка формы через /api/sendTelegram
 // ==============================================
 
-const TELEGRAM_TOKEN = '8248183891:AAHcc4dEgL8VcJ1Wgh8igUM0XJkIO_G6u-U';
-const CHAT_ID = '1927712177';
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🚀 Frontend form script loaded');
 
-console.log('🚀 Business Doctor — script.js загружен');
+  const contactForm = document.querySelector('.contact-form');
+  if (!contactForm) return;
 
-// ==============================================
-// Форма отправки в Telegram
-// ==============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('✅ DOM загружен');
-
-  const form = document.querySelector('.contact-form');
-
-  if (!form) {
-    console.error('❌ Форма .contact-form не найдена');
-    return;
-  }
-
-  console.log('✅ Форма найдена');
-
-  form.addEventListener('submit', async (e) => {
+  contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-
     submitBtn.textContent = 'Отправка...';
     submitBtn.disabled = true;
 
-    const name = form.querySelector('[name="name"]').value.trim();
-    const email = form.querySelector('[name="email"]').value.trim();
-    const message = form.querySelector('[name="message"]').value.trim();
-
-    if (!name || !email || !message) {
-      alert('⚠️ Заполните все поля');
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-      return;
-    }
-
-    const telegramMessage = `
-<b>🎯 Новая заявка — Business Doctor</b>
-
-👤 <b>Имя:</b> ${name}
-📧 <b>Email:</b> ${email}
-
-💬 <b>Сообщение:</b>
-${message}
-
-⏰ <b>Время:</b> ${new Date().toLocaleString('ru-RU')}
-    `;
-
     try {
-      const response = await fetch(
-        `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: telegramMessage,
-            parse_mode: 'HTML'
-          })
-        }
-      );
+      const formData = new FormData(this);
+      const name = formData.get('name') || '';
+      const email = formData.get('email') || '';
+      const message = formData.get('message') || '';
 
-      const result = await response.json();
-      console.log('📩 Ответ Telegram:', result);
-
-      if (!result.ok) {
-        throw new Error(result.description || 'Telegram error');
+      if (!name.trim() || !email.trim() || !message.trim()) {
+        alert('⚠️ Пожалуйста, заполните все обязательные поля');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        return;
       }
 
-      alert('✅ Заявка отправлена. Я свяжусь с вами.');
-      form.reset();
+      console.log('📋 Sending data to serverless function:', { name, email, message });
 
-    } catch (err) {
-      console.error('❌ Ошибка отправки:', err);
-      alert('❌ Ошибка отправки. Напишите напрямую в Telegram.');
+      const response = await fetch('/api/sendTelegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('✅ Спасибо! Я свяжусь с вами в течение 24 часов.');
+        contactForm.reset();
+      } else {
+        console.error('Ошибка отправки:', result.error);
+        alert('❌ Ошибка отправки. Пожалуйста, попробуйте позже.');
+      }
+
+    } catch (error) {
+      console.error('🌐 Ошибка сети:', error);
+      alert('❌ Ошибка соединения. Проверьте интернет и попробуйте еще раз.');
     } finally {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     }
   });
 });
-
