@@ -1251,4 +1251,137 @@ p {
   .hero .container {
     padding-top: 10px !important;
   }
+/* ===== СРОЧНЫЙ ФИКС ДЛЯ МОБИЛЬНЫХ ===== */
+
+@media (max-width: 768px) {
+  /* СРОЧНО: Уменьшаем шапку еще больше */
+  .header {
+    padding: 0.5rem 0 !important;
+    min-height: 60px !important;
+  }
+  
+  .header-inner {
+    min-height: 60px !important;
+  }
+  
+  .header.scrolled {
+    padding: 0.4rem 0 !important;
+  }
+  
+  /* Фиксируем высоту для предсказуемого поведения */
+  .header:not(.scrolled) {
+    height: 60px !important;
+  }
+  
+  .header.scrolled {
+    height: 50px !important;
+  }
+  
+  /* Герой - срочный фикс */
+  .hero {
+    padding-top: 80px !important; /* Резко уменьшаем отступ */
+    margin-top: 0 !important;
+  }
+  
+  /* Убираем min-height чтобы контент не растягивался */
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  /* Принудительно показываем верх hero */
+  .hero .container {
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+  }
+  
+  /* Уменьшаем верхние отступы внутри hero */
+  .hero h1,
+  .hero .hero-tagline,
+  .hero .hero-sub {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Исправляем симметрию в шапке */
+  .header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  
+  .logo {
+    font-size: 1rem !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+  
+  /* Компактная навигация с выравниванием */
+  .nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    flex-wrap: wrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .nav a {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+    margin: 0 !important;
+  }
+  
+  .nav-cta {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.7rem !important;
+    margin: 0 !important;
+  }
+  
+  /* Убираем все лишние отступы */
+  * {
+    margin-top: 0 !important;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 70px !important;
+  }
+  
+  .header {
+    padding: 0.4rem 0 !important;
+  }
+  
+  /* Еще компактнее навигация */
+  .nav {
+    gap: 0.5rem !important;
+  }
+  
+  .nav a {
+    font-size: 0.65rem !important;
+  }
+}
+
+/* Критический фикс - принудительное отображение hero */
+body {
+  overflow-x: hidden !important;
+}
+
+.hero {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Если все еще прячется - используем это */
+@media (max-width: 768px) {
+  .hero::before {
+    content: '' !important;
+    display: block !important;
+    height: 20px !important;
+    margin-top: -20px !important;
+  }
 }
