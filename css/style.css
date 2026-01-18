@@ -1003,4 +1003,345 @@ p {
     color: #4a5568;
     line-height: 1.6;
 }
+/* Контактный блок без формы */
+.contact-direct {
+  margin-top: 32px;
+  padding: 32px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.contact-item {
+  margin-bottom: 20px;
+}
+
+.contact-label {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.contact-link {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.75;
+}
+
+.contact-note {
+  margin-top: 24px;
+  font-size: 15px;
+  opacity: 0.8;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Контактный блок без формы */
+.contact-direct {
+  margin-top: 32px;
+  padding: 32px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.contact-item {
+  margin-bottom: 20px;
+}
+
+.contact-label {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.contact-link {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.contact-note {
+  margin-top: 24px;
+  font-size: 15px;
+  opacity: 0.8;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Премиальные кнопки без эмодзи */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-top: 16px;
+}
+
+.btn-primary:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* Больше пространства вокруг заголовков и CTA */
+.hero h1, 
+.hero-sub, 
+.hero-accent, 
+.section h2 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+/* Список "Для кого" премиальный, без эмодзи */
+.pain-list {
+  list-style: none; /* убираем стандартные маркеры */
+  padding-left: 0;
+  margin-top: 24px;
+}
+
+.pain-item {
+  position: relative;
+  padding-left: 24px; /* место для маркера */
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.pain-item::before {
+  content: "•"; /* минималистичная точка вместо эмодзи */
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pain-item strong {
+  font-weight: 600;
+}
+/* Блок кейсов — лаконичный таймлайн / карточки */
+.case-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  margin-top: 32px;
+  padding-left: 12px; /* для линии связи */
+}
+
+.case-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.2); /* тонкая линия соединения */
+}
+
+.case-item {
+  position: relative;
+  padding-left: 24px;
+}
+
+.case-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff; /* кружок на линии */
+}
+
+.case-content {
+  background: rgba(255,255,255,0.05); /* легкая полупрозрачность */
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.case-content h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.case-content p {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.case-result {
+  font-weight: 600;
+  margin-top: 12px;
+  color: #ffffff; /* акцент на результатах */
+}
+/* ===== Блок кейсов ===== */
+.case-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  margin-top: 32px;
+  padding-left: 12px; /* линия связи */
+}
+
+.case-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.2); /* тонкая линия */
+}
+
+.case-item {
+  position: relative;
+  padding-left: 24px;
+}
+
+.case-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff; /* кружок на линии */
+}
+
+.case-content {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.case-content h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.case-content p {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.case-result {
+  font-weight: 600;
+  margin-top: 12px;
+  color: #ffffff; /* акцент на результатах */
+}
+
+/* ===== Блок инструментов ===== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.tool-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.tool-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.tool-item p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+/* Блок "Вы узнаете себя, если..." — таймлайн */
+.pain-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  margin-top: 24px;
+  padding-left: 12px; /* линия слева */
+}
+
+.pain-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.15); /* тонкая линия */
+}
+
+.pain-item {
+  position: relative;
+  padding-left: 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.pain-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff; /* кружок на линии */
+}
+
+.pain-item p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.pain-item strong {
+  font-weight: 600;
+}
 
