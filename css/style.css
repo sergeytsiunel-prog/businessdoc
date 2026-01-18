@@ -1421,4 +1421,45 @@ p {
   object-position: center;
   border-radius: 12px;
 }
+/* Hero - мобильный адаптив */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(80px + 20px); /* высота шапки + отступ сверху */
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: auto; /* убираем 100vh на мобилках */
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .hero-sub,
+  .hero-accent {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .btn-primary {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+/* Фото автора - мобильные */
+@media (max-width: 768px) {
+  .about-photo {
+    height: auto; /* блок подстраивается под картинку */
+  }
+
+  #author-photo {
+    width: 100%;
+    height: auto; /* сохраняем пропорции */
+    max-height: none;
+    object-fit: contain; /* не обрезает картинку */
+    object-position: top center; /* важная часть фото сверху */
+    border-radius: 12px;
+    display: block;
+  }
+}
 
