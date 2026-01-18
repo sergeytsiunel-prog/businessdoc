@@ -194,10 +194,14 @@ p {
 
 /* Hero - FIXED для фиксированного хедера */
 .hero {
-  padding-top: 180px; /* Увеличенный отступ для фиксированного хедера */
+  padding-top: 160px; /* Увеличенный отступ для фиксированного хедера */
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 100vh; /* Гарантирует, что hero займет весь экран */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero:before {
@@ -222,7 +226,7 @@ p {
 /* Стиль для фразы "От сотни сценариев - к одному решению" */
 .hero-tagline {
   font-family: 'Libre Baskerville', serif;
-  font-size: 2.2rem;
+  font-size: 2.8rem; /* Увеличил размер как в основном h1 */
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 3rem;
@@ -230,6 +234,10 @@ p {
   letter-spacing: -0.02em;
   position: relative;
   display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-tagline:after {
@@ -972,7 +980,7 @@ p {
   }
   
   .hero-tagline {
-    font-size: 2rem;
+    font-size: 2.4rem; /* Сохраняем крупный размер */
   }
   
   .experience-blocks {
@@ -996,7 +1004,7 @@ p {
   }
 }
 
-/* Мобильные устройства */
+/* Мобильные устройства - ИСПРАВЛЕНО */
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
@@ -1016,39 +1024,43 @@ p {
   }
   
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.8rem; /* Увеличил с 2.2rem */
+    line-height: 1.2;
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: 2.2rem; /* Увеличил с 2rem */
   }
   
   .hero-tagline {
-    font-size: 1.8rem;
+    font-size: 2.2rem; /* Увеличил с 1.8rem */
+    line-height: 1.2;
+    margin-bottom: 2rem;
   }
   
   .section {
     padding: 6rem 0;
   }
   
-  /* Hero адаптация для мобильных */
+  /* Hero адаптация для мобильных - ИСПРАВЛЕНО */
   .hero {
-    padding-top: 140px; /* Увеличенный отступ для мобильных */
-  }
-  
-  .hero h1 {
-    font-size: 2.2rem;
+    padding-top: 140px; /* Правильный отступ для фиксированного хедера */
+    min-height: auto; /* Убираем 100vh чтобы контент не обрезался */
+    display: block; /* Убираем flex чтобы текст не сжимался */
+    padding-bottom: 4rem; /* Добавляем отступ снизу */
   }
   
   .hero-sub,
   .hero-accent {
-    font-size: 1.1rem;
+    font-size: 1.3rem; /* Увеличил с 1.1rem */
     line-height: 1.6;
+    margin-bottom: 2.5rem;
   }
   
   .btn-primary {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 1.1rem 2.5rem; /* Немного увеличил */
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
   }
   
   .process-timeline:before {
@@ -1089,9 +1101,16 @@ p {
     gap: 2rem;
   }
   
+  /* Фото автора на мобильных - ИСПРАВЛЕНО */
   .about-photo {
-    width: 250px;
-    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    height: 350px; /* Увеличил высоту чтобы фото не обрезалось */
+  }
+  
+  .about-photo img {
+    object-fit: cover; /* Сохраняем cover для заполнения */
+    object-position: center 20%; /* Настраиваем положение - показываем верхнюю часть */
   }
   
   .experience-block {
@@ -1100,11 +1119,6 @@ p {
   
   .exp-icon {
     font-size: 2.5rem;
-  }
-  
-  /* Фото автора на мобильных - полное отображение */
-  .about-photo img {
-    object-position: center top; /* Всегда показываем верхнюю часть */
   }
 }
 
@@ -1115,27 +1129,29 @@ p {
   }
   
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem; /* Увеличил с 2.2rem */
   }
   
   h2 {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Увеличил с 1.8rem */
   }
   
   .hero-tagline {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Увеличил с 1.5rem */
+    line-height: 1.3;
   }
   
   .btn-primary {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    width: 100%;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    width: auto; /* Убираем 100% ширину */
+    display: inline-block; /* Чтобы кнопка не растягивалась */
   }
   
   .about-photo {
     width: 100%;
-    max-width: 300px;
-    height: 250px;
+    max-width: 280px;
+    height: 320px; /* Увеличил высоту */
   }
   
   .process-timeline:before {
@@ -1172,44 +1188,20 @@ p {
   .result-statement {
     padding: 1.5rem;
   }
-}/* ===== Hero адаптивно на мобильных ===== */
-@media (max-width: 768px) {
-  /* Hero секция */
-  .hero {
-    padding-top: 120px; /* учитываем высоту шапки + отступ */
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 40px;
-    min-height: auto; /* секция подстраивается под контент */
-  }
-
-  /* Заголовок hero */
-  .hero h1 {
-    font-size: 32px; /* увеличиваем на мобилке, чтобы текст был читаем */
-    line-height: 1.2;
-  }
-
-  /* Подзаголовки */
-  .hero-sub,
-  .hero-accent {
-    font-size: 18px;
-    line-height: 1.4;
-  }
-
-  /* Кнопка */
-  .btn-primary {
-    font-size: 16px;
-    padding: 14px 24px;
-  }
-
-  /* Фото автора в блоке "Об авторе" */
-  #author-photo {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* полностью заполняет блок без деформации */
-    object-position: top center; /* верх фото всегда виден */
-    max-height: 350px; /* адаптивная высота на мобилке */
-    border-radius: 12px;
-    display: block;
+  
+  /* Еще больше увеличиваем шрифты на очень маленьких экранах */
+  @media (max-width: 360px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero-tagline {
+      font-size: 1.6rem;
+    }
+    
+    .hero-sub,
+    .hero-accent {
+      font-size: 1.2rem;
+    }
   }
 }
