@@ -1344,4 +1344,36 @@ p {
 .pain-item strong {
   font-weight: 600;
 }
+/* Hero адаптивно для мобильных */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px; /* учитываем высоту шапки */
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero h1 {
+    font-size: 28px; /* уменьшаем размер заголовка */
+    line-height: 1.3; 
+  }
+
+  .hero-sub, .hero-accent {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .btn-primary {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+/* Фото в блоке "Об авторе" */
+#author-photo {
+  width: 100%;
+  height: auto; /* сохраняем пропорции */
+  max-height: 400px; /* можно ограничить на десктопе */
+  object-fit: cover;
+  object-position: center; /* центрирует важную часть фото */
+  border-radius: 12px; /* если нужен стиль премиальный */
+}
 
