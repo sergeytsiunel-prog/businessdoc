@@ -10,7 +10,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Важно: предотвращает скрытие под фиксированным хедером */
+  scroll-padding-top: 100px; /* Предотвращает скрытие под фиксированным хедером */
 }
 
 body {
@@ -192,7 +192,7 @@ p {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Hero - FIXED padding-top для фиксированного хедера */
+/* Hero - FIXED для фиксированного хедера */
 .hero {
   padding-top: 180px; /* Увеличенный отступ для фиксированного хедера */
   text-align: center;
@@ -217,6 +217,30 @@ p {
   margin-bottom: 3rem;
   font-weight: 300;
   letter-spacing: 0.02em;
+}
+
+/* Стиль для фразы "От сотни сценариев - к одному решению" */
+.hero-tagline {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-tagline:after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, #b8860b);
 }
 
 .hero-accent {
@@ -315,7 +339,7 @@ p {
   line-height: 1;
 }
 
-/* Об авторе - Новая структура */
+/* Об авторе */
 .about-header {
   margin-bottom: 4rem;
   text-align: center;
@@ -333,7 +357,7 @@ p {
 
 .about-photo {
   width: 300px;
-  height: 300px;
+  height: 400px; /* Увеличена высота для полного фото */
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -358,7 +382,8 @@ p {
 .about-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Важно: покрывает весь блок без обрезки */
+  object-position: center top; /* Показывает верхнюю часть фото */
   transition: transform 0.8s ease;
 }
 
@@ -800,7 +825,7 @@ p {
 
 /* ===== Дополнительные компоненты ===== */
 
-/* Список "Для кого" премиальный, без эмодзи */
+/* Список "Для кого" */
 .pain-list-minimal {
   list-style: none;
   padding-left: 0;
@@ -830,7 +855,7 @@ p {
   font-weight: 600;
 }
 
-/* Блок кейсов — лаконичный таймлайн / карточки */
+/* Блок кейсов */
 .case-timeline {
   display: flex;
   flex-direction: column;
@@ -918,63 +943,12 @@ p {
   margin: 0;
 }
 
-/* Блок "Вы узнаете себя, если..." — таймлайн */
-.pain-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  position: relative;
-  margin-top: 24px;
-  padding-left: 12px;
-}
-
-.pain-timeline::before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(255,255,255,0.15);
-}
-
-.pain-item-timeline {
-  position: relative;
-  padding-left: 24px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 16px 20px;
-}
-
-.pain-item-timeline::before {
-  content: '';
-  position: absolute;
-  left: -4px;
-  top: 12px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-.pain-item-timeline p {
-  margin: 0;
-  line-height: 1.5;
-  font-size: 15px;
-}
-
-.pain-item-timeline strong {
-  font-weight: 600;
-}
-
-/* Фото в блоке "Об авторе" */
+/* Фото автора - правильные настройки */
 #author-photo {
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top; /* Показывает верхнюю часть фото */
   border-radius: 12px;
 }
 
@@ -997,14 +971,18 @@ p {
     font-size: 2.4rem;
   }
   
+  .hero-tagline {
+    font-size: 2rem;
+  }
+  
   .experience-blocks {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
   
   .about-photo {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 350px;
   }
   
   .process-timeline li {
@@ -1043,6 +1021,10 @@ p {
   
   h2 {
     font-size: 2rem;
+  }
+  
+  .hero-tagline {
+    font-size: 1.8rem;
   }
   
   .section {
@@ -1108,8 +1090,8 @@ p {
   }
   
   .about-photo {
-    width: 220px;
-    height: 220px;
+    width: 250px;
+    height: 300px;
   }
   
   .experience-block {
@@ -1120,10 +1102,9 @@ p {
     font-size: 2.5rem;
   }
   
-  /* Фото автора на мобильных */
-  #author-photo {
-    max-height: none;
-    object-fit: contain;
+  /* Фото автора на мобильных - полное отображение */
+  .about-photo img {
+    object-position: center top; /* Всегда показываем верхнюю часть */
   }
 }
 
@@ -1141,6 +1122,10 @@ p {
     font-size: 1.8rem;
   }
   
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+  
   .btn-primary {
     padding: 1rem 2rem;
     font-size: 1rem;
@@ -1150,6 +1135,7 @@ p {
   .about-photo {
     width: 100%;
     max-width: 300px;
+    height: 250px;
   }
   
   .process-timeline:before {
