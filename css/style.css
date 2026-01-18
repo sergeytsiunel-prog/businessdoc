@@ -1172,4 +1172,44 @@ p {
   .result-statement {
     padding: 1.5rem;
   }
+}/* ===== Hero адаптивно на мобильных ===== */
+@media (max-width: 768px) {
+  /* Hero секция */
+  .hero {
+    padding-top: 120px; /* учитываем высоту шапки + отступ */
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 40px;
+    min-height: auto; /* секция подстраивается под контент */
+  }
+
+  /* Заголовок hero */
+  .hero h1 {
+    font-size: 32px; /* увеличиваем на мобилке, чтобы текст был читаем */
+    line-height: 1.2;
+  }
+
+  /* Подзаголовки */
+  .hero-sub,
+  .hero-accent {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* Кнопка */
+  .btn-primary {
+    font-size: 16px;
+    padding: 14px 24px;
+  }
+
+  /* Фото автора в блоке "Об авторе" */
+  #author-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* полностью заполняет блок без деформации */
+    object-position: top center; /* верх фото всегда виден */
+    max-height: 350px; /* адаптивная высота на мобилке */
+    border-radius: 12px;
+    display: block;
+  }
 }
