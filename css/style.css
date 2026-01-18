@@ -1204,4 +1204,51 @@ p {
       font-size: 1.2rem;
     }
   }
+}/* ===== ФИКС ДЛЯ МОБИЛЬНЫХ ===== */
+
+@media (max-width: 768px) {
+  /* Уменьшаем высоту шапки на мобильных */
+  .header {
+    padding: 0.8rem 0 !important;
+  }
+  
+  .header.scrolled {
+    padding: 0.6rem 0 !important;
+  }
+  
+  /* Уменьшаем логотип */
+  .logo {
+    font-size: 1.2rem !important;
+  }
+  
+  /* Компактная навигация */
+  .nav {
+    gap: 1rem !important;
+  }
+  
+  .nav a {
+    font-size: 0.8rem !important;
+    padding: 0.3rem 0 !important;
+  }
+  
+  .nav-cta {
+    padding: 0.5rem 1rem !important;
+    margin-left: 0 !important;
+  }
+  
+  /* Уменьшаем высоту шапки для скролла */
+  html {
+    scroll-padding-top: 70px !important;
+  }
+  
+  /* Hero с меньшим отступом */
+  .hero {
+    padding-top: 100px !important;
+    min-height: auto !important;
+  }
+  
+  /* Увеличиваем видимость текста */
+  .hero .container {
+    padding-top: 10px !important;
+  }
 }
