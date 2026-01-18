@@ -1484,4 +1484,11 @@ p {
     padding: 12px 20px;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto; /* убираем 100vh, секция подстраивается под контент */
+    padding-top: 20px; /* немного сверху */
+    padding-bottom: 20px; /* немного снизу */
+  }
+}
 
