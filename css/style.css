@@ -102,6 +102,7 @@ p {
   transition: all 0.3s ease;
 }
 
+/* Сжатие при скролле (если в JS есть добавление класса .scrolled) */
 .header.scrolled {
   padding: 1rem 0;
   background-color: rgba(10, 10, 10, 0.98);
@@ -111,6 +112,11 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* Критично: отступ под фиксированную шапку */
+body {
+  padding-top: 88px; /* подгони под реальную высоту шапки */
 }
 
 .logo {
