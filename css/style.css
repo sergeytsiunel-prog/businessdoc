@@ -256,6 +256,20 @@ body {
   height: 2px;
   background: linear-gradient(90deg, #d4af37, #b8860b);
 }
+.hero-title {
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-title {
+  font-size: 2.8rem; /* как у h2 */
+}
+
+.hero-lead {
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .hero-accent {
   font-size: 1.3rem;
@@ -1435,20 +1449,21 @@ body {
   }
 
   /* Подзаголовок */
-  .hero-lead {
-    font-size: 17px;
-    line-height: 1.45;
-    opacity: 0.85;
-    margin: 0;
-  }
+.hero-lead {
+  font-size: 17px;
+  line-height: 1.45;
+  opacity: 0.85;
+  margin: 0;
+}
 
-  /* Кнопка */
-  .hero-cta {
-    margin-top: 16px;
-    align-self: flex-start;
-    font-size: 16px;
-    padding: 14px 26px;
-  }
+/* Кнопка */
+.hero-cta {
+  margin-top: 16px;
+  font-size: 16px;
+  padding: 14px 26px;
+  align-self: center;      /* центр по оси X внутри flex-колонки */
+}
+
 /* ===============================
    MOBILE HEADER — G-CLASS
    =============================== */
