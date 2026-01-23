@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример письма клиенту</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .letter-slide {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            position: relative;
+            min-height: 650px;
+        }
+        
+        /* Верхняя панель - мета-инфо */
+        .letter-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 25px 40px;
+            border-bottom: 5px solid #3498db;
+        }
+        
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .header-subtitle {
+            font-size: 16px;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+        
+        /* Контент письма */
+        .letter-content {
+            padding: 50px 60px;
+            position: relative;
+        }
+        
+        .letter-meta {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .recipient {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .context-note {
+            font-size: 16px;
+            color: #7f8c8d;
+            font-style: italic;
+            background: #f8f9fa;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+        
+        /* Основной текст письма */
+        .letter-body {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+        
+        .paragraph {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .key-points {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .key-points h3 {
+            font-size: 20px;
+            color: #27ae60;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .point {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .point-icon {
+            color: #27ae60;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        .point-text {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 25px 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .cta-link {
+            display: inline-block;
+            background: white;
+            color: #3498db;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .cta-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        /* Подпись */
+        .signature {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        .signature-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .signature-title {
+            font-size: 16px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        /* Номер слайда */
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        /* Для презентации */
+        .presentation-note {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        /* Печать */
+        @media print {
+            body {
+                background: white !important;
+            }
+            
+            .letter-slide {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            
+            .presentation-note {
+                display: none;
+            }
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .letter-content {
+                padding: 30px;
+            }
+            
+            .letter-header {
+                padding: 20px;
+            }
+            
+            .header-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="letter-slide">
+        <div class="presentation-note">СЛАЙД ДЛЯ ПРЕЗЕНТАЦИИ</div>
+        
+        <div class="letter-header">
+            <div class="header-title">Пример письма потенциальному клиенту</div>
+            <div class="header-subtitle">Прямое обращение к собственнику бизнеса</div>
+        </div>
+        
+        <div class="letter-content">
+            <div class="letter-meta">
+                <div class="recipient">Наталья, добрый день!</div>
+                <div class="context-note">
+                    <i class="fas fa-handshake"></i> Личное обращение с напоминанием о предыдущем знакомстве
+                </div>
+            </div>
+            
+            <div class="letter-body">
+                <div class="paragraph">
+                    Это Сергей Циунель — мы раньше пересекались по «Мобихиму» в Твери.
+                </div>
+                
+                <div class="paragraph">
+                    Сейчас я точечно работаю с собственниками: на основе реальных управленческих цифр показываю, где бизнес теряет деньги и какие 1–3 решения дают измеримый эффект по прибыли и cash-flow в горизонте 3–6 месяцев.
+                </div>
+                
+                <div class="key-points">
+                    <h3><i class="fas fa-star"></i> Ключевое отличие от классического консалтинга:</h3>
+                    
+                    <div class="point">
+                        <div class="point-icon"><i class="fas fa-calculator"></i></div>
+                        <div class="point-text">Использую AI как вычислительный инструмент (не как генератор советов)</div>
+                    </div>
+                    
+                    <div class="point">
+                        <div class="point-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="point-text">Прогоняю сценарии через цифры и ограничения бизнеса</div>
+                    </div>
+                    
+                    <div class="point">
+                        <div class="point-icon"><i class="fas fa-road"></i></div>
+                        <div class="point-text">Оставляю 1–2 сценария, которые реально внедрить в текущей системе управления</div>
+                    </div>
+                    
+                    <div class="point">
+                        <div class="point-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="point-text">Результат: не «отчёт на 100 страниц», а дорожная карта внедрения</div>
+                    </div>
+                </div>
+                
+                <div class="paragraph">
+                    Кратко описал подход и примеры результатов на одной странице:
+                </div>
+                
+                <div class="cta-section">
+                    <div style="margin-bottom: 15px; font-weight: 600;">
+                        <i class="fas fa-external-link-alt"></i> Подробнее на сайте:
+                    </div>
+                    <a href="https://businessdoc.pro" class="cta-link" target="_blank">
+                        <i class="fas fa-globe"></i> businessdoc.pro
+                    </a>
+                </div>
+                
+                <div class="paragraph">
+                    Если из описанного откликается что-то применимое к Вашей ситуации, буду рад обсудить детали и посмотреть, есть ли смысл в формате отдельного проекта.
+                </div>
+            </div>
+            
+            <div class="signature">
+                <div class="signature-name">С уважением, Сергей Циунель</div>
+                <div class="signature-title">Business Doctor — точечная работа с цифрами бизнеса</div>
+            </div>
+            
+            <div class="slide-number">Слайд 1</div>
+        </div>
+    </div>
+    
+    <script>
+        // Делаем ссылку кликабельной при просмотре в браузере
+        document.querySelector('.cta-link').addEventListener('click', function(e) {
+            if (window.confirm('Открыть сайт businessdoc.pro в новой вкладке?')) {
+                window.open(this.href, '_blank');
+            }
+        });
+        
+        // Для презентации: добавляем возможность переключения слайдов
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                alert('Следующий слайд (в реальной презентации здесь был бы переход)');
+            }
+        });
+    </script>
+</body>
+</html>

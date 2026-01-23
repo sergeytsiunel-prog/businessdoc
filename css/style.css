@@ -1493,5 +1493,8 @@ body {
     font-weight: 500;
     opacity: 0.85;
   }
+  .nowrap {
+  white-space: nowrap;
 }
+
 
