@@ -1869,4 +1869,29 @@ body {
         content: '›'; /* Маленькая стрелка */
         margin-right: 0.3rem;
     }
+    /* ЭКСТРЕННЫЙ FIX: Принудительный отступ для всех якорных секций */
+@media (max-width: 768px) {
+  section[id] {
+    scroll-margin-top: 140px !important;
+  }
+  
+  /* Герой должен быть виден сразу */
+  #top {
+    scroll-margin-top: 0 !important;
+  }
+  
+  /* Фиксируем шапку жестко */
+  body {
+    padding-top: 120px !important;
+  }
+  
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    height: 120px !important;
+  }
+
 }
