@@ -1646,5 +1646,119 @@ body {
     .problem-content h3 {
         font-size: 0.85rem;
     }
+    /* ===== ИСПРАВЛЕНИЕ ПРОБЛЕМНЫХ БЛОКОВ В HERO ===== */
+
+/* Обновляем стили для проблемного списка */
+.problem-list {
+    margin: 2.5rem 0;
+}
+
+.problem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Светлая линия на темном фоне */
+}
+
+.problem-item:last-child {
+    border-bottom: none;
+}
+
+.problem-icon {
+    font-size: 1.3rem;
+    color: #d4af37; /* Золотой как в дизайне */
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+/* ВАЖНО: Делаем текст БЕЛЫМ на черном фоне */
+.problem-content h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ffffff !important; /* БЕЛЫЙ как заголовок */
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+}
+
+.problem-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #d0d0d0 !important; /* Светло-серый как основной текст */
+    margin: 0;
+}
+
+.hero-cta-wrapper {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* Исправляем отступы для фиксированной шапки */
+.hero.section {
+    padding-top: 140px; /* Уже было правильно */
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .hero.section {
+        padding-top: 100px; /* Меньше на мобильных */
+    }
+    
+    .problem-item {
+        flex-direction: row; /* Оставляем в строке */
+        gap: 0.8rem;
+        padding: 1.2rem 0;
+    }
+    
+    .problem-content h3 {
+        font-size: 1rem; /* Читаемый размер на мобильных */
+        color: #ffffff !important;
+        font-weight: 600;
+    }
+    
+    .problem-content p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #d0d0d0 !important;
+    }
+    
+    .problem-icon {
+        font-size: 1.1rem;
+        color: #d4af37;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .hero.section {
+        padding-top: 90px;
+    }
+    
+    .problem-content h3 {
+        font-size: 0.95rem;
+    }
+    
+    .problem-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .problem-icon {
+        font-size: 1rem;
+    }
+}
+
+/* Добавляем эффект при наведении */
+.problem-item:hover .problem-icon {
+    transform: translateX(3px);
+    transition: transform 0.2s ease;
+}
+
+.problem-item:hover h3 {
+    color: #d4af37 !important; /* Подсвечиваем золотым при наведении */
+    transition: color 0.2s ease;
+
 }
 
