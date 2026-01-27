@@ -54,5 +54,28 @@ document.addEventListener('DOMContentLoaded', function() {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     }
+    // Экстренный фикс скролла на мобильных
+if (window.innerWidth <= 768) {
+  // Переопределяем плавный скролл для всех якорных ссылок
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#top') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        // Высота шапки на мобильных
+        const headerOffset = 140;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
-});
+}
+
