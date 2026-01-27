@@ -1558,4 +1558,93 @@ body {
         font-size: 1.05rem;
     }
 }
+/* Стили для hero-секции с проблемами */
+.problem-list {
+    margin: 2.5rem 0;
+}
+
+.problem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-color, #e5e5e5);
+}
+
+.problem-item:last-child {
+    border-bottom: none;
+}
+
+.problem-icon {
+    font-size: 1.2rem;
+    color: var(--accent-color, #0070f3);
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+.problem-content h3 {
+    font-size: 0.95rem; /* Меньше, как у hero-eyebrow */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color, #111);
+    text-transform: uppercase; /* Опционально, чтобы было похоже на BUSINESS DOCTOR */
+    letter-spacing: 0.5px;
+}
+
+.problem-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-secondary, #444);
+    margin: 0;
+}
+
+.hero-cta-wrapper {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* FIX: Добавляем отступ сверху для hero-секции, чтобы не перекрывалось шапкой */
+.hero.section {
+    padding-top: 6rem; /* Добавляем отступ сверху */
+}
+
+/* Уменьшаем отступ на мобильных */
+@media (max-width: 768px) {
+    .hero.section {
+        padding-top: 5rem; /* Меньше на мобильных */
+    }
+    
+    .problem-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+    
+    .problem-icon {
+        margin-top: 0;
+        font-size: 1rem;
+    }
+    
+    .problem-content h3 {
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .problem-content p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .hero.section {
+        padding-top: 4.5rem;
+    }
+    
+    .problem-content h3 {
+        font-size: 0.85rem;
+    }
+}
 
