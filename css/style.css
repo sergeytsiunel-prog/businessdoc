@@ -1910,4 +1910,94 @@ body {
     .problem-content h3 {
         font-size: 0.95rem;
     }
+    /* ===== УВЕЛИЧИВАЕМ ОТСТУПЫ В HERO ===== */
+
+/* Увеличиваем отступ после заголовка */
+.hero-title {
+    font-size: 3.8rem;
+    margin-bottom: 4rem !important; /* Было 2rem, увеличиваем вдвое */
+}
+
+/* Увеличиваем отступ после списка проблем */
+.problem-list {
+    margin: 3.5rem 0 !important; /* Было 2.5rem */
+}
+
+/* Увеличиваем отступы между проблемными блоками */
+.problem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.75rem 0 !important; /* Было 1.25rem */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Увеличиваем отступ после списка проблем до акцентного текста */
+.hero-accent {
+    font-size: 1.3rem;
+    margin-top: 4rem !important; /* Добавляем отступ сверху */
+    margin-bottom: 4rem !important;
+}
+
+/* Увеличиваем отступ до кнопки */
+.hero-cta-wrapper {
+    text-align: center;
+    margin-top: 3.5rem !important; /* Было 2.5rem */
+}
+
+/* Мобильная версия с большими отступами */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+        margin-bottom: 3rem !important; /* Больше на мобильных */
+    }
+    
+    .problem-list {
+        margin: 2.5rem 0 !important;
+    }
+    
+    .problem-item {
+        padding: 1.5rem 0 !important;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .problem-content h3 {
+        font-size: 1rem;
+        color: #d4af37 !important;
+        margin-bottom: 0.3rem;
+    }
+    
+    .hero-accent {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+    
+    .hero-cta-wrapper {
+        margin-top: 3rem !important;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.4rem;
+        margin-bottom: 2.5rem !important;
+    }
+    
+    .problem-list {
+        margin: 2rem 0 !important;
+    }
+    
+    .problem-item {
+        padding: 1.25rem 0 !important;
+    }
+    
+    .hero-accent {
+        margin-top: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+        font-size: 1.1rem;
+    }
 }
