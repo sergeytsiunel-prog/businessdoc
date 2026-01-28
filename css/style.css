@@ -1306,3 +1306,216 @@ p {
     margin-right: auto;
   }
 }
+/* Превращаем hero-accent в цитату на первой странице */
+.hero-accent {
+  font-family: 'Libre Baskerville', serif !important;
+  font-style: italic !important;
+  font-size: 1.5rem !important;
+  color: #b0b0b0 !important;
+  margin-top: 6rem !important;
+  padding-top: 3rem !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
+  max-width: 700px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  line-height: 1.6 !important;
+  position: relative !important;
+  text-align: center !important;
+}
+
+.hero-accent::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 4rem !important;
+  color: rgba(212, 175, 55, 0.2) !important;
+  font-family: serif !important;
+  line-height: 1 !important;
+}
+
+/* Обновляем существующий .quote для консистентности */
+.quote {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #b0b0b0;
+  margin-top: 6rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  position: relative;
+  text-align: center;
+}
+
+.quote::before {
+  content: '"';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  color: rgba(212, 175, 55, 0.2);
+  font-family: serif;
+  line-height: 1;
+}
+
+/* Для мобильных устройств обновляем тоже */
+@media (max-width: 768px) {
+  .hero-accent {
+    font-size: 1.3rem !important;
+    margin-top: 4rem !important;
+    padding-top: 2.5rem !important;
+  }
+  
+  .quote {
+    font-size: 1.3rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+  }
+}
+/* Возвращаем оригинальные размеры, но с оформлением цитаты */
+.hero-accent,
+.quote {
+  font-family: 'Libre Baskerville', serif !important;
+  font-style: italic !important;
+  font-size: 1.3rem !important; /* Оригинальный размер из .hero-accent */
+  color: #d0d0d0 !important; /* Оригинальный цвет из .hero-accent */
+  margin-top: 3rem !important;
+  margin-bottom: 3.5rem !important;
+  max-width: 700px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.01em !important;
+  padding-top: 3rem !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
+  position: relative !important;
+  text-align: center !important;
+}
+
+.hero-accent::before,
+.quote::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 4rem !important;
+  color: rgba(212, 175, 55, 0.2) !important;
+  font-family: serif !important;
+  line-height: 1 !important;
+}
+
+/* Специфично для .quote (если где-то еще используется) */
+.quote {
+  color: #b0b0b0; /* Можно оставить этот цвет для .quote */
+}
+
+/* Mobile адаптация */
+@media (max-width: 768px) {
+  .hero-accent,
+  .quote {
+    font-size: 1.2rem !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+    padding-top: 2.5rem !important;
+  }
+}
+/* Убираем лишние отступы и границы только для .hero-accent в hero секции */
+.hero .hero-accent {
+  margin-top: 3rem !important;
+  margin-bottom: 3.5rem !important;
+  padding-top: 0 !important; /* Убираем верхний отступ */
+  border-top: none !important; /* Убираем верхнюю линию */
+}
+
+.hero .hero-accent::before {
+  display: none !important; /* Убираем кавычку сверху */
+}
+
+/* Оставляем оформление цитаты только для .quote в других секциях */
+.quote {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #b0b0b0;
+  margin-top: 6rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  position: relative;
+  text-align: center;
+}
+
+.quote::before {
+  content: '"';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  color: rgba(212, 175, 55, 0.2);
+  font-family: serif;
+  line-height: 1;
+}
+/* ФИКС ДЛЯ ЦИТАТЫ В HERO */
+.hero-accent {
+  font-family: 'Libre Baskerville', serif !important;
+  font-style: italic !important;
+  font-size: 1.3rem !important;
+  color: #d0d0d0 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 2.5rem !important;
+  max-width: 700px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.01em !important;
+  text-align: center !important;
+  
+  /* Оформление цитаты */
+  padding-top: 3rem !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
+  position: relative !important;
+}
+
+.hero-accent::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 4rem !important;
+  color: rgba(212, 175, 55, 0.2) !important;
+  font-family: serif !important;
+  line-height: 1 !important;
+  display: block !important;
+}
+
+/* Убираем обертку <p> внутри .hero-accent */
+.hero-accent p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Для мобильных */
+@media (max-width: 768px) {
+  .hero-accent {
+    font-size: 1.2rem !important;
+    padding-top: 2.5rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .hero-accent::before {
+    font-size: 3rem !important;
+  }
+}
