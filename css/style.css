@@ -11,7 +11,6 @@
 
 html {
   scroll-behavior: smooth;
-  /* отступ для якорей под фикс‑шапкой, совпадает с mobile header */
   scroll-padding-top: 80px;
 }
 
@@ -104,12 +103,12 @@ p {
   backdrop-filter: blur(20px);
   z-index: 1000;
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-  padding: 1.2rem 0;
+  padding: 0.8rem 0;
   transition: all 0.3s ease;
 }
 
 .header.scrolled {
-  padding: 0.8rem 0;
+  padding: 0.5rem 0;
   background-color: rgba(10, 10, 10, 0.98);
 }
 
@@ -117,25 +116,6 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-/* Добавь в секцию HEADER (где другие стили для .header) */
-.header {
-  /* существующие стили */
-  padding: 0.8rem 0; /* Уменьшил с 1.2rem для компактности */
-}
-
-.header.scrolled {
-  padding: 0.5rem 0; /* Уменьшил с 0.8rem */
-}
-
-/* Либо, если нужно оставить текущий padding, но уменьшить высоту строк */
-.nav a {
-  padding: 0.3rem 0 !important; /* Уменьшил с 0.5rem */
-  line-height: 1.2 !important;
-}
-
-.nav-cta {
-  padding: 0.6rem 1.5rem !important; /* Уменьшил с 0.8rem 2rem */
 }
 
 .logo {
@@ -162,7 +142,8 @@ p {
   text-transform: uppercase;
   transition: all 0.3s ease;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
+  line-height: 1.2;
 }
 
 .nav a:hover {
@@ -187,7 +168,7 @@ p {
 .nav-cta {
   background: transparent;
   color: #d4af37 !important;
-  padding: 0.8rem 2rem !important;
+  padding: 0.6rem 1.5rem !important;
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 2px;
   font-weight: 400 !important;
@@ -225,7 +206,7 @@ p {
    ============================ */
 
 .hero {
-  padding-top: 160px; /* desktop: высота шапки + воздух */
+  padding-top: 180px;
   padding-bottom: 6rem;
   text-align: center;
   position: relative;
@@ -259,58 +240,21 @@ p {
   max-width: 18ch;
   margin-left: auto;
   margin-right: auto;
-  font-size: 3rem;
-  margin-bottom: 3rem;
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
 }
 
 .hero-lead {
-  max-width: 40ch;
+  max-width: 50ch;
   margin-left: auto;
   margin-right: auto;
-}
-
-.hero-accent {
-  font-size: 1.3rem;
-  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6;
   color: #d0d0d0;
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-}
-/* Добавь в секцию HERO */
-.hero {
-  padding-top: 200px !important; /* Увеличил с 160px */
-  min-height: 110vh !important; /* Увеличил с 100vh для большего пространства */
-}
-
-/* Для мобильных устройств */
-@media (max-width: 768px) {
-  .hero {
-    padding-top: 160px !important; /* Увеличил с 140px */
-  }
-  
-  html {
-    scroll-padding-top: 140px; /* Соответственно увеличил отступ для якорей */
-  }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-  .hero {
-    padding-top: 170px !important; /* Увеличил с 150px */
-  }
-  
-  html {
-    scroll-padding-top: 150px;
-  }
+  margin-bottom: 3rem;
 }
 
 /* HERO — список проблем */
-
 .problem-list {
   margin: 3rem 0;
 }
@@ -333,17 +277,17 @@ p {
 }
 
 .problem-content h3 {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #d4af37; /* золотой заголовок */
+  color: #d4af37;
   line-height: 1.3;
   letter-spacing: 0.5px;
 }
 
 .problem-content p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: #d0d0d0;
   margin: 0;
 }
@@ -353,9 +297,40 @@ p {
   transition: color 0.2s ease;
 }
 
+/* ЦИТАТА В HERO */
+.hero-accent {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #d0d0d0;
+  margin: 3rem auto 3.5rem auto;
+  max-width: 700px;
+  line-height: 1.6;
+  text-align: center;
+  
+  position: relative;
+  padding-top: 3.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.hero-accent::before {
+  content: '"';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.2);
+  font-family: 'Libre Baskerville', serif;
+  font-style: normal;
+  line-height: 1;
+  padding: 0 20px;
+  z-index: 2;
+}
+
 .hero-cta-wrapper {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .btn-primary {
@@ -398,7 +373,7 @@ p {
 }
 
 /* ============================
-   QUOTE
+   QUOTE (для других страниц)
    ============================ */
 
 .quote {
@@ -419,13 +394,15 @@ p {
 .quote::before {
   content: '"';
   position: absolute;
-  top: 0;
+  top: -25px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 4rem;
+  font-size: 5rem;
   color: rgba(212, 175, 55, 0.2);
-  font-family: serif;
+  font-family: 'Libre Baskerville', serif;
+  font-style: normal;
   line-height: 1;
+  padding: 0 20px;
 }
 
 /* ============================
@@ -486,7 +463,6 @@ p {
 }
 
 /* Experience blocks */
-
 .experience-blocks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -536,7 +512,6 @@ p {
 }
 
 /* About footer */
-
 .about-footer {
   margin-top: 3rem;
   padding-top: 3rem;
@@ -623,7 +598,6 @@ p {
 }
 
 /* Results list */
-
 .results-list li {
   margin-bottom: 3rem;
   padding-bottom: 3rem;
@@ -829,7 +803,6 @@ p {
 }
 
 /* Guarantee */
-
 .guarantee-box {
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
   border: 1px solid rgba(212, 175, 55, 0.2);
@@ -987,6 +960,15 @@ p {
     font-size: 2.4rem;
   }
 
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-lead {
+    font-size: 1.3rem;
+    max-width: 45ch;
+  }
+
   .experience-blocks {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -1008,9 +990,7 @@ p {
   }
 }
 
-/* <= 768px — КЛЮЧЕВОЙ MOBILE БЛОК
-   Высота шапки фиксирована, текст уходит строго под неё
-*/
+/* <= 768px */
 @media (max-width: 768px) {
   .container {
     padding: 0 20px;
@@ -1050,7 +1030,7 @@ p {
     padding: 0.5rem 1.2rem !important;
   }
 
-  /* Единый hero‑отступ: высота шапки + запас */
+  /* Hero на мобильных */
   .hero {
     padding-top: 140px;
     padding-bottom: 4rem;
@@ -1060,21 +1040,21 @@ p {
 
   .hero-title {
     font-size: 2.4rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-lead {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 35ch;
   }
 
   html {
-    scroll-padding-top: 120px; /* совпадает с фактической высотой header-блока */
+    scroll-padding-top: 120px;
   }
 
   .section {
     padding: 6rem 0;
-  }
-
-  .hero-accent {
-    font-size: 1.2rem;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
   }
 
   .problem-list {
@@ -1088,11 +1068,35 @@ p {
   }
 
   .problem-content h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .problem-content p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+  }
+
+  /* Цитата на мобильных */
+  .hero-accent {
+    font-size: 1.3rem;
+    margin: 2rem auto 2.5rem auto;
+    padding-top: 3rem;
+  }
+
+  .hero-accent::before {
+    font-size: 4rem;
+    top: -20px;
+    padding: 0 15px;
+  }
+
+  .quote {
+    font-size: 1.3rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+  }
+
+  .quote::before {
+    font-size: 4rem;
+    top: -20px;
   }
 
   .btn-primary {
@@ -1157,20 +1161,8 @@ p {
     font-size: 20px;
   }
 
-  /* Центрируем текст в hero */
+  /* Центрирование */
   .hero .container {
-    text-align: center;
-  }
-
-  .hero-lead {
-    max-width: 34ch;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .hero-accent {
-    max-width: 40ch;
-    margin: 0 auto;
     text-align: center;
   }
 
@@ -1206,13 +1198,23 @@ p {
 
   .hero-title {
     font-size: 2.2rem;
-    margin-bottom: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-lead {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-accent {
-    font-size: 1.1rem;
-    margin-top: 2.2rem;
-    margin-bottom: 2.2rem;
+    font-size: 1.2rem;
+    margin: 1.5rem auto 2rem auto;
+    padding-top: 2.5rem;
+  }
+
+  .hero-accent::before {
+    font-size: 3rem;
+    top: -15px;
   }
 
   .btn-primary {
@@ -1241,9 +1243,14 @@ p {
   }
 
   .quote {
-    font-size: 1.3rem;
-    margin-top: 4rem;
+    font-size: 1.2rem;
+    margin-top: 3rem;
     padding-top: 2rem;
+  }
+
+  .quote::before {
+    font-size: 3rem;
+    top: -15px;
   }
 
   .experience-block {
@@ -1263,86 +1270,55 @@ p {
   }
 }
 
-/* ДЕСКТОП: меню растягиваем на всю ширину второй строкой,
-   фразы в ссылках НЕ ломаются внутри */
+/* Десктопное меню */
 @media (min-width: 1024px) {
   .nav {
     display: flex;
-    flex-wrap: nowrap;   /* НЕ даём меню переноситься на новую строку */
+    flex-wrap: nowrap;
     gap: 1rem;
     justify-content: flex-end;
   }
 
   .nav a {
-    white-space: nowrap;   /* "Об авторе", "Для кого", "Как идёт работа" — одной строкой */
+    white-space: nowrap;
     font-size: 0.9rem;
   }
-  
-  /* Центрируем контент в hero на десктопе */
-  .hero .container {
-    text-align: center;
-  }
-
-  .hero-lead {
-    max-width: 34ch;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .hero-accent {
-    max-width: 40ch;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .problem-list {
-    margin: 3rem auto;
-    max-width: 700px;
-    text-align: left;
-  }
-
-  .problem-item {
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
-/* Превращаем hero-accent в цитату на первой странице */
-.hero-accent {
-  font-family: 'Libre Baskerville', serif !important;
-  font-style: italic !important;
-  font-size: 1.5rem !important;
-  color: #b0b0b0 !important;
-  margin-top: 6rem !important;
-  padding-top: 3rem !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
-  max-width: 700px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  line-height: 1.6 !important;
-  position: relative !important;
-  text-align: center !important;
-}
+/* УДАЛЯЕМ КАВЫЧКИ ВО ВСЕХ МЕСТАХ */
 
+/* Для .hero-accent (на первой странице) */
 .hero-accent::before {
-  content: '"' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  font-size: 4rem !important;
-  color: rgba(212, 175, 55, 0.2) !important;
-  font-family: serif !important;
-  line-height: 1 !important;
+  display: none !important; /* Убираем кавычку */
 }
 
-/* Обновляем существующий .quote для консистентности */
+/* Для .quote (на других страницах) */
+.quote::before {
+  display: none !important; /* Убираем кавычку */
+}
+
+/* Оставляем только линию - красивую и стильную */
+.hero-accent {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #d0d0d0;
+  margin: 3rem auto 3.5rem auto;
+  max-width: 700px;
+  line-height: 1.6;
+  text-align: center;
+  
+  position: relative;
+  padding-top: 2rem; /* Уменьшил отступ, так как кавычки убрали */
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
 .quote {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   font-size: 1.5rem;
   color: #b0b0b0;
   margin-top: 6rem;
-  padding-top: 3rem;
+  padding-top: 2rem; /* Уменьшил отступ, так как кавычки убрали */
   border-top: 1px solid rgba(212, 175, 55, 0.3);
   max-width: 700px;
   margin-left: auto;
@@ -1352,170 +1328,145 @@ p {
   text-align: center;
 }
 
-.quote::before {
-  content: '"';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 4rem;
-  color: rgba(212, 175, 55, 0.2);
-  font-family: serif;
-  line-height: 1;
-}
-
-/* Для мобильных устройств обновляем тоже */
+/* Мобильная версия */
 @media (max-width: 768px) {
   .hero-accent {
-    font-size: 1.3rem !important;
-    margin-top: 4rem !important;
-    padding-top: 2.5rem !important;
+    font-size: 1.3rem;
+    margin: 2rem auto 2.5rem auto;
+    padding-top: 1.5rem;
   }
   
   .quote {
     font-size: 1.3rem;
     margin-top: 4rem;
-    padding-top: 2.5rem;
+    padding-top: 1.5rem;
   }
 }
-/* Возвращаем оригинальные размеры, но с оформлением цитаты */
-.hero-accent,
-.quote {
-  font-family: 'Libre Baskerville', serif !important;
-  font-style: italic !important;
-  font-size: 1.3rem !important; /* Оригинальный размер из .hero-accent */
-  color: #d0d0d0 !important; /* Оригинальный цвет из .hero-accent */
-  margin-top: 3rem !important;
-  margin-bottom: 3.5rem !important;
-  max-width: 700px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  line-height: 1.8 !important;
-  letter-spacing: 0.01em !important;
-  padding-top: 3rem !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
-  position: relative !important;
-  text-align: center !important;
-}
 
-.hero-accent::before,
-.quote::before {
-  content: '"' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  font-size: 4rem !important;
-  color: rgba(212, 175, 55, 0.2) !important;
-  font-family: serif !important;
-  line-height: 1 !important;
-}
-
-/* Специфично для .quote (если где-то еще используется) */
-.quote {
-  color: #b0b0b0; /* Можно оставить этот цвет для .quote */
-}
-
-/* Mobile адаптация */
-@media (max-width: 768px) {
-  .hero-accent,
-  .quote {
-    font-size: 1.2rem !important;
-    margin-top: 2.5rem !important;
-    margin-bottom: 2.5rem !important;
-    padding-top: 2.5rem !important;
-  }
-}
-/* Убираем лишние отступы и границы только для .hero-accent в hero секции */
-.hero .hero-accent {
-  margin-top: 3rem !important;
-  margin-bottom: 3.5rem !important;
-  padding-top: 0 !important; /* Убираем верхний отступ */
-  border-top: none !important; /* Убираем верхнюю линию */
-}
-
-.hero .hero-accent::before {
-  display: none !important; /* Убираем кавычку сверху */
-}
-
-/* Оставляем оформление цитаты только для .quote в других секциях */
-.quote {
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-size: 1.5rem;
-  color: #b0b0b0;
-  margin-top: 6rem;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-  position: relative;
-  text-align: center;
-}
-
-.quote::before {
-  content: '"';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 4rem;
-  color: rgba(212, 175, 55, 0.2);
-  font-family: serif;
-  line-height: 1;
-}
-/* ФИКС ДЛЯ ЦИТАТЫ В HERO */
-.hero-accent {
-  font-family: 'Libre Baskerville', serif !important;
-  font-style: italic !important;
-  font-size: 1.3rem !important;
-  color: #d0d0d0 !important;
-  margin-top: 2rem !important;
-  margin-bottom: 2.5rem !important;
-  max-width: 700px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  line-height: 1.6 !important;
-  letter-spacing: 0.01em !important;
-  text-align: center !important;
-  
-  /* Оформление цитаты */
-  padding-top: 3rem !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
-  position: relative !important;
-}
-
-.hero-accent::before {
-  content: '"' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  font-size: 4rem !important;
-  color: rgba(212, 175, 55, 0.2) !important;
-  font-family: serif !important;
-  line-height: 1 !important;
-  display: block !important;
-}
-
-/* Убираем обертку <p> внутри .hero-accent */
-.hero-accent p {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Для мобильных */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .hero-accent {
-    font-size: 1.2rem !important;
-    padding-top: 2.5rem !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 2rem !important;
+    font-size: 1.2rem;
+    margin: 1.5rem auto 2rem auto;
+    padding-top: 1.2rem;
   }
   
-  .hero-accent::before {
-    font-size: 3rem !important;
+  .quote {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+  }
+}
+/* 1. Убираем .narrow для десктопа */
+@media (min-width: 992px) {
+  .container.narrow {
+    max-width: 1200px; /* или 1400px, смотря какой дизайн */
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  /* Герой-секция - особый случай */
+  .hero-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* 2. Три карточки в ряд */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .problem-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 3. Заголовок покрупнее на десктопе */
+  .hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* 4. Футер героя - акцент и кнопка рядом */
+  .hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .hero-accent {
+    font-size: 1.25rem;
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  /* 5. Шапка - тоже на всю ширину */
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+  }
+  
+  /* 6. Блок "Для кого" - 2 колонки */
+  .pain-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* 7. Кейсы - 3 в ряд */
+  .case-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  /* 8. Инструменты - 4 в ряд */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* 9. Опыт - остается 3 в ряд */
+  .experience-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* 10. Мобильная версия (оставляем как было) */
+@media (max-width: 991px) {
+  .container.narrow {
+    max-width: 600px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .problem-list {
+    /* старая структура */
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
   }
 }
