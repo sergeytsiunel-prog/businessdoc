@@ -118,6 +118,25 @@ p {
   justify-content: space-between;
   align-items: center;
 }
+/* Добавь в секцию HEADER (где другие стили для .header) */
+.header {
+  /* существующие стили */
+  padding: 0.8rem 0; /* Уменьшил с 1.2rem для компактности */
+}
+
+.header.scrolled {
+  padding: 0.5rem 0; /* Уменьшил с 0.8rem */
+}
+
+/* Либо, если нужно оставить текущий padding, но уменьшить высоту строк */
+.nav a {
+  padding: 0.3rem 0 !important; /* Уменьшил с 0.5rem */
+  line-height: 1.2 !important;
+}
+
+.nav-cta {
+  padding: 0.6rem 1.5rem !important; /* Уменьшил с 0.8rem 2rem */
+}
 
 .logo {
   font-family: 'Libre Baskerville', serif;
@@ -261,6 +280,33 @@ p {
   margin-right: auto;
   line-height: 1.8;
   letter-spacing: 0.01em;
+}
+/* Добавь в секцию HERO */
+.hero {
+  padding-top: 200px !important; /* Увеличил с 160px */
+  min-height: 110vh !important; /* Увеличил с 100vh для большего пространства */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 160px !important; /* Увеличил с 140px */
+  }
+  
+  html {
+    scroll-padding-top: 140px; /* Соответственно увеличил отступ для якорей */
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 170px !important; /* Увеличил с 150px */
+  }
+  
+  html {
+    scroll-padding-top: 150px;
+  }
 }
 
 /* HERO — список проблем */
