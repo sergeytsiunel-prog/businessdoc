@@ -1,7 +1,8 @@
-﻿/* ===== BUSINESS DOCTOR — Premium Dark Theme ===== */
-/* Стиль G-класс, Bentley, Private Banking */
+﻿/* ============================
+   BUSINESS DOCTOR — CORE THEME
+   ============================ */
 
-/* Base & Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Предотвращает скрытие под фиксированным хедером */
+  /* отступ для якорей под фикс‑шапкой, совпадает с mobile header */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -22,9 +24,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.01em;
+  overflow-x: hidden;
 }
 
-/* Containers */
+/* Layout */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -36,7 +39,7 @@ body {
   margin: 0 auto;
 }
 
-/* Premium Typography */
+/* Typography */
 h1, h2, h3, h4 {
   font-family: 'Libre Baskerville', serif;
   font-weight: 700;
@@ -47,7 +50,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 3.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -61,7 +64,7 @@ h2 {
   display: inline-block;
 }
 
-h2:after {
+h2::after {
   content: '';
   position: absolute;
   bottom: -15px;
@@ -88,7 +91,10 @@ p {
   font-weight: 600;
 }
 
-/* Premium Header - FIXED */
+/* ============================
+   HEADER
+   ============================ */
+
 .header {
   position: fixed;
   top: 0;
@@ -98,13 +104,12 @@ p {
   backdrop-filter: blur(20px);
   z-index: 1000;
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-  padding: 1.5rem 0;
+  padding: 1.2rem 0;
   transition: all 0.3s ease;
 }
 
-/* Сжатие при скролле (если в JS есть добавление класса .scrolled) */
 .header.scrolled {
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   background-color: rgba(10, 10, 10, 0.98);
 }
 
@@ -112,11 +117,6 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-/* Критично: отступ под фиксированную шапку */
-body {
-  padding-top: 88px; /* подгони под реальную высоту шапки */
 }
 
 .logo {
@@ -150,7 +150,7 @@ body {
   color: #ffffff;
 }
 
-.nav a:after {
+.nav a::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -161,7 +161,7 @@ body {
   transition: width 0.3s ease;
 }
 
-.nav a:hover:after {
+.nav a:hover::after {
   width: 100%;
 }
 
@@ -184,11 +184,14 @@ body {
   transform: translateY(-2px);
 }
 
-.nav-cta:after {
+.nav-cta::after {
   display: none !important;
 }
 
-/* Sections */
+/* ============================
+   SECTIONS
+   ============================ */
+
 .section {
   padding: 8rem 0;
   position: relative;
@@ -198,19 +201,23 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Hero - FIXED для фиксированного хедера */
+/* ============================
+   HERO
+   ============================ */
+
 .hero {
-  padding-top: 160px; /* Увеличенный отступ для фиксированного хедера */
+  padding-top: 160px; /* desktop: высота шапки + воздух */
+  padding-bottom: 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 100vh; /* Гарантирует, что hero займет весь экран */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.hero:before {
+.hero::before {
   content: '';
   position: absolute;
   top: 0;
@@ -221,48 +228,20 @@ body {
   z-index: -1;
 }
 
-.hero-sub {
-  font-size: 1.8rem;
-  color: #b0b0b0;
-  margin-bottom: 3rem;
-  font-weight: 300;
-  letter-spacing: 0.02em;
+.hero-eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 1.2rem;
 }
 
-/* Стиль для фразы "От сотни сценариев - к одному решению" */
-.hero-tagline {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 2.8rem; /* Увеличил размер как в основном h1 */
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 3rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-tagline:after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(90deg, #d4af37, #b8860b);
-}
 .hero-title {
   max-width: 18ch;
   margin-left: auto;
   margin-right: auto;
-}
-.hero-title {
-  font-size: 2.8rem; /* как у h2 */
+  font-size: 3rem;
+  margin-bottom: 3rem;
 }
 
 .hero-lead {
@@ -275,12 +254,62 @@ body {
   font-size: 1.3rem;
   font-weight: 400;
   color: #d0d0d0;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.8;
   letter-spacing: 0.01em;
+}
+
+/* HERO — список проблем */
+
+.problem-list {
+  margin: 3rem 0;
+}
+
+.problem-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.problem-item:last-child {
+  border-bottom: none;
+}
+
+/* Без стрелок, только текст */
+.problem-icon {
+  display: none;
+}
+
+.problem-content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #d4af37; /* золотой заголовок */
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+}
+
+.problem-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #d0d0d0;
+  margin: 0;
+}
+
+.problem-item:hover .problem-content h3 {
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.hero-cta-wrapper {
+  text-align: center;
+  margin-top: 3rem;
 }
 
 .btn-primary {
@@ -302,7 +331,7 @@ body {
   overflow: hidden;
 }
 
-.btn-primary:before {
+.btn-primary::before {
   content: '';
   position: absolute;
   top: 0;
@@ -313,7 +342,7 @@ body {
   transition: left 0.5s ease;
 }
 
-.btn-primary:hover:before {
+.btn-primary:hover::before {
   left: 100%;
 }
 
@@ -322,24 +351,10 @@ body {
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
-.social-proof {
-  font-size: 1rem;
-  color: #888;
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 300;
-}
+/* ============================
+   QUOTE
+   ============================ */
 
-.social-proof strong {
-  color: #d4af37;
-  font-weight: 600;
-}
-
-/* Quote */
 .quote {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
@@ -355,7 +370,7 @@ body {
   position: relative;
 }
 
-.quote:before {
+.quote::before {
   content: '"';
   position: absolute;
   top: 0;
@@ -367,7 +382,10 @@ body {
   line-height: 1;
 }
 
-/* Об авторе */
+/* ============================
+   ABOUT
+   ============================ */
+
 .about-header {
   margin-bottom: 4rem;
   text-align: center;
@@ -385,7 +403,7 @@ body {
 
 .about-photo {
   width: 300px;
-  height: 400px; /* Увеличена высота для полного фото */
+  height: 400px;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -393,7 +411,7 @@ body {
   position: relative;
 }
 
-.about-photo:before {
+.about-photo::before {
   content: '';
   position: absolute;
   top: 0;
@@ -407,19 +425,22 @@ body {
   pointer-events: none;
 }
 
-.about-photo img {
+.about-photo img,
+#author-photo {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Важно: покрывает весь блок без обрезки */
-  object-position: center top; /* Показывает верхнюю часть фото */
+  object-fit: cover;
+  object-position: center top;
   transition: transform 0.8s ease;
+  border-radius: 12px;
 }
 
 .about-photo:hover img {
   transform: scale(1.05);
 }
 
-/* Блоки опыта в строку */
+/* Experience blocks */
+
 .experience-blocks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -434,6 +455,7 @@ body {
   padding: 2.5rem;
   text-align: center;
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .experience-block:hover {
@@ -467,7 +489,8 @@ body {
   font-weight: 600;
 }
 
-/* Блок итога */
+/* About footer */
+
 .about-footer {
   margin-top: 3rem;
   padding-top: 3rem;
@@ -489,10 +512,19 @@ body {
   font-style: italic;
 }
 
-/* Pain List */
-.pain-list {
+/* ============================
+   PAIN / QUESTIONS / TOOLS LISTS
+   ============================ */
+
+.pain-timeline,
+.pain-list,
+.pain-list-minimal,
+.tools-list,
+.questions,
+.results-list {
   list-style: none;
   margin: 3rem 0;
+  padding-left: 0;
 }
 
 .pain-item {
@@ -522,18 +554,11 @@ body {
   color: #d4af37;
 }
 
-/* Lists */
-.tools-list, .questions {
-  list-style: none;
-  margin: 3rem 0;
-}
-
-.tools-list li, .questions li {
+.tools-list li,
+.questions li {
   margin-bottom: 1.8rem;
-  padding-left: 0;
   padding-bottom: 1.8rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
   line-height: 1.8;
   color: #c0c0c0;
 }
@@ -551,11 +576,7 @@ body {
   font-weight: 600;
 }
 
-/* Results List */
-.results-list {
-  list-style: none;
-  margin: 3rem 0;
-}
+/* Results list */
 
 .results-list li {
   margin-bottom: 3rem;
@@ -592,7 +613,106 @@ body {
   text-transform: uppercase;
 }
 
-/* Process Timeline */
+/* ============================
+   CASES
+   ============================ */
+
+.case-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  margin-top: 32px;
+  padding-left: 12px;
+}
+
+.case-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.case-item {
+  position: relative;
+  padding-left: 24px;
+}
+
+.case-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.case-content {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.case-content h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.case-content p {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.case-result {
+  font-weight: 600;
+  margin-top: 12px;
+  color: #ffffff;
+}
+
+/* ============================
+   TOOLS GRID
+   ============================ */
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.tool-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.tool-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.tool-item p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================
+   PROCESS
+   ============================ */
+
 .process-timeline {
   list-style: none;
   counter-reset: step-counter;
@@ -601,18 +721,20 @@ body {
   padding-left: 40px;
 }
 
-.process-timeline:before {
+.process-timeline::before {
   content: '';
   position: absolute;
   left: 60px;
   top: 0;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(to bottom, 
-    transparent, 
-    rgba(212, 175, 55, 0.3), 
-    rgba(212, 175, 55, 0.3), 
-    transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(212, 175, 55, 0.3),
+    rgba(212, 175, 55, 0.3),
+    transparent
+  );
 }
 
 .process-timeline li {
@@ -623,7 +745,7 @@ body {
   min-height: 100px;
 }
 
-.process-timeline li:before {
+.process-timeline li::before {
   content: counter(step-counter, decimal-leading-zero);
   position: absolute;
   left: 0;
@@ -660,7 +782,8 @@ body {
   font-weight: 300;
 }
 
-/* Guarantee Box */
+/* Guarantee */
+
 .guarantee-box {
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
   border: 1px solid rgba(212, 175, 55, 0.2);
@@ -671,7 +794,7 @@ body {
   overflow: hidden;
 }
 
-.guarantee-box:before {
+.guarantee-box::before {
   content: '';
   position: absolute;
   top: 0;
@@ -696,77 +819,16 @@ body {
   font-weight: 300;
 }
 
-/* Contact Form */
-.contact-form {
-  margin: 4rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+/* ============================
+   CONTACT BLOCK
+   ============================ */
 
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  padding: 1.4rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  color: #ffffff;
-  transition: all 0.3s ease;
-  font-weight: 300;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: rgba(212, 175, 55, 0.5);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder,
-.contact-form select {
-  color: #888;
-}
-
-.contact-form select option {
-  background: #1a1a1a;
-  color: #ffffff;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  font-size: 0.95rem;
-  color: #888;
-  cursor: pointer;
-  line-height: 1.6;
-  font-weight: 300;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 4px;
-}
-
-.checkbox-label input {
-  margin-top: 0.3rem;
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  accent-color: #d4af37;
-}
-
-/* Контактный блок без формы */
 .contact-direct {
   margin-top: 32px;
   padding: 32px;
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
-  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
 }
 
@@ -805,7 +867,10 @@ body {
   margin-right: auto;
 }
 
-/* Footer */
+/* ============================
+   FOOTER
+   ============================ */
+
 .footer {
   background: #050505;
   color: #666;
@@ -817,18 +882,10 @@ body {
   letter-spacing: 0.02em;
 }
 
-.footer-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+/* ============================
+   ANIMATIONS
+   ============================ */
 
-.footer .logo {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-/* Animations */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -845,1159 +902,252 @@ body {
   animation: fadeUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-.fade-up:nth-child(1) { animation-delay: 0.1s; }
-.fade-up:nth-child(2) { animation-delay: 0.2s; }
-.fade-up:nth-child(3) { animation-delay: 0.3s; }
-.fade-up:nth-child(4) { animation-delay: 0.4s; }
-.fade-up:nth-child(5) { animation-delay: 0.5s; }
+/* ============================
+   RESPONSIVE
+   ============================ */
 
-/* ===== Дополнительные компоненты ===== */
-
-/* Список "Для кого" */
-.pain-list-minimal {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 24px;
-}
-
-.pain-item-minimal {
-  position: relative;
-  padding-left: 24px;
-  margin-bottom: 18px;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.pain-item-minimal::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1;
-}
-
-.pain-item-minimal strong {
-  font-weight: 600;
-}
-
-/* Блок кейсов */
-.case-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  position: relative;
-  margin-top: 32px;
-  padding-left: 12px;
-}
-
-.case-timeline::before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(255,255,255,0.2);
-}
-
-.case-item {
-  position: relative;
-  padding-left: 24px;
-}
-
-.case-item::before {
-  content: '';
-  position: absolute;
-  left: -4px;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-.case-content {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.case-content h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.case-content p {
-  margin: 6px 0;
-  line-height: 1.5;
-}
-
-.case-result {
-  font-weight: 600;
-  margin-top: 12px;
-  color: #ffffff;
-}
-
-/* Блок инструментов */
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.tool-item {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.tool-item h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.tool-item p {
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Фото автора - правильные настройки */
-#author-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top; /* Показывает верхнюю часть фото */
-  border-radius: 12px;
-}
-
-/* ===== Responsive Design ===== */
-
-/* Большие экраны */
+/* <= 1200px */
 @media (max-width: 1200px) {
   .container {
     padding: 0 30px;
   }
 }
 
-/* Планшеты */
+/* <= 992px */
 @media (max-width: 992px) {
   h1 {
     font-size: 3.2rem;
   }
-  
+
   h2 {
     font-size: 2.4rem;
   }
-  
-  .hero-tagline {
-    font-size: 2.4rem; /* Сохраняем крупный размер */
-  }
-  
+
   .experience-blocks {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
-  
+
   .about-photo {
     width: 280px;
     height: 350px;
   }
-  
+
   .process-timeline li {
     padding-left: 90px;
   }
-  
-  .process-timeline li:before {
+
+  .process-timeline li::before {
     width: 70px;
     height: 70px;
     font-size: 1.6rem;
   }
 }
 
-/* Мобильные устройства - ИСПРАВЛЕНО */
+/* <= 768px — КЛЮЧЕВОЙ MOBILE БЛОК
+   Высота шапки фиксирована, текст уходит строго под неё
+*/
 @media (max-width: 768px) {
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .header {
+    padding: 0.6rem 0;
+  }
+
+  .header.scrolled {
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
   .header-inner {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.8rem;
   }
-  
+
   .nav {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    width: 100%;
+    gap: 1rem;
   }
-  
+
+  .nav a {
+    font-size: 0.8rem;
+    padding: 0.3rem 0;
+  }
+
   .nav-cta {
     margin-left: 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.2rem !important;
   }
-  
-  h1 {
-    font-size: 2.8rem; /* Увеличил с 2.2rem */
-    line-height: 1.2;
+
+  /* Единый hero‑отступ: высота шапки + запас */
+  .hero {
+    padding-top: 110px;
+    padding-bottom: 4rem;
+    min-height: auto;
+    display: block;
   }
-  
-  h2 {
-    font-size: 2.2rem; /* Увеличил с 2rem */
+
+  .hero-title {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
   }
-  
-  .hero-tagline {
-    font-size: 2.2rem; /* Увеличил с 1.8rem */
-    line-height: 1.2;
-    margin-bottom: 2rem;
+
+  html {
+    scroll-padding-top: 90px; /* совпадает с фактической высотой header-блока */
   }
-  
+
   .section {
     padding: 6rem 0;
   }
-  
-  /* Hero адаптация для мобильных - ИСПРАВЛЕНО */
-  .hero {
-    padding-top: 140px; /* Правильный отступ для фиксированного хедера */
-    min-height: auto; /* Убираем 100vh чтобы контент не обрезался */
-    display: block; /* Убираем flex чтобы текст не сжимался */
-    padding-bottom: 4rem; /* Добавляем отступ снизу */
-  }
-  
-  .hero-sub,
+
   .hero-accent {
-    font-size: 1.3rem; /* Увеличил с 1.1rem */
-    line-height: 1.6;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
     margin-bottom: 2.5rem;
   }
-  
+
+  .problem-list {
+    margin: 2.5rem 0;
+  }
+
+  .problem-item {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.3rem 0;
+  }
+
+  .problem-content h3 {
+    font-size: 1rem;
+  }
+
+  .problem-content p {
+    font-size: 0.95rem;
+  }
+
   .btn-primary {
-    padding: 1.1rem 2.5rem; /* Немного увеличил */
-    font-size: 1.1rem;
+    padding: 1.1rem 2.5rem;
+    font-size: 1.05rem;
     margin-bottom: 3rem;
   }
-  
-  .process-timeline:before {
+
+  .experience-blocks {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .experience-block {
+    padding: 2rem;
+  }
+
+  .exp-icon {
+    font-size: 2.5rem;
+  }
+
+  .about-photo {
+    width: 100%;
+    max-width: 300px;
+    height: 350px;
+  }
+
+  .about-photo img {
+    object-position: center 20%;
+  }
+
+  .process-timeline::before {
     left: 50px;
   }
-  
+
   .process-timeline li {
     padding-left: 80px;
     margin-bottom: 3rem;
   }
-  
-  .process-timeline li:before {
+
+  .process-timeline li::before {
     width: 60px;
     height: 60px;
     font-size: 1.4rem;
   }
-  
+
   .guarantee-box {
     padding: 2rem;
   }
-  
+
   .pain-item {
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem;
   }
-  
-  .pain-item span {
-    font-size: 2rem;
-  }
-  
-  .container {
-    padding: 0 20px;
-  }
-  
-  .experience-blocks {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  /* Фото автора на мобильных - ИСПРАВЛЕНО */
-  .about-photo {
-    width: 100%;
-    max-width: 300px;
-    height: 350px; /* Увеличил высоту чтобы фото не обрезалось */
-  }
-  
-  .about-photo img {
-    object-fit: cover; /* Сохраняем cover для заполнения */
-    object-position: center 20%; /* Настраиваем положение - показываем верхнюю часть */
-  }
-  
-  .experience-block {
-    padding: 2rem;
-  }
-  
-  .exp-icon {
-    font-size: 2.5rem;
-  }
 }
 
-/* Маленькие мобильные */
+/* <= 480px */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
   }
-  
+
   h1 {
-    font-size: 2.4rem; /* Увеличил с 2.2rem */
+    font-size: 2.4rem;
   }
-  
+
   h2 {
-    font-size: 2rem; /* Увеличил с 1.8rem */
+    font-size: 2rem;
   }
-  
-  .hero-tagline {
-    font-size: 1.8rem; /* Увеличил с 1.5rem */
-    line-height: 1.3;
+
+  .hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 2.2rem;
   }
-  
-  .btn-primary {
-    padding: 1rem 2.5rem;
+
+  .hero-accent {
     font-size: 1.1rem;
-    width: auto; /* Убираем 100% ширину */
-    display: inline-block; /* Чтобы кнопка не растягивалась */
+    margin-top: 2.2rem;
+    margin-bottom: 2.2rem;
   }
-  
+
+  .btn-primary {
+    padding: 1rem 2.4rem;
+    font-size: 1.05rem;
+  }
+
   .about-photo {
-    width: 100%;
     max-width: 280px;
-    height: 320px; /* Увеличил высоту */
+    height: 320px;
   }
-  
-  .process-timeline:before {
+
+  .process-timeline::before {
     left: 40px;
   }
-  
+
   .process-timeline li {
     padding-left: 70px;
     min-height: 80px;
   }
-  
-  .process-timeline li:before {
+
+  .process-timeline li::before {
     width: 50px;
     height: 50px;
     font-size: 1.2rem;
   }
-  
-  .contact-form input,
-  .contact-form select,
-  .contact-form textarea {
-    padding: 1.2rem;
-  }
-  
+
   .quote {
     font-size: 1.3rem;
     margin-top: 4rem;
     padding-top: 2rem;
   }
-  
+
   .experience-block {
     padding: 1.5rem;
   }
-  
+
   .result-statement {
     padding: 1.5rem;
   }
-  
-  /* Еще больше увеличиваем шрифты на очень маленьких экранах */
-  @media (max-width: 360px) {
-    h1 {
-      font-size: 2.2rem;
-    }
-    
-    .hero-tagline {
-      font-size: 1.6rem;
-    }
-    
-    .hero-sub,
-    .hero-accent {
-      font-size: 1.2rem;
-    }
-  }
-/* ===== ФИКС ДЛЯ МОБИЛЬНЫХ ===== */
-
-@media (max-width: 768px) {
-  /* Уменьшаем высоту шапки на мобильных */
-  .header {
-    padding: 0.8rem 0 !important;
-  }
-  
-  .header.scrolled {
-    padding: 0.6rem 0 !important;
-  }
-  
-  /* Уменьшаем логотип */
-  .logo {
-    font-size: 1.2rem !important;
-  }
-  
-  /* Компактная навигация */
-  .nav {
-    gap: 1rem !important;
-  }
-  
-  .nav a {
-    font-size: 0.8rem !important;
-    padding: 0.3rem 0 !important;
-  }
-  
-  .nav-cta {
-    padding: 0.5rem 1rem !important;
-    margin-left: 0 !important;
-  }
-  
-  /* Уменьшаем высоту шапки для скролла */
-  html {
-    scroll-padding-top: 70px !important;
-  }
-  
-  /* Hero с меньшим отступом */
-  .hero {
-    padding-top: 100px !important;
-    min-height: auto !important;
-  }
-  
-  /* Увеличиваем видимость текста */
-  .hero .container {
-    padding-top: 10px !important;
-  }
-/* ===== СРОЧНЫЙ ФИКС ДЛЯ МОБИЛЬНЫХ ===== */
-
-@media (max-width: 768px) {
-  /* СРОЧНО: Уменьшаем шапку еще больше */
-  .header {
-    padding: 0.5rem 0 !important;
-    min-height: 60px !important;
-  }
-  
-  .header-inner {
-    min-height: 60px !important;
-  }
-  
-  .header.scrolled {
-    padding: 0.4rem 0 !important;
-  }
-  
-  /* Фиксируем высоту для предсказуемого поведения */
-  .header:not(.scrolled) {
-    height: 60px !important;
-  }
-  
-  .header.scrolled {
-    height: 50px !important;
-  }
-  
-  /* Герой - срочный фикс */
-  .hero {
-    padding-top: 80px !important; /* Резко уменьшаем отступ */
-    margin-top: 0 !important;
-  }
-  
-  /* Убираем min-height чтобы контент не растягивался */
-  .hero {
-    min-height: auto !important;
-    height: auto !important;
-  }
-  
-  /* Принудительно показываем верх hero */
-  .hero .container {
-    padding-top: 20px !important;
-    padding-bottom: 40px !important;
-  }
-  
-  /* Уменьшаем верхние отступы внутри hero */
-  .hero h1,
-  .hero .hero-tagline,
-  .hero .hero-sub {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-  
-  /* Исправляем симметрию в шапке */
-  .header-inner {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-  }
-  
-  .logo {
-    font-size: 1rem !important;
-    margin: 0 !important;
-    line-height: 1 !important;
-  }
-  
-  /* Компактная навигация с выравниванием */
-  .nav {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.8rem !important;
-    flex-wrap: wrap !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  .nav a {
-    font-size: 0.7rem !important;
-    padding: 0.2rem 0.4rem !important;
-    margin: 0 !important;
-  }
-  
-  .nav-cta {
-    padding: 0.4rem 0.8rem !important;
-    font-size: 0.7rem !important;
-    margin: 0 !important;
-  }
-  
-  /* Убираем все лишние отступы */
-  * {
-    margin-top: 0 !important;
-  }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-  .hero {
-    padding-top: 70px !important;
-  }
-  
-  .header {
-    padding: 0.4rem 0 !important;
-  }
-  
-  /* Еще компактнее навигация */
-  .nav {
-    gap: 0.5rem !important;
-  }
-  
-  .nav a {
-    font-size: 0.65rem !important;
-  }
-}
-
-/* Критический фикс - принудительное отображение hero */
-body {
-  overflow-x: hidden !important;
-}
-
-.hero {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-/* Если все еще прячется - используем это */
-@media (max-width: 768px) {
-  .hero::before {
-    content: '' !important;
-    display: block !important;
-    height: 20px !important;
-    margin-top: -20px !important;
-  }
-/* ===============================
-   MOBILE HERO — G-CLASS STYLE
-   =============================== */
-@media (max-width: 768px) {
-
-  /* Шапка — облегчённая */
-  .header {
-    padding: 12px 0;
-  }
-
-  .logo {
-    font-size: 14px;
-    letter-spacing: 0.12em;
-  }
-
-  /* Hero секция */
-  .hero {
-    padding-top: 96px; /* фиксированная шапка + воздух */
-    padding-bottom: 48px;
-    min-height: auto;
-  }
-
-  .hero-mobile {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  /* Верхний маркер */
-  .hero-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.6;
-  }
-
-  /* Заголовок */
-  .hero-title {
-    font-size: 30px;
-    line-height: 1.25;
-    font-weight: 600;
-    margin: 0;
-  }
-
-  /* Подзаголовок */
-.hero-lead {
-  font-size: 17px;
-  line-height: 1.45;
-  opacity: 0.85;
-  margin: 0;
-}
-
-/* Кнопка */
-.hero-cta {
-  margin-top: 16px;
-  font-size: 16px;
-  padding: 14px 26px;
-  align-self: center;      /* центр по оси X внутри flex-колонки */
-}
-
-/* ===============================
-   MOBILE HEADER — G-CLASS
-   =============================== */
-@media (max-width: 768px) {
-
-  .mobile-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(6px);
-    z-index: 1000;
-  }
-
-  .mobile-header .nav {
-    display: none;
-  }
-
-  .mobile-header .header-inner {
-    justify-content: center;
-    padding: 10px 0;
-  }
-
-  .mobile-header .logo {
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    font-weight: 500;
-    opacity: 0.85;
-  }
-  .nowrap {
-  white-space: nowrap;
-}
-/* Удаляем старые стили .tools-grid */
-/* .tools-grid { ... } */
-
-/* Новые стили для проблемного списка */
-.problem-list {
-    margin: 2.5rem 0;
-}
-
-.problem-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border-color, #e5e5e5);
-}
-
-.problem-item:last-child {
-    border-bottom: none;
-}
-
-.problem-icon {
-    font-size: 1.5rem;
-    color: var(--accent-color, #0070f3);
-    margin-top: 0.25rem;
-    flex-shrink: 0;
-}
-
-.problem-content h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--text-color, #111);
-}
-
-.problem-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--text-secondary, #444);
-    margin: 0;
-}
-
-.hero-cta-wrapper {
-    text-align: center;
-    margin-top: 2.5rem;
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .problem-item {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 1.5rem 0;
-    }
-    
-    .problem-icon {
-        margin-top: 0;
-    }
-    
-    .problem-content h3 {
-        font-size: 1.05rem;
-    }
-}
-/* Стили для hero-секции с проблемами */
-.problem-list {
-    margin: 2.5rem 0;
-}
-
-.problem-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border-color, #e5e5e5);
-}
-
-.problem-item:last-child {
-    border-bottom: none;
-}
-
-.problem-icon {
-    font-size: 1.2rem;
-    color: var(--accent-color, #0070f3);
-    margin-top: 0.1rem;
-    flex-shrink: 0;
-    font-weight: 600;
-}
-
-.problem-content h3 {
-    font-size: 0.95rem; /* Меньше, как у hero-eyebrow */
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--text-color, #111);
-    text-transform: uppercase; /* Опционально, чтобы было похоже на BUSINESS DOCTOR */
-    letter-spacing: 0.5px;
-}
-
-.problem-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--text-secondary, #444);
-    margin: 0;
-}
-
-.hero-cta-wrapper {
-    text-align: center;
-    margin-top: 2.5rem;
-}
-
-/* FIX: Добавляем отступ сверху для hero-секции, чтобы не перекрывалось шапкой */
-.hero.section {
-    padding-top: 6rem; /* Добавляем отступ сверху */
-}
-
-/* Уменьшаем отступ на мобильных */
-@media (max-width: 768px) {
-    .hero.section {
-        padding-top: 5rem; /* Меньше на мобильных */
-    }
-    
-    .problem-item {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem 0;
-    }
-    
-    .problem-icon {
-        margin-top: 0;
-        font-size: 1rem;
-    }
-    
-    .problem-content h3 {
-        font-size: 0.9rem;
-        letter-spacing: 0.3px;
-    }
-    
-    .problem-content p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .hero.section {
-        padding-top: 4.5rem;
-    }
-    
-    .problem-content h3 {
-        font-size: 0.85rem;
-    }
-    /* ===== ИСПРАВЛЕНИЕ ПРОБЛЕМНЫХ БЛОКОВ В HERO ===== */
-
-/* Обновляем стили для проблемного списка */
-.problem-list {
-    margin: 2.5rem 0;
-}
-
-.problem-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Светлая линия на темном фоне */
-}
-
-.problem-item:last-child {
-    border-bottom: none;
-}
-
-.problem-icon {
-    font-size: 1.3rem;
-    color: #d4af37; /* Золотой как в дизайне */
-    margin-top: 0.1rem;
-    flex-shrink: 0;
-    font-weight: 600;
-}
-
-/* ВАЖНО: Делаем текст БЕЛЫМ на черном фоне */
-.problem-content h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #ffffff !important; /* БЕЛЫЙ как заголовок */
-    line-height: 1.3;
-    letter-spacing: 0.3px;
-}
-
-.problem-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #d0d0d0 !important; /* Светло-серый как основной текст */
-    margin: 0;
-}
-
-.hero-cta-wrapper {
-    text-align: center;
-    margin-top: 2.5rem;
-}
-
-/* Исправляем отступы для фиксированной шапки */
-.hero.section {
-    padding-top: 140px; /* Уже было правильно */
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 768px) {
-    .hero.section {
-        padding-top: 100px; /* Меньше на мобильных */
-    }
-    
-    .problem-item {
-        flex-direction: row; /* Оставляем в строке */
-        gap: 0.8rem;
-        padding: 1.2rem 0;
-    }
-    
-    .problem-content h3 {
-        font-size: 1rem; /* Читаемый размер на мобильных */
-        color: #ffffff !important;
-        font-weight: 600;
-    }
-    
-    .problem-content p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-        color: #d0d0d0 !important;
-    }
-    
-    .problem-icon {
-        font-size: 1.1rem;
-        color: #d4af37;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .hero.section {
-        padding-top: 90px;
-    }
-    
-    .problem-content h3 {
-        font-size: 0.95rem;
-    }
-    
-    .problem-item {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .problem-icon {
-        font-size: 1rem;
-    }
-}
-
-/* Добавляем эффект при наведении */
-.problem-item:hover .problem-icon {
-    transform: translateX(3px);
-    transition: transform 0.2s ease;
-}
-
-.problem-item:hover h3 {
-    color: #d4af37 !important; /* Подсвечиваем золотым при наведении */
-    transition: color 0.2s ease;
-
-}
-/* ===== ИСПРАВЛЕНИЕ ПРОБЛЕМНЫХ БЛОКОВ В HERO ===== */
-
-.problem-list {
-    margin: 2.5rem 0;
-}
-
-.problem-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.problem-item:last-child {
-    border-bottom: none;
-}
-
-/* УБИРАЕМ СТРЕЛКИ */
-.problem-icon {
-    display: none; /* Скрываем стрелки */
-}
-
-/* Чистый текст без стрелок */
-.problem-content h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #ffffff !important;
-    line-height: 1.3;
-    position: relative;
-    padding-left: 0; /* Убираем отступ для стрелки */
-}
-
-/* Вместо стрелки - просто жирное начало */
-.problem-content h3::before {
-    content: '—'; /* Тире вместо стрелки */
-    color: #d4af37;
-    margin-right: 0.5rem;
-    font-weight: 700;
-}
-
-.problem-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #d0d0d0 !important;
-    margin: 0;
-    padding-left: 0; /* Убираем отступ для стрелки */
-}
-
-.hero-cta-wrapper {
-    text-align: center;
-    margin-top: 2.5rem;
-}
-
-.hero.section {
-    padding-top: 140px;
-}
-
-/* Мобильная версия */
-@media (max-width: 768px) {
-    .hero.section {
-        padding-top: 100px;
-    }
-    
-    .problem-item {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1.2rem 0;
-    }
-    
-    .problem-content h3 {
-        font-size: 1rem;
-        color: #ffffff !important;
-        font-weight: 600;
-        padding-left: 0;
-    }
-    
-    /* На мобильных можно сделать более компактный вариант тире */
-    .problem-content h3::before {
-        content: '•'; /* Точка на мобильных */
-        color: #d4af37;
-        margin-right: 0.5rem;
-        font-size: 1.2rem;
-    }
-    
-    .problem-content p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-        color: #d0d0d0 !important;
-        padding-left: 1rem; /* Небольшой отступ для читаемости */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero.section {
-        padding-top: 90px;
-    }
-    
-    .problem-content h3 {
-        font-size: 0.95rem;
-    }
-    
-    /* Еще более компактно */
-    .problem-content h3::before {
-        content: '›'; /* Маленькая стрелка */
-        margin-right: 0.3rem;
-    }
-    /* Делаем заголовки проблем золотыми как в шапке */
-.problem-content h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #d4af37 !important; /* ЗОЛОТОЙ как BUSINESS DOCTOR */
-    line-height: 1.3;
-    position: relative;
-    letter-spacing: 0.5px;
-}
-
-/* Убираем псевдоэлемент с тире/точкой */
-.problem-content h3::before {
-    display: none;
-}
-
-/* На мобильных тоже золотой */
-@media (max-width: 768px) {
-    .problem-content h3 {
-        font-size: 1rem;
-        color: #d4af37 !important; /* Тот же золотой на мобильных */
-        font-weight: 600;
-    }
-    
-    .problem-content p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-        color: #d0d0d0 !important;
-        padding-left: 0; /* Убираем отступ */
-    }
-    
-    .problem-item {
-        padding: 1rem 0; /* Чуть компактнее */
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .problem-content h3 {
-        font-size: 0.95rem;
-    }
-    /* ===== УВЕЛИЧИВАЕМ ОТСТУПЫ В HERO ===== */
-
-/* Увеличиваем отступ после заголовка */
-.hero-title {
-    font-size: 3.8rem;
-    margin-bottom: 4rem !important; /* Было 2rem, увеличиваем вдвое */
-}
-
-/* Увеличиваем отступ после списка проблем */
-.problem-list {
-    margin: 3.5rem 0 !important; /* Было 2.5rem */
-}
-
-/* Увеличиваем отступы между проблемными блоками */
-.problem-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.75rem 0 !important; /* Было 1.25rem */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Увеличиваем отступ после списка проблем до акцентного текста */
-.hero-accent {
-    font-size: 1.3rem;
-    margin-top: 4rem !important; /* Добавляем отступ сверху */
-    margin-bottom: 4rem !important;
-}
-
-/* Увеличиваем отступ до кнопки */
-.hero-cta-wrapper {
-    text-align: center;
-    margin-top: 3.5rem !important; /* Было 2.5rem */
-}
-
-/* Мобильная версия с большими отступами */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.8rem;
-        margin-bottom: 3rem !important; /* Больше на мобильных */
-    }
-    
-    .problem-list {
-        margin: 2.5rem 0 !important;
-    }
-    
-    .problem-item {
-        padding: 1.5rem 0 !important;
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-    
-    .problem-content h3 {
-        font-size: 1rem;
-        color: #d4af37 !important;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-accent {
-        margin-top: 3rem !important;
-        margin-bottom: 3rem !important;
-        font-size: 1.2rem;
-        line-height: 1.6;
-    }
-    
-    .hero-cta-wrapper {
-        margin-top: 3rem !important;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.4rem;
-        margin-bottom: 2.5rem !important;
-    }
-    
-    .problem-list {
-        margin: 2rem 0 !important;
-    }
-    
-    .problem-item {
-        padding: 1.25rem 0 !important;
-    }
-    
-    .hero-accent {
-        margin-top: 2.5rem !important;
-        margin-bottom: 2.5rem !important;
-        font-size: 1.1rem;
-    }
 }
