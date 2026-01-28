@@ -883,6 +883,24 @@ p {
 }
 
 /* ============================
+   DARK SECTION
+   ============================ */
+
+.dark {
+  background: rgba(5, 5, 5, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ============================
+   TEXT CENTER
+   ============================ */
+
+.text-center {
+  text-align: center;
+}
+
+/* ============================
    ANIMATIONS
    ============================ */
 
@@ -948,7 +966,6 @@ p {
    Высота шапки фиксирована, текст уходит строго под неё
 */
 @media (max-width: 768px) {
-
   .container {
     padding: 0 20px;
   }
@@ -989,7 +1006,7 @@ p {
 
   /* Единый hero‑отступ: высота шапки + запас */
   .hero {
-    padding-top: 110px;
+    padding-top: 140px;
     padding-bottom: 4rem;
     min-height: auto;
     display: block;
@@ -1001,7 +1018,7 @@ p {
   }
 
   html {
-    scroll-padding-top: 90px; /* совпадает с фактической высотой header-блока */
+    scroll-padding-top: 120px; /* совпадает с фактической высотой header-блока */
   }
 
   .section {
@@ -1085,6 +1102,42 @@ p {
     gap: 1rem;
     padding: 1.5rem;
   }
+
+  .contact-direct {
+    padding: 24px;
+  }
+
+  .contact-link {
+    font-size: 20px;
+  }
+
+  /* Центрируем текст в hero */
+  .hero .container {
+    text-align: center;
+  }
+
+  .hero-lead {
+    max-width: 34ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-accent {
+    max-width: 40ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .problem-list {
+    margin: 3rem auto;
+    max-width: 700px;
+    text-align: left;
+  }
+
+  .problem-item {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* <= 480px */
@@ -1099,6 +1152,10 @@ p {
 
   h2 {
     font-size: 2rem;
+  }
+
+  .hero {
+    padding-top: 150px;
   }
 
   .hero-title {
@@ -1149,5 +1206,57 @@ p {
 
   .result-statement {
     padding: 1.5rem;
+  }
+
+  .contact-link {
+    font-size: 18px;
+  }
+
+  html {
+    scroll-padding-top: 130px;
+  }
+}
+
+/* ДЕСКТОП: меню растягиваем на всю ширину второй строкой,
+   фразы в ссылках НЕ ломаются внутри */
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+    flex-wrap: nowrap;   /* НЕ даём меню переноситься на новую строку */
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+
+  .nav a {
+    white-space: nowrap;   /* "Об авторе", "Для кого", "Как идёт работа" — одной строкой */
+    font-size: 0.9rem;
+  }
+  
+  /* Центрируем контент в hero на десктопе */
+  .hero .container {
+    text-align: center;
+  }
+
+  .hero-lead {
+    max-width: 34ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-accent {
+    max-width: 40ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .problem-list {
+    margin: 3rem auto;
+    max-width: 700px;
+    text-align: left;
+  }
+
+  .problem-item {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
