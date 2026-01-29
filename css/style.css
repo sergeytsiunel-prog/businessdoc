@@ -2383,3 +2383,30 @@ p {
     padding-top: 0 !important;
   }
 }
+/* ===== ФИНАЛЬНЫЙ МОБИЛЬНЫЙ ФИКС ШАПКИ ===== */
+@media (max-width: 768px) {
+  /* Делаем шапку фиксированной */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: #0a0a0a !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+  }
+  
+  /* ОТКЛЮЧАЕМ все остальные отступы и паддинги */
+  body,
+  html,
+  .hero,
+  .hero-container,
+  .section,
+  .header + *,
+  .header ~ * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Только JS будет управлять отступами */
+}
