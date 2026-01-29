@@ -1237,3 +1237,35 @@ strong {
     padding: 5px 10px !important;
   }
 }
+/* === АТОМАРНЫЙ ФИКС - НА ВСЯКИЙ СЛУЧАЙ === */
+@media (max-width: 768px) {
+  /* Шаг 1: Фиксируем шапку */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: auto !important;
+    min-height: 12vh !important; /* 12% высоты экрана */
+    background: #0a0a0a !important;
+    z-index: 1000 !important;
+  }
+  
+  /* Шаг 2: Контент под шапкой */
+  body {
+    padding-top: 12vh !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Шаг 3: Hero без верхних отступов */
+  .hero {
+    padding-top: 5vh !important;
+    min-height: auto !important;
+  }
+  
+  /* Шаг 4: Заголовок прижимаем */
+  .hero-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
