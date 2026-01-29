@@ -1531,3 +1531,12 @@ p {
 @media (min-width: 769px) {
   /* Всё остаётся как было */
 }
+.case-problem, .case-solution, .case-result {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(212, 175, 55, 0.3);
+}
+
+.case-problem { border-left-color: #ff6b6b; }
+.case-solution { border-left-color: #4ecdc4; }
+.case-result { border-left-color: #1dd1a1; }
