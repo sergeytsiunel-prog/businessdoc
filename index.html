@@ -6,14 +6,11 @@
   <title>Business Doctor — AI-консультант для спасения бизнеса</title>
   <meta name="description" content="AI-стратег + управленческий опыт. Business Doctor помогает собственникам бизнеса с выручкой 10–100 млн ₽ найти скрытые утечки денег и принять математически доказанные решения за 45 минут.">
 
-  <!-- Метатег для поисковых роботов -->
   <meta name="robots" content="index, follow">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Open Graph метатеги -->
   <meta property="og:title" content="Business Doctor — AI-консультант для спасения бизнеса">
   <meta property="og:description" content="AI-стратег + управленческий опыт. Находим скрытые утечки денег и даём математически доказанные решения за 45 минут.">
   <meta property="og:image" content="https://ваш-сайт.com/images/og-image.jpg">
@@ -21,49 +18,19 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
 
-  <!-- Канонический URL -->
   <link rel="canonical" href="https://ваш-сайт.com/">
 
-  <!-- Preload -->
   <link rel="preload" href="css/style.css" as="style">
   <link rel="preload" href="js/script.js" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" as="style">
 
-  <!-- Шрифты -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Стили -->
   <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Временный фикс шапки (будет заменен JS) -->
-  <style id="header-fix">
-    .header { height: 80px; }
-    body { padding-top: 80px; }
-    html { scroll-padding-top: 80px; }
-  </style>
 </head>
 <body>
-  <body>
-  <!-- ДЕБАГ: показать границы шапки -->
-  <style>
-    .header {
-      outline: 2px solid red !important;
-      background: rgba(255, 0, 0, 0.1) !important;
-    }
-    body::before {
-      content: 'Header height: ' attr(data-header-height);
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: black;
-      color: white;
-      padding: 5px;
-      z-index: 9999;
-      font-size: 12px;
-    }
-  </style>
   <!-- Шапка -->
   <header class="header">
     <div class="container header-inner">
@@ -84,8 +51,6 @@
     <!-- Hero -->
     <section class="hero section" id="top">
       <div class="container hero-container fade-up">
-        
-        <!-- Заголовок на всю ширину -->
         <div class="hero-title-wrapper">
           <h1 class="hero-title">
             Ваш бизнес теряет деньги.<br>
@@ -96,7 +61,6 @@
           </p>
         </div>
 
-        <!-- Блоки проблем в ТРИ КОЛОНКИ (рядом) -->
         <div class="problem-grid">
           <div class="problem-card">
             <div class="problem-content">
@@ -120,43 +84,44 @@
           </div>
         </div>
 
-        <!-- Акцент и кнопка -->
         <div class="hero-footer">
           <div class="hero-accent">
             <strong>Не обучение. Не мотивация.</strong><br>
             <strong>Не «поговорить».</strong><br>
             <strong>AI-диагностика + управленческое решение.</strong>
           </div>
-          
+
           <div class="hero-cta-wrapper">
             <a href="#contact" class="btn-primary">
               Найти утечки денег
             </a>
           </div>
         </div>
-        
       </div>
     </section>
 
     <!-- Философия -->
-    <section id="philosophy" class="section">
+    <section id="philosophy" class="section section-alt">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">Философия управления</div>
         <div class="section-header">
           <h2>Бизнес теряет деньги не из-за рынка, а из-за решений без расчёта</h2>
         </div>
-        
-        <p class="lead">
-          В 2026 году рост налогов, падение спроса и кассовые разрывы делают управленческие ошибки критичными.<br>
-          <strong>Даже для стабильных компаний.</strong>
-        </p>
-        
+
+        <div class="section-lead-card">
+          <p class="lead">
+            В 2026 году рост налогов, падение спроса и кассовые разрывы делают управленческие ошибки критичными.<br>
+            <strong>Даже для стабильных компаний.</strong>
+          </p>
+        </div>
+
         <div class="content-grid">
           <div class="premium-card">
             <h3>Не «гадаю» по отчётам</h3>
             <p>Анализирую ваши данные через AI-модели, которые выявляют скрытые точки потерь и позволяют <strong>выбрать одно управленческое решение</strong>, проверенное расчётами.</p>
           </div>
-          
-          <div class="premium-card">
+
+          <div class="premium-card premium-card-accent">
             <h3>Не теория, не шаблоны</h3>
             <p>Один шаг, который <strong>снижает риски и улучшает денежный поток</strong>, потому что основан на данных, а не на мнениях.</p>
           </div>
@@ -170,7 +135,7 @@
             </p>
           </div>
         </div>
-        
+
         <div class="section-footer">
           <div class="quote-card">
             <p class="quote">
@@ -183,8 +148,9 @@
     </section>
 
     <!-- AI-преимущество -->
-    <section id="ai" class="section dark">
+    <section id="ai" class="section section-dark">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">AI-подход</div>
         <div class="section-header">
           <h2>Почему это не «просто консультант», а консультант 2.0</h2>
           <p class="section-subtitle">AI заменяет десятки экспертов, делая анализ быстрее, точнее и доступнее</p>
@@ -256,20 +222,18 @@
     <!-- Об авторе -->
     <section id="about" class="section">
       <div class="container fade-up">
-        <!-- Заголовок секции -->
+        <div class="section-eyebrow">Об авторе</div>
         <div class="section-header">
           <h2>Управленческий опыт, усиленный AI-аналитикой</h2>
           <p>Я работал в ситуациях, где ошибка стоила бы компании месяцев работы и миллионов рублей. Поэтому в работе опираюсь не на интуицию, а на данные, проверенные AI-моделями.</p>
         </div>
 
-        <!-- Фото в ряд -->
         <div class="about-photo-row">
           <div class="about-photo">
             <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Business Doctor - AI-стратег и антикризисный консультант" id="author-photo">
           </div>
         </div>
 
-        <!-- Блоки опыта в строку (3 колонки) -->
         <div class="content-grid">
           <div class="premium-card">
             <h3>Девелопмент и управление сложными проектами</h3>
@@ -287,7 +251,6 @@
           </div>
         </div>
 
-        <!-- Блок итога -->
         <div class="about-footer narrow">
           <div class="result-statement">
             <p class="result-accent">
@@ -300,8 +263,9 @@
     </section>
 
     <!-- Для кого -->
-    <section class="section dark" id="clients">
+    <section class="section section-dark" id="clients">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">Кому это подходит</div>
         <div class="section-header">
           <h2>Вы узнаете себя, если</h2>
           <p>
@@ -343,6 +307,7 @@
     <!-- Кейсы -->
     <section class="section" id="cases">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">Кейсы 2024–2025</div>
         <div class="section-header">
           <h2>Примеры решения критических ситуаций</h2>
           <p class="cases-subtitle">3 характерных кейса 2024–2025 гг. с применением AI-аналитики<br><small>(конфиденциальность соблюдена, цифры обобщены)</small></p>
@@ -353,7 +318,7 @@
             <div class="case-header">
               <h3>Производство</h3>
             </div>
-            
+
             <div class="case-section">
               <div class="case-section-title">Проблема</div>
               <ul>
@@ -386,7 +351,7 @@
             <div class="case-header">
               <h3>B2B / IT-сервисы</h3>
             </div>
-            
+
             <div class="case-section">
               <div class="case-section-title">Проблема</div>
               <ul>
@@ -419,7 +384,7 @@
             <div class="case-header">
               <h3>Торговая компания (кризис)</h3>
             </div>
-            
+
             <div class="case-section">
               <div class="case-section-title">Проблема</div>
               <ul>
@@ -452,8 +417,9 @@
     </section>
 
     <!-- Инструменты -->
-    <section id="tools" class="section dark">
+    <section id="tools" class="section section-dark">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">Инструменты</div>
         <div class="section-header">
           <h2>Технологический стек: когда цена ошибки высока</h2>
         </div>
@@ -504,30 +470,31 @@
     <!-- Отличие -->
     <section class="section" id="difference">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">Отличие подхода</div>
         <div class="section-header">
           <h2>Чем Business Doctor отличается от других «спасателей»</h2>
         </div>
-        <div class="comparison-grid">
+        <div class="comparison-grid comparison-grid-single">
           <div class="comparison-block">
             <h3>AI вместо интуиции</h3>
             <p>Я не гадаю по отчётам — AI-модели анализируют данные и показывают математически оптимальные решения.</p>
           </div>
-          
+
           <div class="comparison-block">
             <h3>Не классический консультант</h3>
             <p>Не шаблонный отчёт на 300 страниц, а конкретный шаг, который реально снижает угрозу кассового разрыва.</p>
           </div>
-          
+
           <div class="comparison-block">
             <h3>Не продаю технологии ради технологий</h3>
             <p>AI, Python, дашборды — только если это решает конкретную финансовую проблему.</p>
           </div>
-          
+
           <div class="comparison-block">
             <h3>Доступен для среднего бизнеса</h3>
             <p>Выручка 10–100 млн ₽/мес. Дешевле, чем штатный аналитик, но эффективнее, чем департамент.</p>
           </div>
-          
+
           <div class="comparison-block">
             <h3>Не создаю зависимость</h3>
             <p>Моя задача — научить вас управлять через данные, а не «продать продолжение».</p>
@@ -537,15 +504,16 @@
     </section>
 
     <!-- Как я работаю -->
-    <section class="section dark" id="process">
+    <section class="section section-dark" id="process">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">Регламент работы</div>
         <div class="section-header">
           <h2>Регламент работы: прозрачно и по шагам</h2>
           <p>
             Вы понимаете, что получаете на каждом этапе. Никаких сюрпризов.
           </p>
         </div>
-        
+
         <div class="process-grid">
           <div class="process-step">
             <div class="step-number">01</div>
@@ -554,7 +522,7 @@
               <p>Вы описываете ситуацию. Я задаю вопросы и сразу оцениваю, какие данные нужны для AI-анализа.</p>
             </div>
           </div>
-          
+
           <div class="process-step">
             <div class="step-number">02</div>
             <div class="step-content">
@@ -562,7 +530,7 @@
               <p>Получаю доступ к ключевым системам. AI-модели ищут паттерны, аномалии, скрытые взаимосвязи.</p>
             </div>
           </div>
-          
+
           <div class="process-step">
             <div class="step-number">03</div>
             <div class="step-content">
@@ -570,7 +538,7 @@
               <p>Не отчёт, а дашборд: где деньги утекают, почему, какие сценарии возможны. Визуально и понятно.</p>
             </div>
           </div>
-          
+
           <div class="process-step">
             <div class="step-number">04</div>
             <div class="step-content">
@@ -578,7 +546,7 @@
               <p>Совместно выбираем один путь из смоделированных вариантов. Вы видите цифры, а не мнения.</p>
             </div>
           </div>
-          
+
           <div class="process-step">
             <div class="step-number">05</div>
             <div class="step-content">
@@ -586,7 +554,7 @@
               <p>Кто, что и в какие сроки делает. С метриками контроля на каждом шаге.</p>
             </div>
           </div>
-          
+
           <div class="process-step">
             <div class="step-number">06</div>
             <div class="step-content">
@@ -595,7 +563,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="guarantee-box">
           <h3>Вы не покупаете «кота в мешке»</h3>
           <p>Работа начинается только после этапа диагностики. Вы платите за решение, основанное на данных, а не за предположения.</p>
@@ -606,6 +574,7 @@
     <!-- Контактная секция -->
     <section class="section" id="contact">
       <div class="container narrow fade-up">
+        <div class="section-eyebrow">Контакт</div>
         <div class="section-header">
           <h2>Бесплатная AI-диагностика: где ваш бизнес теряет деньги?</h2>
           <p>
@@ -660,7 +629,6 @@
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="js/script.js"></script>
 </body>
 </html>
