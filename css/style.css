@@ -307,25 +307,13 @@ p {
   max-width: 700px;
   line-height: 1.6;
   text-align: center;
-  
   position: relative;
-  padding-top: 3.5rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .hero-accent::before {
-  content: '"';
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 5rem;
-  color: rgba(212, 175, 55, 0.2);
-  font-family: 'Libre Baskerville', serif;
-  font-style: normal;
-  line-height: 1;
-  padding: 0 20px;
-  z-index: 2;
+  display: none !important;
 }
 
 .hero-cta-wrapper {
@@ -382,27 +370,18 @@ p {
   font-size: 1.5rem;
   color: #b0b0b0;
   margin-top: 6rem;
-  padding-top: 3rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(212, 175, 55, 0.3);
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
   position: relative;
+  text-align: center;
 }
 
 .quote::before {
-  content: '"';
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 5rem;
-  color: rgba(212, 175, 55, 0.2);
-  font-family: 'Libre Baskerville', serif;
-  font-style: normal;
-  line-height: 1;
-  padding: 0 20px;
+  display: none !important;
 }
 
 /* ============================
@@ -696,6 +675,51 @@ p {
   font-weight: 600;
   margin-top: 12px;
   color: #ffffff;
+}
+
+.case-problem, .case-solution, .case-result {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(212, 175, 55, 0.3);
+}
+
+.case-problem { border-left-color: #ff6b6b; }
+.case-solution { border-left-color: #4ecdc4; }
+.case-result { border-left-color: #1dd1a1; }
+
+/* Стили для новых кейсов */
+.case-block {
+  margin: 1.2rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.case-block-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #D4AF37;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.case-block-title:before {
+  content: "▶";
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.case-block ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.case-block li {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
 }
 
 /* ============================
@@ -996,27 +1020,20 @@ p {
     padding: 0 20px;
   }
 
-  .header {
-    padding: 0.6rem 0;
-  }
-
-  .header.scrolled {
-    padding: 0.5rem 0;
+  /* шапка компактнее */
+  .header-inner {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   .logo {
     font-size: 1.2rem;
   }
 
-  .header-inner {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
   .nav {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   .nav a {
@@ -1032,7 +1049,6 @@ p {
 
   /* Hero на мобильных */
   .hero {
-    padding-top: 140px;
     padding-bottom: 4rem;
     min-height: auto;
     display: block;
@@ -1075,28 +1091,15 @@ p {
     font-size: 1rem;
   }
 
-  /* Цитата на мобильных */
   .hero-accent {
     font-size: 1.3rem;
     margin: 2rem auto 2.5rem auto;
-    padding-top: 3rem;
-  }
-
-  .hero-accent::before {
-    font-size: 4rem;
-    top: -20px;
-    padding: 0 15px;
   }
 
   .quote {
     font-size: 1.3rem;
     margin-top: 4rem;
     padding-top: 2.5rem;
-  }
-
-  .quote::before {
-    font-size: 4rem;
-    top: -20px;
   }
 
   .btn-primary {
@@ -1161,7 +1164,6 @@ p {
     font-size: 20px;
   }
 
-  /* Центрирование */
   .hero .container {
     text-align: center;
   }
@@ -1175,6 +1177,16 @@ p {
   .problem-item {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* кейсы мобильные */
+  .case-block {
+    padding: 0.8rem;
+    margin: 1rem 0;
+  }
+
+  .case-block li {
+    font-size: 0.95rem;
   }
 }
 
@@ -1192,10 +1204,6 @@ p {
     font-size: 2rem;
   }
 
-  .hero {
-    padding-top: 150px;
-  }
-
   .hero-title {
     font-size: 2.2rem;
     margin-bottom: 1.2rem;
@@ -1209,12 +1217,6 @@ p {
   .hero-accent {
     font-size: 1.2rem;
     margin: 1.5rem auto 2rem auto;
-    padding-top: 2.5rem;
-  }
-
-  .hero-accent::before {
-    font-size: 3rem;
-    top: -15px;
   }
 
   .btn-primary {
@@ -1248,11 +1250,6 @@ p {
     padding-top: 2rem;
   }
 
-  .quote::before {
-    font-size: 3rem;
-    top: -15px;
-  }
-
   .experience-block {
     padding: 1.5rem;
   }
@@ -1284,103 +1281,30 @@ p {
     font-size: 0.9rem;
   }
 }
-/* УДАЛЯЕМ КАВЫЧКИ ВО ВСЕХ МЕСТАХ */
 
-/* Для .hero-accent (на первой странице) */
-.hero-accent::before {
-  display: none !important; /* Убираем кавычку */
-}
-
-/* Для .quote (на других страницах) */
-.quote::before {
-  display: none !important; /* Убираем кавычку */
-}
-
-/* Оставляем только линию - красивую и стильную */
-.hero-accent {
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-size: 1.5rem;
-  color: #d0d0d0;
-  margin: 3rem auto 3.5rem auto;
-  max-width: 700px;
-  line-height: 1.6;
-  text-align: center;
-  
-  position: relative;
-  padding-top: 2rem; /* Уменьшил отступ, так как кавычки убрали */
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.quote {
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-size: 1.5rem;
-  color: #b0b0b0;
-  margin-top: 6rem;
-  padding-top: 2rem; /* Уменьшил отступ, так как кавычки убрали */
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-  position: relative;
-  text-align: center;
-}
-
-/* Мобильная версия */
-@media (max-width: 768px) {
-  .hero-accent {
-    font-size: 1.3rem;
-    margin: 2rem auto 2.5rem auto;
-    padding-top: 1.5rem;
-  }
-  
-  .quote {
-    font-size: 1.3rem;
-    margin-top: 4rem;
-    padding-top: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-accent {
-    font-size: 1.2rem;
-    margin: 1.5rem auto 2rem auto;
-    padding-top: 1.2rem;
-  }
-  
-  .quote {
-    font-size: 1.2rem;
-    margin-top: 3rem;
-    padding-top: 1.2rem;
-  }
-}
 /* 1. Убираем .narrow для десктопа */
 @media (min-width: 992px) {
   .container.narrow {
-    max-width: 1200px; /* или 1400px, смотря какой дизайн */
+    max-width: 1200px;
     width: 100%;
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  
-  /* Герой-секция - особый случай */
+
   .hero-container {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
   }
-  
-  /* 2. Три карточки в ряд */
+
   .problem-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin: 3rem 0;
   }
-  
+
   .problem-card {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -1388,21 +1312,19 @@ p {
     background: rgba(255, 255, 255, 0.02);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   .problem-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
-  
-  /* 3. Заголовок покрупнее на десктопе */
+
   .hero-title {
     font-size: 3.5rem;
     line-height: 1.2;
     margin-bottom: 1rem;
     text-align: center;
   }
-  
-  /* 4. Футер героя - акцент и кнопка рядом */
+
   .hero-footer {
     display: flex;
     justify-content: space-between;
@@ -1411,42 +1333,37 @@ p {
     flex-wrap: wrap;
     gap: 2rem;
   }
-  
+
   .hero-accent {
     font-size: 1.25rem;
     flex: 1;
     min-width: 300px;
   }
-  
-  /* 5. Шапка - тоже на всю ширину */
+
   .header-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1.5rem 2rem;
   }
-  
-  /* 6. Блок "Для кого" - 2 колонки */
+
   .pain-timeline {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
-  
-  /* 7. Кейсы - 3 в ряд */
+
   .case-timeline {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
-  
-  /* 8. Инструменты - 4 в ряд */
+
   .tools-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
   }
-  
-  /* 9. Опыт - остается 3 в ряд */
+
   .experience-blocks {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1461,28 +1378,23 @@ p {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
-  .problem-list {
-    /* старая структура */
-  }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
 }
+
 /* ===== АККОРДЕОН ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ===== */
 @media (max-width: 768px) {
-  /* Больше воздуха в Hero */
   .hero-container {
     padding-top: 3rem !important;
   }
-  
+
   .hero-title {
     font-size: 1.9rem;
     margin: 2rem 0;
   }
-  
-  /* Аккордеон: скрываем 2 и 3 карточки по умолчанию */
+
   .problem-card:not(:first-child) {
     max-height: 0;
     overflow: hidden;
@@ -1492,7 +1404,7 @@ p {
     padding: 0 1rem;
     border: none;
   }
-  
+
   .problem-card:not(:first-child).expanded {
     max-height: 500px;
     opacity: 1;
@@ -1500,8 +1412,7 @@ p {
     padding: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
-  /* Кнопка "Показать ещё" */
+
   .problem-expand-btn {
     display: block;
     width: 100%;
@@ -1515,8 +1426,7 @@ p {
     text-decoration: underline;
     padding: 1rem;
   }
-  
-  /* Делаем CTA менее агрессивной */
+
   .hero-cta-wrapper .btn-primary {
     background: transparent;
     color: #D4AF37;
@@ -1527,71 +1437,51 @@ p {
   }
 }
 
-/* ===== ДЕСКТОП НЕ ТРОГАЕМ ===== */
-@media (min-width: 769px) {
-  /* Всё остаётся как было */
-}
-.case-problem, .case-solution, .case-result {
-  margin: 1rem 0;
-  padding-left: 1rem;
-  border-left: 3px solid rgba(212, 175, 55, 0.3);
+/* ===== АДАПТИВНОСТЬ ДЛЯ НОВОЙ НАВИГАЦИИ ===== */
+@media (max-width: 992px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    margin: 0.3rem;
+    font-size: 0.9rem;
+  }
 }
 
-.case-problem { border-left-color: #ff6b6b; }
-.case-solution { border-left-color: #4ecdc4; }
-.case-result { border-left-color: #1dd1a1; }
-}
-/* Стили для новых кейсов */
-.case-block {
-  margin: 1.2rem 0;
-  padding: 1rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.case-block-title {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #D4AF37;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.case-block ul {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.case-block li {
-  margin-bottom: 0.3rem;
-  line-height: 1.4;
-}
-
-/* Для мобильной */
+/* ===== МОБИЛЬНАЯ ШАПКА: ФИНАЛЬНОЕ ПОВЕДЕНИЕ ===== */
 @media (max-width: 768px) {
-  .case-block {
-    padding: 0.8rem;
-    margin: 1rem 0;
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
   }
-  
-  .case-block li {
-    font-size: 0.95rem;
+
+  body {
+    padding-top: 110px !important; /* подгоняешь по фактической высоте шапки */
+    margin-top: 0 !important;
   }
-  
-  .cases-subtitle small {
-    font-size: 0.85rem;
-    opacity: 0.8;
+
+  .hero {
+    margin-top: 0 !important;
+    /* Доп. padding-top не нужен, body уже отодвинут */
+  }
+
+  .header + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 }
-.hard-truth {
-  font-weight: 600;
-  color: #ff6b6b; /* или твой акцентный цвет */
-  border-left: 3px solid currentColor;
-  padding-left: 1rem;
-  margin-top: 2rem;
-}
+
 /* ===== AI-СЕКЦИЯ (НОВАЯ) ===== */
+/* (оставлена как в исходнике, без изменений структуры) */
+
 #ai {
   padding: 5rem 0;
 }
@@ -1604,7 +1494,6 @@ p {
   font-weight: 400;
 }
 
-/* Сравнение Old vs New */
 .ai-comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1697,7 +1586,6 @@ p {
   color: #fff;
 }
 
-/* Технологическая сетка */
 .ai-technologies {
   margin: 4rem 0;
 }
@@ -1755,710 +1643,9 @@ p {
   line-height: 1.4;
 }
 
-/* AI-ценность */
 .ai-value {
   text-align: center;
   margin-top: 3rem;
   padding: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* ===== ОБНОВЛЕНИЯ ДЛЯ СУЩЕСТВУЮЩИХ БЛОКОВ ===== */
-
-/* Hero-подзаголовок */
-.hero-subtitle {
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-weight: 400;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
-}
-
-@media (max-width: 768px) {
-  .hero-subtitle {
-    font-size: 1.1rem;
-    padding: 0 1rem;
-  }
-}
-
-/* Иконки в problem-grid */
-.problem-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-/* Иконки в инструментах */
-.tool-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-/* Улучшенные кейсы */
-.case-block-title {
-  color: #D4AF37;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.case-block-title:before {
-  content: "▶";
-  margin-right: 0.5rem;
-  font-size: 0.8rem;
-}
-
-/* Примечание к инструментам */
-.tools-note {
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* ===== АДАПТИВНОСТЬ ДЛЯ НОВОЙ НАВИГАЦИИ ===== */
-@media (max-width: 992px) {
-  .nav {
-    flex-wrap: wrap;
-  }
-  
-  .nav a {
-    margin: 0.3rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* ===== МОБИЛЬНАЯ ВЕРСИЯ AI-СЕКЦИИ ===== */
-@media (max-width: 768px) {
-  #ai {
-    padding: 3rem 0;
-  }
-  
-  .comparison-block {
-    padding: 1.5rem;
-  }
-  
-  .comparison-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .comparison-badge {
-    margin-top: 0.5rem;
-  }
-  
-  .ai-technologies h3 {
-    text-align: center;
-  }
-}
-
-/* ===== АНИМАЦИИ ДЛЯ НОВЫХ ЭЛЕМЕНТОВ ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-up {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-/* ===== УЛУЧШЕНИЯ ДЛЯ ТЕКСТОВ ===== */
-.hard-truth {
-  font-weight: 600;
-  color: #ff6b6b;
-  border-left: 3px solid #ff6b6b;
-  padding-left: 1rem;
-  margin-top: 2rem;
-  font-size: 1.1rem;
-  line-height: 1.4;
-}
-
-.hero-accent strong {
-  color: #D4AF37;
-}
-
-/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ТЕХНОЛОГИЙ ===== */
-.tech-item:nth-child(1):hover { border-color: rgba(66, 133, 244, 0.5); }
-.tech-item:nth-child(2):hover { border-color: rgba(219, 68, 55, 0.5); }
-.tech-item:nth-child(3):hover { border-color: rgba(244, 180, 0, 0.5); }
-.tech-item:nth-child(4):hover { border-color: rgba(15, 157, 88, 0.5); }
-/* ===== МОБИЛЬНАЯ ШАПКА (БЫСТРЫЙ ФИКС) ===== */
-@media (max-width: 768px) {
-  /* 1. Уменьшаем шапку */
-  .header {
-    padding: 0.8rem 0;
-  }
-  
-  .header-inner {
-    padding: 0 1rem;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  /* 2. Логотип - компактнее */
-  .logo {
-    font-size: 1.3rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  /* 3. Навигация - компактная сетка */
-  .nav {
-    display: grid !important; /* Важно: !important */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    text-align: center;
-  }
-  
-  .nav a {
-    font-size: 0.8rem;
-    padding: 0.5rem 0.3rem;
-    margin: 0;
-    white-space: nowrap;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.03);
-  }
-  
-  .nav-cta {
-    grid-column: 1 / -1;
-    background: rgba(212, 175, 55, 0.15) !important;
-    border-color: #D4AF37 !important;
-    margin-top: 0.5rem !important;
-    font-weight: 600;
-  }
-  
-  /* 4. Hero - поднимаем выше, чтобы не перекрывалось */
-  .hero-container {
-    padding-top: 1rem !important;
-  }
-  
-  /* 5. Уменьшаем заголовок, но не сильно */
-  .hero-title {
-    font-size: 1.8rem;
-    line-height: 1.2;
-    margin-top: 0.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-/* ===== ДОПОЛНИТЕЛЬНО: ЕСЛИ СЕТКА НЕ ПОМЕЩАЕТСЯ ===== */
-@media (max-width: 480px) {
-  .nav {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  /* Скрываем наименее важные пункты */
-  .nav a:nth-child(5), /* AI-преимущество - можно скрыть, оно есть ниже на странице */
-  .nav a:nth-child(6) { /* Регламент работы */
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(10, 10, 20, 0.95); /* Полупрозрачный фон */
-    backdrop-filter: blur(10px);
-    padding: 0.5rem 0;
-  }
-  
-  body {
-    padding-top: 120px; /* Высота фиксированной шапки */
-  }
-}
-/* ===== СРОЧНЫЙ ФИКС ДЛЯ СКРЫТОГО КОНТЕНТА ===== */
-
-/* 1. Проверяем position шапки */
-@media (max-width: 768px) {
-  .header {
-    position: relative !important; /* Меняем fixed на relative если есть */
-    z-index: 10;
-  }
-  
-  /* 2. Даем отступ ВСЕМУ основному контенту */
-  body::after {
-    content: '';
-    display: block;
-    height: 80px; /* Высота шапки */
-    width: 100%;
-  }
-  
-  /* ИЛИ альтернатива: добавляем отступ первому элементу после header */
-  .header + * {
-    margin-top: 80px !important;
-    padding-top: 20px !important;
-  }
-  
-  /* 3. Если есть hero-секция */
-  #hero,
-  .hero-container,
-  .hero {
-    padding-top: 80px !important;
-    margin-top: 0 !important;
-  }
-}
-
-/* 4. ЯДЕРНЫЙ вариант — принудительно поднимаем нужный текст */
-@media (max-width: 768px) {
-  /* Находим элемент с текстом "Ваш бизнес" */
-  .hero-title,
-  h1,
-  h2:first-of-type,
-  .section-title:first-child {
-    position: relative !important;
-    z-index: 20 !important;
-    margin-top: 100px !important;
-    padding-top: 30px !important;
-    transform: translateY(0) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-}
-/* ===== ФИЛОСОФИЯ - АДАПТИРОВАННАЯ ===== */
-#philosophy .lead {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  margin: 2rem 0 3rem;
-  line-height: 1.6;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-#philosophy .lead strong {
-  color: #D4AF37;
-}
-
-.content-blocks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.content-block {
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.02);
-  transition: all 0.3s ease;
-}
-
-.content-block:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(212, 175, 55, 0.2);
-  transform: translateY(-3px);
-}
-
-.block-icon {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #D4AF37;
-}
-
-.block-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-}
-
-.block-content p {
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.hard-truth-message {
-  margin: 3rem 0;
-  padding: 2rem;
-  background: rgba(255, 107, 107, 0.05);
-  border: 1px solid rgba(255, 107, 107, 0.1);
-  border-radius: 4px;
-  text-align: center;
-}
-
-.hard-truth {
-  font-size: 1.3rem;
-  line-height: 1.5;
-  color: #ffffff;
-  margin: 0;
-}
-
-.hard-truth strong {
-  color: #ff6b6b;
-  font-weight: 700;
-}
-
-.section-footer {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-  text-align: center;
-}
-
-#philosophy .quote {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
-  font-size: 1.3rem;
-}
-
-#philosophy .quote-reveal {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-  #philosophy .lead {
-    font-size: 1.1rem;
-    margin: 1.5rem 0 2.5rem;
-    padding-bottom: 1.5rem;
-  }
-  
-  .content-blocks {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  
-  .content-block {
-    padding: 1.2rem;
-  }
-  
-  .hard-truth-message {
-    margin: 2rem 0;
-    padding: 1.5rem;
-  }
-  
-  .hard-truth {
-    font-size: 1.1rem;
-  }
-  
-  #philosophy .quote {
-    font-size: 1.1rem;
-  }
-}
-/* ===== УДАЛЕНИЕ ЭМОДЗИ В СЕКЦИИ ФИЛОСОФИИ ===== */
-
-/* Полностью скрываем блоки с эмодзи */
-.content-block .block-icon,
-#philosophy .block-icon,
-.methodology-blocks .method-icon {
-  display: none !important;
-}
-
-/* Компенсируем отступы */
-.content-block,
-.method-block {
-  padding-left: 1.5rem !important;
-}
-
-/* Добавляем стильные маркеры вместо эмодзи */
-.content-block {
-  position: relative;
-  padding-left: 2.5rem !important;
-}
-
-.content-block::before {
-  content: "";
-  position: absolute;
-  left: 1rem;
-  top: 1.8rem;
-  width: 8px;
-  height: 8px;
-  background-color: #D4AF37;
-  border-radius: 50%;
-}
-
-/* Первый блок - красная точка */
-.content-block:first-child::before {
-  background-color: #ff6b6b;
-}
-
-/* Второй блок - зеленая точка */
-.content-block:last-child::before {
-  background-color: #1dd1a1;
-}
-
-/* Для старой структуры (если она еще используется) */
-.method-block {
-  position: relative;
-  padding-left: 2.5rem !important;
-}
-
-.method-block::before {
-  content: "";
-  position: absolute;
-  left: 1rem;
-  top: 1.8rem;
-  width: 8px;
-  height: 8px;
-  background-color: #D4AF37;
-  border-radius: 50%;
-}
-
-.method-block:nth-child(1)::before {
-  background-color: #ff6b6b;
-}
-
-.method-block:nth-child(2)::before {
-  background-color: #1dd1a1;
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 768px) {
-  .content-block,
-  .method-block {
-    padding-left: 2rem !important;
-  }
-  
-  .content-block::before,
-  .method-block::before {
-    left: 0.8rem;
-    top: 1.5rem;
-    width: 6px;
-    height: 6px;
-  }
-}
-/* ===== СРОЧНЫЙ ФИКС ДЛЯ ШАПКИ НА МОБИЛЬНЫХ ===== */
-
-@media (max-width: 768px) {
-  /* УБИРАЕМ ВСЕ ПРЕДЫДУЩИЕ ФИКСЫ ДЛЯ ШАПКИ */
-  .header {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(10, 10, 10, 0.98) !important;
-    backdrop-filter: blur(10px);
-    padding: 0.8rem 0 !important;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-  }
-  
-  /* УБИРАЕМ лишние отступы body */
-  body {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-  
-  /* УБИРАЕМ псевдоэлементы */
-  body::after,
-  body::before {
-    display: none !important;
-  }
-  
-  /* Hero получает нормальный отступ */
-  .hero {
-    padding-top: 120px !important; /* Высота шапки + немного */
-    margin-top: 0 !important;
-  }
-  
-  /* Первый элемент после header */
-  .header + * {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-  
-  /* Контейнер hero */
-  .hero-container {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-  
-  /* Остальные секции */
-  .section:first-of-type {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-/* ===== ФИНАЛЬНЫЙ ФИКС ШАПКИ НА МОБИЛЬНЫХ ===== */
-@media (max-width: 768px) {
-  /* 1. Фиксируем шапку с достаточной высотой */
-  .header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 9999 !important;
-    background: rgba(10, 10, 10, 0.98) !important;
-    backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
-    padding: 15px 0 !important;
-    height: auto !important;
-    min-height: 100px !important; /* Фиксируем высоту */
-    display: flex !important;
-    align-items: center !important;
-  }
-  
-  /* 2. Делаем контейнер гибким */
-  .header-inner {
-    padding: 0 20px !important;
-    flex-direction: column !important;
-    gap: 15px !important;
-    width: 100% !important;
-  }
-  
-  /* 3. Логотип компактнее */
-  .logo {
-    font-size: 1.3rem !important;
-    text-align: center !important;
-    padding: 5px 0 !important;
-    width: 100% !important;
-  }
-  
-  /* 4. Навигация компактно */
-  .nav {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
-    width: 100% !important;
-  }
-  
-  .nav a {
-    font-size: 0.75rem !important;
-    padding: 8px 5px !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-  }
-  
-  /* 5. CTA кнопка на всю ширину */
-  .nav-cta {
-    grid-column: 1 / -1 !important;
-    margin-top: 5px !important;
-    padding: 10px !important;
-  }
-  
-  /* 6. ВАЖНО: Тело документа получает отступ РОВНО под высоту шапки */
-  body {
-    padding-top: 140px !important; /* Высота шапки + запас */
-    margin-top: 0 !important;
-  }
-  
-  /* 7. Hero начинается сразу после отступа */
-  .hero {
-    margin-top: -20px !important; /* Компенсируем лишний отступ */
-    padding-top: 0 !important;
-    min-height: auto !important;
-  }
-  
-  /* 8. Заголовок Hero на своем месте */
-  .hero-title {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-  
-  /* 9. Убираем все лишние отступы */
-  .header + *,
-  .header ~ *,
-  .hero::before,
-  .hero::after {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-/* ===== ФИНАЛЬНЫЙ МОБИЛЬНЫЙ ФИКС ШАПКИ ===== */
-@media (max-width: 768px) {
-  /* Делаем шапку фиксированной */
-  .header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 9999 !important;
-    background: #0a0a0a !important;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
-  }
-  
-  /* ОТКЛЮЧАЕМ все остальные отступы и паддинги */
-  body,
-  html,
-  .hero,
-  .hero-container,
-  .section,
-  .header + *,
-  .header ~ * {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-  
-  /* Только JS будет управлять отступами */
-}
-/* ===== ФИНАЛЬНЫЙ ФИКС ТЕКСТА ПОД ШАПКОЙ ===== */
-@media (max-width: 768px) {
-  /* 1. Шапка фиксированная */
-  .header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 1000 !important;
-    background: rgba(10, 10, 10, 0.98) !important;
-    backdrop-filter: blur(20px) !important;
-    padding: 12px 0 !important;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
-  }
-  
-  /* 2. Body получает отступ РОВНО под высоту шапки */
-  body {
-    padding-top: 100px !important;
-  }
-  
-  /* 3. Hero начинается сразу после отступа */
-  .hero {
-    margin-top: 0 !important;
-    padding-top: 20px !important;
-  }
-  
-  /* 4. Заголовок видимый */
-  .hero-title {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-  
-  /* 5. Убираем все лишние отступы */
-  .hero-container,
-  .section:first-of-type {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-  body {
-    padding-top: 110px !important;
-  }
-  
-  .header {
-    padding: 10px 0 !important;
-  }
 }
