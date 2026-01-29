@@ -2,33 +2,10 @@
    BUSINESS DOCTOR — G-CLASS PREMIUM
    ============================ */
 
-/* ===== RESET & BASE ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height, 100px);
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #e0e0e0;
-  background-color: #0a0a0a;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.01em;
-  overflow-x: hidden;
-  padding-top: var(--header-height, 100px);
-}
-
 /* ===== CSS VARIABLES ===== */
 :root {
+  --header-height: 100px; /* Дефолтное значение, JS обновит */
+  
   --color-primary: #d4af37;
   --color-primary-dark: #b8860b;
   --color-bg: #0a0a0a;
@@ -57,13 +34,38 @@ body {
   --transition-slow: 500ms ease;
 }
 
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  padding-top: var(--header-height);
+}
+
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--color-text-light);
 }
 
 h1 {
@@ -84,26 +86,26 @@ h2 {
 h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: var(--color-text-light);
   font-weight: 600;
 }
 
 h4 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: var(--color-text-light);
   font-weight: 500;
 }
 
 p {
   margin-bottom: 1.5rem;
-  color: #b0b0b0;
+  color: var(--color-text);
   line-height: 1.7;
 }
 
 .lead {
   font-size: 1.3rem;
-  color: #d0d0d0;
+  color: var(--color-text);
   text-align: center;
   margin-bottom: var(--spacing-lg);
   max-width: 800px;
@@ -112,7 +114,7 @@ p {
 }
 
 strong {
-  color: #ffffff;
+  color: var(--color-text-light);
   font-weight: 600;
 }
 
@@ -142,6 +144,7 @@ strong {
   top: 0;
   left: 0;
   width: 100%;
+  height: var(--header-height);
   background-color: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -160,6 +163,7 @@ strong {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 .logo {
@@ -234,11 +238,11 @@ strong {
 
 /* ===== HERO ===== */
 .hero {
-  padding: calc(var(--header-height, 100px) + var(--spacing-xl)) 0 var(--spacing-xl);
+  padding: var(--spacing-xl) 0 var(--spacing-xl);
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -960,11 +964,13 @@ strong {
   
   .header {
     padding: 0.8rem 0;
+    height: auto; /* На мобильных высота определяется содержимым */
   }
   
   .header-inner {
     flex-direction: column;
     gap: 0.8rem;
+    padding: 0.5rem 0;
   }
   
   .logo {
@@ -985,10 +991,12 @@ strong {
     margin-left: 0;
     margin-top: 0.5rem;
     padding: 0.5rem 1.2rem !important;
+    font-size: 0.8rem;
   }
   
   .hero {
-    padding: calc(var(--header-height, 100px) + var(--spacing-md)) 0 var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    min-height: auto;
   }
   
   .hero-title {
@@ -1029,6 +1037,20 @@ strong {
   .hero-accent {
     font-size: 1.2rem;
     text-align: center;
+  }
+  
+  /* Мобильная шапка: фиксированный минимальный отступ */
+  body {
+    padding-top: 80px !important;
+  }
+  
+  html {
+    scroll-padding-top: 80px !important;
+  }
+  
+  .header {
+    height: 80px !important;
+    min-height: 80px;
   }
 }
 
@@ -1087,6 +1109,21 @@ strong {
     width: 100%;
     text-align: center;
   }
+  
+  /* На очень маленьких экранах уменьшаем шапку */
+  body {
+    padding-top: 70px !important;
+  }
+  
+  html {
+    scroll-padding-top: 70px !important;
+  }
+  
+  .header {
+    height: 70px !important;
+    min-height: 70px;
+    padding: 0.5rem 0 !important;
+  }
 }
 
 /* Hover only on devices that support it */
@@ -1135,6 +1172,7 @@ strong {
     font-size: 12pt;
     color: #000;
     background: #fff;
+    padding-top: 0 !important;
   }
   
   .section {
