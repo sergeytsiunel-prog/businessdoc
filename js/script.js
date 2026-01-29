@@ -29,16 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= 768) {
       const header = document.querySelector('.header');
       if (header) {
-        // Убираем все отступы, которые добавлял JS ранее
-        document.body.style.paddingTop = '0';
-        document.body.style.marginTop = '0';
-        
-        // Даем шапке быть фиксированной
+        // ТОЛЬКО убеждаемся, что шапка фиксированная
         header.style.position = 'fixed';
         header.style.top = '0';
         header.style.left = '0';
         header.style.right = '0';
         header.style.zIndex = '1000';
+        
+        // НЕ ТРОГАЕМ body padding/margin - это делается в CSS!
       }
     }
   }
@@ -46,4 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Запускаем один раз при загрузке
   fixMobileHeader();
   
-}); // Конец DOMContentLoaded - ТОЛЬКО ОДНА ЗАКРЫВАЮЩАЯ СКОБКА!
+  // Пересчитываем при изменении размера окна
+  window.addEventListener('resize', fixMobileHeader);
+  
+});

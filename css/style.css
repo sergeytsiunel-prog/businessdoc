@@ -1255,3 +1255,16 @@ strong {
     scroll-behavior: auto;
   }
 }
+/* Мобильные (576px - 768px) */
+@media (max-width: 768px) {
+  /* ... существующие стили ... */
+  
+  /* ФИКС ДЛЯ ШАПКИ */
+  body {
+    padding-top: 120px !important; /* Важно: подставьте реальную высоту шапки */
+  }
+  
+  .hero {
+    padding-top: 20px !important; /* Минимальный отступ сверху */
+  }
+}
