@@ -1376,28 +1376,73 @@ strong {
     font-size: 0.8rem !important;
   }
 }
+/* ============================
+   MOBILE NAVIGATION FIX
+   ============================ */
 @media (max-width: 768px) {
-  /* САМЫЙ ПРОСТОЙ ФИКС: двухстрочная шапка */
-  .header-inner {
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-  }
-  
-  .logo {
-    margin-bottom: 0.3rem;
-  }
-  
+  /* Уменьшаем шапку */
   .header {
-    height: 90px !important; /* Немного выше, но зато все помещается */
-    padding: 0.3rem 0 !important;
+    height: 70px !important; /* Было 80px */
+    padding: 0.5rem 0 !important;
   }
   
   body {
-    padding-top: 90px !important;
+    padding-top: 70px !important; /* Соответственно уменьшаем отступ */
+  }
+  
+  /* Делаем навигацию компактнее */
+  .nav {
+    gap: 0.6rem !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav a {
+    font-size: 0.75rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+  
+  /* Кнопку "Запрос консультации" делаем меньше */
+  .nav-cta {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.7rem !important;
+    margin-top: 0.3rem !important;
+  }
+  
+  /* Логотип тоже уменьшаем */
+  .logo {
+    font-size: 1.1rem !important;
   }
   
   .hero {
-    padding-top: 15px !important;
+    padding-top: 10px !important;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .header {
+    height: 60px !important;
+  }
+  
+  body {
+    padding-top: 60px !important;
+  }
+  
+  /* Прячем некоторые пункты меню */
+  .nav a:nth-child(1),  /* Подход */
+  .nav a:nth-child(3),  /* Для кого */
+  .nav a:nth-child(5) { /* AI-преимущество */
+    display: none;
+  }
+  
+  /* Оставляем только важные пункты */
+  .nav a {
+    font-size: 0.7rem !important;
+  }
+  
+  .nav-cta {
+    font-size: 0.65rem !important;
+    padding: 0.3rem 0.6rem !important;
   }
 }
