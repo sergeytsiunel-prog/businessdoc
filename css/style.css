@@ -1895,7 +1895,6 @@ p {
 .tech-item:nth-child(2):hover { border-color: rgba(219, 68, 55, 0.5); }
 .tech-item:nth-child(3):hover { border-color: rgba(244, 180, 0, 0.5); }
 .tech-item:nth-child(4):hover { border-color: rgba(15, 157, 88, 0.5); }
-}
 /* ===== МОБИЛЬНАЯ ШАПКА (БЫСТРЫЙ ФИКС) ===== */
 @media (max-width: 768px) {
   /* 1. Уменьшаем шапку */
@@ -1920,7 +1919,7 @@ p {
   
   /* 3. Навигация - компактная сетка */
   .nav {
-    display: grid;
+    display: grid !important; /* Важно: !important */
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
     text-align: center;
@@ -1961,52 +1960,19 @@ p {
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
   }
-  
-  /* 6. Компактная навигация для 6+ пунктов */
-  .nav a:nth-child(7) {
-    display: none; /* Скрываем "Как идёт работу" если нужно */
-  }
 }
 
-/* ===== АЛЬТЕРНАТИВА: БУРГЕР-МЕНЮ ===== */
-/* Если сетка не подходит, можно бургер */
-@media (max-width: 576px) {
-  .nav {
-    display: none; /* Скрываем обычное меню */
-  }
-  
-  .mobile-menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-  }
-  
-  .header-inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    margin-bottom: 0;
-    border-bottom: none;
-    text-align: left;
-  }
-}
-
-/* ===== КРАЙНИЙ ВАРИАНТ: СВЕРНУТОЕ МЕНЮ ===== */
+/* ===== ДОПОЛНИТЕЛЬНО: ЕСЛИ СЕТКА НЕ ПОМЕЩАЕТСЯ ===== */
 @media (max-width: 480px) {
-  /* Скрываем часть пунктов, оставляем главные */
-  .nav a:nth-child(4), /* Кейсы */
-  .nav a:nth-child(5)  /* AI-преимущество */ {
-    display: none;
-  }
-  
   .nav {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  /* Скрываем наименее важные пункты */
+  .nav a:nth-child(5), /* AI-преимущество - можно скрыть, оно есть ниже на странице */
+  .nav a:nth-child(6) { /* Регламент работы */
+    display: none;
+  }
 }
+
+/* УБИРАЕМ АЛЬТЕРНАТИВУ С БУРГЕРОМ - НЕ НУЖНА */
