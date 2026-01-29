@@ -1213,3 +1213,34 @@ strong {
     page-break-inside: avoid;
   }
 }
+/* ===============================
+   FIX: header overlaps content
+   =============================== */
+
+/* 1. Базовая высота шапки */
+:root {
+  --header-height: 80px;
+}
+
+/* 2. Фиксированная шапка */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  background: #0b0b0c; /* твой тёмный фон */
+}
+
+/* 3. Сдвигаем ВСЁ содержимое вниз */
+main {
+  padding-top: var(--header-height);
+}
+
+/* 4. Мобила: шапка выше */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 96px;
+  }
+}
