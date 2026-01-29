@@ -1269,3 +1269,100 @@ strong {
     padding-top: 0 !important;
   }
 }
+/* ===== ГАРАНТИРОВАННЫЙ ФИКС МОБИЛЬНОЙ ШАПКИ ===== */
+
+/* Для всех мобильных */
+@media (max-width: 768px) {
+  /* 1. Делаем шапку фиксированной с ЧЕТКОЙ высотой */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px; /* Фиксированная высота */
+    min-height: 60px;
+    max-height: 60px;
+    background: #0a0a0a;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    z-index: 1000;
+    padding: 0;
+  }
+  
+  /* 2. Контейнер внутри шапки */
+  .header-inner {
+    height: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 3. Уменьшаем логотип */
+  .logo {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  
+  /* 4. Упрощаем навигацию */
+  .nav {
+    display: none; /* Прячем обычную навигацию */
+  }
+  
+  /* 5. Показываем только кнопку */
+  .nav-cta {
+    display: block;
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  /* 6. Отодвигаем весь контент под шапку */
+  body {
+    padding-top: 60px !important;
+    margin-top: 0 !important;
+  }
+  
+  /* 7. Для плавного скролла */
+  html {
+    scroll-padding-top: 60px !important;
+  }
+  
+  /* 8. Hero секция начинается сразу под шапкой */
+  .hero {
+    padding-top: 20px !important;
+    min-height: auto !important;
+  }
+  
+  /* 9. Заголовок без отступов */
+  .hero-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .header {
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+  }
+  
+  body {
+    padding-top: 50px !important;
+  }
+  
+  html {
+    scroll-padding-top: 50px !important;
+  }
+  
+  .logo {
+    font-size: 0.9rem;
+  }
+  
+  .nav-cta {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+}

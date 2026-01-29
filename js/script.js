@@ -1,49 +1,17 @@
-﻿// ===== ПРОСТОЙ И НАДЕЖНЫЙ ФИКС ШАПКИ =====
+﻿// ===== МИНИМАЛЬНЫЙ JS =====
 document.addEventListener('DOMContentLoaded', function() {
   
-  // Функция для обновления отступов
-  function fixHeaderSpacing() {
+  // Только анимация при скролле
+  window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
-    if (!header) return;
-    
-    // Ждем пока все стили загрузятся
-    setTimeout(() => {
-      const headerHeight = header.offsetHeight;
-      
-      console.log('Calculated header height:', headerHeight + 'px');
-      
-      // Обновляем все необходимые отступы
-      document.body.style.paddingTop = headerHeight + 'px';
-      document.documentElement.style.scrollPaddingTop = headerHeight + 'px';
-      
-      // Обновляем стиль
-      const fixStyle = document.getElementById('header-fix');
-      if (fixStyle) {
-        fixStyle.textContent = `
-          .header { height: ${headerHeight}px !important; }
-          body { padding-top: ${headerHeight}px !important; }
-          html { scroll-padding-top: ${headerHeight}px !important; }
-        `;
-      }
-    }, 100);
-  }
-  
-  // Запускаем несколько раз для надежности
-  fixHeaderSpacing();
-  
-  // Еще раз после полной загрузки страницы
-  window.addEventListener('load', function() {
-    setTimeout(fixHeaderSpacing, 300);
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
   });
   
-  // При изменении размера окна
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(fixHeaderSpacing, 250);
-  });
-  
-  // Плавный скролл
+  // Простой плавный скролл
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -52,32 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        const header = document.querySelector('.header');
-        const headerHeight = header ? header.offsetHeight : 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        // Фиксированная высота шапки на мобильных
+        const isMobile = window.innerWidth <= 768;
+        const headerHeight = isMobile ? 60 : 100;
         
         window.scrollTo({
-          top: Math.max(0, offsetPosition),
+          top: target.offsetTop - headerHeight,
           behavior: 'smooth'
         });
       }
     });
   });
-  
-  // Анимация шапки при скролле
-  function checkScroll() {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-      // Обновляем высоту после сжатия
-      setTimeout(fixHeaderSpacing, 100);
-    } else {
-      header.classList.remove('scrolled');
-      setTimeout(fixHeaderSpacing, 100);
-    }
-  }
-  
-  window.addEventListener('scroll', checkScroll);
   
 });
