@@ -1268,3 +1268,43 @@ strong {
     padding-top: 20px !important; /* Минимальный отступ сверху */
   }
 }
+/* ============================
+   CRITICAL MOBILE FIX - HEADER OVERLAP
+   ============================ */
+
+/* Для маленьких экранов */
+@media (max-width: 768px) {
+  /* Принудительно задаем высоту шапки */
+  .header {
+    height: 80px !important;
+  }
+  
+  /* Отодвигаем весь контент ниже шапки */
+  body {
+    padding-top: 80px !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Hero секция - убираем лишние отступы */
+  .hero {
+    padding-top: 20px !important;
+    min-height: auto !important;
+  }
+  
+  /* Заголовок в hero */
+  .hero-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .header {
+    height: 70px !important;
+  }
+  
+  body {
+    padding-top: 70px !important;
+  }
+}

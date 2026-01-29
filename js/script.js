@@ -24,27 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // ===== ПРОСТОЙ ФИКС ШАПКИ НА МОБИЛЬНЫХ =====
-  function fixMobileHeader() {
-    if (window.innerWidth <= 768) {
+  // ===== ПРОСТОЙ ФИКС ШАПКИ =====
+  // Только для десктопа, на мобильных все делает CSS
+  function fixHeaderDesktop() {
+    if (window.innerWidth > 768) {
       const header = document.querySelector('.header');
       if (header) {
-        // ТОЛЬКО убеждаемся, что шапка фиксированная
         header.style.position = 'fixed';
         header.style.top = '0';
-        header.style.left = '0';
-        header.style.right = '0';
-        header.style.zIndex = '1000';
-        
-        // НЕ ТРОГАЕМ body padding/margin - это делается в CSS!
       }
     }
   }
   
-  // Запускаем один раз при загрузке
-  fixMobileHeader();
-  
-  // Пересчитываем при изменении размера окна
-  window.addEventListener('resize', fixMobileHeader);
+  // Запускаем при загрузке
+  fixHeaderDesktop();
+  window.addEventListener('resize', fixHeaderDesktop);
   
 });
