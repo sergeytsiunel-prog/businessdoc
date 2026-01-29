@@ -1974,5 +1974,26 @@ p {
     display: none;
   }
 }
-
-/* УБИРАЕМ АЛЬТЕРНАТИВУ С БУРГЕРОМ - НЕ НУЖНА */
+/* ===== ФИКС ДЛЯ СКРЫТОГО ТЕКСТА ПОД ШАПКОЙ ===== */
+/* Добавляем отступ для первой секции после шапки на мобильных */
+@media (max-width: 768px) {
+  /* Если следующая секция имеет id или класс, можно обратиться к нему */
+  section:first-of-type,
+  .hero-container,
+  #hero,
+  .section:first-child {
+    margin-top: 3.5rem !important; /* Отступ в зависимости от высоты шапки */
+    padding-top: 0.5rem !important;
+  }
+  
+  /* Или более общее решение для любого контента после шапки */
+  .header + * {
+    margin-top: 3.5rem !important;
+  }
+  
+  /* Если есть конкретный элемент с текстом "Ваш бизнес" */
+  .your-business-text {
+    margin-top: 3.5rem;
+    display: block;
+  }
+}
