@@ -123,4 +123,30 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  // Фикс высоты шапки на мобильных
+function fixMobileHeader() {
+  if (window.innerWidth <= 768) {
+    const header = document.querySelector('.header');
+    const body = document.body;
+    
+    if (header) {
+      // Вычисляем реальную высоту шапки
+      const headerHeight = header.offsetHeight;
+      
+      // Устанавливаем точный отступ для body
+      body.style.paddingTop = headerHeight + 'px';
+      
+      // Убираем лишние отступы у hero
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.marginTop = '-' + (headerHeight / 4) + 'px';
+        hero.style.paddingTop = '0';
+      }
+    }
+  }
+}
+
+// Запускаем при загрузке и ресайзе
+window.addEventListener('load', fixMobileHeader);
+window.addEventListener('resize', fixMobileHeader);
 }); // <-- ЭТА закрывающая скобка заканчивает весь DOMContentLoaded
