@@ -1,8 +1,8 @@
-﻿// ===== MINIMAL JS: header scroll + smooth scroll =====
+﻿// Минимальный JS: эффект для шапки + плавный скролл
 document.addEventListener('DOMContentLoaded', function () {
   const header = document.querySelector('.header');
 
-  // класс при прокрутке
+  // Класс при прокрутке
   window.addEventListener('scroll', function () {
     if (window.scrollY > 20) {
       header.classList.add('scrolled');
@@ -11,9 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // плавный скролл с учётом высоты шапки
-  const links = document.querySelectorAll('a[href^="#"]');
-  links.forEach(link => {
+  // Плавный скролл с учётом высоты шапки
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
       if (!href || href === '#' || href === '#top') return;
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
 
       const isMobile = window.innerWidth <= 768;
-      const headerHeight = isMobile ? 60 : 100; // синхронно с CSS
+      const headerHeight = isMobile ? 60 : 100;
 
       const targetTop = target.getBoundingClientRect().top + window.scrollY;
 

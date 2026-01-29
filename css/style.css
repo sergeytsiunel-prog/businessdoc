@@ -4,7 +4,6 @@
 
 /* ===== VARIABLES ===== */
 :root {
-  /* высота шапки по умолчанию, JS может читать это значение */
   --header-height-desktop: 100px;
   --header-height-mobile: 60px;
 
@@ -295,6 +294,11 @@ strong {
 
 .nav-cta::after {
   display: none !important;
+}
+
+/* мобильная кнопка по умолчанию скрыта */
+.header-cta-mobile {
+  display: none;
 }
 
 /* ===== HERO ===== */
@@ -1003,7 +1007,6 @@ strong {
 
 /* Mobile (<= 768px) */
 @media (max-width: 768px) {
-  /* ключ: один источник правды по высоте шапки */
   html {
     scroll-padding-top: var(--header-height-mobile);
   }
@@ -1022,25 +1025,42 @@ strong {
 
   .header-inner {
     height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
   }
 
   .logo {
-    font-size: 1.1rem;
-    letter-spacing: 0.14em;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
   }
 
+  /* компактное меню + перенос строк */
   .nav {
-    display: none; /* на мобиле оставляем только CTA-кнопку */
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .nav-cta {
+  .nav a {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* десктопная CTA-кнопка скрывается */
+  .nav-cta-desktop {
+    display: none !important;
+  }
+
+  /* мобильная CTA-кнопка справа */
+  .header-cta-mobile {
     display: block;
     margin: 0;
-    padding: 0.5rem 1.4rem !important;
-    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem !important;
+    font-size: 0.75rem;
+    white-space: nowrap;
   }
 
   .hero {
@@ -1191,53 +1211,5 @@ strong {
   .section {
     padding: 1cm 0;
     page-break-inside: avoid;
-  }
-}
-/* Mobile header fix */
-@media (max-width: 768px) {
-  html {
-    scroll-padding-top: var(--header-height-mobile);
-  }
-
-  body {
-    padding-top: var(--header-height-mobile);
-  }
-
-  .header {
-    height: var(--header-height-mobile);
-    background: #050505;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    padding: 0.5rem 0;
-  }
-
-  .header-inner {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.6rem;
-  }
-
-  .logo {
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-  }
-
-  .nav {
-    display: none;
-  }
-
-  .header-cta-mobile {
-    display: block;
-    margin: 0;
-    padding: 0.5rem 1.2rem !important;
-    font-size: 0.8rem;
-    white-space: nowrap;
-  }
-
-  .hero {
-    padding-top: var(--spacing-lg);
-    min-height: auto;
   }
 }
