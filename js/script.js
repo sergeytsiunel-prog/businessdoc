@@ -1,20 +1,49 @@
-﻿// ===== ДИНАМИЧЕСКАЯ ВЫСОТА ШАПКИ =====
-function updateHeaderHeight() {
-  const header = document.querySelector('.header');
-  if (!header) return;
+﻿// ===== ПРОСТОЙ И НАДЕЖНЫЙ ФИКС ШАПКИ =====
+document.addEventListener('DOMContentLoaded', function() {
   
-  // Получаем реальную высоту шапки
-  const headerHeight = header.offsetHeight;
-  const root = document.documentElement;
+  // Функция для обновления отступов
+  function fixHeaderSpacing() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+    
+    // Ждем пока все стили загрузятся
+    setTimeout(() => {
+      const headerHeight = header.offsetHeight;
+      
+      console.log('Calculated header height:', headerHeight + 'px');
+      
+      // Обновляем все необходимые отступы
+      document.body.style.paddingTop = headerHeight + 'px';
+      document.documentElement.style.scrollPaddingTop = headerHeight + 'px';
+      
+      // Обновляем стиль
+      const fixStyle = document.getElementById('header-fix');
+      if (fixStyle) {
+        fixStyle.textContent = `
+          .header { height: ${headerHeight}px !important; }
+          body { padding-top: ${headerHeight}px !important; }
+          html { scroll-padding-top: ${headerHeight}px !important; }
+        `;
+      }
+    }, 100);
+  }
   
-  // Обновляем CSS переменную
-  root.style.setProperty('--header-height', `${headerHeight}px`);
+  // Запускаем несколько раз для надежности
+  fixHeaderSpacing();
   
-  console.log('Header height updated:', headerHeight + 'px');
-}
-
-// ===== ПЛАВНЫЙ СКРОЛЛ =====
-function initSmoothScroll() {
+  // Еще раз после полной загрузки страницы
+  window.addEventListener('load', function() {
+    setTimeout(fixHeaderSpacing, 300);
+  });
+  
+  // При изменении размера окна
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fixHeaderSpacing, 250);
+  });
+  
+  // Плавный скролл
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -23,7 +52,8 @@ function initSmoothScroll() {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
+        const header = document.querySelector('.header');
+        const headerHeight = header ? header.offsetHeight : 80;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
         
@@ -34,41 +64,20 @@ function initSmoothScroll() {
       }
     });
   });
-}
-
-// ===== SCROLL ANIMATIONS =====
-function initScrollAnimations() {
-  const header = document.querySelector('.header');
   
+  // Анимация шапки при скролле
   function checkScroll() {
+    const header = document.querySelector('.header');
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
+      // Обновляем высоту после сжатия
+      setTimeout(fixHeaderSpacing, 100);
     } else {
       header.classList.remove('scrolled');
+      setTimeout(fixHeaderSpacing, 100);
     }
-    
-    // Обновляем высоту при скролле (на случай анимаций)
-    updateHeaderHeight();
   }
   
   window.addEventListener('scroll', checkScroll);
-  checkScroll();
-}
-
-// ===== INIT =====
-document.addEventListener('DOMContentLoaded', function() {
-  // Вызываем при загрузке
-  updateHeaderHeight();
-  initSmoothScroll();
-  initScrollAnimations();
   
-  // При изменении размера окна
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(updateHeaderHeight, 250);
-  });
-  
-  // Дебаг информация
-  console.log('Business Doctor — G-Class Premium initialized');
 });
