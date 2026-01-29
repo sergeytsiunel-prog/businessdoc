@@ -1584,3 +1584,10 @@ p {
     opacity: 0.8;
   }
 }
+.hard-truth {
+  font-weight: 600;
+  color: #ff6b6b; /* или твой акцентный цвет */
+  border-left: 3px solid currentColor;
+  padding-left: 1rem;
+  margin-top: 2rem;
+}
