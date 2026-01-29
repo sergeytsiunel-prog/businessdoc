@@ -31,27 +31,41 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Шапка -->
-  <header class="header">
-    <div class="container header-inner">
-      <div class="logo">BUSINESS DOCTOR</div>
+ <!-- Шапка -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">BUSINESS DOCTOR</div>
 
-      <nav class="nav">
-        <a href="#philosophy">Подход</a>
-        <a href="#about">Об авторе</a>
-        <a href="#clients">Для кого</a>
-        <a href="#cases">Кейсы</a>
-        <a href="#ai">AI-преимущество</a>
-        <a href="#process">Регламент работы</a>
-        <a href="#contact" class="nav-cta nav-cta-desktop">Запрос консультации</a>
-      </nav>
+    <!-- Гамбургер-кнопка для мобильных -->
+    <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__line"></span>
+    </button>
 
-      <!-- Мобильная кнопка (показывается только на мобиле) -->
-      <a href="#contact" class="nav-cta header-cta-mobile">
-        Запрос консультации
-      </a>
-    </div>
-  </header>
+    <!-- Основное меню -->
+    <nav class="nav" data-menu>
+      <div class="nav__inner">
+        <a href="#philosophy" data-nav-link="#philosophy">Подход</a>
+        <a href="#about" data-nav-link="#about">Об авторе</a>
+        <a href="#clients" data-nav-link="#clients">Для кого</a>
+        <a href="#cases" data-nav-link="#cases">Кейсы</a>
+        <a href="#ai" data-nav-link="#ai">AI-преимущество</a>
+        <a href="#process" data-nav-link="#process">Регламент работы</a>
+        
+        <!-- Кнопка внутри меню для мобильных -->
+        <a href="#contact" class="nav-cta nav-cta-mobile" data-nav-link="#contact">
+          Запрос консультации
+        </a>
+      </div>
+    </nav>
+
+    <!-- Кнопка для десктопа (вне меню) -->
+    <a href="#contact" class="nav-cta nav-cta-desktop">
+      Запрос консультации
+    </a>
+  </div>
+</header>
 
   <main>
     <!-- Hero -->
