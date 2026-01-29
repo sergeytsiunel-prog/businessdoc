@@ -1990,3 +1990,177 @@ p {
     padding-top: 120px; /* Высота фиксированной шапки */
   }
 }
+/* ===== СРОЧНЫЙ ФИКС ДЛЯ СКРЫТОГО КОНТЕНТА ===== */
+
+/* 1. Проверяем position шапки */
+@media (max-width: 768px) {
+  .header {
+    position: relative !important; /* Меняем fixed на relative если есть */
+    z-index: 10;
+  }
+  
+  /* 2. Даем отступ ВСЕМУ основному контенту */
+  body::after {
+    content: '';
+    display: block;
+    height: 80px; /* Высота шапки */
+    width: 100%;
+  }
+  
+  /* ИЛИ альтернатива: добавляем отступ первому элементу после header */
+  .header + * {
+    margin-top: 80px !important;
+    padding-top: 20px !important;
+  }
+  
+  /* 3. Если есть hero-секция */
+  #hero,
+  .hero-container,
+  .hero {
+    padding-top: 80px !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* 4. ЯДЕРНЫЙ вариант — принудительно поднимаем нужный текст */
+@media (max-width: 768px) {
+  /* Находим элемент с текстом "Ваш бизнес" */
+  .hero-title,
+  h1,
+  h2:first-of-type,
+  .section-title:first-child {
+    position: relative !important;
+    z-index: 20 !important;
+    margin-top: 100px !important;
+    padding-top: 30px !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+/* ===== ФИЛОСОФИЯ - АДАПТИРОВАННАЯ ===== */
+#philosophy .lead {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin: 2rem 0 3rem;
+  line-height: 1.6;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+#philosophy .lead strong {
+  color: #D4AF37;
+}
+
+.content-blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.content-block {
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.content-block:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(212, 175, 55, 0.2);
+  transform: translateY(-3px);
+}
+
+.block-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #D4AF37;
+}
+
+.block-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.block-content p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hard-truth-message {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(255, 107, 107, 0.05);
+  border: 1px solid rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.hard-truth {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #ffffff;
+  margin: 0;
+}
+
+.hard-truth strong {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+.section-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  text-align: center;
+}
+
+#philosophy .quote {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  font-size: 1.3rem;
+}
+
+#philosophy .quote-reveal {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  #philosophy .lead {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .content-blocks {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .content-block {
+    padding: 1.2rem;
+  }
+  
+  .hard-truth-message {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  .hard-truth {
+    font-size: 1.1rem;
+  }
+  
+  #philosophy .quote {
+    font-size: 1.1rem;
+  }
+}
