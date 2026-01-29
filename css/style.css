@@ -2246,3 +2246,55 @@ p {
     height: 6px;
   }
 }
+/* ===== СРОЧНЫЙ ФИКС ДЛЯ ШАПКИ НА МОБИЛЬНЫХ ===== */
+
+@media (max-width: 768px) {
+  /* УБИРАЕМ ВСЕ ПРЕДЫДУЩИЕ ФИКСЫ ДЛЯ ШАПКИ */
+  .header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.98) !important;
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 0 !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  /* УБИРАЕМ лишние отступы body */
+  body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* УБИРАЕМ псевдоэлементы */
+  body::after,
+  body::before {
+    display: none !important;
+  }
+  
+  /* Hero получает нормальный отступ */
+  .hero {
+    padding-top: 120px !important; /* Высота шапки + немного */
+    margin-top: 0 !important;
+  }
+  
+  /* Первый элемент после header */
+  .header + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Контейнер hero */
+  .hero-container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Остальные секции */
+  .section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
