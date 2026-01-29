@@ -2164,3 +2164,85 @@ p {
     font-size: 1.1rem;
   }
 }
+/* ===== УДАЛЕНИЕ ЭМОДЗИ В СЕКЦИИ ФИЛОСОФИИ ===== */
+
+/* Полностью скрываем блоки с эмодзи */
+.content-block .block-icon,
+#philosophy .block-icon,
+.methodology-blocks .method-icon {
+  display: none !important;
+}
+
+/* Компенсируем отступы */
+.content-block,
+.method-block {
+  padding-left: 1.5rem !important;
+}
+
+/* Добавляем стильные маркеры вместо эмодзи */
+.content-block {
+  position: relative;
+  padding-left: 2.5rem !important;
+}
+
+.content-block::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.8rem;
+  width: 8px;
+  height: 8px;
+  background-color: #D4AF37;
+  border-radius: 50%;
+}
+
+/* Первый блок - красная точка */
+.content-block:first-child::before {
+  background-color: #ff6b6b;
+}
+
+/* Второй блок - зеленая точка */
+.content-block:last-child::before {
+  background-color: #1dd1a1;
+}
+
+/* Для старой структуры (если она еще используется) */
+.method-block {
+  position: relative;
+  padding-left: 2.5rem !important;
+}
+
+.method-block::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.8rem;
+  width: 8px;
+  height: 8px;
+  background-color: #D4AF37;
+  border-radius: 50%;
+}
+
+.method-block:nth-child(1)::before {
+  background-color: #ff6b6b;
+}
+
+.method-block:nth-child(2)::before {
+  background-color: #1dd1a1;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .content-block,
+  .method-block {
+    padding-left: 2rem !important;
+  }
+  
+  .content-block::before,
+  .method-block::before {
+    left: 0.8rem;
+    top: 1.5rem;
+    width: 6px;
+    height: 6px;
+  }
+}
