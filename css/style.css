@@ -1974,26 +1974,19 @@ p {
     display: none;
   }
 }
-/* ===== ФИКС ДЛЯ СКРЫТОГО ТЕКСТА ПОД ШАПКОЙ ===== */
-/* Добавляем отступ для первой секции после шапки на мобильных */
 @media (max-width: 768px) {
-  /* Если следующая секция имеет id или класс, можно обратиться к нему */
-  section:first-of-type,
-  .hero-container,
-  #hero,
-  .section:first-child {
-    margin-top: 3.5rem !important; /* Отступ в зависимости от высоты шапки */
-    padding-top: 0.5rem !important;
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 20, 0.95); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 0;
   }
   
-  /* Или более общее решение для любого контента после шапки */
-  .header + * {
-    margin-top: 3.5rem !important;
-  }
-  
-  /* Если есть конкретный элемент с текстом "Ваш бизнес" */
-  .your-business-text {
-    margin-top: 3.5rem;
-    display: block;
+  body {
+    padding-top: 120px; /* Высота фиксированной шапки */
   }
 }
