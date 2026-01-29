@@ -2298,3 +2298,88 @@ p {
     padding-top: 0 !important;
   }
 }
+/* ===== ФИНАЛЬНЫЙ ФИКС ШАПКИ НА МОБИЛЬНЫХ ===== */
+@media (max-width: 768px) {
+  /* 1. Фиксируем шапку с достаточной высотой */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+    padding: 15px 0 !important;
+    height: auto !important;
+    min-height: 100px !important; /* Фиксируем высоту */
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* 2. Делаем контейнер гибким */
+  .header-inner {
+    padding: 0 20px !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    width: 100% !important;
+  }
+  
+  /* 3. Логотип компактнее */
+  .logo {
+    font-size: 1.3rem !important;
+    text-align: center !important;
+    padding: 5px 0 !important;
+    width: 100% !important;
+  }
+  
+  /* 4. Навигация компактно */
+  .nav {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  
+  .nav a {
+    font-size: 0.75rem !important;
+    padding: 8px 5px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+  
+  /* 5. CTA кнопка на всю ширину */
+  .nav-cta {
+    grid-column: 1 / -1 !important;
+    margin-top: 5px !important;
+    padding: 10px !important;
+  }
+  
+  /* 6. ВАЖНО: Тело документа получает отступ РОВНО под высоту шапки */
+  body {
+    padding-top: 140px !important; /* Высота шапки + запас */
+    margin-top: 0 !important;
+  }
+  
+  /* 7. Hero начинается сразу после отступа */
+  .hero {
+    margin-top: -20px !important; /* Компенсируем лишний отступ */
+    padding-top: 0 !important;
+    min-height: auto !important;
+  }
+  
+  /* 8. Заголовок Hero на своем месте */
+  .hero-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* 9. Убираем все лишние отступы */
+  .header + *,
+  .header ~ *,
+  .hero::before,
+  .hero::after {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
