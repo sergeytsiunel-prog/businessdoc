@@ -5,77 +5,122 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🚀 Frontend form script loaded');
 
+  // ===== ОТПРАВКА ФОРМЫ =====
   const contactForm = document.querySelector('.contact-form');
-  if (!contactForm) return;
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Отправка...';
+      submitBtn.disabled = true;
 
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
-    submitBtn.disabled = true;
+      try {
+        const formData = new FormData(this);
+        const name = formData.get('name') || '';
+        const email = formData.get('email') || '';
+        const message = formData.get('message') || '';
 
-    try {
-      const formData = new FormData(this);
-      const name = formData.get('name') || '';
-      const email = formData.get('email') || '';
-      const message = formData.get('message') || '';
+        if (!name.trim() || !email.trim() || !message.trim()) {
+          alert('⚠️ Пожалуйста, заполните все обязательные поля');
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          return;
+        }
 
-      if (!name.trim() || !email.trim() || !message.trim()) {
-        alert('⚠️ Пожалуйста, заполните все обязательные поля');
+        console.log('📋 Sending data to serverless function:', { name, email, message });
+
+        const response = await fetch('/api/sendTelegram', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          alert('✅ Спасибо! Я свяжусь с вами в течение 24 часов.');
+          contactForm.reset();
+        } else {
+          console.error('Ошибка отправки:', result.error);
+          alert('❌ Ошибка отправки. Пожалуйста, попробуйте позже.');
+        }
+
+      } catch (error) {
+        console.error('🌐 Ошибка сети:', error);
+        alert('❌ Ошибка соединения. Проверьте интернет и попробуйте еще раз.');
+      } finally {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-        return;
-      }
-
-      console.log('📋 Sending data to serverless function:', { name, email, message });
-
-      const response = await fetch('/api/sendTelegram', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        alert('✅ Спасибо! Я свяжусь с вами в течение 24 часов.');
-        contactForm.reset();
-      } else {
-        console.error('Ошибка отправки:', result.error);
-        alert('❌ Ошибка отправки. Пожалуйста, попробуйте позже.');
-      }
-
-    } catch (error) {
-      console.error('🌐 Ошибка сети:', error);
-      alert('❌ Ошибка соединения. Проверьте интернет и попробуйте еще раз.');
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }
-    // Экстренный фикс скролла на мобильных
-if (window.innerWidth <= 768) {
-  // Переопределяем плавный скролл для всех якорных ссылок
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href === '#top') return;
-      
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        // Высота шапки на мобильных
-        const headerOffset = 140;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
       }
     });
-  });
-}
+  }
 
+  // ===== АККОРДЕОН ДЛЯ МОБИЛЬНЫХ =====
+  if (window.innerWidth <= 768) {
+    const expandBtn = document.createElement('button');
+    expandBtn.className = 'problem-expand-btn';
+    expandBtn.textContent = 'Показать ещё 2 проблемы';
+    
+    const problemGrid = document.querySelector('.problem-grid');
+    if (problemGrid) {
+      problemGrid.parentNode.insertBefore(expandBtn, problemGrid.nextSibling);
+      
+      expandBtn.addEventListener('click', function() {
+        const hiddenCards = document.querySelectorAll('.problem-card:not(:first-child)');
+        hiddenCards.forEach(card => card.classList.toggle('expanded'));
+        
+        this.textContent = this.textContent.includes('Показать') 
+          ? 'Свернуть' 
+          : 'Показать ещё 2 проблемы';
+      });
+    }
+  }
+
+  // ===== ПЛАВНЫЙ СКРОЛЛ ДЛЯ МОБИЛЬНЫХ =====
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#top') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const headerOffset = 140;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+
+  // ===== ПЛАВНЫЙ СКРОЛЛ ДЛЯ ДЕСКТОПА =====
+  if (window.innerWidth > 768) {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#top') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const headerOffset = 100;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+}); // <-- ЭТА закрывающая скобка заканчивает весь DOMContentLoaded
