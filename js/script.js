@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        if (href === '#top') return;
+        if (href === '#') return;
         
         e.preventDefault();
         const target = document.querySelector(href);
@@ -24,20 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // ===== ПРОСТОЙ ФИКС ШАПКИ =====
-  // Только для десктопа, на мобильных все делает CSS
-  function fixHeaderDesktop() {
-    if (window.innerWidth > 768) {
-      const header = document.querySelector('.header');
-      if (header) {
-        header.style.position = 'fixed';
-        header.style.top = '0';
-      }
-    }
-  }
-  
-  // Запускаем при загрузке
-  fixHeaderDesktop();
-  window.addEventListener('resize', fixHeaderDesktop);
+  // На мобильных НИЧЕГО не делаем - все делает CSS
   
 });
