@@ -1540,3 +1540,47 @@ p {
 .case-problem { border-left-color: #ff6b6b; }
 .case-solution { border-left-color: #4ecdc4; }
 .case-result { border-left-color: #1dd1a1; }
+}
+/* Стили для новых кейсов */
+.case-block {
+  margin: 1.2rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.case-block-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #D4AF37;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.case-block ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.case-block li {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+/* Для мобильной */
+@media (max-width: 768px) {
+  .case-block {
+    padding: 0.8rem;
+    margin: 1rem 0;
+  }
+  
+  .case-block li {
+    font-size: 0.95rem;
+  }
+  
+  .cases-subtitle small {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+}
