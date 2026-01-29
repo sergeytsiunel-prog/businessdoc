@@ -1895,3 +1895,118 @@ p {
 .tech-item:nth-child(2):hover { border-color: rgba(219, 68, 55, 0.5); }
 .tech-item:nth-child(3):hover { border-color: rgba(244, 180, 0, 0.5); }
 .tech-item:nth-child(4):hover { border-color: rgba(15, 157, 88, 0.5); }
+}
+/* ===== МОБИЛЬНАЯ ШАПКА (БЫСТРЫЙ ФИКС) ===== */
+@media (max-width: 768px) {
+  /* 1. Уменьшаем шапку */
+  .header {
+    padding: 0.8rem 0;
+  }
+  
+  .header-inner {
+    padding: 0 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* 2. Логотип - компактнее */
+  .logo {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* 3. Навигация - компактная сетка */
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .nav a {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.3rem;
+    margin: 0;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  
+  .nav-cta {
+    grid-column: 1 / -1;
+    background: rgba(212, 175, 55, 0.15) !important;
+    border-color: #D4AF37 !important;
+    margin-top: 0.5rem !important;
+    font-weight: 600;
+  }
+  
+  /* 4. Hero - поднимаем выше, чтобы не перекрывалось */
+  .hero-container {
+    padding-top: 1rem !important;
+  }
+  
+  /* 5. Уменьшаем заголовок, но не сильно */
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-top: 0.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* 6. Компактная навигация для 6+ пунктов */
+  .nav a:nth-child(7) {
+    display: none; /* Скрываем "Как идёт работу" если нужно */
+  }
+}
+
+/* ===== АЛЬТЕРНАТИВА: БУРГЕР-МЕНЮ ===== */
+/* Если сетка не подходит, можно бургер */
+@media (max-width: 576px) {
+  .nav {
+    display: none; /* Скрываем обычное меню */
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-bottom: 0;
+    border-bottom: none;
+    text-align: left;
+  }
+}
+
+/* ===== КРАЙНИЙ ВАРИАНТ: СВЕРНУТОЕ МЕНЮ ===== */
+@media (max-width: 480px) {
+  /* Скрываем часть пунктов, оставляем главные */
+  .nav a:nth-child(4), /* Кейсы */
+  .nav a:nth-child(5)  /* AI-преимущество */ {
+    display: none;
+  }
+  
+  .nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
