@@ -1376,3 +1376,28 @@ strong {
     font-size: 0.8rem !important;
   }
 }
+@media (max-width: 768px) {
+  /* САМЫЙ ПРОСТОЙ ФИКС: двухстрочная шапка */
+  .header-inner {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .logo {
+    margin-bottom: 0.3rem;
+  }
+  
+  .header {
+    height: 90px !important; /* Немного выше, но зато все помещается */
+    padding: 0.3rem 0 !important;
+  }
+  
+  body {
+    padding-top: 90px !important;
+  }
+  
+  .hero {
+    padding-top: 15px !important;
+  }
+}
