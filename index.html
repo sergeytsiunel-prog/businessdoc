@@ -190,6 +190,7 @@
       font-weight: 700;
       color: var(--color-steel-blue-dark);
       position: relative;
+      z-index: 1001;
     }
 
     .logo::after {
@@ -202,6 +203,7 @@
       background: var(--gradient-blue-accent);
     }
 
+    /* ===== МЕНЮ ДЛЯ ДЕСКТОПА ===== */
     .nav {
       display: flex;
       gap: 2rem;
@@ -214,6 +216,7 @@
       transition: all 0.3s ease;
       position: relative;
       padding: 0.5rem 0;
+      white-space: nowrap;
     }
 
     .nav a:hover {
@@ -244,6 +247,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: var(--shadow-subtle);
+      white-space: nowrap;
     }
 
     .nav-cta-desktop:hover {
@@ -251,12 +255,90 @@
       box-shadow: var(--shadow-medium);
     }
 
+    /* ===== ГАМБУРГЕР-КНОПКА ===== */
     .menu-toggle {
       display: none;
       background: none;
       border: none;
       cursor: pointer;
       padding: 0.5rem;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .menu-toggle__line {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-steel-blue-dark);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    /* ===== МОБИЛЬНОЕ МЕНЮ ===== */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        padding: 80px 20px 40px;
+      }
+
+      .nav.active {
+        right: 0;
+      }
+
+      .nav a {
+        font-size: 1.25rem;
+        padding: 0.5rem 1rem;
+        text-align: center;
+      }
+
+      .nav-cta-desktop {
+        display: none;
+      }
+
+      .nav-cta-mobile {
+        display: inline-block !important;
+        background: var(--gradient-blue-accent);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        margin-top: 2rem;
+        box-shadow: var(--shadow-subtle);
+      }
+
+      /* Анимация гамбургера в крестик */
+      .nav.active ~ .menu-toggle .menu-toggle__line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .nav.active ~ .menu-toggle .menu-toggle__line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav.active ~ .menu-toggle .menu-toggle__line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
     }
 
     /* ===== HERO СЕКЦИЯ ===== */
@@ -695,36 +777,6 @@
     }
 
     @media (max-width: 768px) {
-      .header-inner {
-        flex-wrap: wrap;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav {
-        display: none;
-        width: 100%;
-        order: 3;
-        margin-top: 1rem;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .nav.active {
-        display: flex;
-      }
-
-      .nav-cta-desktop {
-        display: none;
-      }
-
-      .nav-cta-mobile {
-        display: inline-block !important;
-        margin-top: 1rem;
-      }
-
       .hero-footer {
         flex-direction: column;
         text-align: center;
@@ -794,7 +846,7 @@
           <a href="#ai" data-nav-link="#ai">AI-преимущество</a>
           <a href="#process" data-nav-link="#process">Регламент работы</a>
           
-          <a href="#contact" class="nav-cta nav-cta-mobile" data-nav-link="#contact">
+          <a href="#contact" class="nav-cta-mobile" data-nav-link="#contact">
             Запрос консультации
           </a>
         </div>
@@ -1389,14 +1441,18 @@
   </footer>
 
   <script>
-    // Мобильное меню
+    // Мобильное меню с гамбургером
     document.addEventListener('DOMContentLoaded', function() {
       const menuToggle = document.querySelector('[data-menu-toggle]');
       const menu = document.querySelector('[data-menu]');
+      const body = document.body;
       
       if (menuToggle && menu) {
-        menuToggle.addEventListener('click', function() {
+        // Открытие/закрытие меню
+        menuToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
           menu.classList.toggle('active');
+          body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
           this.setAttribute('aria-expanded', menu.classList.contains('active'));
         });
         
@@ -1405,27 +1461,52 @@
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
             menu.classList.remove('active');
+            body.style.overflow = '';
             menuToggle.setAttribute('aria-expanded', 'false');
           });
         });
+        
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(e) {
+          if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+            menu.classList.remove('active');
+            body.style.overflow = '';
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Закрытие меню при нажатии Escape
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            body.style.overflow = '';
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
       }
       
-      // Плавная прокрутка
-      const navLinks = document.querySelectorAll('[data-nav-link]');
+      // Плавная прокрутка для всех навигационных ссылок
+      const navLinks = document.querySelectorAll('[data-nav-link], .nav-cta-desktop');
       navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
           const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
           
-          if (targetElement) {
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = targetElement.offsetTop - headerHeight - 20;
+          if (targetId && targetId.startsWith('#')) {
+            const targetElement = document.querySelector(targetId);
             
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
+            if (targetElement) {
+              const headerHeight = document.querySelector('.header').offsetHeight;
+              const targetPosition = targetElement.offsetTop - headerHeight - 20;
+              
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+              
+              // Обновляем URL без перезагрузки
+              history.pushState(null, null, targetId);
+            }
           }
         });
       });
