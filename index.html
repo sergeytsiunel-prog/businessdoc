@@ -628,6 +628,96 @@
       letter-spacing: 0.5px;
     }
 
+        /* ===== ОТЗЫВЫ КЛИЕНТОВ ===== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .testimonial-card {
+      background: var(--gradient-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-glass);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+    }
+
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-blue-accent);
+    }
+
+    .testimonial-quote {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--color-text-dark);
+      margin-bottom: 2rem;
+      font-style: italic;
+      position: relative;
+    }
+
+    .testimonial-quote::before {
+      content: '"';
+      font-size: 4rem;
+      color: var(--color-gold);
+      opacity: 0.2;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-author {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 1.5rem;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .author-info strong {
+      color: var(--color-steel-blue-dark);
+      font-size: 1rem;
+    }
+
+    .author-info span {
+      color: var(--color-text-gray);
+      font-size: 0.9rem;
+    }
+
+    .testimonials-note {
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .testimonial-card {
+        padding: 2rem;
+      }
+    }
+
     /* ===== ПРОЦЕСС РАБОТЫ ===== */
     .process-grid {
       margin: 3rem 0;
@@ -1247,6 +1337,64 @@
                 <li>Компания вышла в операционный плюс</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы клиентов -->
+    <section class="section section-dark">
+      <div class="container narrow fade-up">
+        <div class="section-eyebrow">Отзывы клиентов</div>
+        <div class="section-header">
+          <h2>Что говорят собственники бизнеса</h2>
+          <p class="section-subtitle">Реальные результаты после AI-диагностики и внедрения решений</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">"Считали, что проблема в логистике. AI-анализ выявил утечку 28% в закупках у одного поставщика. За 2 месяца сократили расходы на 1,8 млн рублей и вышли в операционный плюс."</div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <strong>Владелец производственной компании</strong>
+                  <span>Москва, выручка 45 млн/мес</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">"Кассовые разрывы каждые 2 недели, зарплату задерживали. Business Doctor не только нашёл скрытые утечки, но и дал пошаговый план на 90 дней. Сейчас бизнес стабилен, есть cash cushion."</div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <strong>Собственник сети розничных магазинов</strong>
+                  <span>Екатеринбург, 12 точек</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">"Наняли дорогих консультантов — получили отчёт на 300 страниц без конкретики. Business Doctor за 3 недели дал 3 конкретных шага, которые снизили операционные расходы на 25%. Это консалтинг 2.0."</div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <strong>Директор IT-компании</strong>
+                  <span>Санкт-Петербург, штат 40 человек</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-note">
+          <div class="premium-card card-accent">
+            <p class="tools-accent">
+              Отзывы — не просто слова.<br>
+              Это доказательства того, что AI-диагностика + управленческий опыт = реальные финансовые результаты.
+            </p>
           </div>
         </div>
       </div>
