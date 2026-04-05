@@ -1,0 +1,145 @@
+/* Принудительная загрузка кириллицы */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap&subset=cyrillic');
+
+/* Фолбэк-шрифты */
+body {
+    font-family: 'Inter', 'Arial Unicode MS', 'Lucida Sans Unicode', 'Segoe UI', Tahoma, sans-serif !important;
+}
+/* ========================================
+   MAIN.CSS - ���������� � ������� �����
+   ======================================== */
+
+:root {
+  --color-white: #ffffff;
+  --color-off-white: #f9f9f9;
+  --color-ice-blue: #f1f5f9;
+  --color-light-gray: #f8fafc;
+
+  --color-gold: #d4af37;
+  --color-gold-light: #e8c96a;
+  --color-steel-blue: #3a7bd5;
+  --color-steel-blue-dark: #2c3e50;
+  --color-medical-teal: #00d2ff;
+  --color-slate: #2c3e50;
+
+  --gradient-medical: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --gradient-sterile: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  --gradient-blue-accent: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+
+  --color-text-dark: #2d3748;
+  --color-text-gray: #6c757d;
+  --color-text-light: #8a8a8a;
+
+  --shadow-subtle: 0 4px 20px rgba(31, 38, 135, 0.08);
+  --shadow-medium: 0 8px 32px rgba(31, 38, 135, 0.12);
+  --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+
+  --section-padding: clamp(60px, 8vw, 100px);
+  --container-padding: clamp(20px, 5vw, 80px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text-dark);
+  background: var(--color-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(58, 123, 213, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-gray);
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--color-text-gray);
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-text-dark);
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+}
+
+.container.narrow {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.section-expanded {
+  margin: 0 calc(-1 * var(--container-padding));
+  padding: var(--section-padding) var(--container-padding);
+}
