@@ -1,25 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Doctor: AI-диагностика утечек денег в бизнесе</title>
-  <meta name="description" content="Находим скрытые утечки денег в вашем бизнесе с помощью AI-аналитики. Результат за 45 минут.">
+  <title>Business Doctor: Найдите утечки прибыли за 45 минут</title>
+  <meta name="description" content="AI-аудит бизнеса: найдем скрытые потери, просчитаем сценарии, дадим план действий. Без воды. Только цифры.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <meta property="og:title" content="Business Doctor: AI-диагностика утечек денег в бизнесе">
-  <meta property="og:description" content="Находим скрытые утечки денег в вашем бизнесе с помощью AI-аналитики. Результат за 45 минут.">
+  <meta property="og:title" content="Business Doctor: AI-аудит бизнеса">
+  <meta property="og:description" content="Найдите, где ваш бизнес теряет прибыль — за 45 минут">
   <meta property="og:image" content="https://businessdoc.pro/foto/photo_2026-01-13_19-19-47.jpg">
   <meta property="og:url" content="https://businessdoc.pro/">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="ru_RU">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Business Doctor: AI-диагностика утечек денег">
-  <meta name="twitter:description" content="Находим скрытые утечки денег с помощью AI-аналитики">
-  <meta name="twitter:image" content="https://businessdoc.pro/foto/photo_2026-01-13_19-19-47.jpg">
   <link rel="canonical" href="https://businessdoc.pro/">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" as="style">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -32,532 +25,324 @@
   <header class="header">
     <div class="container header-inner">
       <div class="logo">BUSINESS DOCTOR</div>
-      <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню" aria-expanded="false">
+      <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
         <span class="menu-toggle__line"></span>
         <span class="menu-toggle__line"></span>
         <span class="menu-toggle__line"></span>
       </button>
       <nav class="nav" data-menu>
         <div class="nav__inner">
-          <a href="#philosophy" data-nav-link="#philosophy">Подход</a>
-          <a href="#about" data-nav-link="#about">Об авторе</a>
-          <a href="#clients" data-nav-link="#clients">Для кого</a>
-          <a href="#industries" data-nav-link="#industries">Отрасли</a>
-          <a href="#cases" data-nav-link="#cases">Кейсы</a>
-          <a href="#technology" data-nav-link="#technology">Технологии</a>
-          <a href="#process" data-nav-link="#process">Регламент работы</a>
-          <a href="#contact" class="nav-cta-mobile" data-nav-link="#contact">Запрос консультации</a>
+          <a href="#services">Услуги</a>
+          <a href="#simulator">Симулятор</a>
+          <a href="#cases">Кейсы</a>
+          <a href="#about">Об авторе</a>
+          <a href="#contact" class="nav-cta-mobile">Запросить аудит</a>
         </div>
       </nav>
-      <a href="#contact" class="nav-cta-desktop">Запрос консультации</a>
+      <a href="#contact" class="nav-cta-desktop">Запросить аудит</a>
     </div>
   </header>
 
   <main>
-    <section class="hero section" id="top">
+    <!-- HERO -->
+    <section class="hero section" id="top" style="background: var(--gradient-hero); padding-top: 140px;">
       <div class="container hero-container fade-up">
         <div class="hero-title-wrapper">
-          <h1 class="hero-title">Диагностика и системный рост бизнеса</h1>
-          <p class="hero-subtitle">Опыт реального собственника бизнеса + аналитика на базе AI. Без воды. Только цифры, управленческие решения и прикладные отраслевые сценарии для производителей и торговых компаний: пищевая промышленность, бытовая химия, маркетплейсы.</p>
+          <h1 class="hero-title">Найдите, где ваш бизнес теряет прибыль — за 45 минут</h1>
+          <p class="hero-subtitle">Ваша бухгалтерия показывает прошлое. Мы моделируем будущее. AI-аудит для производителей и торговых компаний: пищевая промышленность, бытовая химия, маркетплейсы.</p>
         </div>
-        <div class="problem-grid">
-          <div class="problem-card">
-            <div class="problem-content">
-              <h3>Когда расходы растут быстрее выручки</h3>
-              <p>AI находит скрытые утечки, которые не видны в стандартных отчетах, и переводит проблему в конкретные управленческие действия.</p>
-            </div>
-          </div>
-          <div class="problem-card">
-            <div class="problem-content">
-              <h3>Когда решения становятся опасными</h3>
-              <p>Математическое моделирование рисков ключевых решений до их реализации. Не интуиция - расчеты.</p>
-            </div>
-          </div>
-          <div class="problem-card">
-            <div class="problem-content">
-              <h3>Когда нужен не рост, а управляемость</h3>
-              <p>Пошаговый план с фокусом на cash flow, себестоимость, запасы, ассортимент и денежный результат.</p>
-            </div>
-          </div>
-        </div>
-        <div class="hero-footer">
-          <div class="hero-accent">
-            <strong>Не обучение. Не мотивация.</strong><br>
-            <strong>Не "поговорить".</strong><br>
-            <strong>AI-диагностика + управленческое решение.</strong>
-          </div>
-          <div class="hero-cta-wrapper">
-            <a href="#contact" class="btn-primary">Найти утечки денег</a>
-          </div>
+        <div class="hero-footer" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="#simulator" class="btn-primary">Попробовать симулятор</a>
+          <a href="#cases" class="btn-secondary">Смотреть кейсы</a>
         </div>
       </div>
     </section>
 
-    <section id="industries" class="section">
+    <!-- ПРОБЛЕМА -->
+    <section class="section">
       <div class="container narrow fade-up">
-        <div class="section-eyebrow">Направления работы</div>
-        <div class="section-header">
-          <h2>Отрасли и решения</h2>
-          <p class="section-subtitle">Прикладной консалтинг с AI-аналитикой для производителей и торговых компаний</p>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Почему это важно</div>
+          <h2>80% собственников не видят реальную маржинальность</h2>
+          <p class="section-subtitle">Бухгалтерский учет — для налоговой. Управленческий — для вас. Без него вы принимаете решения вслепую.</p>
         </div>
         <div class="content-grid">
-          <div class="premium-card card-accent">
-            <h3>Пищевая промышленность</h3>
-            <p>Оптимизация рецептур, управление запасами скоропорта, себестоимость по партиям для молочных, мясных и растительных продуктов.</p>
-            <a href="#food" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
-          </div>
-          <div class="premium-card card-accent">
-            <h3>Бытовая химия</h3>
-            <p>Нейро-оптимизация рецептур, AI-анализ упаковки и этикетки, прогнозная аналитика SKU и скидок.</p>
-            <a href="#chemistry" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
-          </div>
-          <div class="premium-card card-accent">
-            <h3>Торговля и маркетплейсы</h3>
-            <p>Унифицированный учет, автоматизация выгрузок, расчет маржинальности для продавцов на WB, Ozon, Avito.</p>
-            <a href="#marketplaces" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="food" class="section industry-section">
-      <div class="container narrow fade-up">
-        <div class="section-eyebrow">Направление</div>
-        <div class="section-header">
-          <h2>Пищевая промышленность</h2>
-          <p class="section-subtitle">Оптимизация рецептур и управленческий учет для переработчиков молока, мяса и растительных продуктов</p>
-        </div>
-        <div class="industry-intro">
-          <p class="lead">Если вы перерабатываете сырье в готовую продукцию, то основная прибыль теряется в трех слоях одновременно: в архитектуре рецептуры, в управлении запасами скоропорта, и в том, как считается себестоимость по партиям и SKU.</p>
-          <p>Я не предлагаю "магическую нейросеть". Я собираю прикладную систему анализа, которая помогает собственнику, коммерческому директору, технологу и производству принимать решения не на ощущениях, а на расчетах.</p>
-        </div>
-        <div class="industry-highlight">
-          <div class="premium-card card-accent">
-            <p class="quote">Мы не "режем рецептуру вслепую". Мы перестраиваем баланс компонентов, убираем экономически избыточные решения там, где они не дают эффекта, и усиливаем то, что дает результат дешевле. Задача - сохранить потребительское качество продукта, но изменить архитектуру его стоимости.</p>
-          </div>
-        </div>
-        <div class="industry-grid">
-          <div class="industry-card">
-            <div class="industry-number">01</div>
-            <h3>Нейро-оптимизация рецептур</h3>
-            <p>Это не история про "заменить технолога". Это история про ускорить поиск сильных сценариев и убрать из рецептуры то, что стало дорогой привычкой.</p>
-            <ul class="industry-list">
-              <li>аудит закупочных цен по ключевым компонентам (молоко, жиры, белки, заменители) и сравнение с рыночными ориентирами;</li>
-              <li>системный поиск альтернативных поставщиков и сырьевых вариантов;</li>
-              <li>сбор альтернативных сценариев по ингредиентам и функциональным добавкам;</li>
-              <li>моделирование 5-7 экономических сценариев с разной логикой замены и влиянием на себестоимость;</li>
-              <li>подготовка гипотез для пробной партии до выхода в промышленное внедрение.</li>
-            </ul>
-            <div class="industry-result"><strong>Что получает клиент:</strong> не "волшебную базу", а ускоренный поиск экономически сильных решений, который за дни делает то, на что вручную могут уйти недели или месяцы.</div>
-          </div>
-          <div class="industry-card">
-            <div class="industry-number">02</div>
-            <h3>Управление запасами и сроками годности</h3>
-            <p>У переработчиков деньги часто замораживаются не только в сырье, но и в неправильной логике закупок, излишках оборотки и остатках, которые кажутся "нормальными", пока не посмотреть на них в модели.</p>
-            <ul class="industry-list">
-              <li>анализ оборачиваемости с учетом скоропорта и сезонности;</li>
-              <li>моделирование запасов под реальный спрос, а не под "на всякий случай";</li>
-              <li>поиск замороженных денег в излишках сырья и готовой продукции;</li>
-              <li>прогнозирование риска списаний и уценок;</li>
-              <li>интерактивные дашборды для контроля сроков и партий.</li>
-            </ul>
-            <div class="industry-result"><strong>Что получает клиент:</strong> прозрачную картину, где лежат лишние запасы, какой сырьевой запас критичен, и как сократить замороженные деньги без риска остановки производства.</div>
-          </div>
-          <div class="industry-card">
-            <div class="industry-number">03</div>
-            <h3>Управленческий учет для переработчиков</h3>
-            <p>Стандартный учет показывает прибыль "в среднем". Но в переработке критично понимать себестоимость по партиям, по каналам, по SKU - иначе непонятно, что реально приносит деньги.</p>
-            <ul class="industry-list">
-              <li>машинный анализ производственных данных по партиям и линиям;</li>
-              <li>расчет себестоимости с учетом потерь на убое/переработке;</li>
-              <li>анализ маржи по каналам (HoReCa, ритейл, собственная сеть);</li>
-              <li>поиск SKU, которые создают шум в ассортименте и размывают прибыль;</li>
-              <li>интерактивные дашборды для расчета сценариев "что будет, если".</li>
-            </ul>
-            <div class="industry-result"><strong>Что получает клиент:</strong> понимание, какие продукты и каналы реально приносят маржу, где скрытые убытки, и как перераспределить ресурсы для роста прибыли.</div>
-          </div>
-        </div>
-        <div class="industry-process-grid">
-          <div class="industry-process-step"><h4>Этап 1. Вход в задачу</h4><p>Понимаем, где у вас проблема: рецептура, запасы, себестоимость или сочетание факторов.</p></div>
-          <div class="industry-process-step"><h4>Этап 2. Сбор и структурирование данных</h4><p>Выгрузки по закупкам, производству, остаткам, спецификации, составы - только то, что нужно под задачу.</p></div>
-          <div class="industry-process-step"><h4>Этап 3. Моделирование сценариев</h4><p>Вы видите не одно мнение, а несколько просчитанных вариантов: где экономия, где риски, где эффект на маржу.</p></div>
-          <div class="industry-process-step"><h4>Этап 4. Решение и внедрение</h4><p>Выбирается один путь: пробная партия, пересборка закупок, очистка излишков или настройка дашборда.</p></div>
-        </div>
-        <div class="industry-cta">
-          <div class="premium-card premium-card-accent">
-            <h3>Обсудить задачу по пищевому производству</h3>
-            <p>Если вы перерабатываете молоко, мясо или растительное сырье - напишите, что сейчас в приоритете: оптимизация рецептур, управление запасами или прозрачность себестоимости.</p>
-            <div class="industry-cta-buttons">
-              <a href="#contact" class="btn-primary">Обсудить задачу</a>
-              <a href="https://t.me/SergeyTsiunel" target="_blank" rel="noopener noreferrer" class="btn-secondary">Написать в Telegram</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="chemistry" class="section industry-section">
-      <div class="container narrow fade-up">
-        <div class="section-eyebrow">Направление</div>
-        <div class="section-header">
-          <h2>Бытовая химия</h2>
-          <p class="section-subtitle">Нейро-оптимизация рецептур, AI-анализ упаковки и прогнозная аналитика для производителей чистящих и моющих средств</p>
-        </div>
-        <div class="industry-intro">
-          <p class="lead">Для производителей бытовой химии прибыль теряется в трех слоях: архитектура рецептуры, визуальная конкуренция на полке, и управление скидками с ассортиментом.</p>
-        </div>
-        <div class="industry-grid">
-          <div class="industry-card">
-            <div class="industry-number">01</div>
-            <h3>Нейро-оптимизация рецептур</h3>
-            <p>Аудит закупок, поиск альтернатив ПАВ и загустителям, моделирование сценариев снижения себестоимости без потери качества.</p>
-          </div>
-          <div class="industry-card">
-            <div class="industry-number">02</div>
-            <h3>AI-анализ упаковки и этикетки</h3>
-            <p>Оценка заметности на полке, читаемости текста, цветового контраста - все, что влияет на выбор покупателя за 2-3 секунды.</p>
-          </div>
-          <div class="industry-card">
-            <div class="industry-number">03</div>
-            <h3>Прогнозная аналитика SKU и скидок</h3>
-            <p>Машинный анализ продаж, поиск убыточных SKU, моделирование скидок и промо для сохранения маржи.</p>
-          </div>
-        </div>
-        <div class="industry-cta">
           <div class="premium-card">
-            <h3>Обсудить задачу по бытовой химии</h3>
-            <p>Если вы производитель бытовой химии - напишите, что в приоритете: рецептура, упаковка или коммерческая аналитика.</p>
-            <div class="industry-cta-buttons">
-              <a href="#contact" class="btn-primary">Обсудить задачу</a>
-              <a href="https://t.me/SergeyTsiunel" target="_blank" rel="noopener noreferrer" class="btn-secondary">Написать в Telegram</a>
-            </div>
+            <h3>📊 Видите только прошлое</h3>
+            <p>Отчеты показывают, что было месяц назад. А что будет через месяц после вашего решения?</p>
+          </div>
+          <div class="premium-card">
+            <h3>💸 Деньги «исчезают»</h3>
+            <p>Выручка растет, а денег нет. Не понятно: запасы, скидки, кассовые разрывы?</p>
+          </div>
+          <div class="premium-card">
+            <h3>🎯 Решения наугад</h3>
+            <p>«Дадим скидку 20%» — а потом оказывается, что сработали в минус.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="marketplaces" class="section industry-section">
+    <!-- КАК МЫ РАБОТАЕМ (3 шага) -->
+    <section class="section section-alt" id="services">
       <div class="container narrow fade-up">
-        <div class="section-eyebrow">Направление</div>
-        <div class="section-header">
-          <h2>Торговля и маркетплейсы</h2>
-          <p class="section-subtitle">Унифицированный учет и AI-аналитика для продавцов на Wildberries, Ozon, Avito и Яндекс.Маркете</p>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Процесс</div>
+          <h2>3 шага к прозрачной прибыли</h2>
         </div>
-        <div class="industry-intro">
-          <p class="lead">Если вы продаете на нескольких площадках, то основная прибыль теряется в трех слоях: разрозненные артикулы поставщиков, ручная сверка закупок и продаж, и невидимая себестоимость комплектов.</p>
-          <p>Я не предлагаю "еще одну таблицу". Я внедряю систему, которая связывает закупку, склад и продажу в единый контур - с автоматическим расчетом маржинальности и подсветкой рисков.</p>
-        </div>
-        <div class="industry-highlight">
-          <div class="premium-card card-accent">
-            <p class="quote">Мы не "сводим отчеты вручную". Мы настраиваем поток данных: заказ с маркетплейса - внутренний SKU - себестоимость - маржа - дашборд. Задача - чтобы вы видели прибыль в реальном времени, а не через 5 дней.</p>
+        <div class="process-steps">
+          <div class="process-step-card">
+            <div class="process-step-number">1</div>
+            <h3>Аудит (45 минут)</h3>
+            <p>Созваниваемся, вы описываете ситуацию. Я задаю вопросы и оцениваю, какие данные нужны.</p>
           </div>
-        </div>
-        <div class="industry-grid">
-          <div class="industry-card">
-            <div class="industry-number">01</div>
-            <h3>Единый справочник SKU</h3>
-            <p>Один товар от разных поставщиков получает один внутренний код. Система автоматически сопоставляет артикулы и названия.</p>
-            <ul class="industry-list">
-              <li>сбор всех закупочных артикулов и названий от поставщиков;</li>
-              <li>присвоение единого внутреннего SKU (например, "MF-MIRROR-K5-L");</li>
-              <li>связка с продажными названиями на WB, Ozon, Avito;</li>
-              <li>автоматическое обновление при появлении новых товаров;</li>
-              <li>защита от дублей и ошибок ручного ввода.</li>
-            </ul>
-            <div class="industry-result"><strong>Что получает клиент:</strong> прозрачный остаток по товару независимо от поставщика и площадки продаж.</div>
+          <div class="process-step-card">
+            <div class="process-step-number">2</div>
+            <h3>Модель (2-3 дня)</h3>
+            <p>Загружаю ваши данные в AI-модуль. Строю управленческую отчетность, нахожу утечки.</p>
           </div>
-          <div class="industry-card">
-            <div class="industry-number">02</div>
-            <h3>Автоматический учет продаж</h3>
-            <p>Заказы с маркетплейсов подтягиваются через API, сопоставляются со справочником и автоматически рассчитывают маржинальность.</p>
-            <ul class="industry-list">
-              <li>настройка API-ключей для Wildberries, Ozon, Avito;</li>
-              <li>ежедневная автоматическая выгрузка заказов;</li>
-              <li>автосопоставление: название на площадке - внутренний SKU;</li>
-              <li>расчет маржи: выручка - себестоимость - комиссия площадки;</li>
-              <li>подсветка красным продаж с отрицательной маржой.</li>
-            </ul>
-            <div class="industry-result"><strong>Что получает клиент:</strong> отчет по маржинальности за 5 минут вместо 3-5 дней ручной работы.</div>
-          </div>
-          <div class="industry-card">
-            <div class="industry-number">03</div>
-            <h3>Учет комплектов и наборов</h3>
-            <p>Продажа комплектов на Avito больше не "черный ящик". Система знает состав и считает себестоимость автоматически.</p>
-            <ul class="industry-list">
-              <li>создание техкарт: комплект - список компонентов - количество;</li>
-              <li>автоматический расчет себестоимости комплекта по компонентам;</li>
-              <li>списание компонентов со склада при продаже комплекта;</li>
-              <li>анализ маржинальности каждого комплекта и набора;</li>
-              <li>рекомендации: какой комплект выгоднее продвигать.</li>
-            </ul>
-            <div class="industry-result"><strong>Что получает клиент:</strong> понимание, какие комплекты приносят прибыль, а какие - скрытый убыток.</div>
-          </div>
-        </div>
-        <div class="industry-process-grid">
-          <div class="industry-process-step"><h4>Этап 1. Аудит данных</h4><p>Анализируем выгрузки закупок и продаж, выявляем разрывы и дубли.</p></div>
-          <div class="industry-process-step"><h4>Этап 2. Справочник + автоматизация</h4><p>Создаем единый SKU, настраиваем API-выгрузки, пишем скрипты сопоставления.</p></div>
-          <div class="industry-process-step"><h4>Этап 3. Дашборд и обучение</h4><p>Запускаем таблицу с автообновлением, обучаем команду, передаем инструкцию.</p></div>
-          <div class="industry-process-step"><h4>Этап 4. Поддержка</h4><p>30 минут в неделю на обновление справочника и ответы на вопросы.</p></div>
-        </div>
-        <div class="industry-cta">
-          <div class="premium-card premium-card-accent">
-            <h3>Обсудить учет для маркетплейсов</h3>
-            <p>Если вы продаете на WB, Ozon, Avito или Яндекс.Маркете - напишите, что сейчас болит больше: учет остатков, расчет маржи или работа с комплектами.</p>
-            <div class="industry-cta-buttons">
-              <a href="#contact" class="btn-primary">Обсудить задачу</a>
-              <a href="https://t.me/SergeyTsiunel" target="_blank" rel="noopener noreferrer" class="btn-secondary">Написать в Telegram</a>
-            </div>
+          <div class="process-step-card">
+            <div class="process-step-number">3</div>
+            <h3>План действий</h3>
+            <p>Вы получаете конкретные шаги: где теряете, сколько, как исправить. Внедряем вместе.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="philosophy" class="section section-alt">
+    <!-- СИМУЛЯТОР -->
+    <section class="section" id="simulator">
       <div class="container narrow fade-up">
-        <div class="section-eyebrow">Философия управления</div>
-        <div class="section-header">
-          <h2>Бизнес теряет деньги не из-за рынка, а из-за решений без расчета</h2>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Интерактивный инструмент</div>
+          <h2>Просчитайте последствия до принятия решения</h2>
+          <p class="section-subtitle">Что если дать скидку 20%? Что если закупить сырья на 30% больше? Попробуйте прямо сейчас.</p>
         </div>
-        <div class="section-lead-card">
-          <p class="lead">В 2026 году рост налогов, падение спроса и кассовые разрывы делают управленческие ошибки критичными. Даже для стабильных компаний.</p>
+
+        <div class="simulator-dashboard" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; background: #ffffff; border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-medium); border: 1px solid rgba(0, 0, 0, 0.05);">
+          <div class="simulator-visual">
+            <div class="chart-container" style="position: relative; height: 200px; background: linear-gradient(180deg, rgba(37, 99, 235, 0.03) 0%, transparent 100%); border-radius: 16px; padding: 1rem; border: 1px solid rgba(37, 99, 235, 0.1);">
+              <svg id="profitChart" viewBox="0 0 400 200" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                <path id="chartBase" d="M 0 150 L 400 150" stroke="#e2e8f0" stroke-width="2" fill="none"/>
+                <path id="chartProfit" d="M 0 150 Q 200 140 400 130" stroke="#2563eb" stroke-width="3" fill="none" style="transition: d 0.5s ease-out;"/>
+                <circle id="chartPoint" cx="400" cy="130" r="5" fill="#2563eb" style="transition: cy 0.5s ease-out, fill 0.3s ease;"/>
+              </svg>
+            </div>
+            <div class="mobile-metrics" style="display: none; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+              <div class="metric-card" style="background: #f8fafc; padding: 1rem; border-radius: 12px; text-align: center;">
+                <span class="metric-label" style="display: block; font-size: 0.75rem; color: var(--color-text-light);">Прогноз прибыли</span>
+                <span class="metric-value" id="mobileProfit" style="display: block; font-size: 1.25rem; font-weight: 700; color: var(--color-text-dark);">12.5 млн ₽</span>
+              </div>
+              <div class="metric-card" style="background: #f8fafc; padding: 1rem; border-radius: 12px; text-align: center;">
+                <span class="metric-label" style="display: block; font-size: 0.75rem; color: var(--color-text-light);">Изменение</span>
+                <span class="metric-value neutral" id="mobileChange" style="display: block; font-size: 1.25rem; font-weight: 700;">0%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="simulator-controls" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <label for="sliderDiscount" style="font-weight: 600; color: var(--color-text-dark);">Скидки и промо</label>
+                <span class="control-value" id="valDiscount" style="font-weight: 700; color: var(--color-primary);">15%</span>
+              </div>
+              <input type="range" id="sliderDiscount" min="0" max="40" value="15" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
+              <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Рост продаж vs падение маржи</p>
+            </div>
+
+            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <label for="sliderInventory" style="font-weight: 600; color: var(--color-text-dark);">Запасы на складе</label>
+                <span class="control-value" id="valInventory" style="font-weight: 700; color: var(--color-primary);">+20%</span>
+              </div>
+              <input type="range" id="sliderInventory" min="-30" max="50" value="20" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
+              <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Страховка от дефицита vs заморозка денег</p>
+            </div>
+
+            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <label for="sliderPrice" style="font-weight: 600; color: var(--color-text-dark);">Цена продажи</label>
+                <span class="control-value" id="valPrice" style="font-weight: 700; color: var(--color-primary);">0%</span>
+              </div>
+              <input type="range" id="sliderPrice" min="-15" max="25" value="0" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
+              <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Рост цены → падение спроса</p>
+            </div>
+
+            <div class="simulator-result" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%); border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 16px; padding: 1.5rem; margin-top: 0.5rem;">
+              <div class="result-title" style="font-size: 0.85rem; color: var(--color-text-gray); margin-bottom: 0.5rem;">Итоговый прогноз:</div>
+              <div class="result-value" id="resultProfit" style="font-size: 2rem; font-weight: 700; color: var(--color-text-dark);">12.5 млн ₽</div>
+              <div class="result-change neutral" id="resultChange" style="font-size: 0.95rem; font-weight: 600; margin-top: 0.5rem; padding: 0.25rem 0.75rem; border-radius: 20px; display: inline-block;">Базовый сценарий</div>
+              <p class="result-insight" id="resultInsight" style="font-size: 0.9rem; color: var(--color-text-gray); margin-top: 1rem;">Текущие параметры соответствуют устойчивой модели роста.</p>
+            </div>
+
+            <a href="#contact" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Получить детальный разбор</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КЕЙСЫ -->
+    <section class="section section-alt" id="cases">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Реальные истории</div>
+          <h2>Кейсы 2024-2025</h2>
+          <p class="section-subtitle">3 ситуации, где AI-аналитика спасла миллионы</p>
         </div>
         <div class="content-grid">
-          <div class="premium-card premium-card-accent">
-            <h3>Не "гадаю" по отчетам</h3>
-            <p>Анализирую ваши данные через AI-модели, которые выявляют скрытые точки потерь и позволяют выбрать одно управленческое решение, проверенное расчетами.</p>
+          <div class="premium-card">
+            <div class="case-header"><h3>🏭 Пищевой комбинат</h3></div>
+            <p><strong>Проблема:</strong> Собственник был уверен: компания работает в убыток. Бухгалтерия приносила отчеты о кассовых разрывах.</p>
+            <p><strong>Инсайт:</strong> Бухгалтерия считала деньги на счетах. Мы посчитали экономику продукта. Оказалось, компания прибыльна, но деньги "застревали" в запасах.</p>
+            <p><strong>Результат:</strong> Выявили 18 млн руб. замороженных в излишках сырья. Реальная прибыль: +7.2 млн руб./мес.</p>
           </div>
-          <div class="premium-card premium-card-accent">
-            <h3>Не теория, не шаблоны</h3>
-            <p>Один шаг, который снижает риски и улучшает денежный поток, потому что основан на данных, а не на мнениях.</p>
+          <div class="premium-card">
+            <div class="case-header"><h3>🛒 Селлер на WB/Ozon</h3></div>
+            <p><strong>Проблема:</strong> Маркетолог предлагал: «Дадим скидку 20%, поднимемся в выдаче». Собственник сомневался.</p>
+            <p><strong>Инсайт:</strong> Просчитали 4 варианта сценариев. Скидка 20% → прибыль -12%. Скидка 12% → прибыль +4%.</p>
+            <p><strong>Результат:</strong> Сохранено 1.8 млн руб. потенциальной прибыли за квартал.</p>
           </div>
-        </div>
-        <div class="hard-truth-message">
-          <div class="premium-card premium-card-accent">
-            <h3>Правда о кризисах</h3>
-            <p class="hard-truth">В кризисе бизнес редко умирает от рынка. Он умирает от решений, принятых без цифр.</p>
-          </div>
-        </div>
-        <div class="section-footer">
-          <div class="premium-card card-accent">
-            <p class="quote">Моя задача - перевести риски в цифры и дать одно экономически обоснованное решение. Не интуиция - математика.</p>
+          <div class="premium-card">
+            <div class="case-header"><h3>🔧 Сервисный центр</h3></div>
+            <p><strong>Проблема:</strong> «Выручка растет, а денег нет». Не понятно: куда уходят деньги?</p>
+            <p><strong>Инсайт:</strong> Гарантийный ремонт «съедал» 40% прибыли от платных услуг. Компания работала на бесплатный сервис.</p>
+            <p><strong>Результат:</strong> Чистая прибыль выросла на 35% за 2 месяца без роста выручки.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="technology" class="section section-dark">
+    <!-- ЦЕНЫ -->
+    <section class="section">
       <div class="container narrow fade-up">
-        <div class="section-eyebrow">Технологии и отличие</div>
-        <div class="section-header">
-          <h2>Почему это не "просто консультант", а консультант 2.0</h2>
-          <p class="section-subtitle">AI + данные + опыт = решения, которые работают</p>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Стоимость</div>
+          <h2>Форматы сотрудничества</h2>
         </div>
-        <div class="comparison-grid">
-          <div class="comparison-block comparison-old">
-            <div class="comparison-header">
-              <h3>Обычный консультант</h3>
-              <div class="comparison-badge">Устаревший подход</div>
-            </div>
-            <ul>
-              <li>Опирается только на свой ограниченный опыт</li>
-              <li>Смотрит на отчеты глазами</li>
-              <li>Дает шаблонные рекомендации "как в учебнике"</li>
-              <li>Дорого и долго</li>
-              <li>Не может проверить все сценарии быстро</li>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Экспресс-аудит</h3>
+            <div class="pricing-price">50 000 ₽</div>
+            <ul class="pricing-features">
+              <li>✅ 45-минутная диагностика</li>
+              <li>✅ Анализ 3-х ключевых метрик</li>
+              <li>✅ Письменный отчет</li>
+              <li>✅ 1 сценарий моделирования</li>
             </ul>
+            <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center;">Заказать</a>
           </div>
-          <div class="comparison-block comparison-new">
-            <div class="comparison-header">
-              <h3>Business Doctor + AI</h3>
-              <div class="comparison-badge">Консалтинг 2.0</div>
-            </div>
-            <ul>
-              <li>Опыт + анализ большого массива похожих кейсов и данных</li>
-              <li>AI находит паттерны в данных, невидимые человеку</li>
-              <li>Персонализированные сценарии под ваш бизнес</li>
-              <li>Быстро и доступно</li>
-              <li>Моделирует 100+ сценариев за минуты</li>
+          <div class="pricing-card featured">
+            <h3>Полный разбор</h3>
+            <div class="pricing-price">150 000 ₽</div>
+            <ul class="pricing-features">
+              <li>✅ Глубокий аудит всех процессов</li>
+              <li>✅ Управленческая модель</li>
+              <li>✅ 5+ сценариев моделирования</li>
+              <li>✅ План внедрения</li>
+              <li>✅ 2 недели поддержки</li>
             </ul>
+            <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Заказать</a>
           </div>
-        </div>
-        <div class="tech-grid" style="margin-top: 3rem;">
-          <div class="tech-item"><h4>Data Mining</h4><p>Извлечение инсайтов из ERP, CRM, 1C и коммерческих выгрузок</p></div>
-          <div class="tech-item"><h4>ML-модели</h4><p>Прогнозирование cash flow, спроса, аномалий и рисков</p></div>
-          <div class="tech-item"><h4>Сценарное моделирование</h4><p>"Что будет, если..." с математической точностью</p></div>
-          <div class="tech-item"><h4>Process Mining</h4><p>Извлечение реальных процессов из данных, а не из "как должно быть"</p></div>
-          <div class="tech-item"><h4>Python-аналитика</h4><p>Jupyter, pandas, scikit-learn для точных расчетов</p></div>
-          <div class="tech-item"><h4>Визуализация</h4><p>Графики и дашборды вместо непонятных отчетов</p></div>
-        </div>
-        <div class="ai-value" style="margin-top: 3rem;">
-          <div class="premium-card card-accent">
-            <p class="value-statement">AI и инструменты - это не самоцель. Это средства, чтобы найти утечки денег и дать решение, которое вы реально сможете выполнить.</p>
+          <div class="pricing-card">
+            <h3>Сопровождение</h3>
+            <div class="pricing-price">от 100 000 ₽/мес</div>
+            <ul class="pricing-features">
+              <li>✅ Ежемесячный аудит</li>
+              <li>✅ Актуализация модели</li>
+              <li>✅ Консультации по решениям</li>
+              <li>✅ Приоритетная поддержка</li>
+            </ul>
+            <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center;">Обсудить</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container fade-up">
-        <div class="section-eyebrow">Об авторе</div>
-        <div class="section-header">
-          <h2>Управленческий опыт, усиленный AI-аналитикой</h2>
-          <p>Я работал в ситуациях, где ошибка стоила бы компании месяцев работы и миллионов рублей. Поэтому в работе опираюсь не на интуицию, а на данные, проверенные AI-моделями.</p>
+    <!-- ОБ АВТОРЕ -->
+    <section class="section section-alt" id="about">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Кто будет вести проект</div>
+          <h2>Опыт + AI-аналитика</h2>
         </div>
-        <div class="about-photo-row">
-          <div class="about-photo">
-            <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Business Doctor" id="author-photo" style="width:100%; max-width:400px; border-radius:var(--radius-md); box-shadow:var(--shadow-medium);">
-          </div>
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Business Doctor" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem; box-shadow: var(--shadow-medium);">
         </div>
         <div class="content-grid">
-          <div class="premium-card"><h3>Девелопмент и управление сложными проектами</h3><p><strong>Руководил девелоперской компанией в период жестких финансовых ограничений.</strong> Именно там понял: без точного математического моделирования риски становятся смертельными.</p></div>
-          <div class="premium-card"><h3>B2B-поставки и AI-аналитика</h3><p><strong>Возглавлял компанию в сфере электронных компонентов.</strong> Внедрил первые системы прогнозной аналитики, которые сократили логистические издержки на 25%.</p></div>
-          <div class="premium-card"><h3>AI-трансформация бизнесов</h3><p><strong>Помогаю компаниям перейти от "решений на глазок" к управлению через данные.</strong> Python, ML-модели, визуализация - не для галочки, а для конкретных финансовых результатов.</p></div>
-        </div>
-        <div class="about-footer narrow">
-          <div class="result-statement">
-            <p class="result-accent">Я не даю советов, которые сам не готов был бы выполнить на месте собственника. Каждое решение проходит проверку AI-моделями на реализуемость и риски.</p>
+          <div class="premium-card">
+            <h3>Девелопмент</h3>
+            <p>Руководил компанией в период жёстких финансовых ограничений. Понял: без математического моделирования риски становятся смертельными.</p>
+          </div>
+          <div class="premium-card">
+            <h3>B2B-поставки</h3>
+            <p>Внедрил системы прогнозной аналитики, которые сократили логистические издержки на 25%.</p>
+          </div>
+          <div class="premium-card">
+            <h3>AI-трансформация</h3>
+            <p>Помогаю компаниям перейти от «решений на глазок» к управлению через данные.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" id="clients">
+    <!-- FAQ -->
+    <section class="section">
       <div class="container narrow fade-up">
-        <div class="section-eyebrow">Кому это подходит</div>
-        <div class="section-header">
-          <h2>Вы узнаете себя, если</h2>
-          <p>Вы - собственник или первое лицо, для кого управленческая ошибка - это не про премию, а про сохранение бизнеса.</p>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Вопросы</div>
+          <h2>Частые вопросы</h2>
         </div>
-        <div class="content-grid">
-          <div class="premium-card"><p><strong>В отчетах "все нормально", но деньги куда-то утекают.</strong> И никто не может объяснить куда.</p></div>
-          <div class="premium-card"><p><strong>Принимаете решения "по наитию"</strong>, потому что нет времени на глубокий анализ.</p></div>
-          <div class="premium-card"><p><strong>Наняли дорогих консультантов</strong>, а получили шаблонный отчет без конкретики.</p></div>
-          <div class="premium-card"><p><strong>Хотите использовать AI/данные в управлении</strong>, но не знаете с чего начать.</p></div>
-          <div class="premium-card"><p><strong>Есть ощущение, что бизнес работает ниже возможного потенциала</strong>, но непонятно, где именно теряются деньги.</p></div>
-          <div class="premium-card"><p><strong>Устали от советов "просто оптимизируйте процессы"</strong> без конкретных цифр и шагов.</p></div>
-        </div>
-        <div class="section-footer">
-          <div class="quote-card">
-            <p class="quote">Если хотя бы два пункта отозвались - вашей компании нужен не "разговор", а диагностика через данные.</p>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-question">Какие данные нужны для аудита? <span class="faq-icon">+</span></div>
+            <div class="faq-answer">Выгрузки из 1С/ERP по продажам, закупкам, остаткам за 6-12 месяцев. Конкретный список дам после первой встречи.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Сколько времени занимает внедрение? <span class="faq-icon">+</span></div>
+            <div class="faq-answer">Экспресс-аудит — 1-2 дня. Полный разбор — 2-3 недели. Сопровождение — от 1 месяца.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">А если не сработает? <span class="faq-icon">+</span></div>
+            <div class="faq-answer">Работаю по поэтапной оплате. Первый этап — диагностика. Если не увидите ценности — не продолжим.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Работаете с малым бизнесом? <span class="faq-icon">+</span></div>
+            <div class="faq-answer">Да, от 10 млн руб./мес выручки. Для меньших компаний — экспресс-формат.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="cases">
+    <!-- КОНТАКТЫ -->
+    <section class="section section-dark" id="contact">
       <div class="container narrow fade-up">
-        <div class="section-eyebrow">Кейсы 2024-2025</div>
-        <div class="section-header">
-          <h2>Примеры решения критических ситуаций</h2>
-          <p class="cases-subtitle">3 характерных кейса 2024-2025 гг. с применением AI-аналитики<br><small>(конфиденциальность соблюдена, цифры обобщены)</small></p>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Контакт</div>
+          <h2>Готовы найти свои утечки?</h2>
+          <p class="section-subtitle">Напишите — обсудим ваш случай. Первая консультация бесплатно.</p>
         </div>
-        <div class="case-grid">
-          <div class="case-card">
-            <div class="case-header"><h3>Производство</h3></div>
-            <div class="case-section"><div class="case-section-title">Проблема</div><ul><li>Кассовые разрывы каждые 2 недели</li><li>Excel-отчетность не показывала реальную картину</li><li>Риск остановки производства в течение месяца</li></ul></div>
-            <div class="case-section"><div class="case-section-title">Решение (AI + управление)</div><ul><li>AI-анализ денежных потоков выявил 3 скрытые утечки</li><li>Моделирование сценариев в Python показало точку безубыточности</li><li>Внедрили единый дашборд вместо разрозненных Excel</li></ul></div>
-            <div class="case-section"><div class="case-section-title">Результат</div><ul><li>Стабильный cash flow через 6 недель</li><li>Угроза остановки производства снята</li><li>Владелец тратит меньше времени на ручной контроль</li></ul></div>
+        <div class="contact-direct" style="background: var(--color-white); padding: 3rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); max-width: 600px; margin: 0 auto;">
+          <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
+            <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Телефон</span>
+            <a href="tel:+79957740893" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">+7 995 774-08-93</a>
           </div>
-          <div class="case-card">
-            <div class="case-header"><h3>B2B / IT-сервисы</h3></div>
-            <div class="case-section"><div class="case-section-title">Проблема</div><ul><li>70% времени топов - операционка вместо стратегии</li><li>Ключевой клиент собирался уходить</li><li>Деньги "сгорали" на авральных подрядчиках</li></ul></div>
-            <div class="case-section"><div class="case-section-title">Решение (AI + управление)</div><ul><li>Process Mining выявил реальные узкие места</li><li>ML-модель спрогнозировала нагрузку на 3 месяца вперед</li><li>Визуализировали процессы для всей команды</li></ul></div>
-            <div class="case-section"><div class="case-section-title">Результат</div><ul><li>Клиент остался, контракт продлен</li><li>Операционные затраты снижены</li><li>У руководства появилось время для развития</li></ul></div>
+          <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
+            <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Telegram</span>
+            <a href="https://t.me/SergeyTsiunel" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">@SergeyTsiunel</a>
           </div>
-          <div class="case-card">
-            <div class="case-header"><h3>Торговая компания (кризис)</h3></div>
-            <div class="case-section"><div class="case-section-title">Проблема</div><ul><li>Зарплату задерживали 2 месяца</li><li>Арест счетов за долг 1,2 млн рублей</li><li>Банк отозвал кредитную линию</li></ul></div>
-            <div class="case-section"><div class="case-section-title">Решение (AI + управление)</div><ul><li>AI-анализ ассортимента выявил убыточный хвост</li><li>Сценарное моделирование показало оптимальный путь распродажи</li><li>Математически обосновали позицию для переговоров</li></ul></div>
-            <div class="case-section"><div class="case-section-title">Результат</div><ul><li>Счета разблокированы</li><li>Долг реструктурирован</li><li>Компания вышла в операционный плюс</li></ul></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="container narrow fade-up">
-        <div class="section-eyebrow">Отзывы клиентов</div>
-        <div class="section-header">
-          <h2>Что говорят собственники бизнеса</h2>
-          <p class="section-subtitle">Реальные результаты после AI-диагностики и внедрения решений</p>
-        </div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="testimonial-content">
-              <div class="testimonial-quote">Считали, что проблема в логистике. AI-анализ выявил утечку в закупках у одного поставщика. За 2 месяца сократили расходы и вышли в операционный плюс.</div>
-              <div class="testimonial-author"><div class="author-info"><strong>Владелец производственной компании</strong><span>Москва, выручка 45 млн/мес</span></div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-content">
-              <div class="testimonial-quote">Кассовые разрывы каждые 2 недели, зарплату задерживали. Business Doctor не только нашел скрытые утечки, но и дал пошаговый план. Сейчас бизнес стабилен, есть запас прочности.</div>
-              <div class="testimonial-author"><div class="author-info"><strong>Собственник сети розничных магазинов</strong><span>Екатеринбург, 12 точек</span></div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-content">
-              <div class="testimonial-quote">Наняли дорогих консультантов - получили отчет без конкретики. Business Doctor за 3 недели дал 3 конкретных шага, которые снизили операционные расходы. Это действительно прикладной консалтинг.</div>
-              <div class="testimonial-author"><div class="author-info"><strong>Директор IT-компании</strong><span>Санкт-Петербург, штат 40 человек</span></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonials-note">
-          <div class="premium-card card-accent">
-            <p class="tools-accent">Отзывы - не просто слова. Это доказательства того, что AI-диагностика + управленческий опыт = реальные финансовые результаты.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark" id="process">
-      <div class="container narrow fade-up">
-        <div class="section-eyebrow">Регламент работы</div>
-        <div class="section-header">
-          <h2>Регламент работы: прозрачно и по шагам</h2>
-          <p>Вы понимаете, что получаете на каждом этапе. Никаких сюрпризов.</p>
-        </div>
-        <div class="process-grid">
-          <div class="process-step"><div class="step-number">01</div><div class="step-content"><h3>Первичная диагностика</h3><p>Вы описываете ситуацию. Я задаю вопросы и сразу оцениваю, какие данные нужны для анализа.</p></div></div>
-          <div class="process-step"><div class="step-number">02</div><div class="step-content"><h3>Сбор данных и AI-обработка</h3><p>Получаю доступ к ключевым данным. Модели и аналитика ищут паттерны, аномалии, скрытые взаимосвязи.</p></div></div>
-          <div class="process-step"><div class="step-number">03</div><div class="step-content"><h3>Рабочий документ с инсайтами</h3><p>Не отчет, а понятная карта: где деньги утекают, почему, какие сценарии возможны.</p></div></div>
-          <div class="process-step"><div class="step-number">04</div><div class="step-content"><h3>Выбор сценария</h3><p>Совместно выбираем один путь из смоделированных вариантов. Вы видите цифры, а не мнения.</p></div></div>
-          <div class="process-step"><div class="step-number">05</div><div class="step-content"><h3>Пошаговый план</h3><p>Кто, что и в какие сроки делает. С метриками контроля на каждом шаге.</p></div></div>
-          <div class="process-step"><div class="step-number">06</div><div class="step-content"><h3>Передача инструментов</h3><p>Настраиваю дашборды, скрипты, отчеты - чтобы вы могли контролировать процесс самостоятельно.</p></div></div>
-        </div>
-        <div class="guarantee-box">
-          <h3>Вы не покупаете "кота в мешке"</h3>
-          <p>Работа начинается с входа в задачу и постановки проблемы. Вы платите за решение, основанное на данных, а не за предположения.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container narrow fade-up">
-        <div class="section-eyebrow">Контакт</div>
-        <div class="section-header">
-          <h2>Бесплатная AI-диагностика: где ваш бизнес теряет деньги - в управлении, ассортименте, упаковке или рецептуре?</h2>
-          <p>Опишите ситуацию в нескольких предложениях. Если вы производитель или продавец - напишите, что именно сейчас важнее: себестоимость, рецептура, этикетка, SKU, скидки, запасы или продажи. Я изучу ваш случай и предложу формат диагностики без воды и без посредников.</p>
-        </div>
-        <div class="contact-direct">
-          <div class="contact-item"><span class="contact-label">Телефон</span><a href="tel:+79957740893" class="contact-link" lang="ru" translate="no">+7 995 774-08-93</a></div>
-          <div class="contact-item"><span class="contact-label">Telegram-канал с кейсами AI-аналитики</span><a href="https://t.me/businessdoct" target="_blank" rel="noopener noreferrer" class="contact-link">t.me/businessdoct</a></div>
-          <div class="contact-item"><span class="contact-label">Личный Telegram для быстрой связи</span><a href="https://t.me/SergeyTsiunel" target="_blank" rel="noopener noreferrer" class="contact-link">@SergeyTsiunel</a></div>
-          <div class="contact-item"><span class="contact-label">Бот для отправки данных анализа</span><a href="https://t.me/businessdoctorbot" target="_blank" rel="noopener noreferrer" class="contact-link">t.me/businessdoctorbot</a></div>
-          <p class="contact-note">Пишите напрямую. Отвечаю лично. Если ситуация критическая - время анализа может быть сокращено.</p>
-        </div>
-        <div class="section-footer">
-          <div class="quote-card">
-            <p class="quote">Одна диагностика через данные иногда важнее десятков советов "по наитию". Особенно когда на кону - сохранение бизнеса, маржа и денежный поток.</p>
+          <div class="contact-item">
+            <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Бот для данных</span>
+            <a href="https://t.me/businessdoctorbot" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">t.me/businessdoctorbot</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container narrow">
-      <p>&copy;2026 Business Doctor. AI-консалтинг для диагностики и роста бизнеса.</p>
-      <p><a href="/privacy.html" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a></p>
+  <footer class="footer" style="background: var(--color-slate); color: white; padding: 3rem 0; margin-top: 4rem;">
+    <div class="container narrow text-center">
+      <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem;">© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
+      <p style="color: rgba(255, 255, 255, 0.7);"><a href="/privacy.html" style="color: white;">Политика конфиденциальности</a></p>
     </div>
   </footer>
 

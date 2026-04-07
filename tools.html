@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Технологии и инструменты | Business Doctor</title>
+  <meta name="description" content="Python, ML-модели, сценарное моделирование — настоящий AI для бизнеса, а не чат-бот.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .tech-hero { background: var(--gradient-dark); color: white; padding: 120px 0 80px; }
+    .tech-hero h1 { color: white; }
+    .tech-hero p { color: rgba(255,255,255,0.8); }
+    .code-block { background: #1e293b; color: #e2e8f0; padding: 2rem; border-radius: 12px; font-family: 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto; }
+    .tech-stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 3rem 0; }
+    .tech-stack-card { background: var(--color-white); padding: 2rem; border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-subtle); }
+    .tech-stack-card h3 { color: var(--color-primary); margin-bottom: 1rem; }
+    .back-link { display: inline-block; margin-bottom: 2rem; color: var(--color-primary); font-weight: 500; }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">BUSINESS DOCTOR</a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
+      <nav class="nav" data-menu>
+        <div class="nav__inner">
+          <a href="index.html#services">Услуги</a>
+          <a href="index.html#simulator">Симулятор</a>
+          <a href="index.html#cases">Кейсы</a>
+          <a href="tools.html" class="text-primary">Технологии</a>
+          <a href="index.html#contact">Контакты</a>
+        </div>
+      </nav>
+      <a href="index.html#contact" class="nav-cta-desktop">Запросить аудит</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="tech-hero">
+      <div class="container narrow">
+        <a href="index.html" class="back-link">← На главную</a>
+        <h1>Технологии и инструменты</h1>
+        <p style="font-size: 1.25rem; max-width: 800px;">Это не «чат-бот с советами». Это инженерный подход к анализу бизнеса: Python, ML-модели, сценарное моделирование. Инструменты, которые требуют квалификации и недоступны каждому консультанту.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <div class="section-header">
+          <div class="section-eyebrow">Почему это важно</div>
+          <h2>Почему обычный Excel не справится</h2>
+          <p class="section-subtitle">Бизнес-аналитика уровня Enterprise требует инструментов, которые выходят за рамки таблиц.</p>
+        </div>
+
+        <div class="content-grid">
+          <div class="premium-card">
+            <h3>📊 Объём данных</h3>
+            <p>Тысячи SKU, миллионы транзакций, сотни поставщиков. Excel «умирает» на 100к строк. Python обрабатывает миллионы.</p>
+          </div>
+          <div class="premium-card">
+            <h3>🔮 Сценарное моделирование</h3>
+            <p>«Что если дать скидку 20%?» — нужно просчитать 50+ переменных одновременно. ML-модели делают это за секунды.</p>
+          </div>
+          <div class="premium-card">
+            <h3>🧹 Нормализация данных</h3>
+            <p>Один товар = 10 названий от разных поставщиков. Автоматическая связка через ML, а не вручную.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container narrow">
+        <div class="section-header">
+          <div class="section-eyebrow">Технологический стек</div>
+          <h2>Инструменты, которые мы используем</h2>
+        </div>
+
+        <div class="tech-stack-grid">
+          <div class="tech-stack-card">
+            <h3>🐍 Python</h3>
+            <p>Основной язык анализа. Библиотеки: pandas (данные), numpy (расчёты), scikit-learn (ML).</p>
+            <div class="code-block" style="margin-top: 1rem;">
+              <code>import pandas as pd<br>from sklearn.ensemble import RandomForestRegressor<br><br># Загрузка данных<br>df = pd.read_csv('sales.csv')<br><br># Прогноз спроса<br>model = RandomForestRegressor()<br>model.fit(X_train, y_train)</code>
+            </div>
+          </div>
+
+          <div class="tech-stack-card">
+            <h3>📓 Jupyter Notebook</h3>
+            <p>Интерактивная среда для анализа. Позволяет документировать каждый шаг, визуализировать данные, сохранять модели.</p>
+            <div class="code-block" style="margin-top: 1rem;">
+              <code># Анализ маржинальности<br>df['margin'] = df['revenue'] - df['cost']<br>df.groupby('category')['margin'].mean()<br><br># Визуализация<br>plt.figure(figsize=(10,6))<br>plt.plot(df['date'], df['margin'])</code>
+            </div>
+          </div>
+
+          <div class="tech-stack-card">
+            <h3>🤖 ML-модели</h3>
+            <p>Прогнозирование спроса, классификация рисков, кластеризация клиентов. Обучаем на ваших данных.</p>
+            <ul style="margin-top: 1rem;">
+              <li>Регрессия → прогноз прибыли</li>
+              <li>Классификация → оценка рисков</li>
+              <li>Кластеризация → сегментация SKU</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack-card">
+            <h3>📈 Сценарное моделирование</h3>
+            <p>Монте-Карло, чувствительность, оптимизация. Просчитываем 100+ вариантов развития событий.</p>
+            <div class="code-block" style="margin-top: 1rem;">
+              <code># 1000 сценариев<br>for i in range(1000):<br>&nbsp;&nbsp;discount = random.uniform(0, 0.3)<br>&nbsp;&nbsp;demand = elasticity * discount<br>&nbsp;&nbsp;profit = calc_profit(discount, demand)</code>
+            </div>
+          </div>
+
+          <div class="tech-stack-card">
+            <h3>🗄 Нормализация данных</h3>
+            <p>Автоматическая связка: «Товар А» от поставщика 1 = «Товар А-123» от поставщика 2.</p>
+            <ul style="margin-top: 1rem;">
+              <li>Fuzzy matching</li>
+              <li>NLP для названий</li>
+              <li>Правила маппинга</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack-card">
+            <h3>📊 Визуализация</h3>
+            <p>Plotly, Matplotlib, Dash. Интерактивные дашборды, которые обновляются в реальном времени.</p>
+            <ul style="margin-top: 1rem;">
+              <li>Тепловые карты рисков</li>
+              <li>Водопады прибыли</li>
+              <li>Динамические графики</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <div class="section-header">
+          <div class="section-eyebrow">Процесс работы</div>
+          <h2>Как мы превращаем данные в решения</h2>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step-card">
+            <div class="process-step-number">1</div>
+            <h3>Выгрузка данных</h3>
+            <p>1С, ERP, CRM, Excel — собираем всё за 6-12 месяцев. Продажи, закупки, остатки, платежи.</p>
+          </div>
+          <div class="process-step-card">
+            <div class="process-step-number">2</div>
+            <h3>Очистка и нормализация</h3>
+            <p>Убираем дубли, связываем артикулы, приводим к единому формату. 80% времени — здесь.</p>
+          </div>
+          <div class="process-step-card">
+            <div class="process-step-number">3</div>
+            <h3>Построение модели</h3>
+            <p>Создаём управленческий P&L, считаем маржинальность по SKU, каналам, клиентам.</p>
+          </div>
+          <div class="process-step-card">
+            <div class="process-step-number">4</div>
+            <h3>Сценарное моделирование</h3>
+            <p>«Что если...» — просчитываем 10-50 сценариев. Находим оптимальный путь.</p>
+          </div>
+          <div class="process-step-card">
+            <div class="process-step-number">5</div>
+            <h3>Дашборд и отчёт</h3>
+            <p>Вы получаете интерактивную панель + письменные рекомендации. Всё на понятном языке.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" style="text-align: center;">
+      <div class="container narrow">
+        <h2 style="margin-bottom: 1rem;">Готовы увидеть, как это работает на ваших данных?</h2>
+        <p style="max-width: 600px; margin: 0 auto 2rem;">Первая консультация бесплатно. Покажем примеры дашбордов и моделей из похожих проектов.</p>
+        <a href="index.html#contact" class="btn-primary">Запросить демо</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="background: var(--color-slate); color: white; padding: 3rem 0; margin-top: 4rem;">
+    <div class="container narrow text-center">
+      <p style="color: rgba(255, 255, 255, 0.7);">© 2026 Business Doctor. <a href="index.html" style="color: white;">На главную</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

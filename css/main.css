@@ -1,45 +1,53 @@
-/* Принудительная загрузка кириллицы */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap&subset=cyrillic');
-
-/* Фолбэк-шрифты */
-body {
-    font-family: 'Inter', 'Arial Unicode MS', 'Lucida Sans Unicode', 'Segoe UI', Tahoma, sans-serif !important;
-}
 /* ========================================
-   MAIN.CSS - ���������� � ������� �����
+   MAIN.CSS - Переменные и базовые стили v2.0
    ======================================== */
 
 :root {
+  /* Основные цвета (обновлённые) */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  
+  /* Акценты */
+  --color-accent-gold: #d4af37;
+  --color-accent-gold-light: #e8c96a;
+  --color-accent-teal: #0d9488;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-success: #10b981;
+  
+  /* Нейтральные */
   --color-white: #ffffff;
-  --color-off-white: #f9f9f9;
-  --color-ice-blue: #f1f5f9;
-  --color-light-gray: #f8fafc;
-
-  --color-gold: #d4af37;
-  --color-gold-light: #e8c96a;
-  --color-steel-blue: #3a7bd5;
-  --color-steel-blue-dark: #2c3e50;
-  --color-medical-teal: #00d2ff;
-  --color-slate: #2c3e50;
-
-  --gradient-medical: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  --gradient-sterile: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-  --gradient-blue-accent: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  --color-off-white: #f9fafb;
+  --color-ice-blue: #f0f9ff;
+  --color-light-gray: #f1f5f9;
+  --color-slate: #1e293b;
+  
+  /* Текст */
+  --color-text-dark: #0f172a;
+  --color-text-gray: #64748b;
+  --color-text-light: #94a3b8;
+  
+  /* Градиенты */
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  --gradient-hero: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  --gradient-dark: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
   --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
-
-  --color-text-dark: #2d3748;
-  --color-text-gray: #6c757d;
-  --color-text-light: #8a8a8a;
-
+  
+  /* Тени */
   --shadow-subtle: 0 4px 20px rgba(31, 38, 135, 0.08);
   --shadow-medium: 0 8px 32px rgba(31, 38, 135, 0.12);
+  --shadow-interactive: 0 10px 40px -10px rgba(37, 99, 235, 0.15);
   --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
+  
+  /* Радиусы */
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 32px;
-
+  --radius-xl: 48px;
+  
+  /* Отступы */
   --section-padding: clamp(60px, 8vw, 100px);
   --container-padding: clamp(20px, 5vw, 80px);
 }
@@ -52,10 +60,11 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--color-text-dark);
   background: var(--color-white);
   line-height: 1.6;
@@ -63,42 +72,28 @@ body {
   position: relative;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(58, 123, 213, 0.02) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: var(--color-text-dark);
 }
 
 h1 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 h3 {
   font-size: clamp(1.5rem, 3vw, 1.875rem);
-}
-
-h4 {
-  font-size: 1.25rem;
-  font-weight: 500;
 }
 
 p {
@@ -106,7 +101,7 @@ p {
   color: var(--color-text-gray);
 }
 
-ul {
+ul, ol {
   margin: 0;
   padding-left: 1.25rem;
   color: var(--color-text-gray);
@@ -116,12 +111,23 @@ li {
   margin-bottom: 0.5rem;
 }
 
-.lead {
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: var(--color-text-dark);
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Контейнеры */
 .container {
   width: 100%;
   max-width: 100%;
@@ -131,15 +137,38 @@ li {
 
 .container.narrow {
   max-width: 1200px;
-  margin: 0 auto;
 }
 
+/* Секции */
 .section {
   padding: var(--section-padding) 0;
   position: relative;
 }
 
-.section-expanded {
-  margin: 0 calc(-1 * var(--container-padding));
-  padding: var(--section-padding) var(--container-padding);
+.section-alt {
+  background: var(--color-ice-blue);
+}
+
+.section-dark {
+  background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
+}
+
+/* Утилиты */
+.text-center { text-align: center; }
+.text-primary { color: var(--color-primary); }
+.text-success { color: var(--color-success); }
+.text-danger { color: var(--color-danger); }
+.text-warning { color: var(--color-warning); }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

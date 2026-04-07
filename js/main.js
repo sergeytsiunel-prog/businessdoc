@@ -1,19 +1,16 @@
 // ========================================
-// MAIN.JS - ŒÒÌÓ‚ÌÓÈ ÙÛÌÍˆËÓÌ‡Î Ò‡ÈÚ‡
+// MAIN.JS - v2.0
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
-  // ÃÓ·ËÎ¸ÌÓÂ ÏÂÌ˛
   initMobileMenu();
-  
-  // œÎ‡‚Ì‡ˇ ÔÓÍÛÚÍ‡
   initSmoothScroll();
-  
-  // ¿ÌËÏ‡ˆËˇ ÔÓˇ‚ÎÂÌËˇ ˝ÎÂÏÂÌÚÓ‚
   initScrollAnimations();
+  initSimulator();
+  initFAQ();
 });
 
-// --- ÃÓ·ËÎ¸ÌÓÂ ÏÂÌ˛ ---
+// –ú–æ–±–∏–ª—å–Ω–æ–µ –º–µ–Ω—é
 function initMobileMenu() {
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const menu = document.querySelector('[data-menu]');
@@ -24,81 +21,52 @@ function initMobileMenu() {
   menuToggle.addEventListener('click', function(e) {
     e.stopPropagation();
     const isOpening = !menu.classList.contains('active');
-
     menu.classList.toggle('active');
     menuToggle.classList.toggle('active');
     body.style.overflow = isOpening ? 'hidden' : '';
     this.setAttribute('aria-expanded', isOpening);
   });
 
-  // «‡Í˚ÚËÂ ÔË ÍÎËÍÂ Ì‡ ÒÒ˚ÎÍÛ
   const navLinksInMenu = menu.querySelectorAll('a');
   navLinksInMenu.forEach(link => {
     link.addEventListener('click', () => {
-      closeMenu();
+      menu.classList.remove('active');
+      menuToggle.classList.remove('active');
+      body.style.overflow = '';
     });
   });
 
-  // «‡Í˚ÚËÂ ÔÓ Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && menu.classList.contains('active')) {
-      closeMenu();
-    }
-  });
-
-  // «‡Í˚ÚËÂ ÔË ÍÎËÍÂ ‚ÌÂ ÏÂÌ˛
   document.addEventListener('click', function(e) {
-    if (menu.classList.contains('active') && 
-        !menu.contains(e.target) && 
-        !menuToggle.contains(e.target)) {
-      closeMenu();
+    if (menu.classList.contains('active') && !menu.contains(e.target) && !menuToggle.contains(e.target)) {
+      menu.classList.remove('active');
+      menuToggle.classList.remove('active');
+      body.style.overflow = '';
     }
   });
-
-  function closeMenu() {
-    menu.classList.remove('active');
-    menuToggle.classList.remove('active');
-    body.style.overflow = '';
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }
 }
 
-// --- œÎ‡‚Ì‡ˇ ÔÓÍÛÚÍ‡ ---
+// –ü–ª–∞–≤–Ω–∞—è –ø—Ä–æ–∫—Ä—É—Ç–∫–∞
 function initSmoothScroll() {
-  const navLinks = document.querySelectorAll('[data-nav-link], .nav-cta-desktop');
-  
+  const navLinks = document.querySelectorAll('a[href^="#"]');
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      
-      if (!href || !href.startsWith('#')) return;
-      
+      if (!href || href === '#') return;
       e.preventDefault();
       const targetElement = document.querySelector(href);
-      
       if (!targetElement) return;
-
       const header = document.querySelector('.header');
       const headerHeight = header ? header.offsetHeight : 0;
       const targetPosition = targetElement.offsetTop - headerHeight - 20;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-
-      // Œ·ÌÓ‚ÎˇÂÏ URL ·ÂÁ ÔÂÂÁ‡„ÛÁÍË
-      history.pushState(null, null, href);
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     });
   });
 }
 
-// --- ¿ÌËÏ‡ˆËˇ ÔÓˇ‚ÎÂÌËˇ ÔË ÒÍÓÎÎÂ ---
+// –ê–Ω–∏–º–∞—Ü–∏—è –ø–æ—è–≤–ª–µ–Ω–∏—è
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('.fade-up');
-  
   if (!animatedElements.length) return;
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -107,11 +75,7 @@ function initScrollAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
+  }, { threshold: 0.1 });
   animatedElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
@@ -120,28 +84,104 @@ function initScrollAnimations() {
   });
 }
 
-// --- ”ÚËÎËÚ˚ ---
-
-// ƒÂ·‡ÛÌÒ ‰Îˇ ÔÓËÁ‚Ó‰ËÚÂÎ¸ÌÓÒÚË
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+// –°–∏–º—É–ª—è—Ç–æ—Ä
+function initSimulator() {
+  const sliders = {
+    discount: document.getElementById('sliderDiscount'),
+    inventory: document.getElementById('sliderInventory'),
+    price: document.getElementById('sliderPrice')
   };
+  
+  if (!sliders.discount) return;
+  
+  const displays = {
+    discount: document.getElementById('valDiscount'),
+    inventory: document.getElementById('valInventory'),
+    price: document.getElementById('valPrice')
+  };
+  
+  const results = {
+    profit: document.getElementById('resultProfit'),
+    change: document.getElementById('resultChange'),
+    insight: document.getElementById('resultInsight'),
+    mobileProfit: document.getElementById('mobileProfit'),
+    mobileChange: document.getElementById('mobileChange')
+  };
+  
+  const chart = {
+    path: document.getElementById('chartProfit'),
+    point: document.getElementById('chartPoint')
+  };
+  
+  const baseProfit = 12.5;
+  
+  function calculate() {
+    const discount = parseInt(sliders.discount.value);
+    const inventory = parseInt(sliders.inventory.value);
+    const price = parseInt(sliders.price.value);
+    
+    displays.discount.textContent = `${discount}%`;
+    displays.inventory.textContent = `${inventory >= 0 ? '+' : ''}${inventory}%`;
+    displays.price.textContent = `${price >= 0 ? '+' : ''}${price}%`;
+    
+    let discountImpact = discount <= 20 ? (discount - 15) * 0.05 : (20 - 15) * 0.05 - (discount - 20) * 0.15;
+    let inventoryImpact = (inventory >= 10 && inventory <= 30) ? 0 : (inventory > 30 ? -(inventory - 30) * 0.08 : (10 - inventory) * 0.1);
+    let priceImpact = price * (1 - 0.7);
+    
+    const totalImpact = discountImpact + inventoryImpact + priceImpact;
+    const newProfit = baseProfit * (1 + totalImpact);
+    const changePercent = totalImpact * 100;
+    
+    results.profit.textContent = `${newProfit.toFixed(1)} –º–ª–Ω ‚ÇΩ`;
+    results.mobileProfit.textContent = `${newProfit.toFixed(1)} –º–ª–Ω ‚ÇΩ`;
+    
+    if (changePercent > 3) {
+      results.change.textContent = `+${changePercent.toFixed(1)}%`;
+      results.change.className = 'result-change text-success';
+      results.mobileChange.textContent = `+${changePercent.toFixed(1)}%`;
+      results.mobileChange.className = 'metric-value text-success';
+      results.insight.textContent = '–û—Ç–ª–∏—á–Ω–∞—è –º–æ–¥–µ–ª—å! –í—ã –Ω–∞—Ö–æ–¥–∏—Ç–µ –±–∞–ª–∞–Ω—Å –º–µ–∂–¥—É —Ä–æ—Å—Ç–æ–º –∏ —Ä–∏—Å–∫–∞–º–∏.';
+      updateChart(130 - (changePercent * 3), '#10b981');
+    } else if (changePercent < -3) {
+      results.change.textContent = `${changePercent.toFixed(1)}%`;
+      results.change.className = 'result-change text-danger';
+      results.mobileChange.textContent = `${changePercent.toFixed(1)}%`;
+      results.mobileChange.className = 'metric-value text-danger';
+      results.insight.textContent = '–í–Ω–∏–º–∞–Ω–∏–µ: –µ—Å—Ç—å —Ä–∏—Å–∫ —Å–Ω–∏–∂–µ–Ω–∏—è –ø—Ä–∏–±—ã–ª–∏. –î–∞–≤–∞–π—Ç–µ —Ä–∞–∑–±–µ—Ä–µ–º –≤–∞—à—É —Å–∏—Ç—É–∞—Ü–∏—é –¥–µ—Ç–∞–ª—å–Ω–æ.';
+      updateChart(130 - (changePercent * 3), '#ef4444');
+    } else {
+      results.change.textContent = '–ë–∞–∑–æ–≤—ã–π —Å—Ü–µ–Ω–∞—Ä–∏–π';
+      results.change.className = 'result-change';
+      results.mobileChange.textContent = '0%';
+      results.mobileChange.className = 'metric-value';
+      results.insight.textContent = '–¢–µ–∫—É—â–∏–µ –ø–∞—Ä–∞–º–µ—Ç—Ä—ã —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—Ç —É—Å—Ç–æ–π—á–∏–≤–æ–π –º–æ–¥–µ–ª–∏ —Ä–æ—Å—Ç–∞.';
+      updateChart(130, '#2563eb');
+    }
+  }
+  
+  function updateChart(cy, color) {
+    const newPath = `M 0 150 Q 200 ${cy - 10} 400 ${cy}`;
+    chart.path.setAttribute('d', newPath);
+    chart.point.setAttribute('cy', cy);
+    chart.point.setAttribute('fill', color);
+  }
+  
+  Object.values(sliders).forEach(slider => {
+    slider.addEventListener('input', calculate);
+  });
+  
+  calculate();
 }
 
-// œÓ‚ÂÍ‡ ‚Ë‰ËÏÓÒÚË ˝ÎÂÏÂÌÚ‡
-function isElementInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
+// FAQ –∞–∫–∫–æ—Ä–¥–µ–æ–Ω
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqItems.forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    });
+  });
 }
