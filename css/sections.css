@@ -650,3 +650,28 @@
     font-size: 1.5rem !important;
   }
 }
+/* Тизер инструментов на главной */
+#tools-teaser .tech-grid {
+  margin: 2rem 0;
+}
+
+#tools-teaser .tech-item {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#tools-teaser .tech-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+#tools-teaser .tech-item h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
