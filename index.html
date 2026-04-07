@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-  <header class="header">
+  <header class="header" style="background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1);">
     <div class="container header-inner">
       <div class="logo">BUSINESS DOCTOR</div>
       <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
@@ -47,11 +47,11 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero section" id="top" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding-top: 140px; position: relative; overflow: hidden;">
+    <section class="hero section" id="top" style="background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%); padding-top: 140px; position: relative; overflow: hidden; min-height: 600px;">
       <div class="container hero-container fade-up">
         <div class="hero-title-wrapper">
-          <h1 class="hero-title">Найдите, где ваш бизнес теряет прибыль — за 45 минут</h1>
-          <p class="hero-subtitle">Ваша бухгалтерия показывает прошлое. Мы моделируем будущее. AI-аудит для производителей и торговых компаний: пищевая промышленность, бытовая химия, маркетплейсы.</p>
+          <h1 class="hero-title" style="color: white;"><h1 class="hero-title">Найдите, где ваш бизнес теряет прибыль — за 45 минут</h1></h1>
+          <p class="hero-subtitle" style="color: rgba(255,255,255,0.9);"><p class="hero-subtitle">Ваша бухгалтерия показывает прошлое. Мы моделируем будущее. AI-аудит для производителей и торговых компаний: пищевая промышленность, бытовая химия, маркетплейсы.</p></p>
         </div>
         
         <!-- СТАТИСТИКА -->
@@ -74,7 +74,7 @@
           </div>
         </div>
         
-         style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+         
           <a href="#simulator" class="btn-primary">Попробовать симулятор</a>
           <a href="#cases" class="btn-secondary">Смотреть кейсы</a>
         </div>
@@ -192,10 +192,10 @@
             </div>
 
             <div class="simulator-result" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%); border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 16px; padding: 1.5rem; margin-top: 0.5rem;">
-              <div class="result-title" style="font-size: 0.85rem; color: var(--color-text-gray); margin-bottom: 0.5rem;">Итоговый прогноз:</div>
+              <div class="result-title" style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Итоговый прогноз:</div>
               <div class="result-value" id="resultProfit" style="font-size: 2rem; font-weight: 700; color: var(--color-text-dark);">12.5 млн ₽</div>
               <div class="result-change neutral" id="resultChange" style="font-size: 0.95rem; font-weight: 600; margin-top: 0.5rem; padding: 0.25rem 0.75rem; border-radius: 20px; display: inline-block;">Базовый сценарий</div>
-              <p class="result-insight" id="resultInsight" style="font-size: 0.9rem; color: var(--color-text-gray); margin-top: 1rem;">Текущие параметры соответствуют устойчивой модели роста.</p>
+              <p class="result-insight" id="resultInsight" style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 1rem;">Текущие параметры соответствуют устойчивой модели роста.</p>
             </div>
 
             <a href="#contact" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Получить детальный разбор</a>
