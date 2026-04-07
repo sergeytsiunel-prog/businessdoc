@@ -611,3 +611,22 @@
   position: relative;
   padding-left: 1.5rem;
 }
+/* ФИКС МОБИЛЬНОГО СИМУЛЯТОРА */
+@media (max-width: 900px) {
+  .chart-container {
+    display: none !important;
+  }
+  
+  .mobile-metrics {
+    display: grid !important;
+  }
+  
+  .simulator-dashboard {
+    grid-template-columns: 1fr !important;
+    padding: 1.5rem !important;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem !important;
+  }
+}
