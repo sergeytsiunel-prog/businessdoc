@@ -1,11 +1,6 @@
 ﻿
-/* ТЁМНЫЙ HERO - ПРЕМИАЛЬНЫЙ СТИЛЬ */
-.hero {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-  position: relative;
-  overflow: hidden;
-  min-height: 600px;
-}
+
+.hero { background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%); }
 
 .hero::before {
   content: '';
@@ -876,5 +871,26 @@
   
   .hero-stat-label {
     font-size: 0.85rem;
+  }
+}
+
+/* Адаптив для статистики */
+@media (max-width: 768px) {
+  .hero-stats {
+    gap: 1.5rem !important;
+    padding: 1rem !important;
+  }
+  
+  .hero-stat-value {
+    font-size: 1.5rem !important;
+    line-height: 1.1;
+  }
+  
+  .hero-stat-label {
+    font-size: 0.8rem !important;
+  }
+  
+  .hero-stat-item {
+    min-width: 100px;
   }
 }
