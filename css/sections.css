@@ -28,11 +28,6 @@
   pointer-events: none;
 }
 
-.hero h1,
-.hero .hero-title {
-  color: white !important;
-}
-
 .hero .hero-subtitle {
   color: rgba(255, 255, 255, 0.9) !important;
 }
