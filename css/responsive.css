@@ -1,5 +1,5 @@
 /* ========================================
-   RESPONSIVE.CSS - ������������
+   RESPONSIVE.CSS - ������������
    ======================================== */
 
 @media (max-width: 1200px) {
@@ -140,5 +140,15 @@
   .btn-primary {
     width: 100%;
     text-align: center;
+  }
+}
+/* Скрываем 4-й блок статистики на мобильных */
+@media (max-width: 768px) {
+  .hero-stat-desktop {
+    display: none !important;
+  }
+  
+  .hero-stats {
+    justify-content: space-around !important;
   }
 }
