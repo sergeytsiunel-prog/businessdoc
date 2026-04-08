@@ -46,19 +46,21 @@
   </header>
 
   <main>
-    <!-- HERO -->
+        <!-- HERO -->
     <section class="hero section" id="top" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%); padding-top: 140px; position: relative; overflow: hidden; min-height: 500px;">
-  <!-- Диагональная кривая (как у McKinsey) -->
-  <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; z-index: 1;" viewBox="0 0 1440 200" preserveAspectRatio="none">
-    <path d="M 0 100 Q 360 150 720 80 T 1440 120 L 1440 200 L 0 200 Z" fill="#ffffff" opacity="0.5"></path>
-  </svg>
+      <!-- Диагональная кривая -->
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; z-index: 1;" viewBox="0 0 1440 200" preserveAspectRatio="none">
+        <path d="M 0 100 Q 360 150 720 80 T 1440 120 L 1440 200 L 0 200 Z" fill="#ffffff" opacity="0.5"></path>
+      </svg>
       <div class="container hero-container fade-up">
         <div class="hero-title-wrapper">
-          <h1 class="hero-title" style="color: #0f172a !important; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2;">Найдите, где ваш бизнес теряет прибыль — за 45 минут</h1>
-          <p class="hero-subtitle" style="color: #64748b !important; font-size: 1.25rem; margin-bottom: 2rem; max-width: 800px;">Ваша бухгалтерия показывает прошлое. Мы моделируем будущее. AI-аудит для производителей и торговых компаний: пищевая промышленность, бытовая химия, маркетплейсы.</p>
+          <!-- НОВЫЙ H1 — то, что было в подзаголовке -->
+          <h1 class="hero-title" style="color: #0f172a !important; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2;">Ваша бухгалтерия показывает прошлое. Мы моделируем будущее.</h1>
+          <!-- СТАРЫЙ H1 СТАЛ ПОДЗАГОЛОВКОМ (тег p) -->
+          <p class="hero-subtitle" style="color: #64748b !important; font-size: 1.25rem; margin-bottom: 2rem; max-width: 800px;">Найдите, где ваш бизнес теряет прибыль — за 45 минут. AI-аудит для производителей и торговых компаний: пищевая промышленность, бытовая химия, маркетплейсы.</p>
         </div>
         
-        <!-- СТАТИСТИКА -->
+        <!-- СТАТИСТИКА (без изменений) -->
         <div class="hero-stats" style="display: flex; gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: rgba(255, 255, 255, 0.6); border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 20px rgba(31, 38, 135, 0.08); flex-wrap: wrap; justify-content: center;">
           <div style="text-align: center; flex: 1; min-width: 120px;">
             <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">50+</div>
@@ -78,7 +80,7 @@
           </div>
         </div>
         
-         
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="#simulator" class="btn-primary">Попробовать симулятор</a>
           <a href="#cases" class="btn-secondary">Смотреть кейсы</a>
         </div>
