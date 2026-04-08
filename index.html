@@ -159,8 +159,7 @@
               </div>
             </div>
           </div>
-
-          <div class="simulator-controls" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="simulator-controls" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
               <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
                 <label for="sliderDiscount" style="font-weight: 600; color: var(--color-text-dark);">Скидки и промо</label>
@@ -169,7 +168,6 @@
               <input type="range" id="sliderDiscount" min="0" max="40" value="15" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
               <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Рост продаж vs падение маржи</p>
             </div>
-
             <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
               <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
                 <label for="sliderInventory" style="font-weight: 600; color: var(--color-text-dark);">Запасы на складе</label>
