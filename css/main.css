@@ -196,3 +196,27 @@ h1.hero-title {
   visibility: visible !important;
   opacity: 1 !important;
 }
+/* ========================================
+   ФИКС HERO H1 - принудительное отображение
+   ======================================== */
+.hero .hero-title,
+.hero-title {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  background: none !important;
+  background-image: none !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+.hero .hero-subtitle,
+.hero-subtitle {
+  color: #64748b !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
