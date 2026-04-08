@@ -139,8 +139,11 @@ function initSimulator() {
     // Влияние запасов (старая логика)
     let inventoryImpact = (inventory >= 10 && inventory <= 30) ? 0 : (inventory > 30 ? -(inventory - 30) * 0.08 : (10 - inventory) * 0.1);
     
-    // Влияние цены (старая логика)
-    let priceImpact = price * (1 - 0.7);
+    // 🆕 Влияние цены: рост цены = рост маржи, но после +10% спрос падает
+    // +1-10% цены = +0.15% прибыли за 1%, далее эффект снижается
+    let priceImpact = price <= 10 
+      ? price * 0.015 
+      : 10 * 0.015 - (price - 10) * 0.03;
     
     // 🆕 Влияние оборачиваемости: +10% оборачиваемости = +5-15% прибыли
     // Норма: 50 дней. Меньше = лучше (меньше денег в запасах)
@@ -185,7 +188,6 @@ function initSimulator() {
       results.insight.textContent = 'Текущие параметры соответствуют устойчивой модели роста.';
       updateChart(130, '#2563eb');
     }
-  }
   
   function updateChart(cy, color) {
     const newPath = `M 0 150 Q 200 ${cy - 10} 400 ${cy}`;
