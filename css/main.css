@@ -172,3 +172,27 @@ img {
     transform: translateY(0);
   }
 }
+/* ФИКС: принудительное отображение H1 */
+.hero-title,
+h1.hero-title {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 2.5rem !important;
+  color: #0f172a !important;
+  text-indent: 0 !important;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  clip-path: none !important;
+  height: auto !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+
+/* ФИКС: подзаголовок на всякий случай */
+.hero-subtitle {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
