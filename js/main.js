@@ -89,7 +89,9 @@ function initSimulator() {
   const sliders = {
     discount: document.getElementById('sliderDiscount'),
     inventory: document.getElementById('sliderInventory'),
-    price: document.getElementById('sliderPrice')
+    price: document.getElementById('sliderPrice'),
+    turnover: document.getElementById('sliderTurnover'),      // НОВОЕ
+    logistics: document.getElementById('sliderLogistics')     // НОВОЕ
   };
   
   if (!sliders.discount) return;
@@ -97,7 +99,9 @@ function initSimulator() {
   const displays = {
     discount: document.getElementById('valDiscount'),
     inventory: document.getElementById('valInventory'),
-    price: document.getElementById('valPrice')
+    price: document.getElementById('valPrice'),
+    turnover: document.getElementById('valTurnover'),         // НОВОЕ
+    logistics: document.getElementById('valLogistics')        // НОВОЕ
   };
   
   const results = {
@@ -119,41 +123,65 @@ function initSimulator() {
     const discount = parseInt(sliders.discount.value);
     const inventory = parseInt(sliders.inventory.value);
     const price = parseInt(sliders.price.value);
+    const turnover = parseInt(sliders.turnover.value);        // НОВОЕ
+    const logistics = parseInt(sliders.logistics.value);      // НОВОЕ
     
+    // Обновляем отображение значений
     displays.discount.textContent = `${discount}%`;
     displays.inventory.textContent = `${inventory >= 0 ? '+' : ''}${inventory}%`;
     displays.price.textContent = `${price >= 0 ? '+' : ''}${price}%`;
+    displays.turnover.textContent = `${turnover} дней`;       // НОВОЕ
+    displays.logistics.textContent = `${logistics}%`;         // НОВОЕ
     
+    // Влияние скидок (старая логика)
     let discountImpact = discount <= 20 ? (discount - 15) * 0.05 : (20 - 15) * 0.05 - (discount - 20) * 0.15;
+    
+    // Влияние запасов (старая логика)
     let inventoryImpact = (inventory >= 10 && inventory <= 30) ? 0 : (inventory > 30 ? -(inventory - 30) * 0.08 : (10 - inventory) * 0.1);
+    
+    // Влияние цены (старая логика)
     let priceImpact = price * (1 - 0.7);
     
-    const totalImpact = discountImpact + inventoryImpact + priceImpact;
+    // 🆕 Влияние оборачиваемости: +10% оборачиваемости = +5-15% прибыли
+    // Норма: 50 дней. Меньше = лучше (меньше денег в запасах)
+    const turnoverImpact = (50 - turnover) / 50 * 0.15;  // от -0.12 до +0.12
+    
+    // 🆕 Влияние логистики: -1% логистики = +10-30% прибыли (асимметрично)
+    // Норма: 15%. Меньше = лучше (меньше расходов)
+    const logisticsImpact = (15 - logistics) / 15 * 0.25;  // от -0.25 до +0.33
+    
+    // Суммарное влияние
+    const totalImpact = discountImpact + inventoryImpact + priceImpact + turnoverImpact + logisticsImpact;
     const newProfit = baseProfit * (1 + totalImpact);
     const changePercent = totalImpact * 100;
     
-    results.profit.textContent = `${newProfit.toFixed(1)} млн ₽`;
-    results.mobileProfit.textContent = `${newProfit.toFixed(1)} млн ₽`;
+    // Ограничиваем прибыль (не меньше 1 млн ₽)
+    const finalProfit = Math.max(1, newProfit);
     
-    if (changePercent > 3) {
+    // Обновляем результат
+    results.profit.textContent = `${finalProfit.toFixed(1)} млн ₽`;
+    results.mobileProfit.textContent = `${finalProfit.toFixed(1)} млн ₽`;
+    
+    // Обновляем статус и график
+    if (changePercent > 5) {
       results.change.textContent = `+${changePercent.toFixed(1)}%`;
       results.change.className = 'result-change text-success';
       results.mobileChange.textContent = `+${changePercent.toFixed(1)}%`;
       results.mobileChange.className = 'metric-value text-success';
-      results.insight.textContent = 'Отличная модель! Вы находите баланс между ростом и рисками.';
-      updateChart(130 - (changePercent * 3), '#10b981');
-    } else if (changePercent < -3) {
+      results.insight.textContent = 'Отлично! Оптимизация даёт значительный рост прибыли.';
+      updateChart(130 - (changePercent * 2.5), '#10b981');
+    } else if (changePercent < -5) {
       results.change.textContent = `${changePercent.toFixed(1)}%`;
       results.change.className = 'result-change text-danger';
       results.mobileChange.textContent = `${changePercent.toFixed(1)}%`;
       results.mobileChange.className = 'metric-value text-danger';
       results.insight.textContent = 'Внимание: есть риск снижения прибыли. Давайте разберем вашу ситуацию детально.';
-      updateChart(130 - (changePercent * 3), '#ef4444');
+      updateChart(130 - (changePercent * 2.5), '#ef4444');
     } else {
       results.change.textContent = 'Базовый сценарий';
-      results.change.className = 'result-change';
+      results.change.className = 'result-change neutral';
       results.mobileChange.textContent = '0%';
-      results.mobileChange.className = 'metric-value';
+      results.mobileChange.className = 'metric-value neutral';
       results.insight.textContent = 'Текущие параметры соответствуют устойчивой модели роста.';
       updateChart(130, '#2563eb');
     }
@@ -166,10 +194,14 @@ function initSimulator() {
     chart.point.setAttribute('fill', color);
   }
   
+  // Подключаем все слайдеры (включая новые)
   Object.values(sliders).forEach(slider => {
-    slider.addEventListener('input', calculate);
+    if (slider) {
+      slider.addEventListener('input', calculate);
+    }
   });
   
+  // Инициализация
   calculate();
 }
 

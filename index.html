@@ -65,7 +65,7 @@
             <div style="color: #64748b; font-size: 0.95rem;">проектов</div>
           </div>
           <div style="text-align: center; flex: 1; min-width: 120px;">
-            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">180 млн ₽</div>
+            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">380 млн ₽</div>
             <div style="color: #64748b; font-size: 0.95rem;">нашли утечек</div>
           </div>
           <div style="text-align: center; flex: 1; min-width: 120px;">
@@ -73,8 +73,8 @@
             <div style="color: #64748b; font-size: 0.95rem;">первый результат</div>
           </div>
           <div style="text-align: center; flex: 1; min-width: 120px;">
-            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">3 отрасли</div>
-            <div style="color: #64748b; font-size: 0.95rem;">экспертизы</div>
+            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">Производство + Опт</div>
+            <div style="color: #64748b; font-size: 0.95rem;">экспертиза</div>
           </div>
         </div>
         
@@ -194,6 +194,25 @@
               <input type="range" id="sliderPrice" min="-15" max="25" value="0" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
               <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Рост цены → падение спроса</p>
             </div>
+
+            <!-- НОВЫЕ СЛАЙДЕРЫ -->
+<div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+  <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+    <label style="font-weight: 600; color: var(--color-text-dark);">📦 Оборачиваемость склада</label>
+    <span class="control-value" id="valTurnover" style="font-weight: 700; color: var(--color-primary);">50 дней</span>
+  </div>
+  <input type="range" id="sliderTurnover" min="10" max="90" value="50" step="5" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
+  <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">10–90 дней (чем меньше, тем лучше)</p>
+</div>
+
+<div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+  <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+    <label style="font-weight: 600; color: var(--color-text-dark);">🚚 Логистика % от выручки</label>
+    <span class="control-value" id="valLogistics" style="font-weight: 700; color: var(--color-primary);">15%</span>
+  </div>
+  <input type="range" id="sliderLogistics" min="3" max="25" value="15" step="1" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
+  <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">3–25% (снижение на 1% = +10-30% прибыли)</p>
+</div>
 
             <div class="simulator-result" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%); border: 1px solid rgba(37, 99, 235, 0.15); border-radius: 16px; padding: 1.5rem; margin-top: 0.5rem;">
               <div class="result-title" style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Итоговый прогноз:</div>
