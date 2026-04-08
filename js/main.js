@@ -188,7 +188,7 @@ function initSimulator() {
       results.insight.textContent = 'Текущие параметры соответствуют устойчивой модели роста.';
       updateChart(130, '#2563eb');
     }
-  
+  }
   function updateChart(cy, color) {
     const newPath = `M 0 150 Q 200 ${cy - 10} 400 ${cy}`;
     chart.path.setAttribute('d', newPath);
