@@ -519,3 +519,68 @@ if (document.readyState === 'loading') {
 } else {
   initSimulator();
 }
+// ========================================
+// ОТПРАВКА ФОРМЫ И ЦЕЛЬ ЯНДЕКС.МЕТРИКИ
+// ========================================
+
+const callbackForm = document.getElementById('callbackForm');
+if (callbackForm) {
+  callbackForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    const formData = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      message: document.getElementById('message').value,
+      date: new Date().toLocaleString('ru-RU'),
+      page: window.location.href
+    };
+    
+    submitBtn.textContent = 'Отправка...';
+    if (formStatus) {
+      formStatus.style.display = 'block';
+      formStatus.textContent = 'Отправляем...';
+      formStatus.style.color = '#64748b';
+    }
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mldrjgkj', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        // Цель для Яндекс.Метрики
+        if (typeof ym !== 'undefined') {
+          ym(108463875, 'reachGoal', 'ZayavkaForma');
+        }
+        
+        if (formStatus) {
+          formStatus.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+          formStatus.style.color = '#10b981';
+        }
+        callbackForm.reset();
+      } else {
+        throw new Error('Ошибка отправки');
+      }
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = '❌ Ошибка отправки. Пожалуйста, напишите нам на email: sergey.tsiunel@gmail.com';
+        formStatus.style.color = '#ef4444';
+      }
+    } finally {
+      submitBtn.textContent = originalText;
+      if (formStatus) {
+        setTimeout(() => {
+          formStatus.style.display = 'none';
+        }, 5000);
+      }
+    }
+  });
+}
