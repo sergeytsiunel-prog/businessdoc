@@ -226,3 +226,34 @@
     margin: 0.5rem 0 !important;
   }
 }
+/* Фикс формы на мобильных */
+@media (max-width: 768px) {
+  /* Блок контактов и форма — в колонку */
+  #contact > div > div {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Форма на всю ширину */
+  .contact-form {
+    padding: 1rem !important;
+  }
+  
+  /* Поля ввода — нормальный размер */
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px !important; /* Предотвращает зум на iOS */
+    padding: 0.7rem !important;
+  }
+  
+  /* Кнопка */
+  .contact-form button {
+    padding: 0.7rem !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Заголовок формы */
+  .contact-form h3 {
+    font-size: 1.1rem !important;
+  }
+}
