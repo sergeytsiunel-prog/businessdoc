@@ -471,31 +471,48 @@
     </section>
 
     <!-- КОНТАКТЫ -->
-    <section class="section section-dark" id="contact">
+        <section class="section section-dark" id="contact">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
           <div class="section-eyebrow">Контакт</div>
           <h2>Готовы найти свои утечки?</h2>
           <p class="section-subtitle">Напишите — обсудим ваш случай. Первая консультация бесплатно.</p>
         </div>
-        <div class="contact-direct" style="background: var(--color-white); padding: 3rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); max-width: 600px; margin: 0 auto;">
-  <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
-    <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Телефон</span>
-    <a href="tel:+79957740893" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">+7 995 774-08-93</a>
-  </div>
-  <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
-    <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Telegram-канал</span>
-    <a href="https://t.me/businessdoct" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">t.me/businessdoct</a>
-  </div>
-  <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
-    <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Личный Telegram</span>
-    <a href="https://t.me/SergeyTsiunel" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">@SergeyTsiunel</a>
-  </div>
-  <div class="contact-item">
-    <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Email для связи</span>
-    <a href="mailto:sergey.tsiunel@gmail.com" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">sergey.tsiunel@gmail.com</a>
-  </div>
-</div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
+          
+          <!-- Левая колонка: контакты -->
+          <div class="contact-direct" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
+            <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
+              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Телефон</span>
+              <a href="tel:+79957740893" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">+7 995 774-08-93</a>
+            </div>
+            <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
+              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Telegram-канал</span>
+              <a href="https://t.me/businessdoct" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">t.me/businessdoct</a>
+            </div>
+            <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
+              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Личный Telegram</span>
+              <a href="https://t.me/SergeyTsiunel" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">@SergeyTsiunel</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Email для связи</span>
+              <a href="mailto:sergey.tsiunel@gmail.com" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">sergey.tsiunel@gmail.com</a>
+            </div>
+          </div>
+          
+          <!-- Правая колонка: форма -->
+          <div class="contact-form" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
+            <h3 style="margin-bottom: 1rem; text-align: center; font-size: 1.25rem;">📝 Отправить заявку</h3>
+            <form id="callbackForm">
+              <input type="text" id="name" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
+              <input type="tel" id="phone" name="phone" placeholder="Телефон" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
+              <input type="email" id="email" name="email" placeholder="Email (необязательно)" style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
+              <textarea id="message" name="message" rows="3" placeholder="Опишите вашу задачу" style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 1rem; box-sizing: border-box; font-family: inherit;"></textarea>
+              <button type="submit" style="width: 100%; padding: 0.75rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.3s ease;">Отправить заявку</button>
+              <div id="formStatus" style="margin-top: 1rem; text-align: center; font-size: 0.85rem; display: none;"></div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
