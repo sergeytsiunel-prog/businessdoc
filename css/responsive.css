@@ -183,3 +183,46 @@
     margin: 0.25rem 0 !important;
   }
 }
+/* Мобильная версия: 4 блока виталсигнс, симметрично и шире */
+@media (max-width: 768px) {
+  .vital-signs {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  /* Скрываем 5-й блок (Поставщики) на мобильных */
+  .vital-card[data-metric="suppliers"] {
+    display: none !important;
+  }
+  
+  /* Делаем карточки шире и удобнее */
+  .vital-card {
+    padding: 1rem !important;
+    min-width: 0 !important;
+  }
+  
+  /* Иконки чуть крупнее */
+  .vital-card > div:first-child {
+    font-size: 1.75rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Текст статуса не режется */
+  .vital-status {
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+  
+  /* Дополнительный текст */
+  .vital-probability {
+    font-size: 0.65rem !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Шкала нормальной высоты */
+  .vital-bar {
+    margin: 0.5rem 0 !important;
+  }
+}
