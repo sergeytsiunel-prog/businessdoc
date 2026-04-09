@@ -132,52 +132,141 @@
       </div>
     </section>
 
-    <!-- СИМУЛЯТОР -->
-           <div class="simulator-dashboard" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; background: #ffffff; border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-medium); border: 1px solid rgba(0, 0, 0, 0.05);">
-          <div class="simulator-visual" style="position: -webkit-sticky; position: sticky; top: 100px; align-self: start; z-index: 10;">
-            <div class="chart-container" style="position: relative; min-height: 220px;"><div style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 0.7rem; color: #64748b; font-weight: 600; white-space: nowrap;">Прибыль, млн ₽</div>
-              <svg id="profitChart" viewBox="0 0 400 200" preserveAspectRatio="none" style="width: 100%; height: 100%;">
-                <path id="chartBase" d="M 0 150 L 400 150" stroke="#e2e8f0" stroke-width="2" fill="none"/>
-                <path id="chartProfit" d="M 0 150 Q 200 140 400 130" stroke="#2563eb" stroke-width="3" fill="none" style="transition: d 0.5s ease-out;"/>
-                <circle id="chartPoint" cx="400" cy="130" r="5" fill="#2563eb" style="transition: cy 0.5s ease-out, fill 0.3s ease;"/>
-              </svg><div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.7rem; color: #64748b; padding: 0 0.5rem;"><span>Старт</span><span style="font-weight: 600;">Месяцы</span><span>12</span></div></div>
-            <div class="mobile-metrics" style="display: none; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
-              <div class="metric-card" style="background: #f8fafc; padding: 1rem; border-radius: 12px; text-align: center;">
-                <span class="metric-label" style="display: block; font-size: 0.75rem; color: var(--color-text-light);">Прогноз прибыли</span>
-                <span class="metric-value" id="mobileProfit" style="display: block; font-size: 1.25rem; font-weight: 700; color: var(--color-text-dark);">12.5 млн ₽</span>
-              </div>
-              <div class="metric-card" style="background: #f8fafc; padding: 1rem; border-radius: 12px; text-align: center;">
-                <span class="metric-label" style="display: block; font-size: 0.75rem; color: var(--color-text-light);">Изменение</span>
-                <span class="metric-value neutral" id="mobileChange" style="display: block; font-size: 1.25rem; font-weight: 700;">0%</span>
-              </div>
-            </div>
-          </div>
-          <div class="simulator-controls" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+               <!-- КАЛЬКУЛЯТОР КОМПРОМИССОВ v3 -->
+    <section class="section" id="simulator">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Интерактивный инструмент</div>
+          <h2>Калькулятор компромиссов</h2>
+          <p class="section-subtitle">Компромисс через математику, выбирай с уверенностью. Моделируем цепную реакцию от одного решения.</p>
+        </div>
+
+        <div class="compromise-calculator" style="background: #ffffff; border-radius: 24px; padding: 2rem; box-shadow: var(--shadow-medium); border: 1px solid rgba(0, 0, 0, 0.05);">
+          
+          <!-- Слайдеры -->
+          <div class="calculator-controls" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+            
             <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
               <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                <label for="sliderDiscount" style="font-weight: 600; color: var(--color-text-dark);">Скидки и промо</label>
-                <span class="control-value" id="valDiscount" style="font-weight: 700; color: var(--color-primary);">15%</span>
+                <label style="font-weight: 600;">🎯 Скидка</label>
+                <span class="control-value" id="valDiscount">15%</span>
               </div>
-              <input type="range" id="sliderDiscount" min="0" max="40" value="15" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
-              <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Рост продаж vs падение маржи</p>
-            </div>
-            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
-              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                <label for="sliderInventory" style="font-weight: 600; color: var(--color-text-dark);">Изменение запасов</label>
-                <span class="control-value" id="valInventory" style="font-weight: 700; color: var(--color-primary);">+20%</span>
-              </div>
-              <input type="range" id="sliderInventory" min="-30" max="50" value="20" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
-              <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">−30% = разморозка денег, +50% = страховка от дефицита</p>
+              <input type="range" id="sliderDiscount" min="0" max="30" value="15" step="1" style="width: 100%;">
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem;">0-30% | Эластичность спроса: -1.2</p>
             </div>
 
             <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
               <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                <label for="sliderPrice" style="font-weight: 600; color: var(--color-text-dark);">Цена продажи</label>
-                <span class="control-value" id="valPrice" style="font-weight: 700; color: var(--color-primary);">0%</span>
+                <label style="font-weight: 600;">📦 Запасы</label>
+                <span class="control-value" id="valInventory">+20%</span>
               </div>
-              <input type="range" id="sliderPrice" min="-15" max="25" value="0" style="width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none;">
-              <p class="control-hint" style="font-size: 0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Баланс цены и объёма: +10% = пик прибыли</p>
+              <input type="range" id="sliderInventory" min="-30" max="50" value="20" step="5" style="width: 100%;">
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem;">-30% = разморозка, +50% = страховка</p>
             </div>
+
+            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <label style="font-weight: 600;">💰 Цена</label>
+                <span class="control-value" id="valPrice">+5%</span>
+              </div>
+              <input type="range" id="sliderPrice" min="-10" max="25" value="5" step="1" style="width: 100%;">
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem;">-10% до +25% | Шаг 1%</p>
+            </div>
+
+          </div>
+
+          <!-- Карточки последствий -->
+          <div class="vital-signs" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem;">
+            
+            <div class="vital-card" data-metric="cashflow" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💰</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Кассовый поток</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillCashflow" style="width: 78%; height: 100%; background: #f59e0b;"></div></div>
+              <div class="vital-status" id="statusCashflow" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟡 Внимание</div>
+              <div class="vital-probability" id="probCashflow" style="font-size: 0.65rem;">Риск: 34%</div>
+            </div>
+
+            <div class="vital-card" data-metric="inventory" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📦</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Запасы</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillInventory" style="width: 65%; height: 100%; background: #10b981;"></div></div>
+              <div class="vital-status" id="statusInventory" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟢 Норма</div>
+              <div class="vital-probability" id="probInventory" style="font-size: 0.65rem;">Истощение: 18 дн</div>
+            </div>
+
+            <div class="vital-card" data-metric="margin" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📈</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Маржинальность</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillMargin" style="width: 45%; height: 100%; background: #ef4444;"></div></div>
+              <div class="vital-status" id="statusMargin" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🔴 -18%</div>
+              <div class="vital-probability" id="probMargin" style="font-size: 0.65rem;">КМД: 28%</div>
+            </div>
+
+            <div class="vital-card" data-metric="demand" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🛒</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Спрос</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillDemand" style="width: 82%; height: 100%; background: #10b981;"></div></div>
+              <div class="vital-status" id="statusDemand" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟢 +23%</div>
+              <div class="vital-probability" id="probDemand" style="font-size: 0.65rem;">Эластичность: -1.2</div>
+            </div>
+
+            <div class="vital-card" data-metric="suppliers" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚚</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Поставщики</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillSuppliers" style="width: 55%; height: 100%; background: #f59e0b;"></div></div>
+              <div class="vital-status" id="statusSuppliers" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟡 Риск 28%</div>
+              <div class="vital-probability" id="probSuppliers" style="font-size: 0.65rem;">Срыв поставок</div>
+            </div>
+
+          </div>
+
+          <!-- Панель компромисса -->
+          <div class="tradeoff-panel" style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); border-radius: 16px; padding: 1.5rem; border-left: 4px solid #2563eb; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+              <span style="font-size: 1.25rem;">⚖️</span>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Компромисс:</div>
+                <div id="tradeoffUpside" style="color: #10b981; font-weight: 600; margin-bottom: 0.25rem;">+12% выручка сейчас</div>
+                <div id="tradeoffDownside" style="color: #f59e0b; font-weight: 600; margin-bottom: 0.25rem;">⚠️ Кассовый разрыв через 23 дня</div>
+                <div id="tradeoffConfidence" style="color: #64748b; font-size: 0.85rem;">✅ Уверенность прогноза: 87%</div>
+              </div>
+            </div>
+            
+            <div class="recommendation" style="background: #ffffff; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="font-size: 1.25rem;">💡</span>
+                <div>
+                  <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.25rem;">Рекомендация:</div>
+                  <div id="recommendationText" style="color: #475569; font-size: 0.85rem; line-height: 1.5;">Снизьте скидку до 12% или перенесите оплату поставщику Б на 15 дней.</div>
+                </div>
+              </div>
+            </div>
+
+            <details style="margin-top: 1rem; padding: 1rem; background: #ffffff; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <summary style="cursor: pointer; font-weight: 600; color: #2563eb; outline: none;">📐 Показать математику</summary>
+              <div style="margin-top: 1rem; font-size: 0.8rem; color: #64748b; line-height: 1.5;">
+                <p style="margin-bottom: 0.5rem;"><strong>Математическая модель:</strong></p>
+                <ul style="margin: 0; padding-left: 1.25rem;">
+                  <li>Эластичность спроса по цене: -1.2 (B2B-рынок)</li>
+                  <li>Эластичность по скидке: 0.8</li>
+                  <li>КМД = 32% - скидка×0.8 + цена×0.6</li>
+                  <li>Кассовый поток = 100 - спрос×0.8 + КМД×0.5 - запасы×0.3</li>
+                  <li>Дни до кассового разрыва = 45 - (100-кэшфлоу)×0.6 - спрос×0.4</li>
+                  <li>Вероятность = расчёт на основе R² = 0.89</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <!-- CTA -->
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#contact" class="btn-primary">Получить прогноз по вашему бизнесу</a>
+            <a href="dashboard.html" class="btn-secondary">Смотреть пример дашборда</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
             <!-- НОВЫЕ СЛАЙДЕРЫ -->
 <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
