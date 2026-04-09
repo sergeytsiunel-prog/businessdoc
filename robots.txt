@@ -1,3 +1,11 @@
-User-agent: * 
-Allow: / 
-Sitemap: https://businessdoc.pro/sitemap.xml 
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /foto/
+Disallow: /backup_2026-04-05/
+Disallow: /index_backup_before_clean.html
+Disallow: /index_final_backup.html
+
+Sitemap: https://businessdoc.pro/sitemap.xml
+Host: https://businessdoc.pro
