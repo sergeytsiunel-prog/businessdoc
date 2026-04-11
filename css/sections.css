@@ -1,103 +1,14 @@
-﻿
-
-.hero { background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%); }
-
-.hero::before {
-  content: '';
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  top: -300px;
-  right: -200px;
-  animation: float 25s infinite ease-in-out;
-  pointer-events: none;
+﻿:root {
+  /* Fallback variables for legacy references */
+  --gradient-sterile: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  --color-steel-blue: #2563eb;
+  --color-steel-blue-dark: #1d4ed8;
+  --gradient-blue-accent: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  --gradient-medical: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  --color-gold: #d4af37;
+  --color-gold-light: #e8c96a;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
-  border-radius: 50%;
-  bottom: -200px;
-  left: -100px;
-  animation: float 30s infinite ease-in-out reverse;
-  pointer-events: none;
-}
-
-.hero .hero-subtitle {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-/* Статистика на тёмном фоне */
-.hero-stats {
-  display: flex;
-  gap: 3rem;
-  margin: 3rem 0;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.hero-stat-value {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-}
-
-.hero-stat-label {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
-}
-
-/* Тёмный header */
-.header {
-  background: rgba(30, 41, 59, 0.95) !important;
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.header .logo {
-  color: white !important;
-}
-
-.header .nav a {
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-
-.header .nav a:hover {
-  color: white !important;
-}
-
-/* Анимация пузырей */
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-30px) rotate(5deg); }
-}
-
-@media (max-width: 768px) {
-  .hero-stats {
-    gap: 2rem;
-    padding: 1.5rem;
-  }
-  
-  .hero-stat-value {
-    font-size: 2rem;
-  }
-}
 /* ========================================
    SECTIONS.CSS - ����� ���������� ������
    ======================================== */
@@ -731,25 +642,7 @@
   }
 }
 
-/* ФИКС МОБИЛЬНОГО СИМУЛЯТОРА */
-@media (max-width: 900px) {
-  .chart-container {
-    display: none !important;
-  }
-  
-  .mobile-metrics {
-    display: grid !important;
-  }
-  
-  .simulator-dashboard {
-    grid-template-columns: 1fr !important;
-    padding: 1.5rem !important;
-  }
-  
-  .metric-value {
-    font-size: 1.5rem !important;
-  }
-}
+
 /* Тизер инструментов на главной */
 #tools-teaser .tech-grid {
   margin: 2rem 0;

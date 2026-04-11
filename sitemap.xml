@@ -43,4 +43,11 @@
     <priority>0.8</priority>
   </url>
   
-</urlset>
+
+  <url>
+    <loc>https://businessdoc.pro/privacy.html</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  </urlset>

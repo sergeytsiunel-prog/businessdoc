@@ -46,13 +46,11 @@
       <nav class="nav" data-menu>
         <div class="nav__inner">
           <a href="#services">Услуги</a>
-          <a href="#industries">Отрасли</a>
           <a href="#simulator">Симулятор</a>
           <a href="#cases">Кейсы</a>
-          <a href="tools.html">Технологии</a>
+          <a href="#industries">Отрасли</a>
           <a href="#about">Об авторе</a>
           <a href="#contact" class="nav-cta-mobile">Запросить аудит</a>
-          <a href="dashboard.html">Дашборд</a>
         </div>
       </nav>
       <a href="#contact" class="nav-cta-desktop">Запросить аудит</a>
@@ -394,7 +392,9 @@
           <h2>Опыт + AI-аналитика</h2>
         </div>
         <div style="text-align: center; margin-bottom: 2rem;">
-          <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Business Doctor" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem; box-shadow: var(--shadow-medium);">
+          <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Сергей Цюнель — Business Doctor" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem; box-shadow: var(--shadow-medium);">
+          <div style="font-size: 1.25rem; font-weight: 600; color: #0f172a; margin-bottom: 0.25rem;">Сергей Цюнель</div>
+          <div style="color: #64748b; font-size: 0.95rem;">Финансовый аналитик · AI-интегратор</div>
         </div>
         <div class="content-grid">
           <div class="premium-card">
@@ -438,6 +438,25 @@
         
         <div style="text-align: center; margin-top: 2rem;">
           <a href="tools.html" class="btn-secondary">Все технологии →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЛИД-МАГНИТ -->
+    <section class="section" style="background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);">
+      <div class="container narrow fade-up">
+        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; background: #ffffff; border-radius: 20px; padding: 2rem; box-shadow: 0 2px 16px rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.1);">
+          <div style="font-size: 3rem;">📊</div>
+          <div style="flex: 1; min-width: 220px;">
+            <div style="font-size: 0.8rem; font-weight: 600; color: #2563eb; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Бесплатно</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Шаблон управленческого P&L в Excel</h3>
+            <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Готовая таблица для расчёта маржинальности по SKU. Используют 50+ компаний из производства и торговли.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 200px;">
+            <input type="email" id="leadEmail" placeholder="Ваш email" style="padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 0.95rem; width: 100%; box-sizing: border-box;">
+            <button onclick="sendLeadMagnet()" style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Получить шаблон →</button>
+            <div id="leadStatus" style="font-size: 0.8rem; color: #64748b; text-align: center; display: none;"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -521,9 +540,22 @@
   <footer class="footer" style="background: var(--color-slate); color: white; padding: 3rem 0; margin-top: 4rem;">
     <div class="container narrow text-center">
       <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem;">© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
-      <p style="color: rgba(255, 255, 255, 0.7);"><a href="/privacy.html" >Политика конфиденциальности</a></p>
+      <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem;">
+        <a href="dashboard.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Пример дашборда</a>
+        <a href="tools.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Технологии</a>
+        <a href="/privacy.html" style="color: rgba(255,255,255,0.6);">Политика конфиденциальности</a>
+      </p>
     </div>
   </footer>
+
+  <!-- WhatsApp плавающая кнопка -->
+  <a href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20узнать%20об%20аудите%20бизнеса" 
+     target="_blank" rel="noopener"
+     style="position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 9999; text-decoration: none; transition: transform 0.2s;"
+     onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+     title="Написать в WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <script src="js/main.js" defer></script>
 </body>

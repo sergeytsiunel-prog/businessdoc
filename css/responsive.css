@@ -152,37 +152,6 @@
     justify-content: space-around !important;
   }
 }
-/* Мобильная адаптация карточек виталсигнс */
-@media (max-width: 768px) {
-  .vital-card > div:first-child {
-    font-size: 1.75rem !important;
-    margin-bottom: 0.25rem !important;
-  }
-  
-  /* Скрываем текст-заголовок */
-  .vital-card > div:nth-child(2) {
-    display: none !important;
-  }
-  
-  .vital-card {
-    padding: 0.75rem !important;
-  }
-  
-  .vital-status {
-    font-size: 0.7rem !important;
-    margin-top: 0.25rem !important;
-    white-space: nowrap !important;
-  }
-  
-  .vital-probability {
-    font-size: 0.6rem !important;
-    white-space: nowrap !important;
-  }
-  
-  .vital-bar {
-    margin: 0.25rem 0 !important;
-  }
-}
 /* Мобильная версия: 4 блока виталсигнс, симметрично и шире */
 @media (max-width: 768px) {
   .vital-signs {

@@ -84,141 +84,6 @@ function initScrollAnimations() {
   });
 }
 
-// Симулятор
-function initSimulator() {
-  const sliders = {
-    discount: document.getElementById('sliderDiscount'),
-    inventory: document.getElementById('sliderInventory'),
-    price: document.getElementById('sliderPrice'),
-    turnover: document.getElementById('sliderTurnover'),      // НОВОЕ
-    logistics: document.getElementById('sliderLogistics')     // НОВОЕ
-  };
-  
-  if (!sliders.discount) return;
-  
-  const displays = {
-    discount: document.getElementById('valDiscount'),
-    inventory: document.getElementById('valInventory'),
-    price: document.getElementById('valPrice'),
-    turnover: document.getElementById('valTurnover'),         // НОВОЕ
-    logistics: document.getElementById('valLogistics')        // НОВОЕ
-  };
-  
-  const results = {
-    profit: document.getElementById('resultProfit'),
-    change: document.getElementById('resultChange'),
-    insight: document.getElementById('resultInsight'),
-    mobileProfit: document.getElementById('mobileProfit'),
-    mobileChange: document.getElementById('mobileChange')
-  };
-  
-  const chart = {
-    path: document.getElementById('chartProfit'),
-    point: document.getElementById('chartPoint')
-  };
-  
-  const baseProfit = 12.5;
-  
-  function calculate() {
-    const discount = parseInt(sliders.discount.value);
-    const inventory = parseInt(sliders.inventory.value);
-    const price = parseInt(sliders.price.value);
-    const turnover = parseInt(sliders.turnover.value);        // НОВОЕ
-    const logistics = parseInt(sliders.logistics.value);      // НОВОЕ
-    
-    // Обновляем отображение значений
-    displays.discount.textContent = `${discount}%`;
-    displays.inventory.textContent = `${inventory >= 0 ? '+' : ''}${inventory}%`;
-    displays.price.textContent = `${price >= 0 ? '+' : ''}${price}%`;
-    displays.turnover.textContent = `${turnover} дней`;       // НОВОЕ
-    displays.logistics.textContent = `${logistics}%`;         // НОВОЕ
-    
-    // Влияние скидок (старая логика)
-    let discountImpact = discount <= 20 ? (discount - 15) * 0.05 : (20 - 15) * 0.05 - (discount - 20) * 0.15;
-    
-    // Влияние запасов (старая логика)
-    let inventoryImpact = (inventory >= 10 && inventory <= 30) ? 0 : (inventory > 30 ? -(inventory - 30) * 0.08 : (10 - inventory) * 0.1);
-    
-    // 🆕 Влияние цены: рост цены = рост маржи, но после +10% спрос падает
-    // +1-10% цены = +0.15% прибыли за 1%, далее эффект снижается
-    let priceImpact = price <= 10 
-      ? price * 0.015 
-      : 10 * 0.015 - (price - 10) * 0.03;
-    
-    // 🆕 Влияние оборачиваемости: +10% оборачиваемости = +5-15% прибыли
-    // Норма: 50 дней. Меньше = лучше (меньше денег в запасах)
-    const turnoverImpact = (50 - turnover) / 50 * 0.15;  // от -0.12 до +0.12
-    
-    // 🆕 Влияние логистики: -1% логистики = +10-30% прибыли (асимметрично)
-    // Норма: 15%. Меньше = лучше (меньше расходов)
-    const logisticsImpact = (15 - logistics) / 15 * 0.25;  // от -0.25 до +0.33
-    
-    // Суммарное влияние
-    const totalImpact = discountImpact + inventoryImpact + priceImpact + turnoverImpact + logisticsImpact;
-    const newProfit = baseProfit * (1 + totalImpact);
-    const changePercent = totalImpact * 100;
-    
-    // Ограничиваем прибыль (не меньше 1 млн ₽)
-    const finalProfit = Math.max(1, newProfit);
-    
-    // Обновляем результат
-    results.profit.textContent = `${finalProfit.toFixed(1)} млн ₽`;
-    results.mobileProfit.textContent = `${finalProfit.toFixed(1)} млн ₽`;
-    
-    // Обновляем статус и график
-    if (changePercent > 5) {
-      results.change.textContent = `+${changePercent.toFixed(1)}%`;
-      results.change.className = 'result-change text-success';
-      results.mobileChange.textContent = `+${changePercent.toFixed(1)}%`;
-      results.mobileChange.className = 'metric-value text-success';
-      results.insight.textContent = 'Отлично! Оптимизация даёт значительный рост прибыли.';
-      updateChart(130 - (changePercent * 2.5), '#10b981');
-    } else if (changePercent < -5) {
-      results.change.textContent = `${changePercent.toFixed(1)}%`;
-      results.change.className = 'result-change text-danger';
-      results.mobileChange.textContent = `${changePercent.toFixed(1)}%`;
-      results.mobileChange.className = 'metric-value text-danger';
-      results.insight.textContent = 'Внимание: есть риск снижения прибыли. Давайте разберем вашу ситуацию детально.';
-      updateChart(130 - (changePercent * 2.5), '#ef4444');
-    } else {
-      results.change.textContent = 'Базовый сценарий';
-      results.change.className = 'result-change neutral';
-      results.mobileChange.textContent = '0%';
-      results.mobileChange.className = 'metric-value neutral';
-      results.insight.textContent = 'Текущие параметры соответствуют устойчивой модели роста.';
-      updateChart(130, '#2563eb');
-    }
-  }
-  function updateChart(cy, color) {
-    const newPath = `M 0 150 Q 200 ${cy - 10} 400 ${cy}`;
-    chart.path.setAttribute('d', newPath);
-    chart.point.setAttribute('cy', cy);
-    chart.point.setAttribute('fill', color);
-  }
-  
-  // Подключаем все слайдеры (включая новые)
-  Object.values(sliders).forEach(slider => {
-    if (slider) {
-      slider.addEventListener('input', calculate);
-    }
-  });
-  
-  // Инициализация
-  calculate();
-}
-
-// FAQ аккордеон
-function initFAQ() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if (!isActive) item.classList.add('active');
-    });
-  });
-}
 // ========================================
 // КАЛЬКУЛЯТОР КОМПРОМИССОВ v3
 // Реальная математическая модель
@@ -582,5 +447,40 @@ if (callbackForm) {
         }, 5000);
       }
     }
+  });
+}
+
+// Лид-магнит: отправка email
+function sendLeadMagnet() {
+  const emailEl = document.getElementById('leadEmail');
+  const statusEl = document.getElementById('leadStatus');
+  if (!emailEl || !statusEl) return;
+  
+  const email = emailEl.value.trim();
+  if (!email || !email.includes('@')) {
+    statusEl.style.display = 'block';
+    statusEl.textContent = 'Введите корректный email';
+    statusEl.style.color = '#ef4444';
+    return;
+  }
+  
+  statusEl.style.display = 'block';
+  statusEl.textContent = 'Отправляем...';
+  statusEl.style.color = '#64748b';
+  
+  fetch('https://formspree.io/f/mnjoyzyy', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, type: 'lead_magnet_pl_template', date: new Date().toLocaleString('ru-RU') })
+  }).then(r => {
+    if (r.ok) {
+      statusEl.textContent = '✅ Шаблон отправлен на ваш email!';
+      statusEl.style.color = '#10b981';
+      emailEl.value = '';
+      if (typeof ym !== 'undefined') ym(108463875, 'reachGoal', 'LidMagnet');
+    } else throw new Error();
+  }).catch(() => {
+    statusEl.textContent = '❌ Ошибка. Напишите нам в Telegram: @SergeyTsiunel';
+    statusEl.style.color = '#ef4444';
   });
 }
