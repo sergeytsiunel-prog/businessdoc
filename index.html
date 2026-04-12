@@ -485,18 +485,51 @@
     <!-- ЛИД-МАГНИТ -->
     <section class="section" style="background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);">
       <div class="container narrow fade-up">
-        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; background: #ffffff; border-radius: 20px; padding: 2rem; box-shadow: 0 2px 16px rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.1);">
-          <div style="font-size: 3rem;">📊</div>
-          <div style="flex: 1; min-width: 220px;">
-            <div style="font-size: 0.8rem; font-weight: 600; color: #2563eb; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Бесплатно</div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Шаблон управленческого P&L в Excel</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Готовая таблица для расчёта маржинальности по SKU. Используют 50+ компаний из производства и торговли.</p>
+        <div style="background: #ffffff; border-radius: 20px; padding: 2rem 2.5rem; box-shadow: 0 2px 16px rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.1);">
+
+          <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
+            <div style="font-size: 2.5rem; line-height: 1; padding-top: 0.25rem;">📊</div>
+            <div style="flex: 1; min-width: 240px;">
+              <div style="font-size: 0.8rem; font-weight: 600; color: #2563eb; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Бесплатно — отправляем лично</div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Интерактивный управленческий P&L в Excel</h3>
+              <p style="color: #475569; font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.6;">Полностью настроенный инструмент финансовой аналитики. Введите свои цифры — всё остальное посчитается автоматически.</p>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6rem; margin-bottom: 1rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">1.</span>
+                  <span><strong>Лист «Ввод»</strong> — вводите данные в жёлтые ячейки, всё остальное считается само</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">2.</span>
+                  <span><strong>Лист «P&L»</strong> — полный управленческий отчёт о прибылях и убытках с КМД и ТБУ</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">3.</span>
+                  <span><strong>Лист «Дашборд»</strong> — ключевые метрики и автодиагностика: логистика, ТБУ, рентабельность</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">4.</span>
+                  <span><strong>Лист «Сценарии»</strong> — 7 сценариев «что если»: рост выручки, оптимизация логистики, ФОТ и другие</span>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Производство</span>
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Торговля</span>
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Маркетплейсы</span>
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Сервисный бизнес</span>
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #f0fdf4; color: #065f46; border-radius: 99px; border: 1px solid #6ee7b7;">Используют 50+ компаний</span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 210px; padding-top: 0.25rem;">
+              <input type="email" id="leadEmail" placeholder="Ваш email" style="padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 0.95rem; width: 100%; box-sizing: border-box;">
+              <button onclick="sendLeadMagnet()" style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Получить бесплатно →</button>
+              <div style="font-size: 0.78rem; color: #94a3b8; text-align: center; line-height: 1.4;">Отправим файл лично в течение нескольких часов. Без спама.</div>
+              <div id="leadStatus" style="font-size: 0.8rem; color: #64748b; text-align: center; display: none;"></div>
+            </div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 200px;">
-            <input type="email" id="leadEmail" placeholder="Ваш email" style="padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 0.95rem; width: 100%; box-sizing: border-box;">
-            <button onclick="sendLeadMagnet()" style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Получить шаблон →</button>
-            <div id="leadStatus" style="font-size: 0.8rem; color: #64748b; text-align: center; display: none;"></div>
-          </div>
+
         </div>
       </div>
     </section>
