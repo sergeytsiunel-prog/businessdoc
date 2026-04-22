@@ -784,7 +784,7 @@
 }
 /* МОБИЛЬНОЕ МЕНЮ - ФИКС v2 */
 .menu-toggle__line {
-  background-color: #ffffff !important;
+  background-color: #0f172a !important;
 }
 
 @media (max-width: 900px) {
