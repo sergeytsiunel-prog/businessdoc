@@ -36,6 +36,11 @@
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">BUSINESS DOCTOR</a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
       <nav class="nav" data-menu>
         <div class="nav__inner">
           <a href="index.html#services">Услуги</a>
@@ -43,7 +48,9 @@
           <a href="index.html#simulator">Симулятор</a>
           <a href="index.html#cases">Кейсы</a>
           <a href="tools.html">Технологии</a>
-          <a href="index.html#contact">Контакты</a>
+          <a href="dashboard.html">Дашборд</a>
+          <a href="index.html#about">Об авторе</a>
+          <a href="index.html#contact" class="nav-cta-mobile">Запросить аудит</a>
         </div>
       </nav>
       <a href="index.html#contact" class="nav-cta-desktop">Запросить аудит</a>
@@ -55,7 +62,7 @@
       <div class="container narrow">
         <a href="index.html#industries" class="back-link">← Назад к отраслям</a>
         <div class="industry-icon">🧴</div>
-        <h1>Бытовая химия</h1>
+        <h1>Оптимизация себестоимости бытовой химии: нейро-аудит рецептур и упаковки</h1>
         <p class="section-subtitle" style="max-width: 800px;">Нейро-оптимизация рецептур, AI-анализ упаковки и этикетки, прогнозная аналитика SKU и скидок.</p>
       </div>
     </section>
@@ -98,6 +105,7 @@
               <li>Моделирование сценариев снижения себестоимости</li>
               <li>Подготовка гипотез для пробной партии</li>
             </ul>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #2563eb;">🎯 Снижение себестоимости 15-25% без потери качества</p>
           </div>
           <div class="premium-card card-accent">
             <h3>🎨 AI-анализ упаковки</h3>
@@ -107,6 +115,7 @@
               <li>Сравнение с конкурентами</li>
               <li>Рекомендации по редизайну</li>
             </ul>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #2563eb;">👁 Покупатель принимает решение за 2-3 секунды. Мы смотрим на упаковку глазами нейросети — и находим то, что упускают дизайнеры.</p>
           </div>
           <div class="premium-card card-accent">
             <h3>📊 Прогнозная аналитика</h3>
@@ -121,10 +130,61 @@
       </div>
     </section>
 
+    <!-- КЕЙС -->
+    <section class="section">
+      <div class="container narrow">
+        <div class="section-header">
+          <div class="section-eyebrow">Кейс</div>
+          <h2>Производитель бытовой химии, -18% себестоимости</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+          
+          <div class="premium-card" style="background: #ffffff; border-left: 4px solid #ef4444;">
+            <h3 style="color: #ef4444;">🔴 Проблема</h3>
+            <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+              <li>Себестоимость продукции росла 3 квартала подряд</li>
+              <li>Конкуренты начинали демпинговать по ключевым SKU</li>
+              <li>Собственник не понимал, какие позиции реально прибыльны</li>
+              <li>Упаковка не выделялась на полке среди 20+ конкурентов</li>
+            </ul>
+          </div>
+          
+          <div class="premium-card" style="background: #ffffff; border-left: 4px solid #f59e0b;">
+            <h3 style="color: #f59e0b;">💡 Инсайт</h3>
+            <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+              <li>AI проанализировал рецептуры и нашёл альтернативных поставщиков ПАВ</li>
+              <li>Нейросеть оценила упаковку: низкая контрастность, текст нечитаем с 1,5 метров</li>
+              <li>30% SKU генерировали убыток и размывали общую маржу</li>
+              <li>Скидки делались «на глаз», без расчёта реальной эластичности спроса</li>
+            </ul>
+          </div>
+          
+          <div class="premium-card" style="background: #ffffff; border-left: 4px solid #10b981;">
+            <h3 style="color: #10b981;">✅ Результат</h3>
+            <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+              <li>Снижение себестоимости на <strong>18%</strong> без потери качества</li>
+              <li>Упаковка переработана: рост заметности на полке +40%</li>
+              <li>Убыточные SKU выведены из ассортимента</li>
+              <li>Маржинальность портфеля выросла с 22% до 34%</li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <!-- Цитата собственника -->
+        <div style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); border-radius: 20px; padding: 1.5rem; border-left: 4px solid #2563eb; margin-top: 1rem;">
+          <p style="font-style: italic; color: #0f172a; margin-bottom: 0.5rem;">«Думали, проблема только в закупочных ценах. Оказалось — треть ассортимента тянет бизнес вниз, а упаковку покупатели просто не замечают. За 2 недели получили план, который перевернул наше представление о прибыли.»</p>
+          <p style="font-weight: 600; color: #2563eb; margin-bottom: 0;">— Собственник производства бытовой химии</p>
+        </div>
+        
+      </div>
+    </section>
+
     <section class="section section-dark" style="text-align: center;">
       <div class="container narrow">
-        <h2 style="margin-bottom: 1rem;">Готовы оптимизировать производство?</h2>
-        <p style="max-width: 600px; margin: 0 auto 2rem;">Первая консультация бесплатно. Покажем примеры из похожих проектов.</p>
+        <h2 style="margin-bottom: 1rem;">Готовы снизить себестоимость на 15-25%?</h2>
+        <p style="max-width: 600px; margin: 0 auto 2rem;">Первая консультация бесплатно. Покажу, как снизили себестоимость на 18% у похожего производителя.</p>
         <a href="index.html#contact" class="btn-primary">Запросить аудит</a>
       </div>
     </section>
