@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://businessdoc.pro/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/sections.css">
@@ -65,10 +65,16 @@
       </svg>
       <div class="container hero-container fade-up">
         <div class="hero-title-wrapper">
-          <h1 class="hero-title" style="color: #0f172a !important; font-size: 2.5rem !important; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; display: block !important; visibility: visible !important; opacity: 1 !important;">Ваша бухгалтерия показывает прошлое. Мы моделируем будущее.</h1>
+          <h1 class="hero-title" style="color: #0f172a !important; font-size: 2.5rem !important; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2; display: block !important; visibility: visible !important; opacity: 1 !important;">AI-аудит бизнеса: найдём скрытые утечки прибыли за 45 минут</h1>
+          <p style="color: #334155; font-size: 1.15rem; font-style: italic; margin-bottom: 0.5rem;">Ваша бухгалтерия показывает прошлое. Мы моделируем будущее.</p>
           <p class="hero-subtitle" style="color: #64748b !important; font-size: 1.25rem; margin-bottom: 2rem; max-width: 800px;">Найдите, где ваш бизнес теряет прибыль — за 45 минут.</p>
         </div>
-                                       <div class="hero-stats" style="display: flex; gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: rgba(255, 255, 255, 0.6); border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 20px rgba(31, 38, 135, 0.08); flex-wrap: wrap; justify-content: center;">
+                                       <div style="margin: 1rem 0 0.5rem; opacity: 0.3;">
+          <svg width="200" height="32" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="0,16 30,16 40,4 50,28 60,10 70,22 80,16 200,16" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="hero-stats" style="display: flex; gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: rgba(255, 255, 255, 0.6); border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 20px rgba(31, 38, 135, 0.08); flex-wrap: wrap; justify-content: center;">
           <div style="text-align: center; flex: 1; min-width: 100px;">
             <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">50+</div>
             <div style="color: #64748b; font-size: 0.95rem;">проектов</div>
@@ -82,20 +88,22 @@
             <div style="color: #64748b; font-size: 0.95rem;">первый результат</div>
           </div>
           <div class="hero-stat-desktop" style="text-align: center; flex: 1; min-width: 130px;">
-            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem; line-height: 1.2;">Производство и оптовая торговля</div>
-            <div style="color: #64748b; font-size: 0.95rem;">Прозрачная прибыль по каждому SKU</div>
+            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">3 отрасли</div>
+            <div style="color: #64748b; font-size: 0.95rem;">производство, торговля, маркетплейсы</div>
           </div>
         </div>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="#simulator" class="btn-primary">Попробовать симулятор</a>
           <a href="#cases" class="btn-secondary">Смотреть кейсы</a>
         </div>
+      </div>
+    </section>
 
     <!-- ПРОБЛЕМА -->
     <section class="section">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">Почему это важно</div>
+          <div class="section-eyebrow">Симптомы</div>
           <h2>80% собственников не видят реальную маржинальность</h2>
           <p class="section-subtitle">Бухгалтерский учет — для налоговой. Управленческий — для вас. Без него вы принимаете решения вслепую.</p>
         </div>
@@ -120,7 +128,7 @@
     <section class="section section-alt" id="services">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">Процесс</div>
+          <div class="section-eyebrow">Диагностика → Лечение → Восстановление</div>
           <h2>3 шага к прозрачной прибыли</h2>
           <p class="section-subtitle">От первого звонка до работающего плана — не дольше двух недель</p>
         </div>
@@ -359,21 +367,47 @@
           <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
             <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
             <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Логистика съедала 130 млн рублей в год — мы этого не видели. Получили не просто отчёт, а дорожные карты по всем направлениям. Такого разбора от внешнего аналитика не видели никогда.»</p>
-            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Собственник · Пищевое производство · 2,1 млрд ₽/год</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Андрей К. · Собственник · Пищевое производство · 2,1 млрд ₽/год</div>
           </div>
           <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
             <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
             <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Выручка росла, а денег не было. За 2 месяца без роста выручки чистая прибыль выросла на 35%. Нашли утечку там, где вообще не смотрели.»</p>
-            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Собственник · Сервисный бизнес</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Михаил Р. · Собственник · Сервисный бизнес</div>
           </div>
           <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
             <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
             <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Маркетолог предлагал скидку 20% — казалось логично. Просчитали: это минус 12% к прибыли. Сохранили 1,8 млн рублей за квартал, просто посчитав.»</p>
-            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Собственник · Маркетплейсы WB / Ozon</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Олег Д. · Собственник · Маркетплейсы WB / Ozon</div>
           </div>
         </div>
         <div style="text-align: center;">
           <a href="testimonials.html" class="btn-secondary">Читать полные отзывы →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ГАРАНТИИ / СНЯТИЕ ВОЗРАЖЕНИЙ -->
+    
+
+    <!-- ГАРАНТИИ / СНЯТИЕ ВОЗРАЖЕНИЙ -->
+    <section class="section">
+      <div class="container narrow fade-up">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 0;">
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🔬</div>
+            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Первый результат за 45 минут</div>
+            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">На первом созвоне уже понятно, где теряется прибыль. Ещё до подписания договора.</p>
+          </div>
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">📋</div>
+            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Поэтапная оплата</div>
+            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Первый этап — диагностика. Не увидите ценности — просто не продолжаем. Никаких рисков.</p>
+          </div>
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">💰</div>
+            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Конкретные цифры, не советы</div>
+            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">50+ проектов — средняя находка 7–18 млн ₽ скрытых потерь. Только считаемые результаты.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -428,8 +462,8 @@
     <section class="section section-alt" id="about">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">Кто будет вести проект</div>
-          <h2>Опыт + AI-аналитика</h2>
+          <div class="section-eyebrow">Лечащий врач вашего бизнеса</div>
+          <h2>Сергей Циунель — реаниматолог бизнеса</h2>
         </div>
         
         <div style="text-align: center; margin-bottom: 2rem;">
@@ -499,7 +533,7 @@
 
             <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 210px; padding-top: 0.25rem;">
               <input type="email" id="leadEmail" placeholder="Ваш email" style="padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 0.95rem; width: 100%; box-sizing: border-box;">
-              <button onclick="sendLeadMagnet()" style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Получить бесплатно →</button>
+              <button onclick="sendLeadMagnet()" style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Получить Excel на email →</button>
               <div style="font-size: 0.78rem; color: #94a3b8; text-align: center; line-height: 1.4;">Отправим файл лично в течение нескольких часов. Без спама.</div>
               <div id="leadStatus" style="font-size: 0.8rem; color: #64748b; text-align: center; display: none;"></div>
             </div>
@@ -555,11 +589,11 @@
               <a href="tel:+79957740893" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">+7 995 774-08-93</a>
             </div>
             <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
-              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Telegram-канал</span>
+              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Канал Business Doctor (кейсы и советы)</span>
               <a href="https://t.me/businessdoct" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">t.me/businessdoct</a>
             </div>
             <div class="contact-item" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
-              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Личный Telegram</span>
+              <span class="contact-label" style="display: block; font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.5rem;">Написать лично (для заявки)</span>
               <a href="https://t.me/SergeyTsiunel" class="contact-link" style="color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 1.125rem;">@SergeyTsiunel</a>
             </div>
             <div class="contact-item">
@@ -570,8 +604,9 @@
           
           <!-- Правая колонка: форма -->
           <div class="contact-form" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
-            <h3 style="margin-bottom: 1rem; text-align: center; font-size: 1.25rem;">📝 Отправить заявку</h3>
-            <form id="callbackForm">
+            <h3 style="margin-bottom: 0.5rem; text-align: center; font-size: 1.25rem;">📝 Отправить заявку</h3>
+            <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Отвечаю в течение 2 часов в рабочее время. Звоню сам, чтобы уточнить детали.</p>
+            <form id="callbackForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
               <input type="text" id="name" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
               <input type="tel" id="phone" name="phone" placeholder="Телефон" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
               <input type="email" id="email" name="email" placeholder="Email (необязательно)" style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
@@ -592,7 +627,7 @@
         <a href="testimonials.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Отзывы</a>
         <a href="dashboard.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Пример дашборда</a>
         <a href="tools.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Технологии</a>
-        <a href="/privacy.html" style="color: rgba(255,255,255,0.6);">Политика конфиденциальности</a>
+        <a href="privacy.html" style="color: rgba(255,255,255,0.85);">🔒 Политика конфиденциальности</a>
       </p>
     </div>
   </footer>

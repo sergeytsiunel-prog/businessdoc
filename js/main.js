@@ -427,7 +427,8 @@ if (callbackForm) {
         }
         
         if (formStatus) {
-          formStatus.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+          formStatus.textContent = '✅ Заявка отправлена! Свяжусь в течение 2 часов в рабочее время.';
+          if (typeof ym !== 'undefined') { ym(108463875, 'reachGoal', 'form_submit'); }
           formStatus.style.color = '#10b981';
         }
         callbackForm.reset();
