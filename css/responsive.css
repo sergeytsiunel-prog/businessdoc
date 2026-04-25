@@ -226,3 +226,12 @@
     font-size: 1.1rem !important;
   }
 }
+/* Фикс для трёхколоночных кейсов на мобильных */
+@media (max-width: 768px) {
+  .industry-hero + .section .content-grid,
+  section .content-grid[style*="grid-template-columns: repeat(3, 1fr)"],
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
