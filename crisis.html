@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бизнес тонет? AI-диагностика за 45 минут | Business Doctor</title>
+  <meta name="description" content="Когда снаружи кризис — деньги ищут внутри. AI-анализ находит скрытые резервы которые человек физически не может увидеть. Первая встреча бесплатно.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <meta property="og:title" content="Бизнес тонет? AI найдёт деньги внутри — за 45 минут">
+  <meta property="og:description" content="Не таро и не интуиция — математика и код. Нахожу связи которые человек физически не может увидеть.">
+  <meta property="og:image" content="https://businessdoc.pro/foto/photo_2026-01-13_19-19-47.jpg">
+  <meta property="og:url" content="https://businessdoc.pro/crisis.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://businessdoc.pro/crisis.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=108463875','ym');
+    ym(108463875,'init',{webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108463875" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  <style>
+    /* ── CRISIS PAGE STYLES ── */
+    .crisis-hero {
+      background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 40%, #ffffff 100%);
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .crisis-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(239,68,68,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .crisis-badge {
+      display: inline-block;
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 99px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.06em;
+    }
+    .crisis-hero h1 {
+      color: #0f172a;
+      font-size: clamp(1.9rem, 4vw, 3rem) !important;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .crisis-hero h1 span {
+      color: #dc2626;
+    }
+    .crisis-hero p {
+      color: #64748b;
+      font-size: 1.15rem;
+      max-width: 680px;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .crisis-hero .ecg {
+      position: absolute;
+      bottom: 30px;
+      right: 0;
+      width: 50%;
+      opacity: 0.06;
+    }
+
+    /* ── SYMPTOMS ── */
+    .symptom-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .symptom-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border-radius: 12px;
+      border-left: 3px solid #ef4444;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .symptom-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .symptom-text {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* ── WHY AI ── */
+    .why-ai-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .why-ai-grid { grid-template-columns: 1fr; } }
+    .why-ai-human {
+      background: #fff5f5;
+      border: 1px solid #fecaca;
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+    .why-ai-machine {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+    .why-ai-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .why-ai-human .why-ai-label { color: #ef4444; }
+    .why-ai-machine .why-ai-label { color: #2563eb; }
+    .why-ai-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .why-ai-item:last-child { margin-bottom: 0; }
+
+    /* ── PROCESS ── */
+    .crisis-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .crisis-steps { grid-template-columns: 1fr; } }
+    .crisis-step {
+      text-align: center;
+      padding: 1.75rem 1.25rem;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(31,38,135,0.07);
+      border: 1px solid rgba(37,99,235,0.08);
+    }
+    .crisis-step-num {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 auto 1rem;
+    }
+    .crisis-step h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+    .crisis-step p {
+      font-size: 0.875rem;
+      color: #64748b;
+      line-height: 1.55;
+    }
+
+    /* ── OBJECTIONS ── */
+    .objection-list { margin-top: 2rem; }
+    .objection-item {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1.25rem 0;
+    }
+    .objection-item:last-child { border-bottom: none; }
+    .objection-q {
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      font-size: 0.975rem;
+    }
+    .objection-q::before { content: '— '; color: #ef4444; }
+    .objection-a {
+      color: #475569;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      padding-left: 1rem;
+    }
+
+    /* ── CRISIS FORM ── */
+    .crisis-form-wrap {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 24px;
+      padding: 2.5rem;
+      color: white;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .crisis-form-wrap h2 { color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .crisis-form-wrap p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .crisis-input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      outline: none;
+      transition: border 0.2s;
+      box-sizing: border-box;
+    }
+    .crisis-input::placeholder { color: rgba(255,255,255,0.4); }
+    .crisis-input:focus { border-color: rgba(96,165,250,0.6); }
+    .crisis-submit {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 0.25rem;
+    }
+    .crisis-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+    .crisis-form-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+    #crisisStatus { font-size: 0.9rem; margin-top: 0.75rem; text-align: center; min-height: 1.2em; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">BUSINESS DOCTOR</a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
+      <nav class="nav" data-menu>
+        <div class="nav__inner">
+          <a href="index.html#services">Услуги</a>
+          <a href="index.html#cases">Кейсы</a>
+          <a href="tools.html">Технологии</a>
+          <a href="testimonials.html">Отзывы</a>
+          <a href="index.html#about">Об авторе</a>
+          <a href="#crisis-form" class="nav-cta-mobile">Разобраться бесплатно</a>
+        </div>
+      </nav>
+      <a href="#crisis-form" class="nav-cta-desktop">Разобраться бесплатно</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="crisis-hero">
+      <svg class="ecg" viewBox="0 0 600 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="0,40 80,40 100,10 120,70 140,20 160,55 180,40 300,40 320,5 340,75 360,15 380,50 400,40 600,40" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="container narrow">
+        <a href="index.html" style="display: inline-block; color: var(--color-primary); font-size: 0.875rem; margin-bottom: 1.5rem; text-decoration: none; font-weight: 500;">← На главную</a>
+        <div class="crisis-badge">Антикризисная диагностика</div>
+        <h1>Вы знаете свой бизнес.<br><span>Но 500 переменных одновременно</span><br>не видит никто — кроме машины.</h1>
+        <p>Когда вы уже сократили всё что можно — AI находит то что человеческий мозг физически не способен охватить: скрытые корреляции, неочевидные утечки, резервы которых не видно в обычных отчётах. Не интуиция. Не таро. Математика и код.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#crisis-form" class="btn-primary">Разобраться бесплатно</a>
+          <a href="#why-ai" class="btn-secondary">Как это работает</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- СИМПТОМЫ -->
+    <section class="section">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Узнаёте себя?</div>
+          <h2>Симптомы бизнеса которому нужна диагностика</h2>
+          <p class="section-subtitle">Если три и больше — пора смотреть глубже</p>
+        </div>
+        <div class="symptom-list">
+          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Выручка есть — на счету пусто. Деньги куда-то исчезают</div></div>
+          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Уже сократили всё что можно — легче не стало</div></div>
+          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Не понимаете на каком продукте или клиенте реально зарабатываете</div></div>
+          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Кассовые разрывы стали нормой, а не исключением</div></div>
+          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Налоги выросли, спрос упал, маржа на нуле</div></div>
+          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Думаете закрыться или продать — хотя жалко того что строили</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОЧЕМУ AI -->
+    <section class="section section-alt" id="why-ai">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Не гадание — математика</div>
+          <h2>Почему опытный собственник не видит то что видит машина</h2>
+          <p class="section-subtitle">Дело не в том что вы плохо знаете свой бизнес. Дело в том что человеческий мозг имеет физические ограничения.</p>
+        </div>
+        <div class="why-ai-grid">
+          <div class="why-ai-human">
+            <div class="why-ai-label">Человек</div>
+            <div class="why-ai-item"><span>❌</span><span>Держит в голове 7±2 переменных одновременно — это физиологический предел</span></div>
+            <div class="why-ai-item"><span>❌</span><span>Видит очевидные причины, не замечает корреляции между несвязанными на вид процессами</span></div>
+            <div class="why-ai-item"><span>❌</span><span>Принимает решения под давлением стресса — мозг в кризисе работает иначе</span></div>
+            <div class="why-ai-item"><span>❌</span><span>500 SKU × 30 поставщиков × сезонность × эластичность = невозможно вручную</span></div>
+          </div>
+          <div class="why-ai-machine">
+            <div class="why-ai-label">AI-анализ</div>
+            <div class="why-ai-item"><span>✅</span><span>Одновременно анализирует миллионы транзакций, все SKU, всех поставщиков</span></div>
+            <div class="why-ai-item"><span>✅</span><span>Находит неочевидные корреляции: скидка на А → падение маржи на Б через 3 недели</span></div>
+            <div class="why-ai-item"><span>✅</span><span>Просчитывает 1000 сценариев за секунды — без интуиции, только математика</span></div>
+            <div class="why-ai-item"><span>✅</span><span>Показывает где деньги застряли в системе — даже если вы уверены что оптимизировали всё</span></div>
+          </div>
+        </div>
+        <div style="margin-top: 2rem; background: #fff; border-radius: 16px; padding: 1.5rem 2rem; border-left: 4px solid #2563eb; box-shadow: 0 2px 12px rgba(31,38,135,0.07);">
+          <p style="margin: 0; color: #334155; font-size: 0.95rem; line-height: 1.65;"><strong style="color: #0f172a;">Реальный пример:</strong> Собственник пищевого комбината с оборотом 2,1 млрд/год был уверен что знает все потери. AI-анализ за 45 минут нашёл 18 млн руб. замороженных в излишках сырья — корреляция между сезонными закупками и реальным потреблением, которую невозможно увидеть в обычных отчётах. Без единого увольнения.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАК РАБОТАЮ -->
+    <section class="section">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Процесс</div>
+          <h2>Три шага. Две недели. Конкретный план.</h2>
+          <p class="section-subtitle">Не месяцы консалтинга. Не отчёт на 200 страниц.</p>
+        </div>
+        <div class="crisis-steps">
+          <div class="crisis-step">
+            <div class="crisis-step-num">1</div>
+            <h3>Диагностика — 45 минут</h3>
+            <p>Загружаю ваши данные в модель. Уже на первом созвоне вижу где деньги застряли. Бесплатно и без обязательств.</p>
+          </div>
+          <div class="crisis-step">
+            <div class="crisis-step-num">2</div>
+            <h3>AI-анализ — 3–5 дней</h3>
+            <p>Python, ML-модели, сценарное моделирование. Нахожу скрытые резервы которые не видны в Excel и стандартных отчётах.</p>
+          </div>
+          <div class="crisis-step">
+            <div class="crisis-step-num">3</div>
+            <h3>План действий — 90 дней</h3>
+            <p>Не "рекомендации". Конкретный список: что сделать, в каком порядке, какой результат ожидать. Помогу внедрить.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- СНЯТИЕ ВОЗРАЖЕНИЙ -->
+    <section class="section section-alt">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Честные ответы</div>
+          <h2>Что останавливает — и почему не стоит</h2>
+        </div>
+        <div class="objection-list">
+          <div class="objection-item">
+            <div class="objection-q">Я уже всё попробовал, вы не скажете ничего нового</div>
+            <div class="objection-a">Я не говорю — я считаю. Человек не может одновременно удерживать 500 переменных. Машина — может. Вы знаете бизнес лучше меня. Но AI видит то что физически невозможно увидеть глазами.</div>
+          </div>
+          <div class="objection-item">
+            <div class="objection-q">Это займёт месяцы, а мне нужен результат сейчас</div>
+            <div class="objection-a">Первый результат — на первом созвоне, 45 минут. Уже там будет понятно где искать. Полный анализ — 3–5 дней. Plan — 90 дней на внедрение.</div>
+          </div>
+          <div class="objection-item">
+            <div class="objection-q">Получу красивый отчёт и всё — денег нет, а консультант ушёл</div>
+            <div class="objection-a">Работаю поэтапно. Первый этап — диагностика. Не увидите ценности — не продолжаем. Никаких предоплат за воздух.</div>
+          </div>
+          <div class="objection-item">
+            <div class="objection-q">Сейчас нет денег на консультанта</div>
+            <div class="objection-a">Первая встреча бесплатно. Если в вашем бизнесе нет резервов — честно скажу. Но за 50+ проектов средняя находка — 7–18 млн руб. скрытых потерь. Стоимость анализа окупается многократно.</div>
+          </div>
+          <div class="objection-item">
+            <div class="objection-q">Мои данные конфиденциальны</div>
+            <div class="objection-a">Работаю под NDA. Данные не хранятся и не передаются третьим лицам. Политика конфиденциальности — на сайте.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ФОРМА -->
+    <section class="section" id="crisis-form">
+      <div class="container narrow fade-up">
+        <div class="crisis-form-wrap">
+          <h2>Разберём вашу ситуацию</h2>
+          <p>Только имя и телефон. Позвоню сам в течение 2 часов в рабочее время. Без скриптов продаж — просто поговорим о вашей ситуации.</p>
+          <form id="crisisForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
+            <input type="hidden" name="type" value="crisis_page">
+            <input class="crisis-input" type="text" name="name" placeholder="Ваше имя" required>
+            <input class="crisis-input" type="tel" name="phone" placeholder="Телефон" required>
+            <input type="hidden" name="page" value="https://businessdoc.pro/crisis.html">
+            <button type="submit" class="crisis-submit">Позвоните мне — обсудим ситуацию</button>
+            <div class="crisis-form-note">Первая встреча бесплатно и без обязательств</div>
+          </form>
+          <div id="crisisStatus"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" style="background: var(--color-slate); color: white; padding: 3rem 0; margin-top: 4rem;">
+    <div class="container narrow text-center">
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;">© 2026 Business Doctor. AI-диагностика для бизнеса в кризисе.</p>
+      <p>
+        <a href="index.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">На главную</a>
+        <a href="privacy.html" style="color: rgba(255,255,255,0.85);">🔒 Политика конфиденциальности</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/79957740893?text=Здравствуйте!%20Бизнес%20в%20сложной%20ситуации%20—%20хочу%20разобраться" 
+     target="_blank" rel="noopener"
+     style="position: fixed; bottom: 80px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 9999; text-decoration: none; transition: transform 0.2s;"
+     title="Написать в WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    const crisisForm = document.getElementById('crisisForm');
+    if (crisisForm) {
+      crisisForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const status = document.getElementById('crisisStatus');
+        const btn = crisisForm.querySelector('button[type="submit"]');
+        btn.textContent = 'Отправляю...';
+        btn.disabled = true;
+        try {
+          const formData = {
+            name: crisisForm.querySelector('[name="name"]').value,
+            phone: crisisForm.querySelector('[name="phone"]').value,
+            type: 'crisis_page',
+            page: 'https://businessdoc.pro/crisis.html'
+          };
+          const res = await fetch('https://formspree.io/f/mnjoyzyy', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+          if (res.ok) {
+            status.textContent = '✅ Принято! Позвоню в течение 2 часов в рабочее время.';
+            status.style.color = '#60a5fa';
+            crisisForm.reset();
+            if (typeof ym !== 'undefined') { ym(108463875, 'reachGoal', 'form_submit'); }
+          } else {
+            throw new Error();
+          }
+        } catch {
+          btn.textContent = 'Позвоните мне — обсудим ситуацию';
+          btn.disabled = false;
+          status.textContent = '❌ Ошибка. Позвоните напрямую: +7 995 774-08-93';
+          status.style.color = '#fca5a5';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
