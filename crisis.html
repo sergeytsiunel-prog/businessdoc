@@ -261,6 +261,157 @@
     }
     #crisisStatus { font-size: 0.9rem; margin-top: 0.75rem; text-align: center; min-height: 1.2em; }
   </style>
+  <style>
+    /* Карточка финансового здоровья */
+    .health-card-wrap {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.12);
+    }
+    .health-card-header {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .health-card-icon {
+      font-size: 2.75rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .health-card-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 0.6rem;
+    }
+    .health-card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+    }
+    .health-card-desc {
+      color: #475569;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .health-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .hc-block {
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+    .hc-block--accent {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+      border-color: rgba(37,99,235,0.2);
+    }
+    .hc-block-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+    }
+    .hc-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .hc-list li {
+      padding: 0.4rem 0 0.4rem 1.25rem;
+      position: relative;
+      color: #475569;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .hc-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+    .hc-prog {
+      margin: 0;
+      color: #334155;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .hc-prog strong {
+      color: #0f172a;
+    }
+
+    .health-card-cta {
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+    .hc-steps {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .hc-step {
+      font-size: 0.875rem;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hc-step-num {
+      background: #2563eb;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .hc-step a {
+      color: #2563eb;
+      font-weight: 500;
+    }
+    .hc-btn {
+      display: inline-block !important;
+      padding: 0.95rem 2rem !important;
+      font-size: 1rem !important;
+    }
+    .hc-note {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-top: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .health-card-wrap { padding: 1.5rem; }
+      .health-card-header { flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+      .health-card-icon { font-size: 2rem; }
+      .health-card-title { font-size: 1.2rem; }
+      .health-card-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+      .hc-steps { flex-direction: column; gap: 0.5rem; align-items: flex-start; text-align: left; }
+      .hc-step { width: 100%; }
+      .health-card-cta { text-align: center; }
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -376,6 +527,51 @@
             <div class="crisis-step-num">3</div>
             <h3>План действий — 90 дней</h3>
             <p>Не "рекомендации". Конкретный список: что сделать, в каком порядке, какой результат ожидать. Помогу внедрить.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАРТОЧКА ФИНАНСОВОГО ЗДОРОВЬЯ -->
+    <section class="section" id="health-card" style="background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);">
+      <div class="container narrow fade-up">
+        <div class="health-card-wrap">
+          <div class="health-card-header">
+            <div class="health-card-icon">📊</div>
+            <div>
+              <div class="health-card-eyebrow">Бесплатно — за 1-2 рабочих дня</div>
+              <h3 class="health-card-title">Карточка финансового здоровья + прогноз на 3, 6, 9 месяцев</h3>
+              <p class="health-card-desc">Если бизнес действительно тонет — нужно понять где течёт. Пришлите оборотно-сальдовую ведомость из 1С — за 1-2 рабочих дня получите PDF-отчёт с конкретными находками. Бесплатно. Без обязательств.</p>
+            </div>
+          </div>
+
+          <div class="health-card-grid">
+            <div class="hc-block">
+              <div class="hc-block-title">Что вы получите в PDF</div>
+              <ul class="hc-list">
+                <li>Маржинальность — текущая и динамика за 3 мес</li>
+                <li>Здоровье кассы — баланс поступлений и расходов</li>
+                <li>Дебиторская и долговая нагрузка</li>
+                <li>ФОТ к выручке — насколько бизнес «тяжёлый»</li>
+                <li>Доля постоянных затрат — запас прочности</li>
+                <li>ABC-разбор клиентов — кто реально приносит прибыль</li>
+              </ul>
+            </div>
+
+            <div class="hc-block hc-block--accent">
+              <div class="hc-block-title">Математический прогноз</div>
+              <p class="hc-prog">На основе динамики ваших данных — где будет бизнес через <strong>3, 6 и 9 месяцев</strong> при сохранении текущих тенденций. Не интуиция и не «вангование», а экстраполяция на ваших цифрах.</p>
+            </div>
+          </div>
+
+          <div class="health-card-cta">
+            <div class="hc-steps">
+              <div class="hc-step"><span class="hc-step-num">1</span> Выгрузите ОСВ за 3 месяца из 1С</div>
+              <div class="hc-step"><span class="hc-step-num">2</span> Пришлите файл на <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья">sergey.tsiunel@gmail.com</a></div>
+              <div class="hc-step"><span class="hc-step-num">3</span> За 1-2 рабочих дня получите PDF лично от меня</div>
+            </div>
+            <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья&body=Здравствуйте! Хочу получить карточку финансового здоровья. Прикладываю ОСВ за 3 месяца." class="btn-primary hc-btn">Прислать ОСВ на email</a>
+            <div class="hc-note">🔒 Работаю под NDA. Данные не передаются третьим лицам.</div>
           </div>
         </div>
       </div>
