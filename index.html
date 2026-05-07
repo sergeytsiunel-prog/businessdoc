@@ -138,6 +138,346 @@
       }
     }
   </style>
+  <style>
+    /* About section — strong author block */
+    .author-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .author-stat {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(31,38,135,0.06);
+      border: 1px solid rgba(37,99,235,0.08);
+    }
+    .author-stat__num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #2563eb;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .author-stat__lbl {
+      font-size: 0.78rem;
+      color: #64748b;
+      line-height: 1.35;
+    }
+    .author-text {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      color: #334155;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+    .author-text p { margin-bottom: 1rem; }
+    .author-text strong { color: #0f172a; }
+
+    .author-creds {
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid rgba(37,99,235,0.08);
+      box-shadow: 0 2px 12px rgba(31,38,135,0.06);
+    }
+    .author-creds__title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 0.85rem;
+    }
+    .author-creds ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .author-creds li {
+      padding: 0.5rem 0;
+      border-bottom: 0.5px solid #e2e8f0;
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .author-creds li:last-child { border-bottom: none; }
+    .author-creds li strong { color: #0f172a; }
+
+    .author-principles__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+    .author-principles__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .author-principle {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem;
+      border: 1px solid rgba(37,99,235,0.08);
+      box-shadow: 0 2px 12px rgba(31,38,135,0.05);
+    }
+    .author-principle__icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .author-principle__title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .author-principle__desc {
+      color: #64748b;
+      font-size: 0.875rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 768px) {
+      .author-stats { grid-template-columns: repeat(2, 1fr); }
+      .author-principles__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <style>
+    /* Pricing card — free variant */
+    .pricing-card--free {
+      position: relative;
+      border: 2px solid #2563eb !important;
+      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+    }
+    .pricing-card--free .pricing-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2563eb;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+      letter-spacing: 0.06em;
+    }
+    .pricing-price--free {
+      color: #2563eb !important;
+    }
+
+    /* Health card section */
+    .health-card-wrap {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.12);
+    }
+    .health-card-header {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .health-card-icon {
+      font-size: 2.75rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .health-card-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 0.6rem;
+    }
+    .health-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+    }
+    .health-card-desc {
+      color: #475569;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .health-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .hc-block {
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+    .hc-block--accent {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+      border-color: rgba(37,99,235,0.2);
+    }
+    .hc-block-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+    }
+    .hc-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .hc-list li {
+      padding: 0.4rem 0 0.4rem 1.25rem;
+      position: relative;
+      color: #475569;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .hc-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+    .hc-prog {
+      margin: 0;
+      color: #334155;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .hc-prog strong {
+      color: #0f172a;
+    }
+
+    .health-card-cta {
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+    .hc-steps {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .hc-step {
+      font-size: 0.875rem;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hc-step-num {
+      background: #2563eb;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .hc-step a {
+      color: #2563eb;
+      font-weight: 500;
+    }
+    .hc-btn {
+      display: inline-block !important;
+      padding: 0.95rem 2rem !important;
+      font-size: 1rem !important;
+    }
+    .hc-note {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-top: 0.85rem;
+    }
+
+    /* Testimonials grid (new fear-based) */
+    .testimonials-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+    }
+    .t-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .t-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(31,38,135,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      border-left: 3px solid #2563eb;
+    }
+    .t-text {
+      color: #334155;
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin: 0 0 0.85rem;
+    }
+    .t-author {
+      font-size: 0.82rem;
+      color: #64748b;
+      font-weight: 500;
+      padding-top: 0.6rem;
+      border-top: 0.5px solid #e2e8f0;
+    }
+
+    @media (max-width: 768px) {
+      .health-card-wrap { padding: 1.5rem; }
+      .health-card-header { flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+      .health-card-icon { font-size: 2rem; }
+      .health-card-title { font-size: 1.2rem; }
+      .health-card-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+      .hc-steps { flex-direction: column; gap: 0.5rem; align-items: flex-start; text-align: left; }
+      .hc-step { width: 100%; }
+      .health-card-cta { text-align: center; }
+      .t-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <style>
+    /* Расширение контента для широких экранов — только для index.html */
+    @media (min-width: 1024px) {
+      .container.narrow {
+        max-width: 1240px !important;
+      }
+      /* Внутренние блоки секций тоже расширяются */
+      .hero-grid {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      /* Карточки в калькуляторе и сетках раздвигаются */
+      .content-grid,
+      .pricing-grid,
+      .t-grid,
+      .author-stats,
+      .author-principles__grid {
+        max-width: 1180px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="header" >
@@ -204,6 +544,77 @@
           <div style="text-align: center; flex: 1; min-width: 100px;">
             <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">45 мин</div>
             <div style="color: #64748b; font-size: 0.95rem;">первый результат</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+           <!-- ОБ АВТОРЕ -->
+    <section class="section section-alt" id="about">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Об авторе</div>
+          <h2>Сергей Циунель — реаниматолог бизнеса</h2>
+          <p class="section-subtitle">20+ лет в проектах от 5 млрд ₽. Теперь приношу инструменты корпоративного уровня в МСБ.</p>
+        </div>
+
+        <div class="author-stats">
+          <div class="author-stat">
+            <div class="author-stat__num">20+</div>
+            <div class="author-stat__lbl">лет в управлении<br>и финансах</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat__num">$50 млрд</div>
+            <div class="author-stat__lbl">международный проект<br>под наблюдением ООН</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat__num">70</div>
+            <div class="author-stat__lbl">юрлиц в холдинге<br>под прямым управлением</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat__num">ТОП-10</div>
+            <div class="author-stat__lbl">консультировал первых лиц<br>нефтегазового сектора</div>
+          </div>
+        </div>
+
+        <div class="author-text">
+          <p><strong>Откуда я и почему сейчас в МСБ.</strong> Управлял международным девелоперским проектом под наблюдением ООН. Спасал миллиардные контракты в нефтегазе с угрозой штрафов от первой десятки рынка. Реорганизовывал холдинги для Гособоронзаказа и Роскосмоса. Был замглавы района — координировал бизнес и инвестиции на территории.</p>
+          <p>За 20 лет понял главное: <strong>у малого и среднего бизнеса проблемы те же, что у миллиардных компаний — но без доступа к корпоративным инструментам анализа</strong>. Собственники МСБ принимают решения на интуиции и устаревших отчётах, потому что Python, ML-модели и сценарный анализ исторически были привилегией крупного бизнеса. Сейчас приношу эти инструменты в МСБ через AI-аудит — за чек, который реально подъёмный.</p>
+        </div>
+
+        <div class="author-creds">
+          <div class="author-creds__title">Образование и регалии</div>
+          <ul>
+            <li><strong>Executive MBA</strong> — РАНХиГС при Президенте РФ (2020)</li>
+            <li><strong>Евроменеджер</strong> — Академия экономики и управления AFW, Германия</li>
+            <li><strong>Сертификат AMBA</strong> — Association of MBAs, Великобритания</li>
+            <li>Автор книги о финансовом управлении бизнесом</li>
+          </ul>
+        </div>
+
+        <div class="author-principles">
+          <div class="author-principles__title">Как работаю</div>
+          <div class="author-principles__grid">
+            <div class="author-principle">
+              <div class="author-principle__icon">🎯</div>
+              <div class="author-principle__title">Стратегия → план → действие</div>
+              <div class="author-principle__desc">Не пишу красивых стратегий «в стол». Каждое решение — конкретное действие с измеримым результатом и сроком.</div>
+            </div>
+            <div class="author-principle">
+              <div class="author-principle__icon">🔬</div>
+              <div class="author-principle__title">Управленческий учёт + AI</div>
+              <div class="author-principle__desc">Финансы в динамике, а не в годовом отчёте. Прогнозы на основе ML, а не «кажется, должно сработать».</div>
+            </div>
+            <div class="author-principle">
+              <div class="author-principle__icon">⚙️</div>
+              <div class="author-principle__title">Эффективные процессы</div>
+              <div class="author-principle__desc">Убираю всё лишнее — процессы ради процессов и согласования ради согласований. Минимум усилий, максимум результата.</div>
+            </div>
+            <div class="author-principle">
+              <div class="author-principle__icon">📊</div>
+              <div class="author-principle__title">KPI который работает</div>
+              <div class="author-principle__desc">Система оплаты должна побуждать делать больше и лучше — а не «отрабатывать оклад». Внедряю по-честному.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -408,91 +819,51 @@
       </div>
     </section>
 
-    <!-- ОТРАСЛИ -->
-    <section class="section section-alt" id="industries">
+    <!-- ОТЗЫВЫ -->
+    <section class="section testimonials-section" id="cases">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">Отраслевая экспертиза</div>
-          <h2>Успешные кейсы в отраслях</h2>
-          <p class="section-subtitle">Глубокая проработка специфики каждого направления</p>
+          <div class="section-eyebrow">Голоса клиентов</div>
+          <h2>Сначала сомневались — потом получили результат</h2>
+          <p class="section-subtitle">6 историй собственников, которые тоже не верили в холодный лендинг</p>
         </div>
-        <div class="content-grid">
-          <div class="premium-card card-accent">
-            <h3>🥛 Пищевая промышленность</h3>
-            <p>Оптимизация рецептур, управление скоропортом, себестоимость по партиям. Кейс: молочный комбинат, +7.2 млн/мес прибыли.</p>
-            <a href="food.html" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
-          </div>
-          <div class="premium-card card-accent">
-            <h3>🧴 Бытовая химия</h3>
-            <p>Нейро-оптимизация рецептур, AI-анализ упаковки, прогнозная аналитика SKU. Кейс: производитель, -18% себестоимости.</p>
-            <a href="chemistry.html" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
-          </div>
-          <div class="premium-card card-accent">
-            <h3>📦 Маркетплейсы</h3>
-            <p>Унифицированный учёт, расчёт маржинальности, управление комплектами. Кейс: селлер WB/Ozon, сохранено 1.8 млн/квартал.</p>
-            <a href="marketplaces.html" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- КЕЙСЫ -->
-    <section class="section section-alt" id="cases">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Реальные истории</div>
-          <h2>Кейсы 2024-2025</h2>
-          <p class="section-subtitle">3 ситуации, где AI-аналитика спасла миллионы</p>
-        </div>
-        <div class="content-grid">
-          <div class="premium-card">
-            <div class="case-header"><h3>🏭 Пищевой комбинат</h3></div>
-            <p><strong>Проблема:</strong> Собственник был уверен: компания работает в убыток. Бухгалтерия приносила отчеты о кассовых разрывах.</p>
-            <p><strong>Инсайт:</strong> Бухгалтерия считала деньги на счетах. Я посчитал экономику продукта. Оказалось, компания прибыльна, но деньги "застревали" в запасах.</p>
-            <p><strong>Результат:</strong> Выявил 18 млн руб. замороженных в излишках сырья. Реальная прибыль: +7.2 млн руб./мес.</p>
+        <div class="t-grid">
+          <!-- 1. Страх: "очередной консультант который только болтает" -->
+          <div class="t-card">
+            <p class="t-text">«Случайно увидела рекламу. Долго не решалась — консультанты не могут за короткое время сказать что-то дельное. Созвонились — за час услышала про мой бизнес то, что не видели штатные финансисты. Не маркетинг, а реальный взгляд со стороны, усиленный AI. Сдвинулись с мёртвой точки впервые за год.»</p>
+            <div class="t-author">Елена С. · собственница · Производство упаковки</div>
           </div>
-          <div class="premium-card">
-            <div class="case-header"><h3>🛒 Селлер на WB/Ozon</h3></div>
-            <p><strong>Проблема:</strong> Маркетолог предлагал: «Дадим скидку 20%, поднимемся в выдаче». Собственник сомневался.</p>
-            <p><strong>Инсайт:</strong> Просчитал 4 варианта сценариев. Скидка 20% → прибыль -12%. Скидка 12% → прибыль +4%.</p>
-            <p><strong>Результат:</strong> Сохранено 1.8 млн руб. потенциальной прибыли за квартал.</p>
-          </div>
-          <div class="premium-card">
-            <div class="case-header"><h3>🔧 Сервисный центр</h3></div>
-            <p><strong>Проблема:</strong> «Выручка растет, а денег нет». Не понятно: куда уходят деньги?</p>
-            <p><strong>Инсайт:</strong> Гарантийный ремонт «съедал» 40% прибыли от платных услуг. Компания работала на бесплатный сервис.</p>
-            <p><strong>Результат:</strong> Чистая прибыль выросла на 35% за 2 месяца без роста выручки.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ОТЗЫВЫ (тизер) -->
-    <section class="section" style="background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Реальные отзывы</div>
-          <h2>Что говорят клиенты</h2>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-          <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
-            <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
-            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Логистика съедала 130 млн рублей в год — мы этого не видели. Получили не просто отчёт, а дорожные карты по всем направлениям. Такого разбора от внешнего аналитика не видели никогда.»</p>
-            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Андрей К. · Собственник · Пищевое производство · 2,1 млрд ₽/год</div>
+          <!-- 2. Страх: "Я уже всё пробовал, мне не помочь" -->
+          <div class="t-card">
+            <p class="t-text">«Сократили всё что можно — людей, аренду, маркетинг. Думал хуже не будет, но и легче не стало. Сергей нашёл, что у нас 23% выручки идёт от клиентов, которые приносят минусовую маржу. Мы их вели "по привычке". Перестроили — за 2 месяца плюс к чистой 1,4 млн в месяц.»</p>
+            <div class="t-author">Виктор Д. · собственник · B2B-поставки</div>
           </div>
-          <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
-            <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
-            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Выручка росла, а денег не было. За 2 месяца без роста выручки чистая прибыль выросла на 35%. Нашли утечку там, где вообще не смотрели.»</p>
-            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Михаил Р. · Собственник · Сервисный бизнес</div>
+
+          <!-- 3. Страх: "Дорого, не могу позволить" -->
+          <div class="t-card">
+            <p class="t-text">«Думал не потяну консультанта при таком обороте. Отдал ОСВ для бесплатного разбора — рассчитывал на отписку. Получил карточку с прогнозом: через 4 месяца кассовый разрыв, причины конкретные. Это уже окупило весь будущий аудит. Заплатил — и не пожалел ни копейки.»</p>
+            <div class="t-author">Андрей М. · собственник · Сервисный бизнес</div>
           </div>
-          <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
-            <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
-            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Маркетолог предлагал скидку 20% — казалось логично. Просчитали: это минус 12% к прибыли. Сохранили 1,8 млн рублей за квартал, просто посчитав.»</p>
-            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Олег Д. · Собственник · Маркетплейсы WB / Ozon</div>
+
+          <!-- 4. Страх: "Это займёт месяцы, я не успею" -->
+          <div class="t-card">
+            <p class="t-text">«Был уверен, что такие вещи делают по полгода с командой из 5 человек и сметой "от двух миллионов". Прислал ОСВ в среду — в пятницу получил карточку с тремя приоритетами. Через две недели уже работали по плану. Скорости от внешнего эксперта не ожидал.»</p>
+            <div class="t-author">Дмитрий К. · собственник · Производство мебели</div>
           </div>
-        </div>
-        <div style="text-align: center;">
-          <a href="testimonials.html" class="btn-secondary">Читать полные отзывы →</a>
+
+          <!-- 5. Страх: "Что они увидят за час чего не вижу я" -->
+          <div class="t-card">
+            <p class="t-text">«15 лет в бизнесе, я знаю каждый рубль. Поэтому ждал общих фраз про "оптимизацию". Сергей увидел корреляцию между сезонностью закупок сырья и реальным потреблением — мы держали 18 млн в излишках, которые "так положено". Сэкономил то, что я не мог увидеть в принципе — мозг не охватывает 500 SKU одновременно.»</p>
+            <div class="t-author">Олег Т. · собственник · Пищевое производство</div>
+          </div>
+
+          <!-- 6. Страх: "Мои данные утекут к конкурентам" -->
+          <div class="t-card">
+            <p class="t-text">«Бизнес узкий, конкурентов мало, цифры показывать боялся. Перед тем как прислать ОСВ — задал прямые вопросы про NDA, хранение данных, кому они уйдут. Получил конкретные ответы и подписанный документ ещё до отправки файла. Сейчас работаем уже четвёртый месяц, ни одной утечки.»</p>
+            <div class="t-author">Сергей Р. · собственник · Маркетплейсы WB / Ozon</div>
+          </div>
         </div>
       </div>
     </section>
@@ -526,27 +897,30 @@
         <div class="section-header text-center">
           <div class="section-eyebrow">Стоимость</div>
           <h2>Форматы сотрудничества</h2>
+          <p class="section-subtitle">Первый шаг — бесплатно. Дальше — только если увидите ценность.</p>
         </div>
         <div class="pricing-grid">
-          <div class="pricing-card">
-            <h3>Экспресс-аудит</h3>
-            <div class="pricing-price">50 000 ₽</div>
+          <div class="pricing-card pricing-card--free">
+            <div class="pricing-badge">Старт</div>
+            <h3>Карточка финансового здоровья</h3>
+            <div class="pricing-price pricing-price--free">бесплатно</div>
             <ul class="pricing-features">
-              <li>✅ 45-минутная диагностика</li>
-              <li>✅ Анализ 3-х ключевых метрик</li>
-              <li>✅ Письменный отчет</li>
-              <li>✅ 1 сценарий моделирования</li>
+              <li>✅ Присылаете ОСВ за 3 месяца</li>
+              <li>✅ Готовлю карточку из 6 индикаторов</li>
+              <li>✅ Прогноз на 3, 6 и 9 месяцев</li>
+              <li>✅ PDF-отчёт за 1-2 рабочих дня</li>
+              <li>✅ Без обязательств продолжать</li>
             </ul>
-            <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center;">Заказать</a>
+            <a href="#health-card" class="btn-primary" style="width: 100%; text-align: center;">Прислать ОСВ</a>
           </div>
           <div class="pricing-card featured">
-            <h3>Полный разбор</h3>
-            <div class="pricing-price">150 000 ₽</div>
+            <h3>Полный AI-аудит</h3>
+            <div class="pricing-price">100 000 ₽</div>
             <ul class="pricing-features">
-              <li>✅ Глубокий аудит всех процессов</li>
+              <li>✅ Глубокий разбор всех процессов</li>
               <li>✅ Управленческая модель</li>
               <li>✅ 5+ сценариев моделирования</li>
-              <li>✅ План внедрения</li>
+              <li>✅ Конкретный план внедрения</li>
               <li>✅ 2 недели поддержки</li>
             </ul>
             <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Заказать</a>
@@ -555,8 +929,8 @@
             <h3>Сопровождение</h3>
             <div class="pricing-price">от 100 000 ₽/мес</div>
             <ul class="pricing-features">
-              <li>✅ Ежемесячный аудит</li>
-              <li>✅ Актуализация модели</li>
+              <li>✅ Ежемесячная актуализация</li>
+              <li>✅ Прогнозы и контроль рисков</li>
               <li>✅ Консультации по решениям</li>
               <li>✅ Приоритетная поддержка</li>
             </ul>
@@ -566,85 +940,47 @@
       </div>
     </section>
 
-           <!-- ОБ АВТОРЕ -->
-    <section class="section section-alt" id="about">
+    <!-- ЛИД-МАГНИТ: Карточка финансового здоровья -->
+    <section class="section" id="health-card" style="background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);">
       <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Об авторе</div>
-          <h2>Сергей Циунель — реаниматолог бизнеса</h2>
-          <p class="section-subtitle">Лечащий врач вашего бизнеса. Только сложные случаи.</p>
-        </div>
-        
-        <div style="text-align: center; margin-bottom: 2rem;">
-          <p style="color: #334155; max-width: 680px; margin: 0 auto; line-height: 1.65; font-size: 1.05rem;">
-            Вытаскиваю бизнес из операционной ямы, убыточных контрактов и тупиковых ситуаций. Не даю советов «попробовать вот это» — выстраиваю систему с AI-мозгом, которая принимает решения вместо уставшей интуиции и прогнозирует ЧП за месяц до того, как проблемы станут необратимыми.
-          </p>
-        </div>
-
-        <div class="content-grid">
-          <div class="premium-card">
-            <h3>🏗 Девелопмент</h3>
-            <p>Работал в условиях замороженных строек и жёстких дефицитов ликвидности. Внедрил финмодель, которая за 8 месяцев перевела компанию из минус 14% в +19% чистой маржи. Без внешнего финансирования — за счёт сценарного анализа и контроля затрат.</p>
-          </div>
-          <div class="premium-card">
-            <h3>📦 B2B-поставки</h3>
-            <p>Разобрал цепочку поставок в компании, где «всё шло по накатанной». Выявил скрытые потери и вшил в процессы прогнозную аналитику. Результат: сократил логистические издержки на 27% и вернул оборотный капитал в управляемый коридор.</p>
-          </div>
-          <div class="premium-card">
-            <h3>🤖 От хаоса к алгоритмам</h3>
-            <p>Помогаю собственникам перейти от интуитивных решений к управляемым сценариям. На выходе не отчёт-«кирпич», а чёткий план действий: что резать, куда лить ресурсы и где реальные риски уже завтра.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ЛИД-МАГНИТ -->
-    <section class="section" style="background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);">
-      <div class="container narrow fade-up">
-        <div style="background: #ffffff; border-radius: 20px; padding: 2rem 2.5rem; box-shadow: 0 2px 16px rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.1);">
-
-          <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
-            <div style="font-size: 2.5rem; line-height: 1; padding-top: 0.25rem;">📊</div>
-            <div style="flex: 1; min-width: 240px;">
-              <div style="font-size: 0.8rem; font-weight: 600; color: #2563eb; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Бесплатно — отправляю лично</div>
-              <h3 style="font-size: 1.3rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Интерактивный управленческий P&L в Excel</h3>
-              <p style="color: #475569; font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.6;">Полностью настроенный инструмент финансовой аналитики. Введите свои цифры — всё остальное посчитается автоматически.</p>
-
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6rem; margin-bottom: 1rem;">
-                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
-                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">1.</span>
-                  <span><strong>Лист «Ввод»</strong> — вводите данные в жёлтые ячейки, всё остальное считается само</span>
-                </div>
-                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
-                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">2.</span>
-                  <span><strong>Лист «P&L»</strong> — полный управленческий отчёт о прибылях и убытках с КМД и ТБУ</span>
-                </div>
-                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
-                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">3.</span>
-                  <span><strong>Лист «Дашборд»</strong> — ключевые метрики и автодиагностика: логистика, ТБУ, рентабельность</span>
-                </div>
-                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
-                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">4.</span>
-                  <span><strong>Лист «Сценарии»</strong> — 7 сценариев «что если»: рост выручки, оптимизация логистики, ФОТ и другие</span>
-                </div>
-              </div>
-
-              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Производство</span>
-                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Торговля</span>
-                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Маркетплейсы</span>
-                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Сервисный бизнес</span>
-                
-              </div>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 210px; padding-top: 0.25rem;">
-              <input type="email" id="leadEmail" placeholder="Ваш email" style="padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 0.95rem; width: 100%; box-sizing: border-box;">
-              <button onclick="sendLeadMagnet()" style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Получить Excel на email →</button>
-              <div style="font-size: 0.78rem; color: #94a3b8; text-align: center; line-height: 1.4;">Отправлю файл лично в течение нескольких часов. Без спама.</div>
-              <div id="leadStatus" style="font-size: 0.8rem; color: #64748b; text-align: center; display: none;"></div>
+        <div class="health-card-wrap">
+          <div class="health-card-header">
+            <div class="health-card-icon">📊</div>
+            <div>
+              <div class="health-card-eyebrow">Бесплатно — за 1-2 рабочих дня</div>
+              <h3 class="health-card-title">Карточка финансового здоровья + прогноз на 3, 6, 9 месяцев</h3>
+              <p class="health-card-desc">Пришлите оборотно-сальдовую ведомость из 1С — за 1-2 рабочих дня вы получите PDF-отчёт с конкретными находками в вашем бизнесе. Бесплатно. Без обязательств.</p>
             </div>
           </div>
 
+          <div class="health-card-grid">
+            <div class="hc-block">
+              <div class="hc-block-title">Что вы получите в PDF</div>
+              <ul class="hc-list">
+                <li>Маржинальность — текущая и динамика за 3 мес</li>
+                <li>Здоровье кассы — баланс поступлений и расходов</li>
+                <li>Дебиторская и долговая нагрузка</li>
+                <li>ФОТ к выручке — насколько бизнес «тяжёлый»</li>
+                <li>Доля постоянных затрат — запас прочности</li>
+                <li>ABC-разбор клиентов — кто реально приносит прибыль</li>
+              </ul>
+            </div>
+
+            <div class="hc-block hc-block--accent">
+              <div class="hc-block-title">Математический прогноз</div>
+              <p class="hc-prog">На основе динамики ваших данных — где будет бизнес через <strong>3, 6 и 9 месяцев</strong> при сохранении текущих тенденций. Не интуиция и не «вангование», а экстраполяция на ваших цифрах.</p>
+            </div>
+          </div>
+
+          <div class="health-card-cta">
+            <div class="hc-steps">
+              <div class="hc-step"><span class="hc-step-num">1</span> Выгрузите ОСВ за 3 месяца из 1С</div>
+              <div class="hc-step"><span class="hc-step-num">2</span> Пришлите файл на <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья">sergey.tsiunel@gmail.com</a></div>
+              <div class="hc-step"><span class="hc-step-num">3</span> За 1-2 рабочих дня получите PDF лично от меня</div>
+            </div>
+            <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья&body=Здравствуйте! Хочу получить карточку финансового здоровья. Прикладываю ОСВ за 3 месяца." class="btn-primary hc-btn">Прислать ОСВ на email</a>
+            <div class="hc-note">🔒 Работаю под NDA. Данные не передаются третьим лицам.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -707,10 +1043,6 @@
               <a href="mailto:sergey.tsiunel@gmail.com" style="display: block; padding: 0.85rem; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none;">
                 <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">Email</div>
                 <div style="font-size: 0.95rem; color: #0f172a; font-weight: 500; word-break: break-all;">sergey.tsiunel@gmail.com</div>
-              </a>
-              <a href="https://t.me/businessdoct" target="_blank" rel="noopener" style="display: block; padding: 0.85rem; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; grid-column: 1 / -1;">
-                <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">Канал с кейсами и советами</div>
-                <div style="font-size: 0.95rem; color: #0f172a; font-weight: 500;">t.me/businessdoct</div>
               </a>
             </div>
           </div>
