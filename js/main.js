@@ -1,5 +1,5 @@
 // ========================================
-// MAIN.JS - v2.0
+// MAIN.JS - v2.1 (fix: form submit)
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -384,68 +384,66 @@ if (document.readyState === 'loading') {
 } else {
   initSimulator();
 }
+
 // ========================================
-// ОТПРАВКА ФОРМЫ И ЦЕЛЬ ЯНДЕКС.МЕТРИКИ
+// ОТПРАВКА ФОРМЫ И ЦЕЛЬ ЯНДЕКС.МЕТРИКИ — ИСПРАВЛЕНО
 // ========================================
 
 const callbackForm = document.getElementById('callbackForm');
 if (callbackForm) {
   callbackForm.addEventListener('submit', async function(e) {
     e.preventDefault();
-    
+
     const formStatus = document.getElementById('formStatus');
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    
-    const formData = {
-      name: document.getElementById('name').value,
-      phone: document.getElementById('phone').value,
-      email: document.getElementById('email').value,
-      message: document.getElementById('message').value,
-      date: new Date().toLocaleString('ru-RU'),
-      page: window.location.href
-    };
-    
+
+    // FormData собирает ТОЛЬКО реально существующие поля формы
+    const formData = new FormData(callbackForm);
+    formData.append('date', new Date().toLocaleString('ru-RU'));
+
     submitBtn.textContent = 'Отправка...';
+    submitBtn.disabled = true;
     if (formStatus) {
       formStatus.style.display = 'block';
       formStatus.textContent = 'Отправляем...';
       formStatus.style.color = '#64748b';
     }
-    
+
     try {
       const response = await fetch('https://formspree.io/f/mnjoyzyy', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: { 'Accept': 'application/json' },
+        body: formData
       });
-      
+
       if (response.ok) {
-        // Цель для Яндекс.Метрики
+        // Цели Яндекс.Метрики
         if (typeof ym !== 'undefined') {
           ym(108463875, 'reachGoal', 'ZayavkaForma');
+          ym(108463875, 'reachGoal', 'form_submit');
         }
-        
         if (formStatus) {
           formStatus.textContent = '✅ Заявка отправлена! Свяжусь в течение 2 часов в рабочее время.';
-          if (typeof ym !== 'undefined') { ym(108463875, 'reachGoal', 'form_submit'); }
           formStatus.style.color = '#10b981';
         }
         callbackForm.reset();
       } else {
-        throw new Error('Ошибка отправки');
+        throw new Error('HTTP ' + response.status);
       }
     } catch (error) {
+      console.error('Form submit error:', error);
       if (formStatus) {
-        formStatus.textContent = '❌ Ошибка отправки. Пожалуйста, напишите нам на email: sergey.tsiunel@gmail.com';
+        formStatus.textContent = '❌ Ошибка отправки. Напишите на sergey.tsiunel@gmail.com или в Telegram @SergeyTsiunel';
         formStatus.style.color = '#ef4444';
       }
     } finally {
       submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
       if (formStatus) {
         setTimeout(() => {
           formStatus.style.display = 'none';
-        }, 5000);
+        }, 6000);
       }
     }
   });
@@ -485,7 +483,7 @@ function sendLeadMagnet() {
   
   fetch('https://formspree.io/f/mnjoyzyy', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({ email, type: 'lead_magnet_pl_template', date: new Date().toLocaleString('ru-RU') })
   }).then(r => {
     if (r.ok) {
