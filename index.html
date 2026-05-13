@@ -567,8 +567,12 @@
           <div class="hero-text">
             <div style="display: inline-block; background: #eff6ff; color: #2563eb; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 99px; margin-bottom: 1rem; letter-spacing: 0.05em;">Операционный хирург для бизнеса · Business Doctor</div>
             <h1 class="hero-title" style="color: #0f172a !important; font-size: 2.5rem !important; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.2; display: block !important; visibility: visible !important; opacity: 1 !important;">Вхожу в бизнес на 3–6 месяцев. Ухожу когда он работает сам.</h1>
-            <p class="hero-subtitle" style="color: #64748b !important; font-size: 1.2rem; margin-bottom: 0.75rem; max-width: 800px; font-weight: 400;">Не советую и ухожу. Вхожу в операционку, строю систему руками и передаю бизнес который вы видите насквозь.</p>
-            <p style="color: #475569; font-size: 1rem; margin-bottom: 1.5rem; max-width: 700px; line-height: 1.6;">Выручка падает и непонятно почему? Деньги есть — прибыли нет? Бизнес растёт быстро и начинается хаос? Это решаемо. Руками, а не отчётами.</p>
+            <p class="hero-subtitle" style="color: #64748b !important; font-size: 1.1rem; margin-bottom: 1rem; max-width: 800px; font-weight: 400;">Не советую — делаю руками. AI-моделирование + 20 лет операционки: строю систему управления и передаю бизнес который вы видите насквозь.</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+              <span style="background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 99px;">📉 Выручка падает</span>
+              <span style="background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 99px;">💸 Деньги есть — прибыли нет</span>
+              <span style="background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 99px;">🌀 Рост создаёт хаос</span>
+            </div>
             <div style="margin-bottom: 1rem;">
               <span style="display: inline-block; background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-size: 0.78rem; font-weight: 600; padding: 4px 14px; border-radius: 99px; letter-spacing: 0.04em;">⏳ Веду не более 3 проектов одновременно — сейчас есть место</span>
             </div>
@@ -648,14 +652,14 @@
           <div class="author-principles__title">Как работаю</div>
           <div class="author-principles__grid">
             <div class="author-principle">
-              <div class="author-principle__icon">🔪</div>
+              <div class="author-principle__icon">🩺</div>
               <div class="author-principle__title">Вхожу и делаю — не советую</div>
               <div class="author-principle__desc">Не пишу рекомендации которые вы внедряете сами. Вхожу в операционку как директор и строю систему руками.</div>
             </div>
             <div class="author-principle">
-              <div class="author-principle__icon">🔬</div>
+              <div class="author-principle__icon">🤖</div>
               <div class="author-principle__title">AI ускоряет в 5 раз</div>
-              <div class="author-principle__desc">За первую неделю вижу то, на что обычный директор тратит месяц. Финансовая модель, сценарии, ABC-разбор — сразу на данных вашего бизнеса.</div>
+              <div class="author-principle__desc">Математическое моделирование, обучение на ваших данных, прогнозная аналитика — делаю за неделю то, на что обычный директор тратит месяц.</div>
             </div>
             <div class="author-principle">
               <div class="author-principle__icon">💰</div>
@@ -711,38 +715,247 @@
       </div>
     </section>
 
-    <!-- КАК РАБОТАЮ -->
+    <!-- КАК РАБОТАЮ — TIMELINE + ДВА ПУТИ -->
     <section class="section section-alt" id="services">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
           <div class="section-eyebrow">Операция → Восстановление → Передача</div>
-          <h2>Три фазы за 3–6 месяцев</h2>
+          <h2>5 этапов за 3–6 месяцев</h2>
           <p class="section-subtitle">Не консультирую и ухожу. Вхожу, делаю, передаю работающую систему.</p>
         </div>
-        <div class="process-steps">
-          <div class="process-step-card">
-            <div class="process-step-number">1</div>
-            <h3>Диагностика (1–2 недели)</h3>
-            <p>Захожу в данные, команду, процессы. С AI-инструментами за неделю вижу то, на что обычно уходит месяц. Ставлю точный диагноз — где потери, где точки роста, что делать в первую очередь.</p>
+
+        <style>
+          .timeline {
+            position: relative;
+            padding: 2rem 0 2.5rem;
+            overflow-x: auto;
+          }
+          .timeline-line {
+            position: absolute;
+            top: 2.75rem;
+            left: 5%;
+            right: 5%;
+            height: 3px;
+            background: linear-gradient(90deg, #e2e8f0 0%, #2563eb 100%);
+            border-radius: 99px;
+          }
+          .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            gap: 0.5rem;
+            min-width: 600px;
+          }
+          .timeline-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+          }
+          .timeline-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+          }
+          .timeline-dot--inactive {
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+            color: #94a3b8;
+          }
+          .timeline-dot--active {
+            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            border: 2px solid #2563eb;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+          }
+          .timeline-dot--final {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: 2px solid #10b981;
+            color: white;
+            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+          }
+          .timeline-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+          }
+          .timeline-duration {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-bottom: 0.4rem;
+          }
+          .timeline-desc {
+            font-size: 0.72rem;
+            color: #64748b;
+            line-height: 1.4;
+            max-width: 120px;
+          }
+          .timeline-ai-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 0.3rem;
+          }
+          @media (max-width: 768px) {
+            .timeline { overflow-x: scroll; padding-bottom: 1rem; }
+            .timeline-steps { min-width: 700px; }
+          }
+
+          /* Два пути */
+          .two-paths {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+          }
+          .path-card {
+            border-radius: 20px;
+            padding: 1.75rem;
+          }
+          .path-card--main {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+            border: 2px solid #2563eb;
+          }
+          .path-card--secondary {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+          }
+          .path-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 99px;
+            margin-bottom: 0.75rem;
+          }
+          .path-badge--main { background: #2563eb; color: white; }
+          .path-badge--secondary { background: #e2e8f0; color: #64748b; }
+          .path-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+          }
+          .path-desc {
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+          }
+          .path-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.25rem;
+          }
+          .path-list li {
+            font-size: 0.85rem;
+            color: #475569;
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+          }
+          @media (max-width: 768px) {
+            .two-paths { grid-template-columns: 1fr; }
+          }
+        </style>
+
+        <!-- Timeline -->
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-steps">
+
+            <div class="timeline-step">
+              <div class="timeline-dot timeline-dot--active">1</div>
+              <div class="timeline-title">Диагностика</div>
+              <div class="timeline-duration">1–2 недели</div>
+              <div class="timeline-desc">Данные, команда, процессы. AI-анализ за неделю вместо месяца.</div>
+              <span class="timeline-ai-badge">🤖 AI-анализ</span>
+            </div>
+
+            <div class="timeline-step">
+              <div class="timeline-dot timeline-dot--active">2</div>
+              <div class="timeline-title">Согласование целей</div>
+              <div class="timeline-duration">1 неделя</div>
+              <div class="timeline-desc">Фиксируем цели, сроки, ресурсы. Договариваемся до начала работ.</div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="timeline-dot timeline-dot--active">3</div>
+              <div class="timeline-title">Сценарное моделирование</div>
+              <div class="timeline-duration">1–2 недели</div>
+              <div class="timeline-desc">AI строит оптимальный сценарий под ваши ограничения: деньги / время / люди / рынок.</div>
+              <span class="timeline-ai-badge">🤖 ML-модели</span>
+            </div>
+
+            <div class="timeline-step">
+              <div class="timeline-dot timeline-dot--active">4</div>
+              <div class="timeline-title">Внедрение</div>
+              <div class="timeline-duration">2–4 месяца</div>
+              <div class="timeline-desc">Вхожу как директор. Строю учёт, KPI, процессы, дашборды. Управляю командой.</div>
+              <span class="timeline-ai-badge">🤖 AI-дашборды</span>
+            </div>
+
+            <div class="timeline-step">
+              <div class="timeline-dot timeline-dot--final">✓</div>
+              <div class="timeline-title">Передача</div>
+              <div class="timeline-duration">Финальный месяц</div>
+              <div class="timeline-desc">Обучаю команду. Передаю бизнес который работает без меня.</div>
+            </div>
+
           </div>
-          <div class="process-step-card">
-            <div class="process-step-number">2</div>
-            <h3>Операция (2–4 месяца)</h3>
-            <p>Вхожу в операционку как директор. Строю систему руками: управленческий учёт, KPI, регламенты, финансовую модель, дашборды. Управляю командой. Внедряю — не рекомендую.</p>
-          </div>
-          <div class="process-step-card" style="border: 2px solid rgba(37,99,235,0.15); position: relative;">
-            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #2563eb, #0ea5e9); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.9rem; border-radius: 99px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.05em;">Результат</div>
-            <div class="process-step-number">3</div>
-            <h3>Передача (финальный месяц)</h3>
-            <p>Обучаю команду работать в новой системе. Передаю собственнику бизнес который он видит насквозь — как текст с 100% зрением вместо -7. Ухожу когда всё работает без меня.</p>
-            <ul style="list-style: none; padding: 0; margin: 0.75rem 0 0; text-align: left;">
-              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">✅ Прозрачный управленческий учёт</li>
-              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">✅ Работающие KPI и команда</li>
-              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">✅ Финансовая модель на вашем бизнесе</li>
-              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">✅ Регламенты и дорожная карта</li>
+        </div>
+
+        <!-- Два пути -->
+        <div class="two-paths">
+
+          <div class="path-card path-card--main">
+            <span class="path-badge path-badge--main">Главный путь</span>
+            <div class="path-title">Вхожу и делаю — вы получаете результат</div>
+            <div class="path-desc">Для тех кто готов к изменениям. Вхожу как операционный директор на 3–6 месяцев. Строю систему руками с AI-инструментами. Ухожу когда бизнес работает сам.</div>
+            <ul class="path-list">
+              <li>🤖 AI-моделирование сценариев на ваших данных</li>
+              <li>📊 Управленческий учёт и финансовые модели</li>
+              <li>⚙️ Регламенты, KPI, обученная команда</li>
+              <li>🎯 Оклад + бонус за результат или доля</li>
             </ul>
-            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #2563eb; font-weight: 600;">Бизнес живёт без меня — это и есть результат.</p>
+            <a href="#contact" class="btn-primary" style="width: 100%; text-align: center; display: block;">Обсудить проект →</a>
           </div>
+
+          <div class="path-card path-card--secondary">
+            <span class="path-badge path-badge--secondary">Начать отсюда</span>
+            <div class="path-title">Сначала — бесплатная диагностика</div>
+            <div class="path-desc">Для тех кто хочет сначала разобраться. Пришлите ОСВ из 1С — получите карточку финансового здоровья с прогнозом на 9 месяцев. Бесплатно, без обязательств.</div>
+            <ul class="path-list">
+              <li>📋 45 минут разбора вашей ситуации</li>
+              <li>📊 Карточка финансового здоровья (6 индикаторов)</li>
+              <li>🔮 Прогноз на 3, 6 и 9 месяцев на ваших данных</li>
+              <li>✅ Честный ответ: могу помочь или нет</li>
+            </ul>
+            <a href="#health-card" class="btn-secondary" style="width: 100%; text-align: center; display: block;">Получить бесплатно →</a>
+            <p style="text-align: center; font-size: 0.75rem; color: #94a3b8; margin-top: 0.75rem;">Никаких обязательств. Никакого давления.</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1034,7 +1247,7 @@
       <div class="container narrow fade-up">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 0;">
           <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
-            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🔪</div>
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🩺</div>
             <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Делаю руками — не советую</div>
             <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Вхожу как операционный директор. Строю систему сам. Вы получаете результат, а не список рекомендаций.</p>
           </div>
@@ -1057,48 +1270,31 @@
       <div class="container narrow fade-up">
         <div class="section-header text-center">
           <div class="section-eyebrow">Форматы сотрудничества</div>
-          <h2>Три способа начать</h2>
-          <p class="section-subtitle">Первый шаг — бесплатно. Формат входа обсуждаем под вашу ситуацию.</p>
+          <h2>Как обсуждаем условия</h2>
+          <p class="section-subtitle">Формат входа — под вашу ситуацию. Оклад, доля, комбо — договариваемся после диагностики.</p>
         </div>
-        <div class="pricing-grid">
-          <div class="pricing-card pricing-card--free">
-            <div class="pricing-badge">Старт</div>
-            <h3>Бесплатная диагностика</h3>
-            <div class="pricing-price pricing-price--free">бесплатно</div>
-            <ul class="pricing-features">
-              <li>✅ 45 минут разбора вашей ситуации</li>
-              <li>✅ Честный ответ: могу помочь или нет</li>
-              <li>✅ Первые выводы — сразу на звонке</li>
-              <li>✅ Или пришлите ОСВ — получите карточку финансового здоровья за 1-2 дня</li>
-              <li>✅ Без обязательств продолжать</li>
-            </ul>
-            <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Обсудить ситуацию</a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 2px solid #2563eb; box-shadow: 0 2px 12px rgba(31,38,135,0.06); position: relative;">
+            <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #2563eb; color: white; font-size: 0.7rem; font-weight: 700; padding: 3px 12px; border-radius: 99px;">Популярный</div>
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">💼</div>
+            <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Оклад + бонус</div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #2563eb; margin-bottom: 0.75rem;">от 300 000 ₽/мес</div>
+            <p style="font-size: 0.88rem; color: #64748b; margin: 0;">Фиксированный оклад на период + бонус за достижение KPI. Срок: 3–6 месяцев.</p>
           </div>
-          <div class="pricing-card featured">
-            <h3>Операционный директор на проект</h3>
-            <div class="pricing-price">от 300 000 ₽/мес</div>
-            <ul class="pricing-features">
-              <li>✅ Вхожу в операционку как директор</li>
-              <li>✅ Строю систему управления руками</li>
-              <li>✅ Управляю командой и процессами</li>
-              <li>✅ Срок: 3–6 месяцев</li>
-              <li>✅ Формат: оклад + бонус за результат</li>
-            </ul>
-            <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Обсудить проект</a>
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🤝</div>
+            <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Доля + оклад</div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #2563eb; margin-bottom: 0.75rem;">Комбо</div>
+            <p style="font-size: 0.88rem; color: #64748b; margin: 0;">Вхожу как управляющий партнёр. Минимальный оклад + доля в бизнесе. Для компаний с высоким потенциалом.</p>
           </div>
-          <div class="pricing-card">
-            <h3>Управляющий партнёр</h3>
-            <div class="pricing-price">доля + оклад</div>
-            <ul class="pricing-features">
-              <li>✅ Вхожу как партнёр с долей</li>
-              <li>✅ Минимальный оклад на период</li>
-              <li>✅ Мотивация — на результат бизнеса</li>
-              <li>✅ Для компаний с потенциалом роста</li>
-              <li>✅ Условия — индивидуально</li>
-            </ul>
-            <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center;">Обсудить</a>
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🎯</div>
+            <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Бонус за результат</div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #2563eb; margin-bottom: 0.75rem;">% от роста</div>
+            <p style="font-size: 0.88rem; color: #64748b; margin: 0;">Небольшой оклад + процент от прироста прибыли сверх базового уровня. Максимальная мотивация на результат.</p>
           </div>
         </div>
+        <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; margin-top: 1.5rem;">Конкретные условия обсуждаем после бесплатной диагностики — когда понятна ситуация и объём работы.</p>
       </div>
     </section>
 
