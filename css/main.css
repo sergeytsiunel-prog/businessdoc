@@ -1,53 +1,61 @@
 /* ========================================
-   MAIN.CSS - Переменные и базовые стили v2.0
+   MAIN.CSS - Переменные и базовые стили v3.0 PREMIUM
    ======================================== */
 
 :root {
-  /* Основные цвета (обновлённые) */
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-primary-light: #3b82f6;
-  
-  /* Акценты */
+  /* ===== CORE PALETTE ===== */
+  --color-primary: #1D4ED8;
+  --color-primary-hover: #1E40AF;
+  --color-primary-light: #2563EB;
+
+  /* ===== NEUTRALS ===== */
+  --color-white: #FFFFFF;
+  --color-bg: #F6F7F9;
+  --color-off-white: #F1F5F9;
+  --color-ice-blue: #F1F5F9;
+  --color-light-gray: #F1F5F9;
+  --color-slate: #0F172A;
+
+  /* ===== TEXT ===== */
+  --color-text-dark: #0F172A;
+  --color-text-gray: #475569;
+  --color-text-light: #94A3B8;
+
+  /* ===== ACCENTS ===== */
   --color-accent-gold: #d4af37;
   --color-accent-gold-light: #e8c96a;
   --color-accent-teal: #0d9488;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
   --color-success: #10b981;
-  
-  /* Нейтральные */
-  --color-white: #ffffff;
-  --color-off-white: #f9fafb;
-  --color-ice-blue: #f0f9ff;
-  --color-light-gray: #f1f5f9;
-  --color-slate: #1e293b;
-  
-  /* Текст */
-  --color-text-dark: #0f172a;
-  --color-text-gray: #64748b;
-  --color-text-light: #94a3b8;
-  
-  /* Градиенты */
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-  --gradient-hero: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
-  --gradient-dark: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
-  
-  /* Тени */
-  --shadow-subtle: 0 4px 20px rgba(31, 38, 135, 0.08);
-  --shadow-medium: 0 8px 32px rgba(31, 38, 135, 0.12);
-  --shadow-interactive: 0 10px 40px -10px rgba(37, 99, 235, 0.15);
-  --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  
-  /* Радиусы */
+
+  /* ===== BORDERS ===== */
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.14);
+
+  /* ===== GRADIENTS ===== */
+  --gradient-primary: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
+  --gradient-hero: linear-gradient(135deg, #F6F7F9 0%, #FFFFFF 100%);
+  --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%);
+  --gradient-blue-accent: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
+  --gradient-medical: linear-gradient(135deg, #F6F7F9 0%, #F1F5F9 100%);
+  --gradient-sterile: linear-gradient(135deg, #F6F7F9 0%, #FFFFFF 100%);
+
+  /* ===== SHADOWS ===== */
+  --shadow-subtle: 0 2px 12px rgba(15,23,42,0.04);
+  --shadow-medium: 0 8px 30px rgba(15,23,42,0.08);
+  --shadow-interactive: 0 12px 40px rgba(15,23,42,0.12);
+  --shadow-glass: 0 4px 20px rgba(15,23,42,0.06);
+
+  /* ===== RADII ===== */
   --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 32px;
-  --radius-xl: 48px;
-  
-  /* Отступы */
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  /* ===== LAYOUT ===== */
   --section-padding: clamp(60px, 8vw, 100px);
   --container-padding: clamp(20px, 5vw, 80px);
 }
@@ -66,39 +74,44 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--color-text-dark);
-  background: var(--color-white);
-  line-height: 1.6;
+  background: var(--color-bg);
+  line-height: 1.75;
+  font-size: 18px;
+  font-weight: 400;
   overflow-x: hidden;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.08;
   margin-bottom: 1rem;
   color: var(--color-text-dark);
+  letter-spacing: -0.04em;
 }
 
 h1 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 700;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  letter-spacing: -0.02em;
 }
 
 p {
   margin-bottom: 1.5rem;
   color: var(--color-text-gray);
+  line-height: 1.75;
 }
 
 ul, ol {
@@ -114,7 +127,7 @@ li {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 a:hover {
@@ -175,72 +188,10 @@ img {
 
 
 /* ========================================
-   КАЛЬКУЛЯТОР КОМПРОМИССОВ v3
+   КАЛЬКУЛЯТОР КОМПРОМИССОВ — удалён с сайта
+   Стили оставлены для совместимости
    ======================================== */
 
-.compromise-calculator {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.calculator-controls {
-  margin-bottom: 2rem;
-}
-
-.control-group {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.control-group:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.control-value {
-  min-width: 60px;
-  text-align: right;
-  font-weight: 700;
-}
-
-/* Виталсигнс карточки */
-.vital-signs {
-  margin-bottom: 2rem;
-}
-
-.vital-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.vital-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Скелетон-загрузка */
-.vital-card.loading {
-  position: relative;
-  pointer-events: none;
-}
-
-.vital-card.loading::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-  animation: skeleton-wave 1.2s infinite;
-}
-
-@keyframes skeleton-wave {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-/* Блик на шкале */
 .vital-bar {
   position: relative;
   overflow: hidden;
@@ -255,39 +206,6 @@ img {
   transition: width 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), background 0.3s ease;
 }
 
-.vital-fill::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.vital-status {
-  font-size: 0.8rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.vital-probability {
-  font-size: 0.7rem;
-  color: #94a3b8;
-  margin-top: 0.25rem;
-}
-
-/* Тултип */
-.vital-card {
-  cursor: help;
-}
-
 .vital-tooltip {
   position: fixed;
   background: #1e293b;
@@ -299,90 +217,7 @@ img {
   z-index: 1000;
   box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
   pointer-events: none;
-  transition: opacity 0.2s ease;
   line-height: 1.4;
-}
-
-/* Панель компромисса */
-.tradeoff-panel {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.tradeoff-panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444, #f59e0b, #10b981);
-  background-size: 200% 100%;
-  animation: gradient-flow 3s linear infinite;
-}
-
-@keyframes gradient-flow {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-.recommendation {
-  transition: background 0.3s ease;
-}
-
-.recommendation:hover {
-  background: #f8fafc;
-}
-
-details summary {
-  list-style: none;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-details summary:hover {
-  color: #1e40af;
-}
-
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-details[open] summary {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-  .compromise-calculator {
-    padding: 1.5rem;
-  }
-  
-  .calculator-controls {
-    grid-template-columns: 1fr;
-  }
-  
-  .vital-signs {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-  
-  .vital-card {
-    padding: 1rem;
-  }
-  
-  .tradeoff-panel {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .vital-signs {
-    grid-template-columns: 1fr;
-  }
 }
 /* Hero title - clean styles (no !important needed after sections.css fix) */
 .hero-title {
