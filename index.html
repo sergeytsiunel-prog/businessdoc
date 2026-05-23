@@ -87,7 +87,7 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
-      gap: 2.5rem;
+      gap: 3rem;
       align-items: center;
     }
     .hero-text { min-width: 0; }
@@ -97,45 +97,105 @@
       margin: 0 auto;
       text-align: center;
     }
+    /* Голубоватая подложка под фото — фото "садится" в композицию */
+    .hero-photo__frame {
+      position: relative;
+      display: inline-block;
+      padding: 0;
+    }
+    .hero-photo__frame::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: -16px;
+      bottom: -16px;
+      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+      border-radius: 16px;
+      z-index: 0;
+    }
     .hero-photo img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       max-width: 280px;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 8px 32px rgba(31,38,135,0.15);
-      border: 4px solid rgba(255,255,255,0.85);
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(15,23,42,0.08);
+      border: 1px solid rgba(15,23,42,0.06);
     }
     .hero-photo__caption {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 2;
     }
     .hero-photo__name {
       font-weight: 600;
       color: #0f172a;
       font-size: 1rem;
+      letter-spacing: -0.01em;
     }
     .hero-photo__role {
       color: #64748b;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       margin-top: 2px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     @media (max-width: 768px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.75rem;
         text-align: center;
       }
       .hero-photo {
         order: -1;
-        max-width: 180px;
+        max-width: 200px;
+      }
+      .hero-photo__frame::before {
+        top: 10px;
+        left: 10px;
+        right: -10px;
+        bottom: -10px;
       }
       .hero-photo img {
-        max-width: 160px;
+        max-width: 180px;
       }
       .hero-text .btn-primary,
       .hero-text .btn-secondary {
         width: 100%;
       }
+    }
+    /* Hero CTA: одна главная кнопка + текстовая ссылка (фокус на одно действие) */
+    .hero-cta-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1.75rem;
+    }
+    .btn-text-link {
+      color: #475569;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(15,23,42,0.15);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-text-link:hover {
+      color: #0F172A;
+      border-bottom-color: #0F172A;
+    }
+    @media (max-width: 768px) {
+      .hero-cta-row { gap: 1rem; }
+      .hero-cta-row .btn-primary { width: 100%; text-align: center; }
+      .btn-text-link { width: 100%; text-align: center; }
+    }
+    /* Скрываем 4-й блок статистики на мобильных (как было) */
+    @media (max-width: 768px) {
+      .hero-stat-desktop { display: none; }
     }
   </style>
   <style>
@@ -228,7 +288,10 @@
       box-shadow: 0 2px 12px rgba(31,38,135,0.05);
     }
     .author-principle__icon {
-      font-size: 1.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #94a3b8;
       margin-bottom: 0.5rem;
     }
     .author-principle__title {
@@ -286,9 +349,19 @@
       align-items: flex-start;
       margin-bottom: 2rem;
     }
+    .health-card-section {
+      background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+    }
     .health-card-icon {
-      font-size: 2.75rem;
-      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #FFFFFF;
+      color: #2563EB;
+      box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
       flex-shrink: 0;
     }
     .health-card-eyebrow {
@@ -406,9 +479,16 @@
       font-size: 1rem !important;
     }
     .hc-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
       font-size: 0.78rem;
       color: #94a3b8;
       margin-top: 0.85rem;
+    }
+    .hc-note svg {
+      flex-shrink: 0;
+      opacity: 0.7;
     }
 
     /* Testimonials grid (new fear-based) */
@@ -446,7 +526,7 @@
     @media (max-width: 768px) {
       .health-card-wrap { padding: 1.5rem; }
       .health-card-header { flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
-      .health-card-icon { font-size: 2rem; }
+      .health-card-icon { width: 44px; height: 44px; }
       .health-card-title { font-size: 1.2rem; }
       .health-card-grid { grid-template-columns: 1fr; gap: 0.75rem; }
       .hc-steps { flex-direction: column; gap: 0.5rem; align-items: flex-start; text-align: left; }
@@ -558,45 +638,44 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero section" id="top" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%); padding-top: 140px; position: relative; overflow: hidden; min-height: 500px;">
-      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; z-index: 1;" viewBox="0 0 1440 200" preserveAspectRatio="none">
-        <path d="M 0 100 Q 360 150 720 80 T 1440 120 L 1440 200 L 0 200 Z" fill="#ffffff" opacity="0.5"></path>
-      </svg>
+    <section class="hero section" id="top">
       <div class="container hero-container fade-up">
         <div class="hero-grid">
           <div class="hero-text">
-            <div style="display: inline-block; background: #eff6ff; color: #2563eb; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 99px; margin-bottom: 1rem; letter-spacing: 0.05em;">Операционный хирург для бизнеса · Business Doctor</div>
-            <h1 class="hero-title" style="color: #0f172a !important; font-size: 2.5rem !important; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.2; display: block !important; visibility: visible !important; opacity: 1 !important;">Вхожу в бизнес на 3–6 месяцев. Ухожу когда он работает сам.</h1>
-            <p class="hero-subtitle" style="color: #64748b !important; font-size: 1.1rem; margin-bottom: 1.5rem; max-width: 800px; font-weight: 400;">Не советую — делаю руками. AI-моделирование + 20 лет операционки: строю систему управления и передаю бизнес который вы видите насквозь.</p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
+            <div class="eyebrow">Операционный хирург для бизнеса · Business Doctor</div>
+            <h1 class="hero-title">Вхожу в бизнес на 3–6 месяцев. Ухожу когда он работает сам.</h1>
+            <p class="hero-subtitle">Не советую — делаю руками. AI-моделирование + 20 лет операционки: строю систему управления и передаю бизнес который вы видите насквозь.</p>
+            <div class="hero-cta-row">
               <a href="#contact" class="btn-primary">Обсудить мою ситуацию →</a>
-              <a href="#health-card" class="btn-secondary">Бесплатная диагностика</a>
+              <a href="#health-card" class="btn-text-link">Бесплатная диагностика</a>
             </div>
           </div>
           <div class="hero-photo">
-            <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Сергей Циунель — Business Doctor" />
+            <div class="hero-photo__frame">
+              <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Сергей Циунель — Business Doctor" />
+            </div>
             <div class="hero-photo__caption">
               <div class="hero-photo__name">Сергей Циунель</div>
               <div class="hero-photo__role">Business Doctor</div>
             </div>
           </div>
         </div>
-        <div class="hero-stats" style="display: flex; gap: 2rem; margin: 2rem 0 0; padding: 1.5rem; background: rgba(255, 255, 255, 0.6); border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 20px rgba(31, 38, 135, 0.08); flex-wrap: wrap; justify-content: center;">
-          <div style="text-align: center; flex: 1; min-width: 100px;">
-            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">20+</div>
-            <div style="color: #64748b; font-size: 0.95rem;">лет в операционке</div>
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <div class="hero-stat-value">20+</div>
+            <div class="hero-stat-label">лет в операционке</div>
           </div>
-          <div style="text-align: center; flex: 1; min-width: 100px;">
-            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">50+</div>
-            <div style="color: #64748b; font-size: 0.95rem;">проектов сделано</div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-value">50+</div>
+            <div class="hero-stat-label">проектов сделано</div>
           </div>
-          <div style="text-align: center; flex: 1; min-width: 100px;">
-            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">3–6 мес</div>
-            <div style="color: #64748b; font-size: 0.95rem;">до результата</div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-value">3–6 мес</div>
+            <div class="hero-stat-label">до результата</div>
           </div>
-          <div style="text-align: center; flex: 1; min-width: 100px;">
-            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">×5</div>
-            <div style="color: #64748b; font-size: 0.95rem;">скорость с AI</div>
+          <div class="hero-stat-item hero-stat-desktop">
+            <div class="hero-stat-value">×5</div>
+            <div class="hero-stat-label">скорость с AI</div>
           </div>
         </div>
       </div>
@@ -625,22 +704,22 @@
           <div class="author-principles__title">Что получаете на выходе</div>
           <div class="author-principles__grid">
             <div class="author-principle">
-              <div class="author-principle__icon" style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #94a3b8;">01</div>
+              <div class="author-principle__icon">01</div>
               <div class="author-principle__title">Регламенты, KPI, дашборды</div>
               <div class="author-principle__desc">Не слайды — работающие артефакты. Матрица KPI под каждую роль, регламенты процессов, дашборды которые обновляются автоматически.</div>
             </div>
             <div class="author-principle">
-              <div class="author-principle__icon" style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #94a3b8;">02</div>
+              <div class="author-principle__icon">02</div>
               <div class="author-principle__title">AI-модели на ваших данных</div>
               <div class="author-principle__desc">Сценарный анализ, прогнозирование спроса, ABC/XYZ по 500+ SKU, ML-модели обученные на истории вашего бизнеса — не на абстрактных данных.</div>
             </div>
             <div class="author-principle">
-              <div class="author-principle__icon" style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #94a3b8;">03</div>
+              <div class="author-principle__icon">03</div>
               <div class="author-principle__title">Финансовая модель CFO-уровня</div>
               <div class="author-principle__desc">P&L, ДДС, точка безубыточности, прогноз 3–9 месяцев. Каждое решение — через деньги. Видите последствия до того как действуете.</div>
             </div>
             <div class="author-principle">
-              <div class="author-principle__icon" style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #94a3b8;">04</div>
+              <div class="author-principle__icon">04</div>
               <div class="author-principle__title">Команда которая работает сама</div>
               <div class="author-principle__desc">Обучаю людей работать в новой системе. Ухожу — они продолжают. Бизнес не зависит от моего присутствия.</div>
             </div>
@@ -843,10 +922,37 @@
           .path-list li {
             font-size: 0.85rem;
             color: #475569;
-            padding: 0.3rem 0;
+            padding: 0.4rem 0;
             display: flex;
             align-items: flex-start;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            position: relative;
+            padding-left: 1.2rem;
+          }
+          .path-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #2563EB;
+          }
+          .path-card--secondary .path-list li::before {
+            background: #94A3B8;
+          }
+          .path-card__cta {
+            width: 100%;
+            text-align: center;
+            display: block;
+            box-sizing: border-box;
+          }
+          .path-card__note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94A3B8;
+            margin-top: 0.75rem;
           }
           @media (max-width: 768px) {
             .two-paths { grid-template-columns: 1fr; }
@@ -907,12 +1013,12 @@
             <div class="path-title">Вхожу и делаю — вы получаете результат</div>
             <div class="path-desc">Для тех кто готов к изменениям. Вхожу как операционный директор на 3–6 месяцев. Строю систему руками с AI-инструментами. Ухожу когда бизнес работает сам.</div>
             <ul class="path-list">
-              <li>🤖 AI-моделирование сценариев на ваших данных</li>
-              <li>📊 Управленческий учёт и финансовые модели</li>
-              <li>⚙️ Регламенты, KPI, обученная команда</li>
-              <li>🎯 Оклад + бонус за результат или доля</li>
+              <li>AI-моделирование сценариев на ваших данных</li>
+              <li>Управленческий учёт и финансовые модели</li>
+              <li>Регламенты, KPI, обученная команда</li>
+              <li>Оклад + бонус за результат или доля</li>
             </ul>
-            <a href="#contact" class="btn-primary" style="width: 100%; text-align: center; display: block;">Обсудить проект →</a>
+            <a href="#contact" class="btn-primary path-card__cta">Обсудить проект →</a>
           </div>
 
           <div class="path-card path-card--secondary">
@@ -920,26 +1026,26 @@
             <div class="path-title">Сначала — бесплатная диагностика</div>
             <div class="path-desc">Для тех кто хочет сначала разобраться. Пришлите ОСВ из 1С — получите карточку финансового здоровья с прогнозом на 9 месяцев. Бесплатно, без обязательств.</div>
             <ul class="path-list">
-              <li>📋 45 минут разбора вашей ситуации</li>
-              <li>📊 Карточка финансового здоровья (6 индикаторов)</li>
-              <li>🔮 Прогноз на 3, 6 и 9 месяцев на ваших данных</li>
-              <li>✅ Честный ответ: могу помочь или нет</li>
+              <li>45 минут разбора вашей ситуации</li>
+              <li>Карточка финансового здоровья (6 индикаторов)</li>
+              <li>Прогноз на 3, 6 и 9 месяцев на ваших данных</li>
+              <li>Честный ответ: могу помочь или нет</li>
             </ul>
-            <a href="#health-card" class="btn-secondary" style="width: 100%; text-align: center; display: block;">Получить бесплатно →</a>
-            <p style="text-align: center; font-size: 0.75rem; color: #94a3b8; margin-top: 0.75rem;">Никаких обязательств. Никакого давления.</p>
+            <a href="#health-card" class="btn-secondary path-card__cta">Получить бесплатно →</a>
+            <p class="path-card__note">Никаких обязательств. Никакого давления.</p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- МЕТАФОРА: ЗРЕНИЕ -7 → 100% -->
+    <!-- ВИДЕНИЕ БИЗНЕСА: ВСЛЕПУЮ → В ФОКУСЕ -->
     <section class="section" id="vision">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
           <div class="section-eyebrow">До и после</div>
           <h2>Что происходит с вашим бизнесом</h2>
-          <p class="section-subtitle">Большинство собственников управляют бизнесом со зрением -7. Всё размыто, решения наугад. После — видят каждую цифру, каждый процесс, каждый риск.</p>
+          <p class="section-subtitle">Большинство собственников управляют бизнесом вслепую. Деньги уходят, отчёты не сходятся, решения наугад. После — видят каждую цифру, каждый процесс, каждый риск.</p>
         </div>
 
         <style>
@@ -951,43 +1057,51 @@
           }
           .vision-card {
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease;
           }
           .vision-card--before {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
           }
           .vision-card--after {
-            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
-            border: 2px solid #2563eb;
+            background: #FFFFFF;
+            border: 1px solid rgba(37,99,235,0.18);
+            box-shadow: 0 8px 32px rgba(37,99,235,0.06);
+          }
+          .vision-card--after::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, #2563EB, transparent);
           }
           .vision-label {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
           }
-          .vision-card--before .vision-label { color: #94a3b8; }
-          .vision-card--after .vision-label { color: #2563eb; }
+          .vision-card--before .vision-label { color: #94A3B8; }
+          .vision-card--after .vision-label { color: #2563EB; }
           .vision-text-demo {
             font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 1.75rem;
           }
           .vision-card--before .vision-text-demo {
-            color: #0f172a;
-            filter: blur(4px);
+            color: #94A3B8;
+            opacity: 0.5;
             user-select: none;
           }
           .vision-card--after .vision-text-demo {
-            color: #0f172a;
-            filter: none;
+            color: #0F172A;
           }
           .vision-metrics {
             display: grid;
@@ -997,19 +1111,18 @@
           }
           .vision-metric {
             border-radius: 10px;
-            padding: 0.6rem;
+            padding: 0.65rem 0.5rem;
             font-size: 0.78rem;
             font-weight: 600;
           }
           .vision-card--before .vision-metric {
-            background: #f1f5f9;
-            color: #94a3b8;
-            filter: blur(2px);
+            background: #E2E8F0;
+            color: #94A3B8;
           }
           .vision-card--after .vision-metric {
-            background: #fff;
-            color: #0f172a;
-            border: 1px solid rgba(37,99,235,0.15);
+            background: #F8FAFC;
+            color: #0F172A;
+            border: 1px solid rgba(37,99,235,0.12);
           }
           .vision-tag {
             display: inline-block;
@@ -1019,38 +1132,67 @@
             font-weight: 600;
           }
           .vision-card--before .vision-tag {
-            background: #f1f5f9;
-            color: #94a3b8;
+            background: #E2E8F0;
+            color: #94A3B8;
           }
           .vision-card--after .vision-tag {
-            background: #2563eb;
+            background: #2563EB;
             color: white;
           }
-          .vision-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #2563eb;
-            font-weight: 700;
+          .vision-caption {
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            line-height: 1.55;
           }
-          @keyframes focusPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
-            50% { box-shadow: 0 0 0 8px rgba(37,99,235,0.1); }
-          }
-          .vision-card--after {
-            animation: focusPulse 3s ease-in-out infinite;
-          }
+          .vision-card--before .vision-caption { color: #94A3B8; }
+          .vision-card--after .vision-caption { color: #475569; }
           @media (max-width: 768px) {
             .vision-demo { grid-template-columns: 1fr; gap: 1rem; }
             .vision-text-demo { font-size: 1.5rem; }
+          }
+          .vision-transform {
+            text-align: center;
+            margin: 0 0 2rem;
+          }
+          .vision-transform__pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #fff;
+            border: 1px solid rgba(15,23,42,0.06);
+            border-radius: 99px;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 2px 12px rgba(15,23,42,0.04);
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          .vision-transform__from {
+            font-size: 0.9rem;
+            color: #94A3B8;
+          }
+          .vision-transform__arrow {
+            font-size: 1.25rem;
+            color: #94A3B8;
+          }
+          .vision-transform__to {
+            font-size: 0.9rem;
+            color: #0F172A;
+            font-weight: 600;
+          }
+          .vision-transform__time {
+            font-size: 0.82rem;
+            color: #64748B;
+            letter-spacing: 0.02em;
+          }
+          .vision-cta-row {
+            text-align: center;
           }
         </style>
 
         <div class="vision-demo">
           <!-- До -->
           <div class="vision-card vision-card--before">
-            <div class="vision-label">До входа · Зрение −7</div>
+            <div class="vision-label">До входа · вслепую</div>
             <div class="vision-text-demo">ВАШ<br>БИЗНЕС</div>
             <div class="vision-metrics">
               <div class="vision-metric">Маржа ???</div>
@@ -1059,14 +1201,14 @@
               <div class="vision-metric">Риски ???</div>
             </div>
             <div class="vision-tag">Решения наугад</div>
-            <div style="margin-top: 1rem; font-size: 0.82rem; color: #94a3b8; line-height: 1.5;">
+            <div class="vision-caption">
               Деньги куда-то уходят. Отчёты показывают одно, ощущения — другое. Непонятно где терять перестать.
             </div>
           </div>
 
           <!-- После -->
           <div class="vision-card vision-card--after">
-            <div class="vision-label">После · Зрение 100%</div>
+            <div class="vision-label">После · фокус</div>
             <div class="vision-text-demo">ВАШ<br>БИЗНЕС</div>
             <div class="vision-metrics">
               <div class="vision-metric">Маржа 34%</div>
@@ -1075,153 +1217,153 @@
               <div class="vision-metric">Риски ✓</div>
             </div>
             <div class="vision-tag">Решения на цифрах</div>
-            <div style="margin-top: 1rem; font-size: 0.82rem; color: #475569; line-height: 1.5;">
+            <div class="vision-caption">
               Каждый рубль на своём месте. Система работает без ручного контроля. Вы видите будущее — не прошлое.
             </div>
           </div>
         </div>
 
         <!-- Стрелка трансформации -->
-        <div style="text-align: center; margin: 0 0 2rem;">
-          <div style="display: inline-flex; align-items: center; gap: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 99px; padding: 0.75rem 1.5rem; box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
-            <span style="font-size: 0.9rem; color: #64748b;">От размытого</span>
-            <span style="font-size: 1.5rem;">→</span>
-            <span style="font-size: 0.9rem; color: #2563eb; font-weight: 600;">К прозрачному</span>
-            <span style="font-size: 0.85rem; color: #64748b;">за 3–6 месяцев</span>
+        <div class="vision-transform">
+          <div class="vision-transform__pill">
+            <span class="vision-transform__from">Решения наугад</span>
+            <span class="vision-transform__arrow">→</span>
+            <span class="vision-transform__to">Решения в цифрах</span>
+            <span class="vision-transform__time">за 3–6 месяцев</span>
           </div>
         </div>
 
-        <div style="text-align: center;">
+        <div class="vision-cta-row">
           <a href="#contact" class="btn-primary">Хочу такой же результат →</a>
         </div>
       </div>
     </section>
 
     <!-- РЕАЛЬНЫЕ КЕЙСЫ -->
-    <section class="section" id="cases" style="background: #0f172a; padding: 5rem 0;">
+    <section class="section cases-section" id="cases">
       <div class="container narrow fade-up">
-        <div class="section-header text-center" style="margin-bottom: 3rem;">
-          <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #64748b; margin-bottom: 0.75rem;">Реальные кейсы</div>
-          <h2 style="color: #f8fafc; font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem;">Результаты из практики</h2>
-          <p style="color: #64748b; font-size: 1rem; max-width: 560px; margin: 0 auto;">Конкретные цифры. Реальные компании. Никакого storytelling.</p>
+        <div class="cases-section__header">
+          <div class="cases-section__eyebrow">Реальные кейсы</div>
+          <h2 class="cases-section__title">Результаты из практики</h2>
+          <p class="cases-section__subtitle">Конкретные цифры. Реальные компании. Никакого storytelling.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div class="cases-grid">
 
           <!-- Кейс 1 -->
-          <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; overflow: hidden;">
-            <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; margin-bottom: 0.4rem;">Производство / Бытовая химия</div>
-              <div style="font-size: 1.1rem; font-weight: 600; color: #f1f5f9;">ООО «ПрофиМилл» · Тверь</div>
+          <article class="case-card-dark">
+            <header class="case-card-dark__header">
+              <div class="case-card-dark__tag">Производство / Бытовая химия</div>
+              <div class="case-card-dark__company">ООО «ПрофиМилл» · Тверь</div>
+            </header>
+            <div class="case-card-dark__body">
+              <div class="case-card-dark__block">
+                <div class="case-card-dark__label">Проблема</div>
+                <div class="case-card-dark__text">Оборот 4 млн ₽/мес, отрицательная EBITDA. Компания несла убытки несколько лет.</div>
+              </div>
+              <div class="case-card-dark__block">
+                <div class="case-card-dark__label">Что сделано</div>
+                <div class="case-card-dark__text">Реорганизация supply chain, производственного планирования, unit economics, построение B2B-системы продаж.</div>
+              </div>
+              <div class="case-card-dark__metrics case-card-dark__metrics--3">
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">35 млн</div>
+                  <div class="case-card-dark__metric-label">оборот/мес</div>
+                </div>
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">×6</div>
+                  <div class="case-card-dark__metric-label">рост выпуска</div>
+                </div>
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">1,5 г.</div>
+                  <div class="case-card-dark__metric-label">срок</div>
+                </div>
+              </div>
             </div>
-            <div style="padding: 1.5rem 1.75rem;">
-              <div style="margin-bottom: 1rem;">
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 0.35rem;">Проблема</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">Оборот 4 млн ₽/мес, отрицательная EBITDA. Компания несла убытки несколько лет.</div>
-              </div>
-              <div style="margin-bottom: 1.25rem;">
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 0.35rem;">Что сделано</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">Реорганизация supply chain, производственного планирования, unit economics, построение B2B-системы продаж.</div>
-              </div>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.06);">
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">35 млн</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">оборот/мес</div>
-                </div>
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">×6</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">рост выпуска</div>
-                </div>
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">1,5 г.</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">срок</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </article>
 
           <!-- Кейс 2 -->
-          <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; overflow: hidden;">
-            <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; margin-bottom: 0.4rem;">Запуск производства / Greenfield</div>
-              <div style="font-size: 1.1rem; font-weight: 600; color: #f1f5f9;">ООО «ПрофиХом» · Коломна</div>
+          <article class="case-card-dark">
+            <header class="case-card-dark__header">
+              <div class="case-card-dark__tag">Запуск производства / Greenfield</div>
+              <div class="case-card-dark__company">ООО «ПрофиХом» · Коломна</div>
+            </header>
+            <div class="case-card-dark__body">
+              <div class="case-card-dark__block">
+                <div class="case-card-dark__label">Задача</div>
+                <div class="case-card-dark__text">Запустить завод бытовой химии с нуля в сжатые сроки. Выйти в федеральные сети.</div>
+              </div>
+              <div class="case-card-dark__block">
+                <div class="case-card-dark__label">Что сделано</div>
+                <div class="case-card-dark__text">Бизнес-план, инвестиции, площадка, оборудование, команда, производственные и логистические процессы.</div>
+              </div>
+              <div class="case-card-dark__metrics case-card-dark__metrics--3">
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">47 дн.</div>
+                  <div class="case-card-dark__metric-label">до запуска</div>
+                </div>
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">40 млн</div>
+                  <div class="case-card-dark__metric-label">выручка/мес</div>
+                </div>
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">8 мес.</div>
+                  <div class="case-card-dark__metric-label">федсети</div>
+                </div>
+              </div>
             </div>
-            <div style="padding: 1.5rem 1.75rem;">
-              <div style="margin-bottom: 1rem;">
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 0.35rem;">Задача</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">Запустить завод бытовой химии с нуля в сжатые сроки. Выйти в федеральные сети.</div>
-              </div>
-              <div style="margin-bottom: 1.25rem;">
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 0.35rem;">Что сделано</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">Бизнес-план, инвестиции, площадка, оборудование, команда, производственные и логистические процессы.</div>
-              </div>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.06);">
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">47 дн.</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">до запуска</div>
-                </div>
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">40 млн</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">выручка/мес</div>
-                </div>
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">8 мес.</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">федсети</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </article>
 
           <!-- Кейс 3 -->
-          <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; overflow: hidden;">
-            <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; margin-bottom: 0.4rem;">Нефтегаз / Антикризис проекта</div>
-              <div style="font-size: 1.1rem; font-weight: 600; color: #f1f5f9;">Газпромнефть-Восток</div>
-            </div>
-            <div style="padding: 1.5rem 1.75rem;">
-              <div style="margin-bottom: 1rem;">
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 0.35rem;">Проблема</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">Отставание от графика строительного проекта на 100 дней. Штрафные санкции на 150 млн ₽.</div>
+          <article class="case-card-dark">
+            <header class="case-card-dark__header">
+              <div class="case-card-dark__tag">Нефтегаз / Антикризис проекта</div>
+              <div class="case-card-dark__company">Газпромнефть-Восток</div>
+            </header>
+            <div class="case-card-dark__body">
+              <div class="case-card-dark__block">
+                <div class="case-card-dark__label">Проблема</div>
+                <div class="case-card-dark__text">Отставание от графика строительного проекта на 100 дней. Штрафные санкции на 150 млн ₽.</div>
               </div>
-              <div style="margin-bottom: 1.25rem;">
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 0.35rem;">Что сделано</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">Пересборка calendar-network plan, перераспределение ресурсов, усиление контроля качества.</div>
+              <div class="case-card-dark__block">
+                <div class="case-card-dark__label">Что сделано</div>
+                <div class="case-card-dark__text">Пересборка calendar-network plan, перераспределение ресурсов, усиление контроля качества.</div>
               </div>
-              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.06);">
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">В срок</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">сдан проект</div>
+              <div class="case-card-dark__metrics case-card-dark__metrics--2">
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">В срок</div>
+                  <div class="case-card-dark__metric-label">сдан проект</div>
                 </div>
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">150 млн ₽</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">штрафов предотвращено</div>
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">150 млн ₽</div>
+                  <div class="case-card-dark__metric-label">штрафов предотвращено</div>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- Кейс 4 — статистика -->
-          <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; overflow: hidden;">
-            <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; margin-bottom: 0.4rem;">Практика в целом</div>
-              <div style="font-size: 1.1rem; font-weight: 600; color: #f1f5f9;">Business Doctor · 2021 — настоящее время</div>
-            </div>
-            <div style="padding: 1.5rem 1.75rem;">
-              <div style="margin-bottom: 1.25rem;">
-                <div style="font-size: 0.9rem; color: #94a3b8; line-height: 1.7;">Производство, торговля, нефтегаз, девелопмент, B2B-услуги. В среднем 7–18 млн ₽ находки на проект.</div>
+          <article class="case-card-dark">
+            <header class="case-card-dark__header">
+              <div class="case-card-dark__tag">Практика в целом</div>
+              <div class="case-card-dark__company">Business Doctor · 2021 — настоящее время</div>
+            </header>
+            <div class="case-card-dark__body">
+              <div class="case-card-dark__block">
+                <div class="case-card-dark__text">Производство, торговля, нефтегаз, девелопмент, B2B-услуги. В среднем 7–18 млн ₽ находки на проект.</div>
               </div>
-              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.06);">
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">50+</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">проектов</div>
+              <div class="case-card-dark__metrics case-card-dark__metrics--2">
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">50+</div>
+                  <div class="case-card-dark__metric-label">проектов</div>
                 </div>
-                <div>
-                  <div style="font-size: 1.4rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em;">380+ млн ₽</div>
-                  <div style="font-size: 0.7rem; color: #475569; margin-top: 0.2rem;">выявленных потерь</div>
+                <div class="case-card-dark__metric">
+                  <div class="case-card-dark__metric-value">380+ млн ₽</div>
+                  <div class="case-card-dark__metric-label">выявленных потерь</div>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>
@@ -1230,21 +1372,21 @@
     <!-- ГАРАНТИИ -->
     <section class="section">
       <div class="container narrow fade-up">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 0;">
-          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 2px 12px rgba(15,23,42,0.04);">
-            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">01</div>
-            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Результат — не отчёт</div>
-            <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.65;">Вы получаете регламенты, дашборды, обученную команду и финансовую модель — не PDF с рекомендациями.</p>
+        <div class="guarantees-grid">
+          <div class="guarantee-card">
+            <div class="guarantee-card__num">01</div>
+            <div class="guarantee-card__title">Результат — не отчёт</div>
+            <p class="guarantee-card__text">Вы получаете регламенты, дашборды, обученную команду и финансовую модель — не PDF с рекомендациями.</p>
           </div>
-          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 2px 12px rgba(15,23,42,0.04);">
-            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">02</div>
-            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Первый шаг — бесплатно</div>
-            <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.65;">45 минут разбора ситуации. Если не вижу как помочь — скажу честно. Никаких обязательств.</p>
+          <div class="guarantee-card">
+            <div class="guarantee-card__num">02</div>
+            <div class="guarantee-card__title">Первый шаг — бесплатно</div>
+            <p class="guarantee-card__text">45 минут разбора ситуации. Если не вижу как помочь — скажу честно. Никаких обязательств.</p>
           </div>
-          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 2px 12px rgba(15,23,42,0.04);">
-            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">03</div>
-            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">NDA до начала работы</div>
-            <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.65;">Подписываю соглашение о конфиденциальности до того как вы показываете данные. Данные не передаются третьим лицам.</p>
+          <div class="guarantee-card">
+            <div class="guarantee-card__num">03</div>
+            <div class="guarantee-card__title">NDA до начала работы</div>
+            <p class="guarantee-card__text">Подписываю соглашение о конфиденциальности до того как вы показываете данные. Данные не передаются третьим лицам.</p>
           </div>
         </div>
       </div>
@@ -1258,37 +1400,42 @@
           <h2>Как обсуждаем условия</h2>
           <p class="section-subtitle">Формат входа — под вашу ситуацию. Оклад, доля, комбо — договариваемся после диагностики.</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
-          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 2px solid #2563eb; box-shadow: 0 2px 12px rgba(31,38,135,0.06); position: relative;">
-            <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #2563eb; color: white; font-size: 0.7rem; font-weight: 700; padding: 3px 12px; border-radius: 99px;">Популярный</div>
-            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">Формат A</div>
-            <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Оклад + бонус</div>
-            <div style="font-size: 1rem; font-weight: 600; color: #2563eb; margin-bottom: 0.75rem;">Фиксированный + переменный</div>
-            <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.65;">Фиксированный оклад на период + бонус за достижение KPI. Срок: 3–6 месяцев.</p>
+        <div class="formats-grid">
+          <div class="format-card format-card--featured">
+            <div class="format-card__badge">Популярный</div>
+            <div class="format-card__num">Формат A</div>
+            <div class="format-card__title">Оклад + бонус</div>
+            <div class="format-card__subtitle">Фиксированный + переменный</div>
+            <p class="format-card__text">Фиксированный оклад на период + бонус за достижение KPI. Срок: 3–6 месяцев.</p>
           </div>
-          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 2px 12px rgba(15,23,42,0.04);">
-            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">Формат B</div>
-            <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Доля + оклад</div>
-            <div style="font-size: 1rem; font-weight: 600; color: #2563eb; margin-bottom: 0.75rem;">Управляющий партнёр</div>
-            <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.65;">Вхожу как управляющий партнёр. Минимальный оклад + доля в бизнесе. Для компаний с высоким потенциалом.</p>
+          <div class="format-card">
+            <div class="format-card__num">Формат B</div>
+            <div class="format-card__title">Доля + оклад</div>
+            <div class="format-card__subtitle">Управляющий партнёр</div>
+            <p class="format-card__text">Вхожу как управляющий партнёр. Минимальный оклад + доля в бизнесе. Для компаний с высоким потенциалом.</p>
           </div>
-          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 2px 12px rgba(15,23,42,0.04);">
-            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">Формат C</div>
-            <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Бонус за результат</div>
-            <div style="font-size: 1rem; font-weight: 600; color: #2563eb; margin-bottom: 0.75rem;">% от прироста прибыли</div>
-            <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.65;">Небольшой оклад + процент от прироста прибыли сверх базового уровня. Максимальная мотивация на результат.</p>
+          <div class="format-card">
+            <div class="format-card__num">Формат C</div>
+            <div class="format-card__title">Бонус за результат</div>
+            <div class="format-card__subtitle">% от прироста прибыли</div>
+            <p class="format-card__text">Небольшой оклад + процент от прироста прибыли сверх базового уровня. Максимальная мотивация на результат.</p>
           </div>
         </div>
-        <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; margin-top: 1.5rem;">Конкретные условия обсуждаем после бесплатной диагностики — когда понятна ситуация и объём работы.</p>
+        <p class="formats-footer">Конкретные условия обсуждаем после бесплатной диагностики — когда понятна ситуация и объём работы.</p>
       </div>
     </section>
 
     <!-- ЛИД-МАГНИТ: Карточка финансового здоровья -->
-    <section class="section" id="health-card" style="background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);">
+    <section class="section health-card-section" id="health-card">
       <div class="container narrow fade-up">
         <div class="health-card-wrap">
           <div class="health-card-header">
-            <div class="health-card-icon">📊</div>
+            <div class="health-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="M7 14l4-4 4 4 5-5"/>
+              </svg>
+            </div>
             <div>
               <div class="health-card-eyebrow">Бесплатно — за 1-2 рабочих дня</div>
               <h3 class="health-card-title">Карточка финансового здоровья + прогноз на 3, 6, 9 месяцев</h3>
@@ -1322,7 +1469,13 @@
               <div class="hc-step"><span class="hc-step-num">3</span> За 1-2 рабочих дня получите PDF лично от меня</div>
             </div>
             <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья&body=Здравствуйте! Хочу получить карточку финансового здоровья. Прикладываю ОСВ за 3 месяца." class="btn-primary hc-btn">Прислать ОСВ на email</a>
-            <div class="hc-note">🔒 Работаю под NDA. Данные не передаются третьим лицам.</div>
+            <div class="hc-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              Работаю под NDA. Данные не передаются третьим лицам.
+            </div>
           </div>
         </div>
       </div>
@@ -1369,36 +1522,47 @@
           <p class="section-subtitle">45 минут — разберём что происходит. Скажу честно: могу помочь или нет. Первая встреча бесплатно.</p>
         </div>
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
-          
+        <div class="contact-grid">
+
           <!-- Левая колонка: контакты -->
-          <div class="contact-direct" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
-            <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;">Прямые контакты</div>
-            <div style="display: grid; gap: 0.75rem;">
-              <a href="tel:+79957740893" style="display: block; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none;">
-                <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">📞 Телефон</div>
-                <div style="font-size: 1.05rem; color: #0f172a; font-weight: 600;">+7 995 774-08-93</div>
+          <div class="contact-direct">
+            <div class="contact-direct__label">Прямые контакты</div>
+            <div class="contact-direct__items">
+              <a href="tel:+79957740893" class="contact-tile">
+                <div class="contact-tile__label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  Телефон
+                </div>
+                <div class="contact-tile__value">+7 995 774-08-93</div>
               </a>
-              <a href="mailto:sergey.tsiunel@gmail.com" style="display: block; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none;">
-                <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">✉️ Email</div>
-                <div style="font-size: 1rem; color: #0f172a; font-weight: 600; word-break: break-all;">sergey.tsiunel@gmail.com</div>
+              <a href="mailto:sergey.tsiunel@gmail.com" class="contact-tile">
+                <div class="contact-tile__label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  Email
+                </div>
+                <div class="contact-tile__value contact-tile__value--email">sergey.tsiunel@gmail.com</div>
               </a>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.85rem; color: #64748b; text-align: center;">Отвечаю в течение 2 часов в рабочее время</p>
+            <p class="contact-direct__note">Отвечаю в течение 2 часов в рабочее время</p>
           </div>
-          
+
           <!-- Правая колонка: форма -->
-          <div class="contact-form" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
-            <h3 style="margin-bottom: 0.5rem; text-align: center; font-size: 1.25rem;">📝 Оставьте заявку</h3>
-            <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Перезвоню в течение 2 часов в рабочее время. Обсудим вашу ситуацию.</p>
+          <div class="contact-form">
+            <h3 class="contact-form__title">Оставьте заявку</h3>
+            <p class="contact-form__desc">Перезвоню в течение 2 часов в рабочее время. Обсудим вашу ситуацию.</p>
             <form id="callbackForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
-              <input type="text" id="name" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
-              <input type="tel" id="phone" name="phone" placeholder="Телефон *" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
-              <input type="email" id="email" name="email" placeholder="Email (необязательно)" style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
-              <textarea name="situation" placeholder="Кратко опишите ситуацию (необязательно)" rows="2" style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 1rem; box-sizing: border-box; resize: none; font-family: inherit;"></textarea>
+              <input type="text" id="name" name="name" placeholder="Ваше имя" required class="contact-form__input">
+              <input type="tel" id="phone" name="phone" placeholder="Телефон *" required class="contact-form__input">
+              <input type="email" id="email" name="email" placeholder="Email (необязательно)" class="contact-form__input">
+              <textarea name="situation" placeholder="Кратко опишите ситуацию (необязательно)" rows="2" class="contact-form__input contact-form__textarea"></textarea>
               <input type="hidden" name="page" value="https://businessdoc.pro/">
-              <button type="submit" style="width: 100%; padding: 0.75rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.3s ease;">Перезвоните мне →</button>
-              <div id="formStatus" style="margin-top: 1rem; text-align: center; font-size: 0.85rem; display: none;"></div>
+              <button type="submit" class="contact-form__submit">Перезвоните мне →</button>
+              <div id="formStatus" class="contact-form__status"></div>
             </form>
           </div>
         </div>
@@ -1406,25 +1570,25 @@
     </section>
   </main>
 
-  <footer class="footer" style="background: var(--color-slate); color: white; padding: 3rem 0; margin-top: 4rem;">
+  <footer class="footer">
     <div class="container narrow text-center">
-      <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem;">© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
-      <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem;">
-        <a href="#pricing" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Стоимость</a>
-        <a href="crisis.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Антикризис</a>
-        <a href="tools.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Технологии</a>
-        <a href="dashboard.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Пример дашборда</a>
-        <a href="privacy.html" style="color: rgba(255,255,255,0.85);">🔒 Политика конфиденциальности</a>
+      <p class="footer__copy">© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
+      <p class="footer__links">
+        <a href="#pricing">Стоимость</a>
+        <a href="crisis.html">Антикризис</a>
+        <a href="tools.html">Технологии</a>
+        <a href="dashboard.html">Пример дашборда</a>
+        <a href="privacy.html" class="footer__privacy">Политика конфиденциальности</a>
       </p>
     </div>
   </footer>
 
   <!-- Плавающая кнопка — ведёт к форме -->
-  <a href="#contact" 
-     style="position: fixed; bottom: 24px; right: 24px; padding: 14px 20px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; border-radius: 50px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 16px rgba(37,99,235,0.4); z-index: 9999; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: transform 0.2s;"
-     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"
-     title="Обсудить проект">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  <a href="#contact" class="floating-cta" title="Обсудить проект">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
     <span>Обсудить проект</span>
   </a>
 

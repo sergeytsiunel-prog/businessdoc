@@ -22,8 +22,8 @@
   --color-text-light: #94A3B8;
 
   /* ===== ACCENTS ===== */
-  --color-accent-gold: #d4af37;
-  --color-accent-gold-light: #e8c96a;
+  --color-accent-gold: #C5A880;       /* приглушённое матовое, без жёлтого */
+  --color-accent-gold-light: #E5D4BC;
   --color-accent-teal: #0d9488;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
@@ -81,16 +81,18 @@ body {
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   letter-spacing: -0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.1;
   margin-bottom: 1rem;
   color: var(--color-text-dark);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.025em;
 }
 
 h1 {
@@ -219,15 +221,17 @@ img {
   pointer-events: none;
   line-height: 1.4;
 }
-/* Hero title - clean styles (no !important needed after sections.css fix) */
-.hero-title {
-  display: block;
-  color: #0f172a;
-  font-size: 2.5rem;
-  font-weight: 700;
-}
 
-.hero-subtitle {
-  display: block;
-  color: #64748b;
+/* ========================================
+   EYEBROW — премиальные микро-заголовки над H2
+   ======================================== */
+.eyebrow,
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
 }
