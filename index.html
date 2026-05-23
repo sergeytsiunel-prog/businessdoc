@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Операционный хирург для бизнеса — Business Doctor · Сергей Циунель</title>
-  <meta name="description" content="Вхожу в бизнес на 3-6 месяцев как операционный директор. Строю систему управления руками. Ухожу когда бизнес работает сам. Реальные кейсы с цифрами.">
+  <title>AI-аудит бизнеса за 45 минут — Business Doctor</title>
+  <meta name="description" content="AI-аудит бизнеса: найду скрытые потери, просчитаю сценарии, дам план действий. Без воды. Только цифры.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/x-icon" href="favicon.svg">
   <meta property="og:title" content="Business Doctor: AI-аудит бизнеса">
@@ -87,7 +87,7 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
       align-items: center;
     }
     .hero-text { min-width: 0; }
@@ -97,105 +97,45 @@
       margin: 0 auto;
       text-align: center;
     }
-    /* Голубоватая подложка под фото — фото "садится" в композицию */
-    .hero-photo__frame {
-      position: relative;
-      display: inline-block;
-      padding: 0;
-    }
-    .hero-photo__frame::before {
-      content: '';
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      right: -16px;
-      bottom: -16px;
-      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-      border-radius: 16px;
-      z-index: 0;
-    }
     .hero-photo img {
-      position: relative;
-      z-index: 1;
       width: 100%;
       max-width: 280px;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 8px 28px rgba(15,23,42,0.08);
-      border: 1px solid rgba(15,23,42,0.06);
+      border-radius: 50%;
+      box-shadow: 0 8px 32px rgba(31,38,135,0.15);
+      border: 4px solid rgba(255,255,255,0.85);
     }
     .hero-photo__caption {
-      margin-top: 1.5rem;
-      position: relative;
-      z-index: 2;
+      margin-top: 1rem;
     }
     .hero-photo__name {
       font-weight: 600;
       color: #0f172a;
       font-size: 1rem;
-      letter-spacing: -0.01em;
     }
     .hero-photo__role {
       color: #64748b;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       margin-top: 2px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
     @media (max-width: 768px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 1.75rem;
+        gap: 1.5rem;
         text-align: center;
       }
       .hero-photo {
         order: -1;
-        max-width: 200px;
-      }
-      .hero-photo__frame::before {
-        top: 10px;
-        left: 10px;
-        right: -10px;
-        bottom: -10px;
+        max-width: 180px;
       }
       .hero-photo img {
-        max-width: 180px;
+        max-width: 160px;
       }
       .hero-text .btn-primary,
       .hero-text .btn-secondary {
         width: 100%;
       }
-    }
-    /* Hero CTA: одна главная кнопка + текстовая ссылка (фокус на одно действие) */
-    .hero-cta-row {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 1.75rem;
-    }
-    .btn-text-link {
-      color: #475569;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-decoration: none;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(15,23,42,0.15);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-    .btn-text-link:hover {
-      color: #0F172A;
-      border-bottom-color: #0F172A;
-    }
-    @media (max-width: 768px) {
-      .hero-cta-row { gap: 1rem; }
-      .hero-cta-row .btn-primary { width: 100%; text-align: center; }
-      .btn-text-link { width: 100%; text-align: center; }
-    }
-    /* Скрываем 4-й блок статистики на мобильных (как было) */
-    @media (max-width: 768px) {
-      .hero-stat-desktop { display: none; }
     }
   </style>
   <style>
@@ -227,7 +167,7 @@
       line-height: 1.35;
     }
     .author-text {
-      max-width: 1080px;
+      max-width: 720px;
       margin: 0 auto 2rem;
       color: #334155;
       font-size: 1.02rem;
@@ -237,7 +177,7 @@
     .author-text strong { color: #0f172a; }
 
     .author-creds {
-      max-width: 1080px;
+      max-width: 720px;
       margin: 0 auto 2.5rem;
       background: #fff;
       border-radius: 16px;
@@ -288,10 +228,7 @@
       box-shadow: 0 2px 12px rgba(31,38,135,0.05);
     }
     .author-principle__icon {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #94a3b8;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
     }
     .author-principle__title {
@@ -311,307 +248,6 @@
       .author-principles__grid { grid-template-columns: 1fr; }
     }
   </style>
-  <style>
-    /* Pricing card — free variant */
-    .pricing-card--free {
-      position: relative;
-      border: 2px solid #2563eb !important;
-      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
-    }
-    .pricing-card--free .pricing-badge {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2563eb;
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 4px 14px;
-      border-radius: 99px;
-      letter-spacing: 0.06em;
-    }
-    .pricing-price--free {
-      color: #2563eb !important;
-    }
-
-    /* Health card section */
-    .health-card-wrap {
-      background: #fff;
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 0 4px 24px rgba(37,99,235,0.08);
-      border: 1px solid rgba(37,99,235,0.12);
-    }
-    .health-card-header {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-    }
-    .health-card-section {
-      background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
-    }
-    .health-card-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: #FFFFFF;
-      color: #2563EB;
-      box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
-      flex-shrink: 0;
-    }
-    .health-card-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #2563eb;
-      margin-bottom: 0.6rem;
-    }
-    .health-card-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 0 0 0.75rem;
-      line-height: 1.25;
-    }
-    .health-card-desc {
-      color: #475569;
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .health-card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-    .hc-block {
-      background: #f8fafc;
-      border-radius: 14px;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid #e2e8f0;
-    }
-    .hc-block--accent {
-      background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
-      border-color: rgba(37,99,235,0.2);
-    }
-    .hc-block-title {
-      font-weight: 700;
-      color: #0f172a;
-      font-size: 0.95rem;
-      margin-bottom: 0.85rem;
-    }
-    .hc-list {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    .hc-list li {
-      padding: 0.4rem 0 0.4rem 1.25rem;
-      position: relative;
-      color: #475569;
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-    .hc-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: #2563eb;
-      font-weight: 700;
-    }
-    .hc-prog {
-      margin: 0;
-      color: #334155;
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-    .hc-prog strong {
-      color: #0f172a;
-    }
-
-    .health-card-cta {
-      border-top: 1px dashed #cbd5e1;
-      padding-top: 1.5rem;
-      text-align: center;
-    }
-    .hc-steps {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .hc-step {
-      font-size: 0.875rem;
-      color: #475569;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .hc-step-num {
-      background: #2563eb;
-      color: white;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .hc-step a {
-      color: #2563eb;
-      font-weight: 500;
-    }
-    .hc-btn {
-      display: inline-block !important;
-      padding: 0.95rem 2rem !important;
-      font-size: 1rem !important;
-    }
-    .hc-note {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.78rem;
-      color: #94a3b8;
-      margin-top: 0.85rem;
-    }
-    .hc-note svg {
-      flex-shrink: 0;
-      opacity: 0.7;
-    }
-
-    /* Testimonials grid (new fear-based) */
-    .testimonials-section {
-      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
-    }
-    .t-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-    .t-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 12px rgba(31,38,135,0.06);
-      border: 1px solid rgba(0,0,0,0.04);
-      border-left: 3px solid #2563eb;
-    }
-    .t-text {
-      color: #334155;
-      font-size: 0.94rem;
-      line-height: 1.65;
-      margin: 0 0 0.85rem;
-    }
-    .t-author {
-      font-size: 0.82rem;
-      color: #64748b;
-      font-weight: 500;
-      padding-top: 0.6rem;
-      border-top: 0.5px solid #e2e8f0;
-    }
-
-    @media (max-width: 768px) {
-      .health-card-wrap { padding: 1.5rem; }
-      .health-card-header { flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
-      .health-card-icon { width: 44px; height: 44px; }
-      .health-card-title { font-size: 1.2rem; }
-      .health-card-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-      .hc-steps { flex-direction: column; gap: 0.5rem; align-items: flex-start; text-align: left; }
-      .hc-step { width: 100%; }
-      .health-card-cta { text-align: center; }
-      .t-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  <style>
-    /* Расширение контента для широких экранов — только для index.html */
-    @media (min-width: 1024px) {
-      .container.narrow {
-        max-width: 1280px !important;
-      }
-      /* Внутренние блоки секций тоже расширяются */
-      .hero-grid {
-        max-width: 1220px;
-        margin: 0 auto;
-      }
-      /* Карточки в калькуляторе и сетках раздвигаются */
-      .content-grid,
-      .pricing-grid,
-      .t-grid,
-      .author-stats,
-      .author-principles__grid {
-        max-width: 1220px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  </style>
-  <style>
-    /* Расширение заголовков секций на десктопе чтобы убрать ненужные переносы */
-    @media (min-width: 1024px) {
-      .section-header {
-        max-width: 1180px !important;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .section-header h2 {
-        max-width: 100%;
-      }
-      .section-subtitle {
-        max-width: 880px !important;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  </style>
-  <style>
-    /* Унификация размеров карточных заголовков и текста по всему сайту */
-    .premium-card h3,
-    .pricing-card h3,
-    .author-principle__title,
-    .crisis-bridge__title,
-    .hc-block-title,
-    .health-card-title {
-      font-size: 1.25rem !important;
-      font-weight: 700 !important;
-      line-height: 1.3 !important;
-      letter-spacing: 0 !important;
-    }
-    .premium-card p,
-    .pricing-card p,
-    .author-principle__desc,
-    .crisis-bridge__desc,
-    .hc-list li,
-    .hc-prog,
-    .health-card-desc {
-      font-size: 0.95rem !important;
-      line-height: 1.6 !important;
-    }
-    /* Health card title чуть крупнее (это важный заголовок секции) */
-    .health-card-title {
-      font-size: 1.4rem !important;
-    }
-    /* Карточки с цифрами — единый стиль */
-    .author-stat__num {
-      font-size: 1.8rem !important;
-    }
-    /* Hero stat numbers */
-    .hero-stats > div > div:first-child {
-      font-size: 2rem !important;
-    }
-  </style>
 </head>
 <body>
   <header class="header" >
@@ -625,104 +261,59 @@
       <nav class="nav" data-menu>
         <div class="nav__inner">
           <a href="#services">Услуги</a>
-          <a href="#cases">Отзывы</a>
+          <a href="#cases">Кейсы</a>
           <a href="tools.html">Технологии</a>
           <a href="crisis.html">Антикризис</a>
-          <a href="#pricing">Стоимость</a>
-          <a href="#contact" class="nav-cta-mobile">Обсудить проект</a>
+          <a href="testimonials.html">Отзывы</a>
+          <a href="#contact" class="nav-cta-mobile">Запросить аудит</a>
         </div>
       </nav>
-      <a href="#contact" class="nav-cta-desktop">Обсудить проект</a>
+      <a href="#contact" class="nav-cta-desktop">Запросить аудит</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero section" id="top">
-      <div class="container hero-container fade-up">
+          <!-- HERO -->
+    <section class="hero section" id="top" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%); padding-top: 140px; position: relative; overflow: hidden; min-height: 500px;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; z-index: 1;" viewBox="0 0 1440 200" preserveAspectRatio="none">
+        <path d="M 0 100 Q 360 150 720 80 T 1440 120 L 1440 200 L 0 200 Z" fill="#ffffff" opacity="0.5"></path>
+      </svg>
+     <div class="container hero-container fade-up">
         <div class="hero-grid">
           <div class="hero-text">
-            <div class="eyebrow">Операционный хирург для бизнеса · Business Doctor</div>
-            <h1 class="hero-title">Вхожу в бизнес на 3–6 месяцев. Ухожу когда он работает сам.</h1>
-            <p class="hero-subtitle">Не советую — делаю руками. AI-моделирование + 20 лет операционки: строю систему управления и передаю бизнес который вы видите насквозь.</p>
-            <div class="hero-cta-row">
-              <a href="#contact" class="btn-primary">Обсудить мою ситуацию →</a>
-              <a href="#health-card" class="btn-text-link">Бесплатная диагностика</a>
+            <div style="display: inline-block; background: #eff6ff; color: #2563eb; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 99px; margin-bottom: 1rem; letter-spacing: 0.05em;">AI-консультант для малого и среднего бизнеса</div>
+            <h1 class="hero-title" style="color: #0f172a !important; font-size: 2.5rem !important; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.2; display: block !important; visibility: visible !important; opacity: 1 !important;">AI-аудит бизнеса: найду скрытые утечки прибыли за 45 минут</h1>
+            <p class="hero-subtitle" style="color: #64748b !important; font-size: 1.2rem; margin-bottom: 1.5rem; max-width: 800px; font-weight: 400;">Покажу, где теряются деньги — без отчётов-кирпичей. Только цифры.</p>
+            <div style="margin: 0.5rem 0 1.5rem; opacity: 0.3;">
+              <svg width="200" height="32" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="0,16 30,16 40,4 50,28 60,10 70,22 80,16 200,16" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
+              <a href="#contact" class="btn-primary">Запросить аудит</a>
+              <a href="#simulator" class="btn-secondary">Попробовать симулятор</a>
             </div>
           </div>
           <div class="hero-photo">
-            <div class="hero-photo__frame">
-              <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Сергей Циунель — Business Doctor" />
-            </div>
+            <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Сергей Циунель — Business Doctor" />
             <div class="hero-photo__caption">
               <div class="hero-photo__name">Сергей Циунель</div>
-              <div class="hero-photo__role">Business Doctor</div>
+              <div class="hero-photo__role">основатель Business Doctor</div>
             </div>
           </div>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat-item">
-            <div class="hero-stat-value">20+</div>
-            <div class="hero-stat-label">лет в операционке</div>
+        <div class="hero-stats" style="display: flex; gap: 2rem; margin: 2rem 0 0; padding: 1.5rem; background: rgba(255, 255, 255, 0.6); border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 20px rgba(31, 38, 135, 0.08); flex-wrap: wrap; justify-content: center;">
+          <div style="text-align: center; flex: 1; min-width: 100px;">
+            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">50+</div>
+            <div style="color: #64748b; font-size: 0.95rem;">проектов</div>
           </div>
-          <div class="hero-stat-item">
-            <div class="hero-stat-value">50+</div>
-            <div class="hero-stat-label">проектов сделано</div>
+          <div style="text-align: center; flex: 1; min-width: 100px;">
+            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">380 млн ₽</div>
+            <div style="color: #64748b; font-size: 0.95rem;">нашёл утечек</div>
           </div>
-          <div class="hero-stat-item">
-            <div class="hero-stat-value">3–6 мес</div>
-            <div class="hero-stat-label">до результата</div>
-          </div>
-          <div class="hero-stat-item hero-stat-desktop">
-            <div class="hero-stat-value">×5</div>
-            <div class="hero-stat-label">скорость с AI</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ОБ АВТОРЕ -->
-    <section class="section section-alt" id="about">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Об авторе</div>
-          <h2>Сергей Циунель. Операционный хирург для бизнеса.</h2>
-          <p class="section-subtitle">20 лет вытаскивал бизнесы из кризиса в нефтегазе, девелопменте и производстве. Теперь те же инструменты — для малого и среднего бизнеса. Руками, а не отчётами.</p>
-        </div>
-
-        <div class="author-creds">
-          <div class="author-creds__title">Образование и экспертиза</div>
-          <ul>
-            <li><strong>Executive MBA</strong> — РАНХиГС при Президенте РФ (2020)</li>
-            <li><strong>Программа «Евроменеджер»</strong> — Академия экономики и управления AFW, Германия</li>
-            <li><strong>Сертификат AMBA</strong> — Association of MBAs, Великобритания</li>
-            <li><strong>Опыт по отраслям:</strong> производство, торговля, нефтегазовый сервис, девелопмент, госзаказ, сельское хозяйство</li>
-          </ul>
-        </div>
-
-        <div class="author-principles">
-          <div class="author-principles__title">Что получаете на выходе</div>
-          <div class="author-principles__grid">
-            <div class="author-principle">
-              <div class="author-principle__icon">01</div>
-              <div class="author-principle__title">Регламенты, KPI, дашборды</div>
-              <div class="author-principle__desc">Не слайды — работающие артефакты. Матрица KPI под каждую роль, регламенты процессов, дашборды которые обновляются автоматически.</div>
-            </div>
-            <div class="author-principle">
-              <div class="author-principle__icon">02</div>
-              <div class="author-principle__title">AI-модели на ваших данных</div>
-              <div class="author-principle__desc">Сценарный анализ, прогнозирование спроса, ABC/XYZ по 500+ SKU, ML-модели обученные на истории вашего бизнеса — не на абстрактных данных.</div>
-            </div>
-            <div class="author-principle">
-              <div class="author-principle__icon">03</div>
-              <div class="author-principle__title">Финансовая модель CFO-уровня</div>
-              <div class="author-principle__desc">P&L, ДДС, точка безубыточности, прогноз 3–9 месяцев. Каждое решение — через деньги. Видите последствия до того как действуете.</div>
-            </div>
-            <div class="author-principle">
-              <div class="author-principle__icon">04</div>
-              <div class="author-principle__title">Команда которая работает сама</div>
-              <div class="author-principle__desc">Обучаю людей работать в новой системе. Ухожу — они продолжают. Бизнес не зависит от моего присутствия.</div>
-            </div>
+          <div style="text-align: center; flex: 1; min-width: 100px;">
+            <div style="font-size: 2rem; font-weight: 700; color: #2563eb; margin-bottom: 0.5rem;">45 мин</div>
+            <div style="color: #64748b; font-size: 0.95rem;">первый результат</div>
           </div>
         </div>
       </div>
@@ -746,737 +337,463 @@
     <section class="section">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">Узнаёте себя?</div>
-          <h2>Три ситуации когда нужен операционный хирург</h2>
-          <p class="section-subtitle">Если хотя бы одна — пора разговаривать</p>
+          <div class="section-eyebrow">Тревожные сигналы</div>
+          <h2>80% собственников не видят реальную маржинальность</h2>
+          <p class="section-subtitle">Бухгалтерский учет — для налоговой. Управленческий — для вас. Без него вы принимаете решения вслепую.</p>
         </div>
         <div class="content-grid">
           <div class="premium-card">
-            <h3>Выручка падает</h3>
-            <p>Продажи снижаются, клиенты уходят, команда теряет мотивацию. Причины непонятны или понятны, но непонятно что делать. Обычное управление уже не работает.</p>
+            <h3>📊 Видите только прошлое</h3>
+            <p>Отчеты показывают, что было месяц назад. А что будет через месяц после вашего решения?</p>
           </div>
           <div class="premium-card">
-            <h3>Деньги есть — прибыли нет</h3>
-            <p>Оборот растёт, а на счету пусто. Куда уходят деньги — непонятно. Бухгалтерия показывает одно, ощущения — другое. Бизнес непрозрачен.</p>
+            <h3>💸 Деньги «исчезают»</h3>
+            <p>Выручка растет, а денег нет. Не понятно: запасы, скидки, кассовые разрывы?</p>
           </div>
           <div class="premium-card">
-            <h3>Рост создаёт хаос</h3>
-            <p>Компания быстро выросла, процессы не успевают. Собственник тянет всё на себе, делегировать невозможно — системы нет. Без изменений скоро сломается.</p>
+            <h3>🎯 Решения наугад</h3>
+            <p>«Дадим скидку 20%» — а потом оказывается, что сработали в минус.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- КАК РАБОТАЮ — TIMELINE + ДВА ПУТИ -->
+    <!-- КАК Я РАБОТАЮ (3 шага) -->
     <section class="section section-alt" id="services">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">Операция → Восстановление → Передача</div>
-          <h2>5 этапов за 3–6 месяцев</h2>
-          <p class="section-subtitle">Не консультирую и ухожу. Вхожу, делаю, передаю работающую систему.</p>
+          <div class="section-eyebrow">Диагностика → Лечение → Восстановление</div>
+          <h2>3 шага к прозрачной прибыли</h2>
+          <p class="section-subtitle">От первого звонка до работающего плана — не дольше двух недель</p>
         </div>
-
-        <style>
-          .timeline {
-            position: relative;
-            padding: 2rem 0 2.5rem;
-            overflow-x: auto;
-          }
-          .timeline-line {
-            position: absolute;
-            top: 2.75rem;
-            left: 5%;
-            right: 5%;
-            height: 3px;
-            background: linear-gradient(90deg, #e2e8f0 0%, #2563eb 100%);
-            border-radius: 99px;
-          }
-          .timeline-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            gap: 0.5rem;
-            min-width: 600px;
-          }
-          .timeline-step {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-          }
-          .timeline-dot {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            position: relative;
-            z-index: 2;
-            flex-shrink: 0;
-          }
-          .timeline-dot--inactive {
-            background: #f1f5f9;
-            border: 2px solid #e2e8f0;
-            color: #94a3b8;
-          }
-          .timeline-dot--active {
-            background: linear-gradient(135deg, #2563eb, #0ea5e9);
-            border: 2px solid #2563eb;
-            color: white;
-            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-          }
-          .timeline-dot--final {
-            background: linear-gradient(135deg, #10b981, #059669);
-            border: 2px solid #10b981;
-            color: white;
-            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
-          }
-          .timeline-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.25rem;
-            line-height: 1.3;
-          }
-          .timeline-duration {
-            font-size: 0.7rem;
-            color: #94a3b8;
-            margin-bottom: 0.4rem;
-          }
-          .timeline-desc {
-            font-size: 0.72rem;
-            color: #64748b;
-            line-height: 1.4;
-            max-width: 120px;
-          }
-          .timeline-ai-badge {
-            display: inline-block;
-            background: #eff6ff;
-            color: #2563eb;
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-top: 0.3rem;
-          }
-          @media (max-width: 768px) {
-            .timeline { overflow-x: scroll; padding-bottom: 1rem; }
-            .timeline-steps { min-width: 700px; }
-          }
-
-          /* Два пути */
-          .two-paths {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-          }
-          .path-card {
-            border-radius: 20px;
-            padding: 1.75rem;
-          }
-          .path-card--main {
-            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
-            border: 2px solid #2563eb;
-          }
-          .path-card--secondary {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-          }
-          .path-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 99px;
-            margin-bottom: 0.75rem;
-          }
-          .path-badge--main { background: #2563eb; color: white; }
-          .path-badge--secondary { background: #e2e8f0; color: #64748b; }
-          .path-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-          }
-          .path-desc {
-            font-size: 0.88rem;
-            color: #475569;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-          }
-          .path-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.25rem;
-          }
-          .path-list li {
-            font-size: 0.85rem;
-            color: #475569;
-            padding: 0.4rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            position: relative;
-            padding-left: 1.2rem;
-          }
-          .path-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.85rem;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #2563EB;
-          }
-          .path-card--secondary .path-list li::before {
-            background: #94A3B8;
-          }
-          .path-card__cta {
-            width: 100%;
-            text-align: center;
-            display: block;
-            box-sizing: border-box;
-          }
-          .path-card__note {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #94A3B8;
-            margin-top: 0.75rem;
-          }
-          @media (max-width: 768px) {
-            .two-paths { grid-template-columns: 1fr; }
-          }
-        </style>
-
-        <!-- Timeline -->
-        <div class="timeline">
-          <div class="timeline-line"></div>
-          <div class="timeline-steps">
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">1</div>
-              <div class="timeline-title">Диагностика</div>
-              <div class="timeline-duration">1–2 недели</div>
-              <div class="timeline-desc">Данные, команда, процессы. AI-анализ за неделю вместо месяца.</div>
-              <span class="timeline-ai-badge">🤖 AI-анализ</span>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">2</div>
-              <div class="timeline-title">Согласование целей</div>
-              <div class="timeline-duration">1 неделя</div>
-              <div class="timeline-desc">Фиксируем цели, сроки, ресурсы. Договариваемся до начала работ.</div>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">3</div>
-              <div class="timeline-title">Сценарное моделирование</div>
-              <div class="timeline-duration">1–2 недели</div>
-              <div class="timeline-desc">AI строит оптимальный сценарий под ваши ограничения: деньги / время / люди / рынок.</div>
-              <span class="timeline-ai-badge">🤖 ML-модели</span>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">4</div>
-              <div class="timeline-title">Внедрение</div>
-              <div class="timeline-duration">2–4 месяца</div>
-              <div class="timeline-desc">Вхожу как директор. Строю учёт, KPI, процессы, дашборды. Управляю командой.</div>
-              <span class="timeline-ai-badge">🤖 AI-дашборды</span>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--final">✓</div>
-              <div class="timeline-title">Передача</div>
-              <div class="timeline-duration">Финальный месяц</div>
-              <div class="timeline-desc">Обучаю команду. Передаю бизнес который работает без меня.</div>
-            </div>
-
+        <div class="process-steps">
+          <div class="process-step-card">
+            <div class="process-step-number">1</div>
+            <h3>Аудит (45 минут)</h3>
+            <p>Созваниваемся, вы описываете ситуацию. Я задаю вопросы и оцениваю, какие данные нужны.</p>
           </div>
-        </div>
-
-        <!-- Два пути -->
-        <div class="two-paths">
-
-          <div class="path-card path-card--main">
-            <span class="path-badge path-badge--main">Главный путь</span>
-            <div class="path-title">Вхожу и делаю — вы получаете результат</div>
-            <div class="path-desc">Для тех кто готов к изменениям. Вхожу как операционный директор на 3–6 месяцев. Строю систему руками с AI-инструментами. Ухожу когда бизнес работает сам.</div>
-            <ul class="path-list">
-              <li>AI-моделирование сценариев на ваших данных</li>
-              <li>Управленческий учёт и финансовые модели</li>
-              <li>Регламенты, KPI, обученная команда</li>
-              <li>Оклад + бонус за результат или доля</li>
+          <div class="process-step-card">
+            <div class="process-step-number">2</div>
+            <h3>Модель (2–3 дня)</h3>
+            <p>Загружаю ваши данные в AI-модуль. Строю управленческую отчётность, нахожу утечки, считаю сценарии.</p>
+          </div>
+          <div class="process-step-card" style="border: 2px solid rgba(37,99,235,0.15); position: relative;">
+            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #2563eb, #0ea5e9); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.9rem; border-radius: 99px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.05em;">Только у нас</div>
+            <div class="process-step-number">3</div>
+            <h3>План 90 дней</h3>
+            <p>Вы получаете не просто отчёт, а конкретные дорожные карты по каждому направлению:</p>
+            <ul style="list-style: none; padding: 0; margin: 0.75rem 0 0; text-align: left;">
+              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">📦 Логистика и себестоимость</li>
+              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">📊 Продуктовый портфель (ABC)</li>
+              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">💼 Коммерческая политика</li>
+              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">🏭 Производство и ФОТ</li>
+              <li style="padding: 0.3rem 0; font-size: 0.9rem; color: #475569;">📋 Регламенты процессов</li>
             </ul>
-            <a href="#contact" class="btn-primary path-card__cta">Обсудить проект →</a>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #2563eb; font-weight: 600;">Внедряем вместе — я остаюсь на связи весь период.</p>
           </div>
-
-          <div class="path-card path-card--secondary">
-            <span class="path-badge path-badge--secondary">Начать отсюда</span>
-            <div class="path-title">Сначала — бесплатная диагностика</div>
-            <div class="path-desc">Для тех кто хочет сначала разобраться. Пришлите ОСВ из 1С — получите карточку финансового здоровья с прогнозом на 9 месяцев. Бесплатно, без обязательств.</div>
-            <ul class="path-list">
-              <li>45 минут разбора вашей ситуации</li>
-              <li>Карточка финансового здоровья (6 индикаторов)</li>
-              <li>Прогноз на 3, 6 и 9 месяцев на ваших данных</li>
-              <li>Честный ответ: могу помочь или нет</li>
-            </ul>
-            <a href="#health-card" class="btn-secondary path-card__cta">Получить бесплатно →</a>
-            <p class="path-card__note">Никаких обязательств. Никакого давления.</p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ВИДЕНИЕ БИЗНЕСА: ВСЛЕПУЮ → В ФОКУСЕ -->
-    <section class="section" id="vision">
+               <!-- КАЛЬКУЛЯТОР КОМПРОМИССОВ v3 -->
+    <section class="section" id="simulator">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">До и после</div>
-          <h2>Что происходит с вашим бизнесом</h2>
-          <p class="section-subtitle">Большинство собственников управляют бизнесом вслепую. Деньги уходят, отчёты не сходятся, решения наугад. После — видят каждую цифру, каждый процесс, каждый риск.</p>
+          <div class="section-eyebrow">Интерактивный инструмент</div>
+          <h2>Калькулятор компромиссов</h2>
+          <p class="section-subtitle">Компромисс через математику, выбирай с уверенностью. Моделируем цепную реакцию от одного решения.</p>
         </div>
 
-        <style>
-          .vision-demo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2.5rem 0;
-          }
-          .vision-card {
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-          }
-          .vision-card--before {
-            background: #F1F5F9;
-            border: 1px solid #E2E8F0;
-          }
-          .vision-card--after {
-            background: #FFFFFF;
-            border: 1px solid rgba(37,99,235,0.18);
-            box-shadow: 0 8px 32px rgba(37,99,235,0.06);
-          }
-          .vision-card--after::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, #2563EB, transparent);
-          }
-          .vision-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            margin-bottom: 1.75rem;
-          }
-          .vision-card--before .vision-label { color: #94A3B8; }
-          .vision-card--after .vision-label { color: #2563EB; }
-          .vision-text-demo {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            line-height: 1.1;
-            margin-bottom: 1.75rem;
-          }
-          .vision-card--before .vision-text-demo {
-            color: #94A3B8;
-            opacity: 0.5;
-            user-select: none;
-          }
-          .vision-card--after .vision-text-demo {
-            color: #0F172A;
-          }
-          .vision-metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-          }
-          .vision-metric {
-            border-radius: 10px;
-            padding: 0.65rem 0.5rem;
-            font-size: 0.78rem;
-            font-weight: 600;
-          }
-          .vision-card--before .vision-metric {
-            background: #E2E8F0;
-            color: #94A3B8;
-          }
-          .vision-card--after .vision-metric {
-            background: #F8FAFC;
-            color: #0F172A;
-            border: 1px solid rgba(37,99,235,0.12);
-          }
-          .vision-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 99px;
-            font-size: 0.85rem;
-            font-weight: 600;
-          }
-          .vision-card--before .vision-tag {
-            background: #E2E8F0;
-            color: #94A3B8;
-          }
-          .vision-card--after .vision-tag {
-            background: #2563EB;
-            color: white;
-          }
-          .vision-caption {
-            margin-top: 1rem;
-            font-size: 0.82rem;
-            line-height: 1.55;
-          }
-          .vision-card--before .vision-caption { color: #94A3B8; }
-          .vision-card--after .vision-caption { color: #475569; }
-          @media (max-width: 768px) {
-            .vision-demo { grid-template-columns: 1fr; gap: 1rem; }
-            .vision-text-demo { font-size: 1.5rem; }
-          }
-          .vision-transform {
-            text-align: center;
-            margin: 0 0 2rem;
-          }
-          .vision-transform__pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: #fff;
-            border: 1px solid rgba(15,23,42,0.06);
-            border-radius: 99px;
-            padding: 0.75rem 1.5rem;
-            box-shadow: 0 2px 12px rgba(15,23,42,0.04);
-            flex-wrap: wrap;
-            justify-content: center;
-          }
-          .vision-transform__from {
-            font-size: 0.9rem;
-            color: #94A3B8;
-          }
-          .vision-transform__arrow {
-            font-size: 1.25rem;
-            color: #94A3B8;
-          }
-          .vision-transform__to {
-            font-size: 0.9rem;
-            color: #0F172A;
-            font-weight: 600;
-          }
-          .vision-transform__time {
-            font-size: 0.82rem;
-            color: #64748B;
-            letter-spacing: 0.02em;
-          }
-          .vision-cta-row {
-            text-align: center;
-          }
-        </style>
+        <div class="compromise-calculator" style="background: #ffffff; border-radius: 24px; padding: 2rem; box-shadow: var(--shadow-medium); border: 1px solid rgba(0, 0, 0, 0.05);">
+          
+          <!-- Слайдеры -->
+          <div class="calculator-controls" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+            
+            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <label style="font-weight: 600;">🎯 Скидка</label>
+                <span class="control-value" id="valDiscount">15%</span>
+              </div>
+              <input type="range" id="sliderDiscount" min="0" max="30" value="15" step="1" style="width: 100%;">
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem;">0-30%</p>
+            </div>
 
-        <div class="vision-demo">
-          <!-- До -->
-          <div class="vision-card vision-card--before">
-            <div class="vision-label">До входа · вслепую</div>
-            <div class="vision-text-demo">ВАШ<br>БИЗНЕС</div>
-            <div class="vision-metrics">
-              <div class="vision-metric">Маржа ???</div>
-              <div class="vision-metric">Касса ???</div>
-              <div class="vision-metric">Клиенты ???</div>
-              <div class="vision-metric">Риски ???</div>
+            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <label style="font-weight: 600;">📦 Запасы</label>
+                <span class="control-value" id="valInventory">+20%</span>
+              </div>
+              <input type="range" id="sliderInventory" min="-30" max="50" value="20" step="5" style="width: 100%;">
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem;">от -30% до +50%</p>
             </div>
-            <div class="vision-tag">Решения наугад</div>
-            <div class="vision-caption">
-              Деньги куда-то уходят. Отчёты показывают одно, ощущения — другое. Непонятно где терять перестать.
+
+            <div class="control-group" style="background: #f8fafc; padding: 1.25rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div class="control-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <label style="font-weight: 600;">💰 Цена</label>
+                <span class="control-value" id="valPrice">+5%</span>
+              </div>
+              <input type="range" id="sliderPrice" min="-10" max="25" value="5" step="1" style="width: 100%;">
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem;">от -10% до +25%</p>
             </div>
+
           </div>
 
-          <!-- После -->
-          <div class="vision-card vision-card--after">
-            <div class="vision-label">После · фокус</div>
-            <div class="vision-text-demo">ВАШ<br>БИЗНЕС</div>
-            <div class="vision-metrics">
-              <div class="vision-metric">Маржа 34%</div>
-              <div class="vision-metric">Касса +2.4 млн</div>
-              <div class="vision-metric">ABC клиенты ✓</div>
-              <div class="vision-metric">Риски ✓</div>
+          <!-- Карточки последствий -->
+          <div class="vital-signs" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem;">
+            
+            <div class="vital-card" data-metric="cashflow" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💰</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Кассовый поток</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillCashflow" style="width: 78%; height: 100%; background: #f59e0b;"></div></div>
+              <div class="vital-status" id="statusCashflow" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟡 Внимание</div>
+              <div class="vital-probability" id="probCashflow" style="font-size: 0.65rem;">Риск: 34%</div>
             </div>
-            <div class="vision-tag">Решения на цифрах</div>
-            <div class="vision-caption">
-              Каждый рубль на своём месте. Система работает без ручного контроля. Вы видите будущее — не прошлое.
+
+            <div class="vital-card" data-metric="inventory" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📦</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Запасы</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillInventory" style="width: 65%; height: 100%; background: #10b981;"></div></div>
+              <div class="vital-status" id="statusInventory" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟢 Норма</div>
+              <div class="vital-probability" id="probInventory" style="font-size: 0.65rem;">Истощение: 18 дн</div>
             </div>
-          </div>
-        </div>
 
-        <!-- Стрелка трансформации -->
-        <div class="vision-transform">
-          <div class="vision-transform__pill">
-            <span class="vision-transform__from">Решения наугад</span>
-            <span class="vision-transform__arrow">→</span>
-            <span class="vision-transform__to">Решения в цифрах</span>
-            <span class="vision-transform__time">за 3–6 месяцев</span>
-          </div>
-        </div>
+            <div class="vital-card" data-metric="margin" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📈</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Маржинальность</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillMargin" style="width: 45%; height: 100%; background: #ef4444;"></div></div>
+              <div class="vital-status" id="statusMargin" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🔴 -18%</div>
+              <div class="vital-probability" id="probMargin" style="font-size: 0.65rem;">КМД: 28%</div>
+            </div>
 
-        <div class="vision-cta-row">
-          <a href="#contact" class="btn-primary">Хочу такой же результат →</a>
+            <div class="vital-card" data-metric="demand" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🛒</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Спрос</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillDemand" style="width: 82%; height: 100%; background: #10b981;"></div></div>
+              <div class="vital-status" id="statusDemand" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟢 +23%</div>
+              <div class="vital-probability" id="probDemand" style="font-size: 0.65rem;">Эластичность: -1.2</div>
+            </div>
+
+            <div class="vital-card" data-metric="suppliers" style="background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; cursor: help;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚚</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 0.5rem;">Поставщики</div>
+              <div class="vital-bar"><div class="vital-fill" id="fillSuppliers" style="width: 55%; height: 100%; background: #f59e0b;"></div></div>
+              <div class="vital-status" id="statusSuppliers" style="font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;">🟡 Риск 28%</div>
+              <div class="vital-probability" id="probSuppliers" style="font-size: 0.65rem;">Срыв поставок</div>
+            </div>
+
+          </div>
+
+          <!-- Панель компромисса -->
+          <div class="tradeoff-panel" style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); border-radius: 16px; padding: 1.5rem; border-left: 4px solid #2563eb; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+              <span style="font-size: 1.25rem;">⚖️</span>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Компромисс:</div>
+                <div id="tradeoffUpside" style="color: #10b981; font-weight: 600; margin-bottom: 0.25rem;">+12% выручка сейчас</div>
+                <div id="tradeoffDownside" style="color: #f59e0b; font-weight: 600; margin-bottom: 0.25rem;">⚠️ Кассовый разрыв через 23 дня</div>
+                <div id="tradeoffConfidence" style="color: #64748b; font-size: 0.85rem;">✅ Уверенность прогноза: 87%</div>
+              </div>
+            </div>
+            
+            <div class="recommendation" style="background: #ffffff; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.05);">
+              <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="font-size: 1.25rem;">💡</span>
+                <div>
+                  <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.25rem;">Рекомендация:</div>
+                  <div id="recommendationText" style="color: #475569; font-size: 0.85rem; line-height: 1.5;">Снизьте скидку до 12% или перенесите оплату поставщику Б на 15 дней.</div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!-- CTA -->
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#contact" class="btn-primary">Получить прогноз по вашему бизнесу</a>
+            <a href="dashboard.html" class="btn-secondary">Смотреть пример дашборда</a>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- РЕАЛЬНЫЕ КЕЙСЫ -->
-    <section class="section cases-section" id="cases">
+    <!-- ОТРАСЛИ -->
+    <section class="section section-alt" id="industries">
       <div class="container narrow fade-up">
-        <div class="cases-section__header">
-          <div class="cases-section__eyebrow">Реальные кейсы</div>
-          <h2 class="cases-section__title">Результаты из практики</h2>
-          <p class="cases-section__subtitle">Конкретные цифры. Реальные компании. Никакого storytelling.</p>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Отраслевая экспертиза</div>
+          <h2>Успешные кейсы в отраслях</h2>
+          <p class="section-subtitle">Глубокая проработка специфики каждого направления</p>
         </div>
-
-        <div class="cases-grid">
-
-          <!-- Кейс 1 -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Производство / Бытовая химия</div>
-              <div class="case-card-dark__company">ООО «ПрофиМилл» · Тверь</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Проблема</div>
-                <div class="case-card-dark__text">Оборот 4 млн ₽/мес, отрицательная EBITDA. Компания несла убытки несколько лет.</div>
-              </div>
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Что сделано</div>
-                <div class="case-card-dark__text">Реорганизация supply chain, производственного планирования, unit economics, построение B2B-системы продаж.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--3">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">35 млн</div>
-                  <div class="case-card-dark__metric-label">оборот/мес</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">×6</div>
-                  <div class="case-card-dark__metric-label">рост выпуска</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">1,5 г.</div>
-                  <div class="case-card-dark__metric-label">срок</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Кейс 2 -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Запуск производства / Greenfield</div>
-              <div class="case-card-dark__company">ООО «ПрофиХом» · Коломна</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Задача</div>
-                <div class="case-card-dark__text">Запустить завод бытовой химии с нуля в сжатые сроки. Выйти в федеральные сети.</div>
-              </div>
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Что сделано</div>
-                <div class="case-card-dark__text">Бизнес-план, инвестиции, площадка, оборудование, команда, производственные и логистические процессы.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--3">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">47 дн.</div>
-                  <div class="case-card-dark__metric-label">до запуска</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">40 млн</div>
-                  <div class="case-card-dark__metric-label">выручка/мес</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">8 мес.</div>
-                  <div class="case-card-dark__metric-label">федсети</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Кейс 3 -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Нефтегаз / Антикризис проекта</div>
-              <div class="case-card-dark__company">Газпромнефть-Восток</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Проблема</div>
-                <div class="case-card-dark__text">Отставание от графика строительного проекта на 100 дней. Штрафные санкции на 150 млн ₽.</div>
-              </div>
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Что сделано</div>
-                <div class="case-card-dark__text">Пересборка calendar-network plan, перераспределение ресурсов, усиление контроля качества.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--2">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">В срок</div>
-                  <div class="case-card-dark__metric-label">сдан проект</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">150 млн ₽</div>
-                  <div class="case-card-dark__metric-label">штрафов предотвращено</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Кейс 4 — статистика -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Практика в целом</div>
-              <div class="case-card-dark__company">Business Doctor · 2021 — настоящее время</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__text">Производство, торговля, нефтегаз, девелопмент, B2B-услуги. В среднем 7–18 млн ₽ находки на проект.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--2">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">50+</div>
-                  <div class="case-card-dark__metric-label">проектов</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">380+ млн ₽</div>
-                  <div class="case-card-dark__metric-label">выявленных потерь</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
+        <div class="content-grid">
+          <div class="premium-card card-accent">
+            <h3>🥛 Пищевая промышленность</h3>
+            <p>Оптимизация рецептур, управление скоропортом, себестоимость по партиям. Кейс: молочный комбинат, +7.2 млн/мес прибыли.</p>
+            <a href="food.html" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
+          </div>
+          <div class="premium-card card-accent">
+            <h3>🧴 Бытовая химия</h3>
+            <p>Нейро-оптимизация рецептур, AI-анализ упаковки, прогнозная аналитика SKU. Кейс: производитель, -18% себестоимости.</p>
+            <a href="chemistry.html" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
+          </div>
+          <div class="premium-card card-accent">
+            <h3>📦 Маркетплейсы</h3>
+            <p>Унифицированный учёт, расчёт маржинальности, управление комплектами. Кейс: селлер WB/Ozon, сохранено 1.8 млн/квартал.</p>
+            <a href="marketplaces.html" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Подробнее</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ГАРАНТИИ -->
+    <!-- КЕЙСЫ -->
+    <section class="section section-alt" id="cases">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Реальные истории</div>
+          <h2>Кейсы 2024-2025</h2>
+          <p class="section-subtitle">3 ситуации, где AI-аналитика спасла миллионы</p>
+        </div>
+        <div class="content-grid">
+          <div class="premium-card">
+            <div class="case-header"><h3>🏭 Пищевой комбинат</h3></div>
+            <p><strong>Проблема:</strong> Собственник был уверен: компания работает в убыток. Бухгалтерия приносила отчеты о кассовых разрывах.</p>
+            <p><strong>Инсайт:</strong> Бухгалтерия считала деньги на счетах. Я посчитал экономику продукта. Оказалось, компания прибыльна, но деньги "застревали" в запасах.</p>
+            <p><strong>Результат:</strong> Выявил 18 млн руб. замороженных в излишках сырья. Реальная прибыль: +7.2 млн руб./мес.</p>
+          </div>
+          <div class="premium-card">
+            <div class="case-header"><h3>🛒 Селлер на WB/Ozon</h3></div>
+            <p><strong>Проблема:</strong> Маркетолог предлагал: «Дадим скидку 20%, поднимемся в выдаче». Собственник сомневался.</p>
+            <p><strong>Инсайт:</strong> Просчитал 4 варианта сценариев. Скидка 20% → прибыль -12%. Скидка 12% → прибыль +4%.</p>
+            <p><strong>Результат:</strong> Сохранено 1.8 млн руб. потенциальной прибыли за квартал.</p>
+          </div>
+          <div class="premium-card">
+            <div class="case-header"><h3>🔧 Сервисный центр</h3></div>
+            <p><strong>Проблема:</strong> «Выручка растет, а денег нет». Не понятно: куда уходят деньги?</p>
+            <p><strong>Инсайт:</strong> Гарантийный ремонт «съедал» 40% прибыли от платных услуг. Компания работала на бесплатный сервис.</p>
+            <p><strong>Результат:</strong> Чистая прибыль выросла на 35% за 2 месяца без роста выручки.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОТЗЫВЫ (тизер) -->
+    <section class="section" style="background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);">
+      <div class="container narrow fade-up">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Реальные отзывы</div>
+          <h2>Что говорят клиенты</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
+            <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Логистика съедала 130 млн рублей в год — мы этого не видели. Получили не просто отчёт, а дорожные карты по всем направлениям. Такого разбора от внешнего аналитика не видели никогда.»</p>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Андрей К. · Собственник · Пищевое производство · 2,1 млрд ₽/год</div>
+          </div>
+          <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
+            <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Выручка росла, а денег не было. За 2 месяца без роста выручки чистая прибыль выросла на 35%. Нашли утечку там, где вообще не смотрели.»</p>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Михаил Р. · Собственник · Сервисный бизнес</div>
+          </div>
+          <div style="background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(31,38,135,0.07); border: 1px solid rgba(0,0,0,0.05);">
+            <div style="color: #f59e0b; margin-bottom: 0.75rem; font-size: 1rem;">★★★★★</div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin-bottom: 1rem;">«Маркетолог предлагал скидку 20% — казалось логично. Просчитали: это минус 12% к прибыли. Сохранили 1,8 млн рублей за квартал, просто посчитав.»</p>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Олег Д. · Собственник · Маркетплейсы WB / Ozon</div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <a href="testimonials.html" class="btn-secondary">Читать полные отзывы →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ГАРАНТИИ / СНЯТИЕ ВОЗРАЖЕНИЙ -->
     <section class="section">
       <div class="container narrow fade-up">
-        <div class="guarantees-grid">
-          <div class="guarantee-card">
-            <div class="guarantee-card__num">01</div>
-            <div class="guarantee-card__title">Результат — не отчёт</div>
-            <p class="guarantee-card__text">Вы получаете регламенты, дашборды, обученную команду и финансовую модель — не PDF с рекомендациями.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 0;">
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🔬</div>
+            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Первый результат за 45 минут</div>
+            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">На первом созвоне уже понятно, где теряется прибыль. Ещё до подписания договора.</p>
           </div>
-          <div class="guarantee-card">
-            <div class="guarantee-card__num">02</div>
-            <div class="guarantee-card__title">Первый шаг — бесплатно</div>
-            <p class="guarantee-card__text">45 минут разбора ситуации. Если не вижу как помочь — скажу честно. Никаких обязательств.</p>
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">📋</div>
+            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Поэтапная оплата</div>
+            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Первый этап — диагностика. Не увидите ценности — просто не продолжаем. Никаких рисков.</p>
           </div>
-          <div class="guarantee-card">
-            <div class="guarantee-card__num">03</div>
-            <div class="guarantee-card__title">NDA до начала работы</div>
-            <p class="guarantee-card__text">Подписываю соглашение о конфиденциальности до того как вы показываете данные. Данные не передаются третьим лицам.</p>
+          <div style="background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(31,38,135,0.06);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">💰</div>
+            <div style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Конкретные цифры, не советы</div>
+            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">50+ проектов — средняя находка 7–18 млн ₽ скрытых потерь. Только считаемые результаты.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ФОРМАТЫ ВХОДА -->
-    <section class="section" id="pricing">
+    <!-- ЦЕНЫ -->
+    <section class="section">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
-          <div class="section-eyebrow">Форматы сотрудничества</div>
-          <h2>Как обсуждаем условия</h2>
-          <p class="section-subtitle">Формат входа — под вашу ситуацию. Оклад, доля, комбо — договариваемся после диагностики.</p>
+          <div class="section-eyebrow">Стоимость</div>
+          <h2>Форматы сотрудничества</h2>
         </div>
-        <div class="formats-grid">
-          <div class="format-card format-card--featured">
-            <div class="format-card__badge">Популярный</div>
-            <div class="format-card__num">Формат A</div>
-            <div class="format-card__title">Оклад + бонус</div>
-            <div class="format-card__subtitle">Фиксированный + переменный</div>
-            <p class="format-card__text">Фиксированный оклад на период + бонус за достижение KPI. Срок: 3–6 месяцев.</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Экспресс-аудит</h3>
+            <div class="pricing-price">50 000 ₽</div>
+            <ul class="pricing-features">
+              <li>✅ 45-минутная диагностика</li>
+              <li>✅ Анализ 3-х ключевых метрик</li>
+              <li>✅ Письменный отчет</li>
+              <li>✅ 1 сценарий моделирования</li>
+            </ul>
+            <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center;">Заказать</a>
           </div>
-          <div class="format-card">
-            <div class="format-card__num">Формат B</div>
-            <div class="format-card__title">Доля + оклад</div>
-            <div class="format-card__subtitle">Управляющий партнёр</div>
-            <p class="format-card__text">Вхожу как управляющий партнёр. Минимальный оклад + доля в бизнесе. Для компаний с высоким потенциалом.</p>
+          <div class="pricing-card featured">
+            <h3>Полный разбор</h3>
+            <div class="pricing-price">150 000 ₽</div>
+            <ul class="pricing-features">
+              <li>✅ Глубокий аудит всех процессов</li>
+              <li>✅ Управленческая модель</li>
+              <li>✅ 5+ сценариев моделирования</li>
+              <li>✅ План внедрения</li>
+              <li>✅ 2 недели поддержки</li>
+            </ul>
+            <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Заказать</a>
           </div>
-          <div class="format-card">
-            <div class="format-card__num">Формат C</div>
-            <div class="format-card__title">Бонус за результат</div>
-            <div class="format-card__subtitle">% от прироста прибыли</div>
-            <p class="format-card__text">Небольшой оклад + процент от прироста прибыли сверх базового уровня. Максимальная мотивация на результат.</p>
+          <div class="pricing-card">
+            <h3>Сопровождение</h3>
+            <div class="pricing-price">от 100 000 ₽/мес</div>
+            <ul class="pricing-features">
+              <li>✅ Ежемесячный аудит</li>
+              <li>✅ Актуализация модели</li>
+              <li>✅ Консультации по решениям</li>
+              <li>✅ Приоритетная поддержка</li>
+            </ul>
+            <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center;">Обсудить</a>
           </div>
         </div>
-        <p class="formats-footer">Конкретные условия обсуждаем после бесплатной диагностики — когда понятна ситуация и объём работы.</p>
       </div>
     </section>
 
-    <!-- ЛИД-МАГНИТ: Карточка финансового здоровья -->
-    <section class="section health-card-section" id="health-card">
+           <!-- ОБ АВТОРЕ -->
+    <section class="section section-alt" id="about">
       <div class="container narrow fade-up">
-        <div class="health-card-wrap">
-          <div class="health-card-header">
-            <div class="health-card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"/>
-                <path d="M7 14l4-4 4 4 5-5"/>
-              </svg>
+        <div class="section-header text-center">
+          <div class="section-eyebrow">Об авторе</div>
+          <h2>Сергей Циунель — реаниматолог бизнеса</h2>
+          <p class="section-subtitle">20+ лет в проектах от 5 млрд ₽. Теперь приношу инструменты корпоративного уровня в МСБ.</p>
+        </div>
+
+        <div class="author-stats">
+          <div class="author-stat">
+            <div class="author-stat__num">20+</div>
+            <div class="author-stat__lbl">лет в управлении<br>и финансах</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat__num">$50 млрд</div>
+            <div class="author-stat__lbl">международный проект<br>под наблюдением ООН</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat__num">70</div>
+            <div class="author-stat__lbl">юрлиц в холдинге<br>под прямым управлением</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat__num">ТОП-10</div>
+            <div class="author-stat__lbl">консультировал первых лиц<br>нефтегазового сектора</div>
+          </div>
+        </div>
+
+        <div class="author-text">
+          <p><strong>Откуда я и почему сейчас в МСБ.</strong> Управлял международным девелоперским проектом под наблюдением ООН. Спасал миллиардные контракты в нефтегазе с угрозой штрафов от первой десятки рынка. Реорганизовывал холдинги для Гособоронзаказа и Роскосмоса. Был замглавы района — координировал бизнес и инвестиции на территории.</p>
+          <p>За 20 лет понял главное: <strong>у малого и среднего бизнеса проблемы те же, что у миллиардных компаний — но без доступа к корпоративным инструментам анализа</strong>. Собственники МСБ принимают решения на интуиции и устаревших отчётах, потому что Python, ML-модели и сценарный анализ исторически были привилегией крупного бизнеса. Сейчас приношу эти инструменты в МСБ через AI-аудит — за чек, который реально подъёмный.</p>
+        </div>
+
+        <div class="author-creds">
+          <div class="author-creds__title">Образование и регалии</div>
+          <ul>
+            <li><strong>Executive MBA</strong> — РАНХиГС при Президенте РФ (2020)</li>
+            <li><strong>Евроменеджер</strong> — Академия экономики и управления AFW, Германия</li>
+            <li><strong>Сертификат AMBA</strong> — Association of MBAs, Великобритания</li>
+            <li>Автор книги о финансовом управлении бизнесом</li>
+          </ul>
+        </div>
+
+        <div class="author-principles">
+          <div class="author-principles__title">Как работаю</div>
+          <div class="author-principles__grid">
+            <div class="author-principle">
+              <div class="author-principle__icon">🎯</div>
+              <div class="author-principle__title">Стратегия → план → действие</div>
+              <div class="author-principle__desc">Не пишу красивых стратегий «в стол». Каждое решение — конкретное действие с измеримым результатом и сроком.</div>
             </div>
-            <div>
-              <div class="health-card-eyebrow">Бесплатно — за 1-2 рабочих дня</div>
-              <h3 class="health-card-title">Карточка финансового здоровья + прогноз на 3, 6, 9 месяцев</h3>
-              <p class="health-card-desc">Пришлите оборотно-сальдовую ведомость из 1С — за 1-2 рабочих дня вы получите PDF-отчёт с конкретными находками в вашем бизнесе. Бесплатно. Без обязательств.</p>
+            <div class="author-principle">
+              <div class="author-principle__icon">🔬</div>
+              <div class="author-principle__title">Управленческий учёт + AI</div>
+              <div class="author-principle__desc">Финансы в динамике, а не в годовом отчёте. Прогнозы на основе ML, а не «кажется, должно сработать».</div>
+            </div>
+            <div class="author-principle">
+              <div class="author-principle__icon">⚙️</div>
+              <div class="author-principle__title">Эффективные процессы</div>
+              <div class="author-principle__desc">Убираю всё лишнее — процессы ради процессов и согласования ради согласований. Минимум усилий, максимум результата.</div>
+            </div>
+            <div class="author-principle">
+              <div class="author-principle__icon">📊</div>
+              <div class="author-principle__title">KPI который работает</div>
+              <div class="author-principle__desc">Система оплаты должна побуждать делать больше и лучше — а не «отрабатывать оклад». Внедряю по-честному.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ЛИД-МАГНИТ -->
+    <section class="section" style="background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);">
+      <div class="container narrow fade-up">
+        <div style="background: #ffffff; border-radius: 20px; padding: 2rem 2.5rem; box-shadow: 0 2px 16px rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.1);">
+
+          <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
+            <div style="font-size: 2.5rem; line-height: 1; padding-top: 0.25rem;">📊</div>
+            <div style="flex: 1; min-width: 240px;">
+              <div style="font-size: 0.8rem; font-weight: 600; color: #2563eb; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Бесплатно — отправляю лично</div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Интерактивный управленческий P&L в Excel</h3>
+              <p style="color: #475569; font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.6;">Полностью настроенный инструмент финансовой аналитики. Введите свои цифры — всё остальное посчитается автоматически.</p>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6rem; margin-bottom: 1rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">1.</span>
+                  <span><strong>Лист «Ввод»</strong> — вводите данные в жёлтые ячейки, всё остальное считается само</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">2.</span>
+                  <span><strong>Лист «P&L»</strong> — полный управленческий отчёт о прибылях и убытках с КМД и ТБУ</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">3.</span>
+                  <span><strong>Лист «Дашборд»</strong> — ключевые метрики и автодиагностика: логистика, ТБУ, рентабельность</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; color: #334155;">
+                  <span style="color: #2563eb; font-weight: 700; flex-shrink: 0;">4.</span>
+                  <span><strong>Лист «Сценарии»</strong> — 7 сценариев «что если»: рост выручки, оптимизация логистики, ФОТ и другие</span>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Производство</span>
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Торговля</span>
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Маркетплейсы</span>
+                <span style="font-size: 0.8rem; padding: 0.25rem 0.7rem; background: #eff6ff; color: #1e40af; border-radius: 99px; border: 1px solid #bfdbfe;">Сервисный бизнес</span>
+                
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 210px; padding-top: 0.25rem;">
+              <input type="email" id="leadEmail" placeholder="Ваш email" style="padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 0.95rem; width: 100%; box-sizing: border-box;">
+              <button onclick="sendLeadMagnet()" style="padding: 0.75rem 1rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Получить Excel на email →</button>
+              <div style="font-size: 0.78rem; color: #94a3b8; text-align: center; line-height: 1.4;">Отправлю файл лично в течение нескольких часов. Без спама.</div>
+              <div id="leadStatus" style="font-size: 0.8rem; color: #64748b; text-align: center; display: none;"></div>
             </div>
           </div>
 
-          <div class="health-card-grid">
-            <div class="hc-block">
-              <div class="hc-block-title">Что вы получите в PDF</div>
-              <ul class="hc-list">
-                <li>Маржинальность — текущая и динамика за 3 мес</li>
-                <li>Здоровье кассы — баланс поступлений и расходов</li>
-                <li>Дебиторская и долговая нагрузка</li>
-                <li>ФОТ к выручке — насколько бизнес «тяжёлый»</li>
-                <li>Доля постоянных затрат — запас прочности</li>
-                <li>ABC-разбор клиентов — кто реально приносит прибыль</li>
-              </ul>
-            </div>
-
-            <div class="hc-block hc-block--accent">
-              <div class="hc-block-title">Математический прогноз</div>
-              <p class="hc-prog">На основе динамики ваших данных — где будет бизнес через <strong>3, 6 и 9 месяцев</strong> при сохранении текущих тенденций. Не интуиция и не «вангование», а экстраполяция на ваших цифрах.</p>
-            </div>
-          </div>
-
-          <div class="health-card-cta">
-            <div class="hc-steps">
-              <div class="hc-step"><span class="hc-step-num">1</span> Выгрузите ОСВ за 3 месяца из 1С</div>
-              <div class="hc-step"><span class="hc-step-num">2</span> Пришлите файл на <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья">sergey.tsiunel@gmail.com</a></div>
-              <div class="hc-step"><span class="hc-step-num">3</span> За 1-2 рабочих дня получите PDF лично от меня</div>
-            </div>
-            <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья&body=Здравствуйте! Хочу получить карточку финансового здоровья. Прикладываю ОСВ за 3 месяца." class="btn-primary hc-btn">Прислать ОСВ на email</a>
-            <div class="hc-note">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
-              Работаю под NDA. Данные не передаются третьим лицам.
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1514,55 +831,49 @@
     </section>
 
     <!-- КОНТАКТЫ -->
-    <section class="section section-dark" id="contact">
+        <section class="section section-dark" id="contact">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
           <div class="section-eyebrow">Контакт</div>
-          <h2>Расскажите о своей ситуации</h2>
-          <p class="section-subtitle">45 минут — разберём что происходит. Скажу честно: могу помочь или нет. Первая встреча бесплатно.</p>
+          <h2>Готовы найти свои утечки?</h2>
+          <p class="section-subtitle">Напишите — обсудим ваш случай. Первая консультация бесплатно.</p>
         </div>
         
-        <div class="contact-grid">
-
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
+          
           <!-- Левая колонка: контакты -->
-          <div class="contact-direct">
-            <div class="contact-direct__label">Прямые контакты</div>
-            <div class="contact-direct__items">
-              <a href="tel:+79957740893" class="contact-tile">
-                <div class="contact-tile__label">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
-                  </svg>
-                  Телефон
-                </div>
-                <div class="contact-tile__value">+7 995 774-08-93</div>
+          <div class="contact-direct" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
+            <a href="https://t.me/SergeyTsiunel" target="_blank" rel="noopener" style="display: block; padding: 1.25rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; text-decoration: none; border-radius: 14px; margin-bottom: 1.25rem; transition: transform 0.15s;">
+              <div style="font-size: 0.78rem; opacity: 0.85; margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase;">Главный канал связи</div>
+              <div style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.25rem;">📲 Написать в Telegram</div>
+              <div style="font-size: 0.85rem; opacity: 0.85;">@SergeyTsiunel · отвечаю в течение 2 часов</div>
+            </a>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem;">
+              <a href="tel:+79957740893" style="display: block; padding: 0.85rem; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none;">
+                <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">Телефон</div>
+                <div style="font-size: 0.95rem; color: #0f172a; font-weight: 500;">+7 995 774-08-93</div>
               </a>
-              <a href="mailto:sergey.tsiunel@gmail.com" class="contact-tile">
-                <div class="contact-tile__label">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                  Email
-                </div>
-                <div class="contact-tile__value contact-tile__value--email">sergey.tsiunel@gmail.com</div>
+              <a href="mailto:sergey.tsiunel@gmail.com" style="display: block; padding: 0.85rem; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none;">
+                <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">Email</div>
+                <div style="font-size: 0.95rem; color: #0f172a; font-weight: 500; word-break: break-all;">sergey.tsiunel@gmail.com</div>
+              </a>
+              <a href="https://t.me/businessdoct" target="_blank" rel="noopener" style="display: block; padding: 0.85rem; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; grid-column: 1 / -1;">
+                <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">Канал с кейсами и советами</div>
+                <div style="font-size: 0.95rem; color: #0f172a; font-weight: 500;">t.me/businessdoct</div>
               </a>
             </div>
-            <p class="contact-direct__note">Отвечаю в течение 2 часов в рабочее время</p>
           </div>
-
+          
           <!-- Правая колонка: форма -->
-          <div class="contact-form">
-            <h3 class="contact-form__title">Оставьте заявку</h3>
-            <p class="contact-form__desc">Перезвоню в течение 2 часов в рабочее время. Обсудим вашу ситуацию.</p>
+          <div class="contact-form" style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle);">
+            <h3 style="margin-bottom: 0.5rem; text-align: center; font-size: 1.25rem;">📝 Отправить заявку</h3>
+            <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Отвечаю в течение 2 часов в рабочее время. Звоню сам, чтобы уточнить детали.</p>
             <form id="callbackForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
-              <input type="text" id="name" name="name" placeholder="Ваше имя" required class="contact-form__input">
-              <input type="tel" id="phone" name="phone" placeholder="Телефон *" required class="contact-form__input">
-              <input type="email" id="email" name="email" placeholder="Email (необязательно)" class="contact-form__input">
-              <textarea name="situation" placeholder="Кратко опишите ситуацию (необязательно)" rows="2" class="contact-form__input contact-form__textarea"></textarea>
+              <input type="text" id="name" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 0.75rem; box-sizing: border-box;">
+              <input type="tel" id="phone" name="phone" placeholder="Телефон" required style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 1rem; box-sizing: border-box;">
               <input type="hidden" name="page" value="https://businessdoc.pro/">
-              <button type="submit" class="contact-form__submit">Перезвоните мне →</button>
-              <div id="formStatus" class="contact-form__status"></div>
+              <button type="submit" style="width: 100%; padding: 0.75rem; background: #2563eb; color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.3s ease;">Позвоните мне — обсудим ситуацию</button>
+              <div id="formStatus" style="margin-top: 1rem; text-align: center; font-size: 0.85rem; display: none;"></div>
             </form>
           </div>
         </div>
@@ -1570,26 +881,26 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" style="background: var(--color-slate); color: white; padding: 3rem 0; margin-top: 4rem;">
     <div class="container narrow text-center">
-      <p class="footer__copy">© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
-      <p class="footer__links">
-        <a href="#pricing">Стоимость</a>
-        <a href="crisis.html">Антикризис</a>
-        <a href="tools.html">Технологии</a>
-        <a href="dashboard.html">Пример дашборда</a>
-        <a href="privacy.html" class="footer__privacy">Политика конфиденциальности</a>
+      <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem;">© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
+      <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 0.5rem;">
+        <a href="testimonials.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Отзывы</a>
+        <a href="crisis.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Антикризис</a>
+        <a href="tools.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Технологии</a>
+        <a href="dashboard.html" style="color: rgba(255,255,255,0.6); margin-right: 1.5rem;">Пример дашборда</a>
+        <a href="privacy.html" style="color: rgba(255,255,255,0.85);">🔒 Политика конфиденциальности</a>
       </p>
     </div>
   </footer>
 
-  <!-- Плавающая кнопка — ведёт к форме -->
-  <a href="#contact" class="floating-cta" title="Обсудить проект">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
-    </svg>
-    <span>Обсудить проект</span>
+  <!-- WhatsApp плавающая кнопка -->
+  <a href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20узнать%20об%20аудите%20бизнеса" 
+     target="_blank" rel="noopener"
+     style="position: fixed; bottom: 80px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 9999; text-decoration: none; transition: transform 0.2s;"
+     onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+     title="Написать в WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
   <script src="js/main.js" defer></script>
