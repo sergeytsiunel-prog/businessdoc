@@ -235,3 +235,77 @@
     gap: 1rem !important;
   }
 }
+
+/* ========================================
+   TIMELINE НА МОБИЛЬНОМ — вертикальная лесенка
+   Используем только существующие классы из index.html
+   ======================================== */
+@media (max-width: 768px) {
+  .timeline {
+    overflow: visible !important;
+    padding: 1rem 0 0.5rem !important;
+  }
+  .timeline-line {
+    display: none !important;
+  }
+  .timeline-steps {
+    flex-direction: column !important;
+    min-width: 0 !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+  }
+  .timeline-step {
+    flex: none !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 1rem !important;
+    padding: 0 0 1.5rem 0 !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  /* Вертикальная линия от точки текущего шага к точке следующего */
+  .timeline-step:not(:last-child)::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 21px !important;
+    top: 44px !important;
+    bottom: 0 !important;
+    width: 2px !important;
+    background: #cbd5e1 !important;
+    z-index: 0 !important;
+  }
+  .timeline-step:nth-last-child(2)::before {
+    background: linear-gradient(180deg, #cbd5e1 0%, #10b981 100%) !important;
+  }
+  .timeline-dot {
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  /* Тексты после точки — выравниваем влево и расширяем */
+  .timeline-step .timeline-title,
+  .timeline-step .timeline-duration,
+  .timeline-step .timeline-desc,
+  .timeline-step .timeline-ai-badge {
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+  .timeline-title {
+    font-size: 0.95rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .timeline-duration {
+    font-size: 0.78rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .timeline-desc {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
+  .timeline-ai-badge {
+    font-size: 0.7rem !important;
+    margin-top: 0.5rem !important;
+  }
+}
