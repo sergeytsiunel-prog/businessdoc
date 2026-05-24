@@ -767,6 +767,408 @@
       </div>
     </section>
 
+          <!-- ============================================
+         ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР — Финансовое здоровье
+         Вставить ПОСЛЕ секции "Узнаёте себя?" и ПЕРЕД "5 этапов"
+         Стили лежат в css/sections.css (.calc-section и ниже)
+         ============================================ -->
+    <section class="section calc-section" id="health-check">
+      <div class="container narrow fade-up">
+
+        <div class="calc-header">
+          <div class="eyebrow">Бесплатно · 60 секунд · Без email</div>
+          <h2 class="calc-title">Узнайте финансовое здоровье вашего бизнеса</h2>
+          <p class="calc-subtitle">Введите цифры за месяц из бухгалтерии — увидите реальный управленческий P&amp;L, точку безубыточности и резервы. То что директор должен знать наизусть.</p>
+        </div>
+
+        <div class="calc-grid">
+
+          <!-- ЛЕВАЯ КОЛОНКА — ВВОД -->
+          <div class="calc-card">
+            <div class="calc-card__title">Данные вашего бизнеса · ₽ за месяц</div>
+
+            <div class="calc-field">
+              <div class="calc-field__label"><span>Выручка без НДС</span></div>
+              <div class="calc-field__input-wrap">
+                <input type="number" inputmode="numeric" class="calc-field__input" data-field="revenue" placeholder="например, 8 000 000">
+                <span class="calc-field__unit">₽</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <div class="calc-field__label"><span>Сырьё и материалы</span><span class="calc-field__norm">норма 55–65%</span></div>
+              <div class="calc-field__input-wrap">
+                <input type="number" inputmode="numeric" class="calc-field__input" data-field="raw" placeholder="0">
+                <span class="calc-field__unit">₽</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <div class="calc-field__label"><span>Логистика и доставка</span><span class="calc-field__norm">норма 5–7%</span></div>
+              <div class="calc-field__input-wrap">
+                <input type="number" inputmode="numeric" class="calc-field__input" data-field="logistics" placeholder="0">
+                <span class="calc-field__unit">₽</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <div class="calc-field__label"><span>ФОТ (весь персонал)</span></div>
+              <div class="calc-field__input-wrap">
+                <input type="number" inputmode="numeric" class="calc-field__input" data-field="payroll" placeholder="0">
+                <span class="calc-field__unit">₽</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <div class="calc-field__label"><span>Аренда</span></div>
+              <div class="calc-field__input-wrap">
+                <input type="number" inputmode="numeric" class="calc-field__input" data-field="rent" placeholder="0">
+                <span class="calc-field__unit">₽</span>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <div class="calc-field__label"><span>Прочие постоянные расходы</span><span class="calc-field__norm">IT, охрана, связь</span></div>
+              <div class="calc-field__input-wrap">
+                <input type="number" inputmode="numeric" class="calc-field__input" data-field="other_fixed" placeholder="0">
+                <span class="calc-field__unit">₽</span>
+              </div>
+            </div>
+
+            <button type="button" class="calc-expand-btn" data-expand-toggle aria-expanded="false">
+              <span class="calc-expand-btn__text">Уточнить расчёт (+6 полей)</span>
+              <span class="calc-expand-btn__arrow">▼</span>
+            </button>
+
+            <div class="calc-advanced" data-advanced>
+              <div class="calc-field">
+                <div class="calc-field__label"><span>Прочие переменные</span><span class="calc-field__norm">ГСМ, маркировка, запчасти</span></div>
+                <div class="calc-field__input-wrap">
+                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="other_var" placeholder="0">
+                  <span class="calc-field__unit">₽</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <div class="calc-field__label"><span>Страховые взносы</span><span class="calc-field__norm">~30% от ФОТ</span></div>
+                <div class="calc-field__input-wrap">
+                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="insurance" placeholder="авто: 30% от ФОТ">
+                  <span class="calc-field__unit">₽</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <div class="calc-field__label"><span>Амортизация</span></div>
+                <div class="calc-field__input-wrap">
+                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="depreciation" placeholder="0">
+                  <span class="calc-field__unit">₽</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <div class="calc-field__label"><span>Проценты по кредитам</span></div>
+                <div class="calc-field__input-wrap">
+                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="interest" placeholder="0">
+                  <span class="calc-field__unit">₽</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <div class="calc-field__label"><span>Премии покупателям</span><span class="calc-field__norm">опасно при низком КМД</span></div>
+                <div class="calc-field__input-wrap">
+                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="bonuses" placeholder="0">
+                  <span class="calc-field__unit">₽</span>
+                </div>
+              </div>
+
+              <div class="calc-field">
+                <div class="calc-field__label"><span>Ставка налога на прибыль</span><span class="calc-field__norm">по умолчанию 20%</span></div>
+                <div class="calc-field__input-wrap">
+                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="tax" placeholder="20" value="20">
+                  <span class="calc-field__unit">%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ПРАВАЯ КОЛОНКА — РЕЗУЛЬТАТЫ -->
+          <div class="calc-card">
+            <div class="calc-card__title">Финансовое здоровье</div>
+
+            <div class="results-empty" data-empty>
+              <svg class="results-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="M7 14l4-4 4 4 5-5"/>
+              </svg>
+              <p class="results-empty__text">Введите выручку слева — расчёт появится автоматически</p>
+            </div>
+
+            <div data-results style="display: none;">
+              <div class="metrics-row">
+                <div class="metric metric--highlight">
+                  <div class="metric__label">КМД (маржинальность)</div>
+                  <div class="metric__value" data-out="kmd">—</div>
+                  <div class="metric__hint">сколько остаётся после переменных</div>
+                </div>
+                <div class="metric">
+                  <div class="metric__label">Точка безубыточности</div>
+                  <div class="metric__value" data-out="tbu">—</div>
+                  <div class="metric__hint" data-out="tbu_hint">минимум выручки чтобы выйти в ноль</div>
+                </div>
+              </div>
+
+              <div class="zfp-row">
+                <div class="zfp-row__head">
+                  <div class="zfp-row__label">Запас финансовой прочности</div>
+                  <div class="zfp-row__value" data-out="zfp">—</div>
+                </div>
+                <div class="zfp-bar"><div class="zfp-bar__fill" data-out="zfp_bar"></div></div>
+                <div class="zfp-row__hint" data-out="zfp_hint">На сколько может упасть выручка до выхода в ноль</div>
+              </div>
+
+              <div class="metrics-row" style="grid-template-columns: 1fr;">
+                <div class="metric" data-metric-profit>
+                  <div class="metric__label">Чистая прибыль (после налога)</div>
+                  <div class="metric__value" data-out="profit">—</div>
+                  <div class="metric__hint" data-out="profit_year">в год: —</div>
+                </div>
+              </div>
+
+              <div class="diagnostics" data-diagnostics></div>
+
+              <!-- MINI-ФОРМА: захват горячего лида с цифрами -->
+              <div class="calc-leadform" data-leadform>
+                <div class="calc-leadform__text" data-cta-text>Это поверхностный срез. Полная диагностика — на ваших данных за 6-12 месяцев.</div>
+                <form class="calc-leadform__form" id="calcLeadForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
+                  <input type="hidden" name="form_type" value="health_check_calculator">
+                  <input type="hidden" name="calculator_data" data-leadform-data value="">
+                  <div class="calc-leadform__row">
+                    <input type="email" name="email" placeholder="ваш email" required class="calc-leadform__input">
+                    <button type="submit" class="calc-leadform__btn">Получить разбор →</button>
+                  </div>
+                  <div class="calc-leadform__note">Ваши цифры отправятся вместе с заявкой. Связь в течение 2 часов в рабочее время. NDA по запросу.</div>
+                  <div class="calc-leadform__status" data-leadform-status></div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- JS калькулятора -->
+      <script>
+      (function() {
+        const root = document.getElementById('health-check');
+        if (!root) return;
+
+        const fields = ['revenue','raw','logistics','payroll','rent','other_fixed','other_var','insurance','depreciation','interest','bonuses','tax'];
+        const inputs = {};
+        fields.forEach(f => { inputs[f] = root.querySelector('[data-field="'+f+'"]'); });
+
+        const expandBtn = root.querySelector('[data-expand-toggle]');
+        const advanced = root.querySelector('[data-advanced]');
+        expandBtn.addEventListener('click', () => {
+          const isOpen = advanced.classList.toggle('open');
+          expandBtn.setAttribute('aria-expanded', isOpen);
+          expandBtn.querySelector('.calc-expand-btn__text').textContent = isOpen ? 'Свернуть' : 'Уточнить расчёт (+6 полей)';
+        });
+
+        function fmt(n, opts) {
+          opts = opts || {};
+          if (!isFinite(n) || isNaN(n)) return '—';
+          const abs = Math.abs(n);
+          let s;
+          if (opts.compact && abs >= 1e6) s = (n/1e6).toLocaleString('ru-RU', {maximumFractionDigits: 2}) + ' млн';
+          else if (opts.compact && abs >= 1e3) s = (n/1e3).toLocaleString('ru-RU', {maximumFractionDigits: 0}) + ' тыс';
+          else s = Math.round(n).toLocaleString('ru-RU');
+          return s + (opts.suffix || '');
+        }
+        function pct(n, d) {
+          if (!isFinite(n) || isNaN(n)) return '—';
+          return (n*100).toLocaleString('ru-RU', {maximumFractionDigits: d||1}) + '%';
+        }
+        function getVal(f) {
+          const v = parseFloat(inputs[f].value);
+          return isFinite(v) ? v : 0;
+        }
+
+        function calc() {
+          const revenue = getVal('revenue');
+          const empty = root.querySelector('[data-empty]');
+          const results = root.querySelector('[data-results]');
+          if (revenue <= 0) {
+            empty.style.display = 'block';
+            results.style.display = 'none';
+            return;
+          }
+          empty.style.display = 'none';
+          results.style.display = 'block';
+
+          const raw = getVal('raw'), logistics = getVal('logistics'), otherVar = getVal('other_var');
+          const variableCosts = raw + logistics + otherVar;
+          const marginIncome = revenue - variableCosts;
+          const kmd = marginIncome / revenue;
+
+          const payroll = getVal('payroll');
+          let insurance = getVal('insurance');
+          if (insurance === 0 && payroll > 0) insurance = payroll * 0.30;
+          const rent = getVal('rent'), depreciation = getVal('depreciation'), otherFixed = getVal('other_fixed');
+          const fixedCosts = payroll + insurance + rent + depreciation + otherFixed;
+
+          const operatingProfit = marginIncome - fixedCosts;
+          const interest = getVal('interest'), bonuses = getVal('bonuses');
+          const otherExpenses = interest + bonuses;
+          const profitBeforeTax = operatingProfit - otherExpenses;
+          const taxRate = (getVal('tax') || 20) / 100;
+          const tax = profitBeforeTax > 0 ? profitBeforeTax * taxRate : 0;
+          const netProfit = profitBeforeTax - tax;
+          const tbu = kmd > 0 ? fixedCosts / kmd : NaN;
+          const zfp = (revenue > 0 && isFinite(tbu)) ? (revenue - tbu) / revenue : NaN;
+
+          root.querySelector('[data-out="kmd"]').textContent = pct(kmd, 1);
+          root.querySelector('[data-out="tbu"]').textContent = isFinite(tbu) && tbu > 0 ? fmt(tbu, {compact:true, suffix:' ₽'}) : '—';
+          root.querySelector('[data-out="tbu_hint"]').textContent = isFinite(tbu) && tbu > 0 ? 'минимум выручки чтобы выйти в ноль' : 'нужны переменные < выручки';
+
+          const zfpEl = root.querySelector('[data-out="zfp"]');
+          const zfpBar = root.querySelector('[data-out="zfp_bar"]');
+          const zfpHint = root.querySelector('[data-out="zfp_hint"]');
+          if (isFinite(zfp)) {
+            zfpEl.textContent = pct(zfp, 0);
+            const pctVal = Math.max(0, Math.min(100, zfp * 100));
+            zfpBar.style.width = pctVal + '%';
+            zfpBar.className = 'zfp-bar__fill';
+            if (zfp < 0.1) {
+              zfpBar.classList.add('zfp-bar__fill--danger');
+              zfpHint.textContent = '⚠ Опасно: малейшее падение выручки уведёт в убыток';
+            } else if (zfp < 0.3) {
+              zfpBar.classList.add('zfp-bar__fill--warning');
+              zfpHint.textContent = 'Средний запас. Падение выручки на ' + Math.round(zfp*100) + '% уже критично';
+            } else {
+              zfpHint.textContent = 'Бизнес устойчив. Может пережить падение выручки на ' + Math.round(zfp*100) + '%';
+            }
+          } else {
+            zfpEl.textContent = '—'; zfpBar.style.width = '0%';
+            zfpHint.textContent = 'Введите все расходы для расчёта';
+          }
+
+          const profitEl = root.querySelector('[data-out="profit"]');
+          const profitYearEl = root.querySelector('[data-out="profit_year"]');
+          const profitMetric = root.querySelector('[data-metric-profit]');
+          profitEl.textContent = fmt(netProfit, {compact:true, suffix:' ₽'});
+          profitYearEl.textContent = 'в год: ' + fmt(netProfit * 12, {compact:true, suffix:' ₽'});
+          profitMetric.classList.remove('metric--positive','metric--negative');
+          if (netProfit > 0) profitMetric.classList.add('metric--positive');
+          else if (netProfit < 0) profitMetric.classList.add('metric--negative');
+
+          // Диагностика
+          const diags = [];
+          const logiPct = revenue > 0 ? logistics / revenue : 0;
+          if (logistics > 0) {
+            if (logiPct <= 0.07) diags.push({type:'ok', text:'<strong>Логистика в норме</strong>', sub: pct(logiPct, 1) + ' от выручки (норма 5–7%)'});
+            else if (logiPct <= 0.10) diags.push({type:'warn', text:'<strong>Логистика на грани</strong>', sub: pct(logiPct, 1) + ' от выручки. Норма до 7%, выше 10% — тревога'});
+            else diags.push({type:'bad', text:'<strong>Логистика съедает прибыль</strong>', sub: pct(logiPct, 1) + ' от выручки — главный источник убытка. Норма 5–7%'});
+          }
+          if (kmd >= 0.30) diags.push({type:'ok', text:'<strong>КМД здоровый</strong>', sub: 'Маржинальный доход покрывает постоянные расходы с запасом'});
+          else if (kmd >= 0.20) diags.push({type:'warn', text:'<strong>КМД низкий</strong>', sub: 'Менее 30% — устойчивость бизнеса под вопросом'});
+          else if (kmd > 0) diags.push({type:'bad', text:'<strong>КМД критически низкий</strong>', sub: 'Бизнес слишком чувствителен к падению выручки'});
+          else diags.push({type:'bad', text:'<strong>Отрицательный КМД</strong>', sub: 'Переменные расходы выше выручки — каждая продажа в минус'});
+
+          if (isFinite(tbu) && tbu > 0) {
+            if (revenue >= tbu * 1.3) diags.push({type:'ok', text:'<strong>Бизнес выше точки безубыточности</strong>', sub: 'Запас прочности ' + pct(zfp, 0)});
+            else if (revenue >= tbu) diags.push({type:'warn', text:'<strong>Бизнес у точки безубыточности</strong>', sub: 'Работает в ноль или с минимальным плюсом'});
+            else diags.push({type:'bad', text:'<strong>Бизнес ниже точки безубыточности</strong>', sub: 'Текущая выручка не покрывает все расходы'});
+          }
+          if (netProfit > 0) diags.push({type:'ok', text:'<strong>Есть чистая прибыль</strong>', sub: 'Рентабельность ' + pct(netProfit/revenue, 1) + ' от выручки'});
+          else if (netProfit === 0) diags.push({type:'warn', text:'<strong>Прибыль около нуля</strong>', sub: 'Бизнес работает на грани'});
+          else diags.push({type:'bad', text:'<strong>Бизнес в убытке</strong>', sub: 'Расходы превышают выручку на ' + fmt(Math.abs(netProfit), {compact:true, suffix:' ₽'}) + ' в месяц'});
+
+          if (bonuses > 0 && kmd < 0.30 && revenue > 0) {
+            const bonPct = bonuses / revenue;
+            diags.push({type:'warn', text:'<strong>Премии покупателям при низком КМД</strong>', sub: pct(bonPct, 1) + ' от выручки — скрытое снижение цены. Особо опасно'});
+          }
+
+          const diagBox = root.querySelector('[data-diagnostics]');
+          diagBox.innerHTML = diags.map(d => {
+            const icon = d.type === 'ok' ? '✓' : (d.type === 'warn' ? '!' : '×');
+            return '<div class="diag-row">' +
+              '<div class="diag-row__icon diag-row__icon--' + d.type + '">' + icon + '</div>' +
+              '<div><div class="diag-row__text">' + d.text + '</div><div class="diag-row__sub">' + d.sub + '</div></div>' +
+            '</div>';
+          }).join('');
+
+          const ctaText = root.querySelector('[data-cta-text]');
+          const badCount = diags.filter(d => d.type === 'bad').length;
+          const warnCount = diags.filter(d => d.type === 'warn').length;
+          if (badCount >= 2) ctaText.innerHTML = '<strong style="color:#0F172A">У вашего бизнеса несколько критических зон.</strong> 45 минут разбора — найдём конкретные шаги.';
+          else if (badCount >= 1 || warnCount >= 2) ctaText.innerHTML = '<strong style="color:#0F172A">Есть зоны где бизнес теряет деньги.</strong> Поговорим — найдём конкретные резервы.';
+          else if (netProfit > 0) ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе.</strong> Часто именно у таких компаний 15-30% выручки уходит впустую — не видно с поверхности.';
+          else ctaText.textContent = 'Это поверхностный срез. Полный разбор — на ваших данных за 6-12 месяцев.';
+
+          // Сохраняем все цифры для отправки в форме
+          const dataInput = root.querySelector('[data-leadform-data]');
+          const snapshot = {
+            inputs: {
+              revenue, raw, logistics, otherVar,
+              payroll, insurance, rent, depreciation, otherFixed,
+              interest, bonuses, taxRate: taxRate*100
+            },
+            results: {
+              KMD: pct(kmd, 1),
+              TBU: isFinite(tbu) ? Math.round(tbu) : null,
+              ZFP: isFinite(zfp) ? pct(zfp, 0) : null,
+              netProfitMonth: Math.round(netProfit),
+              netProfitYear: Math.round(netProfit * 12),
+              diagnostics: diags.map(d => '[' + d.type.toUpperCase() + '] ' + d.text.replace(/<[^>]+>/g, '') + ' — ' + d.sub)
+            }
+          };
+          dataInput.value = JSON.stringify(snapshot, null, 2);
+        }
+
+        fields.forEach(f => inputs[f].addEventListener('input', calc));
+
+        // Отправка mini-формы
+        const leadForm = root.querySelector('#calcLeadForm');
+        if (leadForm) {
+          leadForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const status = root.querySelector('[data-leadform-status]');
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Отправка...';
+            btn.disabled = true;
+            status.style.display = 'block';
+            status.textContent = 'Отправляем...';
+            status.style.color = '#64748b';
+            try {
+              const response = await fetch(this.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(this)
+              });
+              if (response.ok) {
+                if (typeof ym !== 'undefined') ym(108463875, 'reachGoal', 'CalcLeadCapture');
+                status.textContent = '✓ Заявка отправлена! Свяжусь в течение 2 часов в рабочее время.';
+                status.style.color = '#10b981';
+                this.reset();
+              } else throw new Error();
+            } catch (err) {
+              status.textContent = '✗ Ошибка отправки. Напишите на sergey.tsiunel@gmail.com';
+              status.style.color = '#ef4444';
+            } finally {
+              btn.textContent = originalText;
+              btn.disabled = false;
+              setTimeout(() => { status.style.display = 'none'; }, 8000);
+            }
+          });
+        }
+
+        calc();
+      })();
+      </script>
+    </section>
+    <!-- ============ КОНЕЦ СЕКЦИИ КАЛЬКУЛЯТОРА ============ -->
+
     <!-- КАК РАБОТАЮ — TIMELINE + ДВА ПУТИ -->
     <section class="section section-alt" id="services">
       <div class="container narrow fade-up">
@@ -1437,9 +1839,9 @@
               </svg>
             </div>
             <div>
-              <div class="health-card-eyebrow">Бесплатно — за 1-2 рабочих дня</div>
+              <div class="health-card-eyebrow">Следующий шаг · Расширенный отчёт</div>
               <h3 class="health-card-title">Карточка финансового здоровья + прогноз на 3, 6, 9 месяцев</h3>
-              <p class="health-card-desc">Пришлите оборотно-сальдовую ведомость из 1С — за 1-2 рабочих дня вы получите PDF-отчёт с конкретными находками в вашем бизнесе. Бесплатно. Без обязательств.</p>
+              <p class="health-card-desc">Уже посчитали базовые показатели в калькуляторе выше? Хотите глубже — с реальной дебиторкой, прогнозом 3-9 месяцев и ABC-разбором клиентов? Пришлите ОСВ из 1С за 3 месяца — за 1-2 рабочих дня лично подготовлю расширенный отчёт. Бесплатно. Без обязательств.</p>
             </div>
           </div>
 
