@@ -780,6 +780,9 @@
           <h2 class="calc-title">Узнайте финансовое здоровье вашего бизнеса</h2>
           <p class="calc-subtitle">Введите цифры за месяц из бухгалтерии — увидите реальный управленческий P&amp;L, точку безубыточности и резервы. То что директор должен знать наизусть.</p>
           <p class="calc-disclaimer">Это срез P&amp;L на уровне агрегатов — не аудит наценок и не разбор по SKU. Дает быструю картину устойчивости.</p>
+          <div class="calc-scale-warning" data-scale-warning style="display:none;">
+            ⚠ Цифры выглядят как тысячи или штуки. Калькулятор работает с <strong>абсолютными рублями за месяц</strong> — например, выручка 8&nbsp;000&nbsp;000 ₽ (не 8000 и не 8).
+          </div>
         </div>
 
         <div class="calc-grid">
@@ -1005,6 +1008,14 @@
           const revenue = getVal('revenue');
           const empty = root.querySelector('[data-empty]');
           const results = root.querySelector('[data-results]');
+          const scaleWarning = root.querySelector('[data-scale-warning]');
+
+          // Warning: цифры подозрительно маленькие (выручка < 50 000 ₽/месяц)
+          // Реальный малый бизнес не работает с такими оборотами — скорее всего ввод в тысячах
+          if (scaleWarning) {
+            scaleWarning.style.display = (revenue > 0 && revenue < 50000) ? 'block' : 'none';
+          }
+
           if (revenue <= 0) {
             empty.style.display = 'block';
             results.style.display = 'none';
@@ -1116,7 +1127,7 @@
           if (kmd > 0 && Math.abs(operatingProfit) > 1) {
             pathsBox.style.display = 'block';
             const isLoss = operatingProfit < 0;
-            pathsTitle.textContent = isLoss ? 'Три пути выйти в ноль' : 'Три пути что произойдёт если…';
+            pathsTitle.textContent = isLoss ? 'Три пути выйти в ноль' : 'Три сценария чувствительности';
 
             const paths = [];
 
@@ -1204,10 +1215,22 @@
           const ctaText = root.querySelector('[data-cta-text]');
           const badCount = diags.filter(d => d.type === 'bad').length;
           const warnCount = diags.filter(d => d.type === 'warn').length;
-          if (badCount >= 2) ctaText.innerHTML = '<strong style="color:#0F172A">У вашего бизнеса несколько критических зон.</strong> 45 минут разбора — найдём конкретные шаги.';
-          else if (badCount >= 1 || warnCount >= 2) ctaText.innerHTML = '<strong style="color:#0F172A">Есть зоны где бизнес теряет деньги.</strong> Поговорим — найдём конкретные резервы.';
-          else if (netProfit > 0) ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе на уровне P&amp;L.</strong> Часто 15-30% выручки уходит впустую внутри ассортимента — это видно только при разборе по SKU и наценкам.';
-          else ctaText.textContent = 'Это срез на уровне агрегатов. Полный разбор по SKU и наценкам — на ваших данных за 6-12 месяцев.';
+          const safeZfp = isFinite(zfp) ? zfp : 0;
+
+          // Новая логика: смотрим на фактическое состояние, не на счётчик флагов
+          if (netProfit < 0 && badCount >= 2) {
+            ctaText.innerHTML = '<strong style="color:#0F172A">У вашего бизнеса несколько критических зон.</strong> 45 минут разбора — найдём конкретные шаги.';
+          } else if (netProfit < 0) {
+            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес работает в убыток.</strong> Поговорим — найдём резервы и спланируем путь к нулю.';
+          } else if (netProfit > 0 && safeZfp < 0.15) {
+            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе, но на тонкой грани.</strong> Запас прочности менее 15% — малейшее падение выручки уведёт в минус.';
+          } else if (netProfit > 0 && badCount >= 1) {
+            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе, но есть зоны с потерями.</strong> Логистика, переменные или скрытые расходы съедают часть прибыли. Поговорим — найдём резервы.';
+          } else if (netProfit > 0) {
+            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе на уровне P&amp;L.</strong> Часто 15-30% выручки уходит впустую внутри ассортимента — это видно только при разборе по SKU и наценкам.';
+          } else {
+            ctaText.textContent = 'Это срез на уровне агрегатов. Полный разбор по SKU и наценкам — на ваших данных за 6-12 месяцев.';
+          }
 
           // Сохраняем все цифры для отправки в форме
           const dataInput = root.querySelector('[data-leadform-data]');
