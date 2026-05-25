@@ -767,7 +767,7 @@
       </div>
     </section>
 
-          <!-- ============================================
+<!-- ============================================
          ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР — Финансовое здоровье
          Вставить ПОСЛЕ секции "Узнаёте себя?" и ПЕРЕД "5 этапов"
          Стили лежат в css/sections.css (.calc-section и ниже)
@@ -779,6 +779,7 @@
           <div class="eyebrow">Бесплатно · 60 секунд · Без email</div>
           <h2 class="calc-title">Узнайте финансовое здоровье вашего бизнеса</h2>
           <p class="calc-subtitle">Введите цифры за месяц из бухгалтерии — увидите реальный управленческий P&amp;L, точку безубыточности и резервы. То что директор должен знать наизусть.</p>
+          <p class="calc-disclaimer">Это срез P&amp;L на уровне агрегатов — не аудит наценок и не разбор по SKU. Дает быструю картину устойчивости.</p>
         </div>
 
         <div class="calc-grid">
@@ -913,7 +914,7 @@
                 <div class="metric">
                   <div class="metric__label">Точка безубыточности</div>
                   <div class="metric__value" data-out="tbu">—</div>
-                  <div class="metric__hint" data-out="tbu_hint">минимум выручки чтобы выйти в ноль</div>
+                  <div class="metric__hint" data-out="tbu_hint">минимум выручки при текущей доле переменных</div>
                 </div>
               </div>
 
@@ -936,9 +937,16 @@
 
               <div class="diagnostics" data-diagnostics></div>
 
+              <!-- БЛОК «Три пути» — управленческие сценарии -->
+              <div class="paths-row" data-paths style="display:none;">
+                <div class="paths-row__title" data-paths-title>Три пути выйти в ноль</div>
+                <div class="paths-row__hint">При текущей структуре расходов. Меняйте поля слева — цифры пересчитаются.</div>
+                <div class="paths-list" data-paths-list></div>
+              </div>
+
               <!-- MINI-ФОРМА: захват горячего лида с цифрами -->
               <div class="calc-leadform" data-leadform>
-                <div class="calc-leadform__text" data-cta-text>Это поверхностный срез. Полная диагностика — на ваших данных за 6-12 месяцев.</div>
+                <div class="calc-leadform__text" data-cta-text>Это срез на уровне агрегатов. Полный разбор по SKU и наценкам — на ваших данных за 6-12 месяцев.</div>
                 <form class="calc-leadform__form" id="calcLeadForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
                   <input type="hidden" name="form_type" value="health_check_calculator">
                   <input type="hidden" name="calculator_data" data-leadform-data value="">
@@ -1028,7 +1036,10 @@
 
           root.querySelector('[data-out="kmd"]').textContent = pct(kmd, 1);
           root.querySelector('[data-out="tbu"]').textContent = isFinite(tbu) && tbu > 0 ? fmt(tbu, {compact:true, suffix:' ₽'}) : '—';
-          root.querySelector('[data-out="tbu_hint"]').textContent = isFinite(tbu) && tbu > 0 ? 'минимум выручки чтобы выйти в ноль' : 'нужны переменные < выручки';
+          const variableRatio = revenue > 0 ? (variableCosts / revenue) : 0;
+          root.querySelector('[data-out="tbu_hint"]').textContent = isFinite(tbu) && tbu > 0
+            ? 'минимум выручки при доле переменных ' + pct(variableRatio, 0)
+            : 'нужны переменные < выручки';
 
           const zfpEl = root.querySelector('[data-out="zfp"]');
           const zfpBar = root.querySelector('[data-out="zfp_bar"]');
@@ -1097,13 +1108,106 @@
             '</div>';
           }).join('');
 
+          // === Блок «Три пути» — управленческие сценарии ===
+          const pathsBox = root.querySelector('[data-paths]');
+          const pathsTitle = root.querySelector('[data-paths-title]');
+          const pathsList = root.querySelector('[data-paths-list]');
+          // Показываем только если операционная прибыль ≠ 0 и кмд > 0 (иначе формулы не работают)
+          if (kmd > 0 && Math.abs(operatingProfit) > 1) {
+            pathsBox.style.display = 'block';
+            const isLoss = operatingProfit < 0;
+            pathsTitle.textContent = isLoss ? 'Три пути выйти в ноль' : 'Три пути что произойдёт если…';
+
+            const paths = [];
+
+            if (isLoss) {
+              // Путь 1: увеличить выручку (при сохранении доли переменных)
+              const needRevenue = fixedCosts / kmd;  // = ТБУ
+              const revGap = needRevenue - revenue;
+              const revGapPct = revGap / revenue;
+              paths.push({
+                label: 'Поднять выручку',
+                value: '+' + pct(revGapPct, 0) + ' к выручке',
+                detail: 'до ' + fmt(needRevenue, {compact:true, suffix:' ₽'}) + ' (при сохранении доли переменных ' + pct(variableRatio, 0) + ')'
+              });
+
+              // Путь 2: сократить постоянные расходы
+              const needFixed = marginIncome;  // постоянные = МД → опер.прибыль = 0
+              const fixedCut = fixedCosts - needFixed;
+              if (fixedCut > 0 && needFixed > 0) {
+                const fixedCutPct = fixedCut / fixedCosts;
+                paths.push({
+                  label: 'Сократить постоянные',
+                  value: '−' + fmt(fixedCut, {compact:true, suffix:' ₽'}) + ' (' + pct(fixedCutPct, 0) + ')',
+                  detail: 'до ' + fmt(needFixed, {compact:true, suffix:' ₽'}) + ' в месяц'
+                });
+              }
+
+              // Путь 3: поднять КМД (сократить переменные)
+              const requiredKmd = fixedCosts / revenue;
+              if (requiredKmd > 0 && requiredKmd < 1) {
+                const neededVar = revenue * (1 - requiredKmd);
+                const varCut = variableCosts - neededVar;
+                if (varCut > 0) {
+                  paths.push({
+                    label: 'Поднять КМД',
+                    value: pct(kmd, 0) + ' → ' + pct(requiredKmd, 0),
+                    detail: 'сократить переменные на ' + fmt(varCut, {compact:true, suffix:' ₽'}) + ' (на цене или закупках)'
+                  });
+                }
+              }
+            } else {
+              // Бизнес в плюсе — показываем чувствительность
+              // Путь 1: на сколько может упасть выручка
+              const safeDropPct = (revenue - tbu) / revenue;
+              paths.push({
+                label: 'Запас по выручке',
+                value: '−' + pct(safeDropPct, 0) + ' до нуля',
+                detail: 'падение ниже ' + fmt(tbu, {compact:true, suffix:' ₽'}) + ' уже в убыток'
+              });
+
+              // Путь 2: эффект роста выручки на 10%
+              const grow10Rev = revenue * 1.10;
+              const grow10Var = grow10Rev * variableRatio;
+              const grow10Op = grow10Rev - grow10Var - fixedCosts;
+              const opChange = grow10Op - operatingProfit;
+              paths.push({
+                label: 'Рост выручки +10%',
+                value: opChange >= 0 ? '+' + fmt(opChange, {compact:true, suffix:' ₽'}) : fmt(opChange, {compact:true, suffix:' ₽'}),
+                detail: 'к опер.прибыли (рычаг ' + (Math.abs(marginIncome / operatingProfit)).toFixed(1) + 'x)'
+              });
+
+              // Путь 3: эффект оптимизации переменных на 5%
+              const opt5Var = variableCosts * 0.95;
+              const opt5Op = revenue - opt5Var - fixedCosts;
+              const optChange = opt5Op - operatingProfit;
+              paths.push({
+                label: 'Снизить переменные −5%',
+                value: '+' + fmt(optChange, {compact:true, suffix:' ₽'}),
+                detail: 'к опер.прибыли в месяц'
+              });
+            }
+
+            pathsList.innerHTML = paths.map(p => (
+              '<div class="path-item">' +
+                '<div class="path-item__head">' +
+                  '<div class="path-item__label">' + p.label + '</div>' +
+                  '<div class="path-item__value">' + p.value + '</div>' +
+                '</div>' +
+                '<div class="path-item__detail">' + p.detail + '</div>' +
+              '</div>'
+            )).join('');
+          } else {
+            pathsBox.style.display = 'none';
+          }
+
           const ctaText = root.querySelector('[data-cta-text]');
           const badCount = diags.filter(d => d.type === 'bad').length;
           const warnCount = diags.filter(d => d.type === 'warn').length;
           if (badCount >= 2) ctaText.innerHTML = '<strong style="color:#0F172A">У вашего бизнеса несколько критических зон.</strong> 45 минут разбора — найдём конкретные шаги.';
           else if (badCount >= 1 || warnCount >= 2) ctaText.innerHTML = '<strong style="color:#0F172A">Есть зоны где бизнес теряет деньги.</strong> Поговорим — найдём конкретные резервы.';
-          else if (netProfit > 0) ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе.</strong> Часто именно у таких компаний 15-30% выручки уходит впустую — не видно с поверхности.';
-          else ctaText.textContent = 'Это поверхностный срез. Полный разбор — на ваших данных за 6-12 месяцев.';
+          else if (netProfit > 0) ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе на уровне P&amp;L.</strong> Часто 15-30% выручки уходит впустую внутри ассортимента — это видно только при разборе по SKU и наценкам.';
+          else ctaText.textContent = 'Это срез на уровне агрегатов. Полный разбор по SKU и наценкам — на ваших данных за 6-12 месяцев.';
 
           // Сохраняем все цифры для отправки в форме
           const dataInput = root.querySelector('[data-leadform-data]');
@@ -1167,6 +1271,7 @@
       })();
       </script>
     </section>
+    <!-- ============ КОНЕЦ СЕКЦИИ КАЛЬКУЛЯТОРА ============ -->
     <!-- ============ КОНЕЦ СЕКЦИИ КАЛЬКУЛЯТОРА ============ -->
 
     <!-- КАК РАБОТАЮ — TIMELINE + ДВА ПУТИ -->
