@@ -3,2127 +3,688 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Операционный хирург для бизнеса — Business Doctor · Сергей Циунель</title>
-  <meta name="description" content="Вхожу в бизнес на 3-6 месяцев как операционный директор. Строю систему управления руками. Ухожу когда бизнес работает сам. Реальные кейсы с цифрами.">
+  <title>AI-команда для бизнеса — Business Doctor · Сергей Циунель</title>
+  <meta name="description" content="AI-агенты, которые сами продают, анализируют и улучшают ваш бизнес. Гермес — AI-оркестратор. Запустите AI-команду 24/7.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/x-icon" href="favicon.svg">
-  <meta property="og:title" content="Business Doctor: AI-аудит бизнеса">
-  <meta property="og:description" content="Найдите, где ваш бизнес теряет прибыль — за 45 минут">
+  <meta property="og:title" content="Business Doctor — AI-команда для вашего бизнеса">
+  <meta property="og:description" content="Вы ставите цель. Гермес делает работу.">
   <meta property="og:image" content="https://businessdoc.pro/foto/photo_2026-01-13_19-19-47.jpg">
   <meta property="og:url" content="https://businessdoc.pro/">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://businessdoc.pro/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing.css">
+  <!-- Yandex.Metrika -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108463875', 'ym');
-
     ym(108463875, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108463875" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-  <style>
-    .crisis-bridge {
-      background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);
-      border-radius: 24px;
-      padding: 2.5rem;
-      border: 1px solid #fecaca;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: center;
-    }
-    .crisis-bridge__badge {
-      display: inline-block;
-      background: #fef2f2;
-      color: #dc2626;
-      border: 1px solid #fecaca;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 3px 12px;
-      border-radius: 99px;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-    .crisis-bridge__title {
-      font-size: 1.4rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-    .crisis-bridge__desc {
-      color: #64748b;
-      margin: 0;
-      font-size: 0.975rem;
-      line-height: 1.55;
-    }
-    .crisis-bridge__cta {
-      white-space: nowrap;
-    }
-    @media (max-width: 768px) {
-      .crisis-bridge {
-        grid-template-columns: 1fr;
-        padding: 1.75rem;
-        gap: 1.25rem;
-      }
-      .crisis-bridge__cta {
-        justify-self: start;
-      }
-    }
-  </style>
-  <style>
-    /* Hero with photo */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .hero-text { min-width: 0; }
-    .hero-photo {
-      position: relative;
-      max-width: 320px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    /* Голубоватая подложка под фото — фото "садится" в композицию */
-    .hero-photo__frame {
-      position: relative;
-      display: inline-block;
-      padding: 0;
-    }
-    .hero-photo__frame::before {
-      content: '';
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      right: -16px;
-      bottom: -16px;
-      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-      border-radius: 16px;
-      z-index: 0;
-    }
-    .hero-photo img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 280px;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 8px 28px rgba(15,23,42,0.08);
-      border: 1px solid rgba(15,23,42,0.06);
-    }
-    .hero-photo__caption {
-      margin-top: 1.5rem;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-photo__name {
-      font-weight: 600;
-      color: #0f172a;
-      font-size: 1rem;
-      letter-spacing: -0.01em;
-    }
-    .hero-photo__role {
-      color: #64748b;
-      font-size: 0.8rem;
-      margin-top: 2px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    @media (max-width: 768px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
-        text-align: center;
-      }
-      .hero-photo {
-        order: -1;
-        max-width: 200px;
-      }
-      .hero-photo__frame::before {
-        top: 10px;
-        left: 10px;
-        right: -10px;
-        bottom: -10px;
-      }
-      .hero-photo img {
-        max-width: 180px;
-      }
-      .hero-text .btn-primary,
-      .hero-text .btn-secondary {
-        width: 100%;
-      }
-    }
-    /* Hero CTA: одна главная кнопка + текстовая ссылка (фокус на одно действие) */
-    .hero-cta-row {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 1.75rem;
-    }
-    .btn-text-link {
-      color: #475569;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-decoration: none;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(15,23,42,0.15);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-    .btn-text-link:hover {
-      color: #0F172A;
-      border-bottom-color: #0F172A;
-    }
-    @media (max-width: 768px) {
-      .hero-cta-row { gap: 1rem; }
-      .hero-cta-row .btn-primary { width: 100%; text-align: center; }
-      .btn-text-link { width: 100%; text-align: center; }
-    }
-    /* Скрываем 4-й блок статистики на мобильных (как было) */
-    @media (max-width: 768px) {
-      .hero-stat-desktop { display: none; }
-    }
-  </style>
-  <style>
-    /* About section — strong author block */
-    .author-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin: 2rem 0 2.5rem;
-    }
-    .author-stat {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.25rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(31,38,135,0.06);
-      border: 1px solid rgba(37,99,235,0.08);
-    }
-    .author-stat__num {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #2563eb;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
-    }
-    .author-stat__lbl {
-      font-size: 0.78rem;
-      color: #64748b;
-      line-height: 1.35;
-    }
-    .author-text {
-      max-width: 1080px;
-      margin: 0 auto 2rem;
-      color: #334155;
-      font-size: 1.02rem;
-      line-height: 1.7;
-    }
-    .author-text p { margin-bottom: 1rem; }
-    .author-text strong { color: #0f172a; }
-
-    .author-creds {
-      max-width: 1080px;
-      margin: 0 auto 2.5rem;
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem 1.75rem;
-      border: 1px solid rgba(37,99,235,0.08);
-      box-shadow: 0 2px 12px rgba(31,38,135,0.06);
-    }
-    .author-creds__title {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #2563eb;
-      margin-bottom: 0.85rem;
-    }
-    .author-creds ul {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    .author-creds li {
-      padding: 0.5rem 0;
-      border-bottom: 0.5px solid #e2e8f0;
-      color: #475569;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .author-creds li:last-child { border-bottom: none; }
-    .author-creds li strong { color: #0f172a; }
-
-    .author-principles__title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 1.25rem;
-      text-align: center;
-    }
-    .author-principles__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    .author-principle {
-      background: #fff;
-      border-radius: 14px;
-      padding: 1.25rem;
-      border: 1px solid rgba(37,99,235,0.08);
-      box-shadow: 0 2px 12px rgba(31,38,135,0.05);
-    }
-    .author-principle__icon {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #94a3b8;
-      margin-bottom: 0.5rem;
-    }
-    .author-principle__title {
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 0.4rem;
-      font-size: 0.95rem;
-    }
-    .author-principle__desc {
-      color: #64748b;
-      font-size: 0.875rem;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .author-stats { grid-template-columns: repeat(2, 1fr); }
-      .author-principles__grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  <style>
-    /* Pricing card — free variant */
-    .pricing-card--free {
-      position: relative;
-      border: 2px solid #2563eb !important;
-      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
-    }
-    .pricing-card--free .pricing-badge {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #2563eb;
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 4px 14px;
-      border-radius: 99px;
-      letter-spacing: 0.06em;
-    }
-    .pricing-price--free {
-      color: #2563eb !important;
-    }
-
-    /* Health card section */
-    .health-card-wrap {
-      background: #fff;
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 0 4px 24px rgba(37,99,235,0.08);
-      border: 1px solid rgba(37,99,235,0.12);
-    }
-    .health-card-header {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-    }
-    .health-card-section {
-      background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
-    }
-    .health-card-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: #FFFFFF;
-      color: #2563EB;
-      box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
-      flex-shrink: 0;
-    }
-    .health-card-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #2563eb;
-      margin-bottom: 0.6rem;
-    }
-    .health-card-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 0 0 0.75rem;
-      line-height: 1.25;
-    }
-    .health-card-desc {
-      color: #475569;
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .health-card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-    .hc-block {
-      background: #f8fafc;
-      border-radius: 14px;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid #e2e8f0;
-    }
-    .hc-block--accent {
-      background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
-      border-color: rgba(37,99,235,0.2);
-    }
-    .hc-block-title {
-      font-weight: 700;
-      color: #0f172a;
-      font-size: 0.95rem;
-      margin-bottom: 0.85rem;
-    }
-    .hc-list {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    .hc-list li {
-      padding: 0.4rem 0 0.4rem 1.25rem;
-      position: relative;
-      color: #475569;
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-    .hc-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: #2563eb;
-      font-weight: 700;
-    }
-    .hc-prog {
-      margin: 0;
-      color: #334155;
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-    .hc-prog strong {
-      color: #0f172a;
-    }
-
-    .health-card-cta {
-      border-top: 1px dashed #cbd5e1;
-      padding-top: 1.5rem;
-      text-align: center;
-    }
-    .hc-steps {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .hc-step {
-      font-size: 0.875rem;
-      color: #475569;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .hc-step-num {
-      background: #2563eb;
-      color: white;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .hc-step a {
-      color: #2563eb;
-      font-weight: 500;
-    }
-    .hc-btn {
-      display: inline-block !important;
-      padding: 0.95rem 2rem !important;
-      font-size: 1rem !important;
-    }
-    .hc-note {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.78rem;
-      color: #94a3b8;
-      margin-top: 0.85rem;
-    }
-    .hc-note svg {
-      flex-shrink: 0;
-      opacity: 0.7;
-    }
-
-    /* Testimonials grid (new fear-based) */
-    .testimonials-section {
-      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
-    }
-    .t-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-    .t-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 12px rgba(31,38,135,0.06);
-      border: 1px solid rgba(0,0,0,0.04);
-      border-left: 3px solid #2563eb;
-    }
-    .t-text {
-      color: #334155;
-      font-size: 0.94rem;
-      line-height: 1.65;
-      margin: 0 0 0.85rem;
-    }
-    .t-author {
-      font-size: 0.82rem;
-      color: #64748b;
-      font-weight: 500;
-      padding-top: 0.6rem;
-      border-top: 0.5px solid #e2e8f0;
-    }
-
-    @media (max-width: 768px) {
-      .health-card-wrap { padding: 1.5rem; }
-      .health-card-header { flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
-      .health-card-icon { width: 44px; height: 44px; }
-      .health-card-title { font-size: 1.2rem; }
-      .health-card-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-      .hc-steps { flex-direction: column; gap: 0.5rem; align-items: flex-start; text-align: left; }
-      .hc-step { width: 100%; }
-      .health-card-cta { text-align: center; }
-      .t-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  <style>
-    /* Расширение контента для широких экранов — только для index.html */
-    @media (min-width: 1024px) {
-      .container.narrow {
-        max-width: 1280px !important;
-      }
-      /* Внутренние блоки секций тоже расширяются */
-      .hero-grid {
-        max-width: 1220px;
-        margin: 0 auto;
-      }
-      /* Карточки в калькуляторе и сетках раздвигаются */
-      .content-grid,
-      .pricing-grid,
-      .t-grid,
-      .author-stats,
-      .author-principles__grid {
-        max-width: 1220px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  </style>
-  <style>
-    /* Расширение заголовков секций на десктопе чтобы убрать ненужные переносы */
-    @media (min-width: 1024px) {
-      .section-header {
-        max-width: 1180px !important;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .section-header h2 {
-        max-width: 100%;
-      }
-      .section-subtitle {
-        max-width: 880px !important;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  </style>
-  <style>
-    /* Унификация размеров карточных заголовков и текста по всему сайту */
-    .premium-card h3,
-    .pricing-card h3,
-    .author-principle__title,
-    .crisis-bridge__title,
-    .hc-block-title,
-    .health-card-title {
-      font-size: 1.25rem !important;
-      font-weight: 700 !important;
-      line-height: 1.3 !important;
-      letter-spacing: 0 !important;
-    }
-    .premium-card p,
-    .pricing-card p,
-    .author-principle__desc,
-    .crisis-bridge__desc,
-    .hc-list li,
-    .hc-prog,
-    .health-card-desc {
-      font-size: 0.95rem !important;
-      line-height: 1.6 !important;
-    }
-    /* Health card title чуть крупнее (это важный заголовок секции) */
-    .health-card-title {
-      font-size: 1.4rem !important;
-    }
-    /* Карточки с цифрами — единый стиль */
-    .author-stat__num {
-      font-size: 1.8rem !important;
-    }
-    /* Hero stat numbers */
-    .hero-stats > div > div:first-child {
-      font-size: 2rem !important;
-    }
-  </style>
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108463875" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
 </head>
 <body>
-  <header class="header" >
-    <div class="container header-inner">
-      <a href="index.html" class="logo">BUSINESS DOCTOR</a>
-      <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
-        <span class="menu-toggle__line"></span>
-        <span class="menu-toggle__line"></span>
-        <span class="menu-toggle__line"></span>
-      </button>
-      <nav class="nav" data-menu>
-        <div class="nav__inner">
-          <a href="#services">Услуги</a>
-          <a href="#cases">Отзывы</a>
-          <a href="tools.html">Технологии</a>
-          <a href="crisis.html">Антикризис</a>
-          <a href="vyhod.html">Продажа бизнеса</a>
-          <a href="#pricing">Стоимость</a>
-          <a href="#contact" class="nav-cta-mobile">Обсудить проект</a>
-        </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">BUSINESS <span>DOCTOR</span></a>
+      <nav class="nav">
+        <a href="#products">Продукты</a>
+        <a href="#about">Об авторе</a>
+        <a href="#contact" class="nav-cta">Запустить AI-команду</a>
       </nav>
-      <a href="#contact" class="nav-cta-desktop">Обсудить проект</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero section" id="top">
-      <div class="container hero-container fade-up">
+
+    <!-- ===== 1. HERO ===== -->
+    <section class="hero" id="top">
+      <div class="container">
         <div class="hero-grid">
-          <div class="hero-text">
-            <div class="eyebrow">Операционный хирург для бизнеса · Business Doctor</div>
-            <h1 class="hero-title">Вхожу в бизнес на 3–6 месяцев. Ухожу когда он работает сам.</h1>
-            <p class="hero-subtitle">Не советую — делаю руками. AI-моделирование + 20 лет операционки: строю систему управления и передаю бизнес который вы видите насквозь.</p>
-            <div class="hero-cta-row">
-              <a href="#contact" class="btn-primary">Обсудить мою ситуацию →</a>
-              <a href="#health-card" class="btn-text-link">Бесплатная диагностика</a>
+          <div>
+            <div class="eyebrow">AI-команда для бизнеса</div>
+            <h1>Ваш бизнес может <em>работать сам</em></h1>
+            <p>Пока вы занимаетесь развитием, AI-агенты отвечают клиентам, продают, анализируют конкурентов, оптимизируют объявления и находят точки роста. Гермес управляет всей AI-командой.</p>
+            <div class="hero-cta">
+              <a href="#contact" class="btn-primary">Запустить AI-команду</a>
+              <a href="#products" class="btn-secondary">Как это работает →</a>
+            </div>
+            <div class="hero-tags">
+              <span>Avito</span>
+              <span>AI-продавец</span>
+              <span>AI-аналитика</span>
+              <span>Автопилот</span>
+              <span>24/7</span>
             </div>
           </div>
-          <div class="hero-photo">
-            <div class="hero-photo__frame">
-              <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Сергей Циунель — Business Doctor" />
+          <div class="hermes-terminal">
+            <div class="hermes-terminal__header">
+              <span class="hermes-terminal__dot hermes-terminal__dot--red"></span>
+              <span class="hermes-terminal__dot hermes-terminal__dot--amber"></span>
+              <span class="hermes-terminal__dot hermes-terminal__dot--green"></span>
+              <span class="hermes-terminal__title">HERMES — AI Orchestrator</span>
             </div>
-            <div class="hero-photo__caption">
-              <div class="hero-photo__name">Сергей Циунель</div>
-              <div class="hero-photo__role">Business Doctor</div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat-item">
-            <div class="hero-stat-value">20+</div>
-            <div class="hero-stat-label">лет в операционке</div>
-          </div>
-          <div class="hero-stat-item">
-            <div class="hero-stat-value">50+</div>
-            <div class="hero-stat-label">проектов сделано</div>
-          </div>
-          <div class="hero-stat-item">
-            <div class="hero-stat-value">3–6 мес</div>
-            <div class="hero-stat-label">до результата</div>
-          </div>
-          <div class="hero-stat-item hero-stat-desktop">
-            <div class="hero-stat-value">×5</div>
-            <div class="hero-stat-label">скорость с AI</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ОБ АВТОРЕ -->
-    <section class="section section-alt" id="about">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Об авторе</div>
-          <h2>Сергей Циунель. Операционный хирург для бизнеса.</h2>
-          <p class="section-subtitle">20 лет вытаскивал бизнесы из кризиса в нефтегазе, девелопменте и производстве. Теперь те же инструменты — для малого и среднего бизнеса. Руками, а не отчётами.</p>
-        </div>
-
-        <div class="author-creds">
-          <div class="author-creds__title">Образование и экспертиза</div>
-          <ul>
-            <li><strong>Executive MBA</strong> — РАНХиГС при Президенте РФ (2020)</li>
-            <li><strong>Программа «Евроменеджер»</strong> — Академия экономики и управления AFW, Германия</li>
-            <li><strong>Сертификат AMBA</strong> — Association of MBAs, Великобритания</li>
-            <li><strong>Опыт по отраслям:</strong> производство, торговля, нефтегазовый сервис, девелопмент, госзаказ, сельское хозяйство</li>
-          </ul>
-        </div>
-
-        <div class="author-principles">
-          <div class="author-principles__title">Что получаете на выходе</div>
-          <div class="author-principles__grid">
-            <div class="author-principle">
-              <div class="author-principle__icon">01</div>
-              <div class="author-principle__title">Регламенты, KPI, дашборды</div>
-              <div class="author-principle__desc">Не слайды — работающие артефакты. Матрица KPI под каждую роль, регламенты процессов, дашборды которые обновляются автоматически.</div>
-            </div>
-            <div class="author-principle">
-              <div class="author-principle__icon">02</div>
-              <div class="author-principle__title">AI-модели на ваших данных</div>
-              <div class="author-principle__desc">Сценарный анализ, прогнозирование спроса, ABC/XYZ по 500+ SKU, ML-модели обученные на истории вашего бизнеса — не на абстрактных данных.</div>
-            </div>
-            <div class="author-principle">
-              <div class="author-principle__icon">03</div>
-              <div class="author-principle__title">Финансовая модель CFO-уровня</div>
-              <div class="author-principle__desc">P&L, ДДС, точка безубыточности, прогноз 3–9 месяцев. Каждое решение — через деньги. Видите последствия до того как действуете.</div>
-            </div>
-            <div class="author-principle">
-              <div class="author-principle__icon">04</div>
-              <div class="author-principle__title">Команда которая работает сама</div>
-              <div class="author-principle__desc">Обучаю людей работать в новой системе. Ухожу — они продолжают. Бизнес не зависит от моего присутствия.</div>
+            <div class="hermes-terminal__body">
+              <div class="hermes-terminal__line"><span class="prompt">→</span> Цель: <span class="ok">Увеличить продажи на 20%</span></div>
+              <div class="hermes-terminal__line"><span class="ok">✓</span> Проанализировал <span class="info">4 821</span> диалог</div>
+              <div class="hermes-terminal__line"><span class="ok">✓</span> Сравнил <span class="info">386</span> объявлений конкурентов</div>
+              <div class="hermes-terminal__line"><span class="ok">✓</span> Нашёл <span class="warn">17</span> проблемных объявлений</div>
+              <div style="margin-top:0.8rem;margin-bottom:0.5rem;color:var(--text-3);font-size:0.75rem">Созданы агенты:</div>
+              <div class="hermes-terminal__line"><span class="hermes-terminal__agent">Sales Agent</span> <span class="hermes-terminal__agent">Market Analyst</span></div>
+              <div class="hermes-terminal__line"><span class="hermes-terminal__agent">Listing Optimizer</span> <span class="hermes-terminal__agent">Competitor Monitor</span></div>
+              <div class="hermes-terminal__status">
+                <span class="dot"></span>
+                <span style="color:var(--green);font-size:0.78rem">AI работает · 3 задачи выполняются</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- АНТИКРИЗИСНЫЙ МОСТ -->
+    <!-- ===== 2. PROBLEM ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Проблема</div>
+          <h2>Ваш бизнес растёт. А вместе с ним растёт ручная работа.</h2>
+        </div>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div class="problem-card__icon">💬</div>
+            <h3>Клиенты</h3>
+            <p>Отвечать каждому. Не пропускать обращения. Помнить контекст сотен диалогов.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card__icon">📦</div>
+            <h3>Объявления</h3>
+            <p>Менять цены. Обновлять тексты. Следить за эффективностью каждого объявления.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card__icon">🔍</div>
+            <h3>Конкуренты</h3>
+            <p>Постоянно мониторить рынок. Замечать изменения. Реагировать мгновенно.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card__icon">📊</div>
+            <h3>Аналитика</h3>
+            <p>Собирать цифры. Искать причины. Принимать решения на основе данных.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card__icon">👥</div>
+            <h3>Команда</h3>
+            <p>Контролировать сотрудников. Обучать. Проверять результат.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card__icon">📈</div>
+            <h3>Реклама</h3>
+            <p>Следить за бюджетом. Оценивать ROI. Не сливать деньги впустую.</p>
+          </div>
+        </div>
+        <p style="text-align:center;margin-top:2rem;color:var(--text-3);font-size:1.1rem">В итоге предприниматель становится оператором собственного бизнеса.</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. TRANSFORMATION ===== -->
     <section class="section">
-      <div class="container narrow fade-up">
-        <div class="crisis-bridge">
-          <div class="crisis-bridge__text">
-            <div class="crisis-bridge__badge">Антикризис</div>
-            <h3 class="crisis-bridge__title">Бизнес в сложной ситуации?</h3>
-            <p class="crisis-bridge__desc">Если уже сократили всё, что можно — есть отдельный формат: AI-диагностика для поиска резервов внутри бизнеса. Без увольнений и роста долгов.</p>
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Переворот</div>
+          <h2>А если эту работу выполняла бы AI-команда?</h2>
+        </div>
+        <div class="transform-grid">
+          <div class="transform-before">
+            <div class="transform-label">Было</div>
+            <div class="transform-flow">
+              Вы<br>
+              ↓ чаты<br>
+              ↓ таблицы<br>
+              ↓ аналитика<br>
+              ↓ объявления<br>
+              ↓ реклама<br>
+              ↓ конкуренты<br>
+              ↓ сотрудники
+            </div>
           </div>
-          <a href="crisis.html" class="btn-primary crisis-bridge__cta">Узнать подробнее →</a>
+          <div class="transform-after">
+            <div class="transform-label">Стало</div>
+            <div class="transform-flow" style="font-size:1rem">
+              <strong>Вы</strong><br>
+              ↓<br>
+              <span class="highlight">ГЕРМЕС</span><br>
+              ↓<br>
+              <span class="highlight">AI-команда</span><br>
+              ↓<br>
+              <span class="ok">результат</span>
+            </div>
+          </div>
+        </div>
+        <div class="transform-tagline">
+          Не автоматизация отдельных операций. Автоматизация бизнес-процесса целиком.
         </div>
       </div>
     </section>
 
-    <!-- ПРОБЛЕМА -->
+    <!-- ===== 4. HERMES (ORCHESTRATOR) ===== -->
+    <section class="section section-alt" id="products">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Технология</div>
+          <h2>Познакомьтесь с Гермесом</h2>
+          <p>AI-оркестратор вашего бизнеса. Получает задачу, создаёт агентов, управляет их работой.</p>
+        </div>
+        <div class="orchestrator-flow">
+          <div class="orchestrator-step">
+            <span class="orchestrator-step__num">1</span>
+            <span class="orchestrator-step__text"><strong>Задача:</strong> «Увеличить продажи категории X»</span>
+          </div>
+          <div class="orchestrator-arrow">↓</div>
+          <div class="orchestrator-step" style="border-color:rgba(108,92,231,0.2)">
+            <span class="orchestrator-step__num" style="background:var(--accent-2)">2</span>
+            <span class="orchestrator-step__text"><strong>Гермес</strong> анализирует задачу</span>
+          </div>
+          <div class="orchestrator-arrow">↓</div>
+          <div class="orchestrator-step">
+            <span class="orchestrator-step__num">3</span>
+            <span class="orchestrator-step__text"><strong>Создаёт агентов:</strong> Sales · Analyst · Competitor · Listing</span>
+          </div>
+          <div class="orchestrator-arrow">↓</div>
+          <div class="orchestrator-step">
+            <span class="orchestrator-step__num">4</span>
+            <span class="orchestrator-step__text">Запускает → <span class="ok">Контролирует</span> → <span class="warn">Исправляет</span> → Получает результат</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. CREATE AGENT ===== -->
     <section class="section">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Узнаёте себя?</div>
-          <h2>Три ситуации когда нужен операционный хирург</h2>
-          <p class="section-subtitle">Если хотя бы одна — пора разговаривать</p>
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Создание агента</div>
+          <h2>Гермес может создать нового AI-сотрудника под вашу задачу</h2>
+          <p>Вам не нужен программист, чтобы создать нового AI-сотрудника.</p>
         </div>
-        <div class="content-grid">
-          <div class="premium-card">
-            <h3>Выручка падает</h3>
-            <p>Продажи снижаются, клиенты уходят, команда теряет мотивацию. Причины непонятны или понятны, но непонятно что делать. Обычное управление уже не работает.</p>
+        <div class="create-agent">
+          <div class="create-agent__msg create-agent__msg--user">
+            <div class="create-agent__who create-agent__who--user">Вы</div>
+            <div class="create-agent__text">Создай агента, который каждый день анализирует объявления конкурентов и сообщает мне, где мы теряем продажи.</div>
           </div>
-          <div class="premium-card">
-            <h3>Деньги есть — прибыли нет</h3>
-            <p>Оборот растёт, а на счету пусто. Куда уходят деньги — непонятно. Бухгалтерия показывает одно, ощущения — другое. Бизнес непрозрачен.</p>
+          <div class="create-agent__msg create-agent__msg--hermes">
+            <div class="create-agent__who create-agent__who--hermes">Гермес</div>
+            <div class="create-agent__text">
+              Задача принята.<br>
+              <span class="ok">✓</span> <span class="info">Определяю необходимые инструменты...</span><br>
+              <span class="ok">✓</span> <span class="info">Создаю агента...</span><br>
+              <span class="ok">✓</span> <span class="info">Подключаю источники данных...</span><br>
+              <span class="ok">✓</span> <span class="info">Настраиваю расписание...</span><br>
+              <span class="ok">✓</span> <span class="info">Добавляю контроль ошибок...</span>
+            </div>
+            <div class="create-agent__status">● Competitor Intelligence Agent создан</div>
           </div>
-          <div class="premium-card">
-            <h3>Рост создаёт хаос</h3>
-            <p>Компания быстро выросла, процессы не успевают. Собственник тянет всё на себе, делегировать невозможно — системы нет. Без изменений скоро сломается.</p>
+        </div>
+        <div class="create-agent__tagline">Вам не нужен программист, чтобы создать нового AI-сотрудника.</div>
+      </div>
+    </section>
+
+    <!-- ===== 6. AI TEAM ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">AI-команда</div>
+          <h2>Ваши новые сотрудники</h2>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-card__icon">🧑‍💼</div>
+            <div class="team-card__tag team-card__tag--sales">AI-ПРОДАВЕЦ</div>
+            <h3>Не просто отвечает. Продаёт.</h3>
+            <p>Ведёт диалог, понимает намерение, работает с возражениями, квалифицирует клиента, доводит до покупки, передаёт горячего клиента человеку.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-card__icon">📊</div>
+            <div class="team-card__tag team-card__tag--analytics">AI-АНАЛИТИК</div>
+            <h3>Не показывает цифры. Объясняет, что делать.</h3>
+            <p>«Продажи упали на 11%. Причина: три ключевых объявления потеряли позиции. Вот что предлагаю сделать. [Применить]»</p>
+          </div>
+          <div class="team-card">
+            <div class="team-card__icon">🔎</div>
+            <div class="team-card__tag team-card__tag--research">AI-ИССЛЕДОВАТЕЛЬ</div>
+            <h3>Постоянно изучает рынок</h3>
+            <p>Конкуренты, цены, ассортимент, новые объявления, спрос, изменения рынка — всё под контролем.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-card__icon">📝</div>
+            <div class="team-card__tag team-card__tag--content">AI-КОНТЕНТ-МЕНЕДЖЕР</div>
+            <h3>Объявления оптимизируются сами</h3>
+            <p>Анализирует заголовки, описания, характеристики, фото, цены, эффективность. Находит слабые места.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-card__icon">🎯</div>
+            <div class="team-card__tag team-card__tag--marketing">AI-МАРКЕТОЛОГ</div>
+            <h3>Следит за рекламой</h3>
+            <p>Стоимость обращения, конверсия, эффективность объявлений, перераспределение бюджета.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-card__icon">🛡</div>
+            <div class="team-card__tag team-card__tag--control">AI-КОНТРОЛЁР</div>
+            <h3>Следит за работой агентов</h3>
+            <p>Проверяет каждое действие. Не даёт системе ошибаться. Обеспечивает безопасность.</p>
           </div>
         </div>
       </div>
     </section>
 
-<!-- ============================================
-         ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР — Финансовое здоровье
-         Вставить ПОСЛЕ секции "Узнаёте себя?" и ПЕРЕД "5 этапов"
-         Стили лежат в css/sections.css (.calc-section и ниже)
-         ============================================ -->
-    <section class="section calc-section" id="health-check">
-      <div class="container narrow fade-up">
-
-        <div class="calc-header">
-          <div class="eyebrow">Бесплатно · 60 секунд · Без email</div>
-          <h2 class="calc-title">Узнайте финансовое здоровье вашего бизнеса</h2>
-          <p class="calc-subtitle">Введите цифры за месяц из бухгалтерии — увидите реальный управленческий P&amp;L, точку безубыточности и резервы. То что директор должен знать наизусть.</p>
-          <p class="calc-disclaimer">Это срез P&amp;L на уровне агрегатов — не аудит наценок и не разбор по SKU. Дает быструю картину устойчивости.</p>
-          <div class="calc-scale-warning" data-scale-warning style="display:none;">
-            ⚠ Цифры выглядят как тысячи или штуки. Калькулятор работает с <strong>абсолютными рублями за месяц</strong> — например, выручка 8&nbsp;000&nbsp;000 ₽ (не 8000 и не 8).
+    <!-- ===== 7. NOT A BOT ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Сравнение</div>
+          <h2>Обычный бот vs AI-агент</h2>
+        </div>
+        <div class="comparison">
+          <div class="comparison-card comparison-card--old">
+            <div class="comparison-card__label">Обычный AI-бот</div>
+            <div class="comparison-flow">
+              <div class="step">Клиент написал</div>
+              <div class="arrow">↓</div>
+              <div class="step">бот нашёл шаблон</div>
+              <div class="arrow">↓</div>
+              <div class="step">бот отправил ответ</div>
+              <div class="arrow">↓</div>
+              <div class="step" style="color:var(--text-3)">конец</div>
+            </div>
+          </div>
+          <div class="comparison-card comparison-card--new">
+            <div class="comparison-card__label">AI-агент</div>
+            <div class="comparison-flow">
+              <div class="step">Клиент написал</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">понял намерение</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">изучил контекст</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">посмотрел товар</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">оценил клиента</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">выбрал стратегию</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">ответил</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">продолжил диалог</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">зафиксировал результат</div>
+              <div class="arrow">↓</div>
+              <div class="step-done">передал менеджеру</div>
+              <div class="arrow">↓</div>
+              <div class="step" style="color:var(--green)">добился цели</div>
+            </div>
           </div>
         </div>
-
-        <div class="calc-grid">
-
-          <!-- ЛЕВАЯ КОЛОНКА — ВВОД -->
-          <div class="calc-card">
-            <div class="calc-card__title">Данные вашего бизнеса · ₽ за месяц</div>
-
-            <div class="calc-field">
-              <div class="calc-field__label"><span>Выручка без НДС</span></div>
-              <div class="calc-field__input-wrap">
-                <input type="number" inputmode="numeric" class="calc-field__input" data-field="revenue" placeholder="например, 8 000 000">
-                <span class="calc-field__unit">₽</span>
-              </div>
-            </div>
-
-            <div class="calc-field">
-              <div class="calc-field__label"><span>Сырьё и материалы</span><span class="calc-field__norm">норма 55–65%</span></div>
-              <div class="calc-field__input-wrap">
-                <input type="number" inputmode="numeric" class="calc-field__input" data-field="raw" placeholder="0">
-                <span class="calc-field__unit">₽</span>
-              </div>
-            </div>
-
-            <div class="calc-field">
-              <div class="calc-field__label"><span>Логистика и доставка</span><span class="calc-field__norm">норма 5–7%</span></div>
-              <div class="calc-field__input-wrap">
-                <input type="number" inputmode="numeric" class="calc-field__input" data-field="logistics" placeholder="0">
-                <span class="calc-field__unit">₽</span>
-              </div>
-            </div>
-
-            <div class="calc-field">
-              <div class="calc-field__label"><span>ФОТ (весь персонал)</span></div>
-              <div class="calc-field__input-wrap">
-                <input type="number" inputmode="numeric" class="calc-field__input" data-field="payroll" placeholder="0">
-                <span class="calc-field__unit">₽</span>
-              </div>
-            </div>
-
-            <div class="calc-field">
-              <div class="calc-field__label"><span>Аренда</span></div>
-              <div class="calc-field__input-wrap">
-                <input type="number" inputmode="numeric" class="calc-field__input" data-field="rent" placeholder="0">
-                <span class="calc-field__unit">₽</span>
-              </div>
-            </div>
-
-            <div class="calc-field">
-              <div class="calc-field__label"><span>Прочие постоянные расходы</span><span class="calc-field__norm">IT, охрана, связь</span></div>
-              <div class="calc-field__input-wrap">
-                <input type="number" inputmode="numeric" class="calc-field__input" data-field="other_fixed" placeholder="0">
-                <span class="calc-field__unit">₽</span>
-              </div>
-            </div>
-
-            <button type="button" class="calc-expand-btn" data-expand-toggle aria-expanded="false">
-              <span class="calc-expand-btn__text">Уточнить расчёт (+6 полей)</span>
-              <span class="calc-expand-btn__arrow">▼</span>
-            </button>
-
-            <div class="calc-advanced" data-advanced>
-              <div class="calc-field">
-                <div class="calc-field__label"><span>Прочие переменные</span><span class="calc-field__norm">ГСМ, маркировка, запчасти</span></div>
-                <div class="calc-field__input-wrap">
-                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="other_var" placeholder="0">
-                  <span class="calc-field__unit">₽</span>
-                </div>
-              </div>
-
-              <div class="calc-field">
-                <div class="calc-field__label"><span>Страховые взносы</span><span class="calc-field__norm">~30% от ФОТ</span></div>
-                <div class="calc-field__input-wrap">
-                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="insurance" placeholder="авто: 30% от ФОТ">
-                  <span class="calc-field__unit">₽</span>
-                </div>
-              </div>
-
-              <div class="calc-field">
-                <div class="calc-field__label"><span>Амортизация</span></div>
-                <div class="calc-field__input-wrap">
-                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="depreciation" placeholder="0">
-                  <span class="calc-field__unit">₽</span>
-                </div>
-              </div>
-
-              <div class="calc-field">
-                <div class="calc-field__label"><span>Проценты по кредитам</span></div>
-                <div class="calc-field__input-wrap">
-                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="interest" placeholder="0">
-                  <span class="calc-field__unit">₽</span>
-                </div>
-              </div>
-
-              <div class="calc-field">
-                <div class="calc-field__label"><span>Премии покупателям</span><span class="calc-field__norm">опасно при низком КМД</span></div>
-                <div class="calc-field__input-wrap">
-                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="bonuses" placeholder="0">
-                  <span class="calc-field__unit">₽</span>
-                </div>
-              </div>
-
-              <div class="calc-field">
-                <div class="calc-field__label"><span>Ставка налога на прибыль</span><span class="calc-field__norm">по умолчанию 20%</span></div>
-                <div class="calc-field__input-wrap">
-                  <input type="number" inputmode="numeric" class="calc-field__input" data-field="tax" placeholder="20" value="20">
-                  <span class="calc-field__unit">%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ПРАВАЯ КОЛОНКА — РЕЗУЛЬТАТЫ -->
-          <div class="calc-card">
-            <div class="calc-card__title">Финансовое здоровье</div>
-
-            <div class="results-empty" data-empty>
-              <svg class="results-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"/>
-                <path d="M7 14l4-4 4 4 5-5"/>
-              </svg>
-              <p class="results-empty__text">Введите выручку слева — расчёт появится автоматически</p>
-            </div>
-
-            <div data-results style="display: none;">
-              <div class="metrics-row">
-                <div class="metric metric--highlight">
-                  <div class="metric__label">КМД (маржинальность)</div>
-                  <div class="metric__value" data-out="kmd">—</div>
-                  <div class="metric__hint">сколько остаётся после переменных</div>
-                </div>
-                <div class="metric">
-                  <div class="metric__label">Точка безубыточности</div>
-                  <div class="metric__value" data-out="tbu">—</div>
-                  <div class="metric__hint" data-out="tbu_hint">минимум выручки при текущей доле переменных</div>
-                </div>
-              </div>
-
-              <div class="zfp-row">
-                <div class="zfp-row__head">
-                  <div class="zfp-row__label">Запас финансовой прочности</div>
-                  <div class="zfp-row__value" data-out="zfp">—</div>
-                </div>
-                <div class="zfp-bar"><div class="zfp-bar__fill" data-out="zfp_bar"></div></div>
-                <div class="zfp-row__hint" data-out="zfp_hint">На сколько может упасть выручка до выхода в ноль</div>
-              </div>
-
-              <div class="metrics-row" style="grid-template-columns: 1fr;">
-                <div class="metric" data-metric-profit>
-                  <div class="metric__label">Чистая прибыль (после налога)</div>
-                  <div class="metric__value" data-out="profit">—</div>
-                  <div class="metric__hint" data-out="profit_year">в год: —</div>
-                </div>
-              </div>
-
-              <div class="diagnostics" data-diagnostics></div>
-
-              <!-- БЛОК «Три пути» — управленческие сценарии -->
-              <div class="paths-row" data-paths style="display:none;">
-                <div class="paths-row__title" data-paths-title>Три пути выйти в ноль</div>
-                <div class="paths-row__hint">При текущей структуре расходов. Меняйте поля слева — цифры пересчитаются.</div>
-                <div class="paths-list" data-paths-list></div>
-              </div>
-
-              <!-- MINI-ФОРМА: захват горячего лида с цифрами -->
-              <div class="calc-leadform" data-leadform>
-                <div class="calc-leadform__text" data-cta-text>Это срез на уровне агрегатов. Полный разбор по SKU и наценкам — на ваших данных за 6-12 месяцев.</div>
-                <form class="calc-leadform__form" id="calcLeadForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
-                  <input type="hidden" name="form_type" value="health_check_calculator">
-                  <input type="hidden" name="calculator_data" data-leadform-data value="">
-                  <div class="calc-leadform__row">
-                    <input type="email" name="email" placeholder="ваш email" required class="calc-leadform__input">
-                    <button type="submit" class="calc-leadform__btn">Получить разбор →</button>
-                  </div>
-                  <div class="calc-leadform__note">Ваши цифры отправятся вместе с заявкой. Связь в течение 2 часов в рабочее время. NDA по запросу.</div>
-                  <div class="calc-leadform__status" data-leadform-status></div>
-                </form>
-              </div>
-            </div>
-          </div>
-
+        <div class="comparison-big-text">
+          Он не отвечает. Он работает.
         </div>
       </div>
+    </section>
 
-      <!-- JS калькулятора -->
-      <script>
-      (function() {
-        const root = document.getElementById('health-check');
-        if (!root) return;
+    <!-- ===== 8. ANALYTICS ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">AI-аналитика</div>
+          <h2>Ваш AI знает, что происходит с бизнесом</h2>
+          <p>Не графики. Решения.</p>
+        </div>
+        <div class="analytics-demo">
+          <div class="analytics-demo__header">
+            <div class="analytics-demo__metric">
+              <div class="analytics-demo__metric-value analytics-demo__metric-value--up">+18,4%</div>
+              <div class="analytics-demo__metric-label">Продажи</div>
+            </div>
+            <div class="analytics-demo__metric">
+              <div class="analytics-demo__metric-value analytics-demo__metric-value--up">+23%</div>
+              <div class="analytics-demo__metric-label">Обращения</div>
+            </div>
+            <div class="analytics-demo__metric">
+              <div class="analytics-demo__metric-value analytics-demo__metric-value--up">+7,2%</div>
+              <div class="analytics-demo__metric-label">Конверсия</div>
+            </div>
+            <div class="analytics-demo__metric">
+              <div class="analytics-demo__metric-value analytics-demo__metric-value--down">−34%</div>
+              <div class="analytics-demo__metric-label">Потерянные лиды</div>
+            </div>
+          </div>
+          <div class="analytics-demo__findings">
+            <div class="analytics-demo__finding"><span>🔴</span> 3 объявления теряют эффективность</div>
+            <div class="analytics-demo__finding"><span>🟡</span> Цена 7 товаров выше рынка</div>
+            <div class="analytics-demo__finding"><span>🟢</span> 2 товара имеют потенциал роста цены</div>
+            <div class="analytics-demo__finding"><span>🔵</span> 19 горячих клиентов требуют внимания</div>
+          </div>
+          <div class="analytics-demo__actions">
+            <div class="analytics-demo__actions-title">Что уже сделал AI</div>
+            <div class="analytics-demo__action">✓ Обновил 4 объявления</div>
+            <div class="analytics-demo__action">✓ Ответил на 84 обращения</div>
+            <div class="analytics-demo__action">✓ Выделил 19 горячих клиентов</div>
+            <div class="analytics-demo__action">✓ Перераспределил задачи между агентами</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        const fields = ['revenue','raw','logistics','payroll','rent','other_fixed','other_var','insurance','depreciation','interest','bonuses','tax'];
-        const inputs = {};
-        fields.forEach(f => { inputs[f] = root.querySelector('[data-field="'+f+'"]'); });
+    <!-- ===== 9. AVITO ===== -->
+    <section class="section" id="avito">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Avito</div>
+          <h2>Ваш Avito-магазин работает 24/7</h2>
+        </div>
+        <div class="avito-grid">
+          <div>
+            <ul class="avito-benefits">
+              <li>Отвечает на сообщения клиентов — мгновенно</li>
+              <li>Продаёт: ведёт диалог к покупке</li>
+              <li>Анализирует: конверсию и продажи</li>
+              <li>Следит за конкурентами</li>
+              <li>Оптимизирует объявления</li>
+              <li>Находит точки роста</li>
+            </ul>
+          </div>
+          <div class="avito-big-number">
+            <div class="avito-big-number__value">0</div>
+            <div class="avito-big-number__label">пропущенных диалогов. Даже ночью.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        const expandBtn = root.querySelector('[data-expand-toggle]');
-        const advanced = root.querySelector('[data-advanced]');
-        expandBtn.addEventListener('click', () => {
-          const isOpen = advanced.classList.toggle('open');
-          expandBtn.setAttribute('aria-expanded', isOpen);
-          expandBtn.querySelector('.calc-expand-btn__text').textContent = isOpen ? 'Свернуть' : 'Уточнить расчёт (+6 полей)';
-        });
+    <!-- ===== 10. AUTOPILOT ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Автопилот</div>
+          <h2>Выберите уровень автономности</h2>
+          <p>Уровень автономности выбираете вы.</p>
+        </div>
+        <div class="autopilot-grid">
+          <div class="autopilot-card">
+            <div class="autopilot-card__level">🟢</div>
+            <h3>ASSIST</h3>
+            <p>AI предлагает. Вы принимаете решение. Безопасный старт.</p>
+          </div>
+          <div class="autopilot-card">
+            <div class="autopilot-card__level">🟡</div>
+            <h3>AUTOPILOT</h3>
+            <p>AI выполняет стандартные задачи. Вы контролируете результат.</p>
+          </div>
+          <div class="autopilot-card">
+            <div class="autopilot-card__level">🔴</div>
+            <h3>AUTONOMOUS</h3>
+            <p>AI самостоятельно управляет процессами. Вы занимаетесь бизнесом.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function fmt(n, opts) {
-          opts = opts || {};
-          if (!isFinite(n) || isNaN(n)) return '—';
-          const abs = Math.abs(n);
-          let s;
-          if (opts.compact && abs >= 1e6) s = (n/1e6).toLocaleString('ru-RU', {maximumFractionDigits: 2}) + ' млн';
-          else if (opts.compact && abs >= 1e3) s = (n/1e3).toLocaleString('ru-RU', {maximumFractionDigits: 0}) + ' тыс';
-          else s = Math.round(n).toLocaleString('ru-RU');
-          return s + (opts.suffix || '');
-        }
-        function pct(n, d) {
-          if (!isFinite(n) || isNaN(n)) return '—';
-          return (n*100).toLocaleString('ru-RU', {maximumFractionDigits: d||1}) + '%';
-        }
-        function getVal(f) {
-          const v = parseFloat(inputs[f].value);
-          return isFinite(v) ? v : 0;
-        }
+    <!-- ===== 11. SCENARIO ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Сценарий</div>
+          <h2>Как это работает на реальном бизнесе</h2>
+        </div>
+        <div class="scenario">
+          <div class="scenario__goal">
+            <div class="scenario__goal-label">Владелец сказал</div>
+            <span style="font-size:1rem">«Хочу увеличить продажи на 20%»</span>
+          </div>
+          <div class="scenario__step"><span class="scenario__step-num">1</span> Анализирую: продажи, клиентов, цены, объявления, конкурентов</div>
+          <div class="scenario__step"><span class="scenario__step-num">2</span> Создаю AI-команду: Sales, Analytics, Competitor, Listing</div>
+          <div class="scenario__step"><span class="scenario__step-num">3</span> Запускаю</div>
+          <div class="scenario__step"><span class="scenario__step-num">4</span> Контролирую</div>
+          <div class="scenario__step"><span class="scenario__step-num">5</span> Оптимизирую</div>
+          <div class="scenario__result">
+            <div class="scenario__result-item">
+              <div class="scenario__result-value">+17,8%</div>
+              <div class="scenario__result-label">конверсии</div>
+            </div>
+            <div class="scenario__result-item">
+              <div class="scenario__result-value">46</div>
+              <div class="scenario__result-label">изменений AI</div>
+            </div>
+            <div class="scenario__result-item">
+              <div class="scenario__result-value">183</div>
+              <div class="scenario__result-label">диалога</div>
+            </div>
+            <div class="scenario__result-item">
+              <div class="scenario__result-value">7</div>
+              <div class="scenario__result-label">новых возможностей</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function calc() {
-          const revenue = getVal('revenue');
-          const empty = root.querySelector('[data-empty]');
-          const results = root.querySelector('[data-results]');
-          const scaleWarning = root.querySelector('[data-scale-warning]');
+    <!-- ===== 12. SAFETY ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Безопасность</div>
+          <h2>AI работает самостоятельно. Но не бесконтрольно.</h2>
+        </div>
+        <div class="safety-grid">
+          <div class="safety-card">
+            <div class="safety-card__icon">🔐</div>
+            <h3>Ограничения</h3>
+            <p>Что агент может и не может делать — вы задаёте рамки.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-card__icon">👁</div>
+            <h3>Контроль</h3>
+            <p>Вы видите каждое действие AI-команды.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-card__icon">📝</div>
+            <h3>История</h3>
+            <p>Каждое решение записывается и доступно для аудита.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-card__icon">⛔</div>
+            <h3>Kill Switch</h3>
+            <p>В любой момент можно остановить любого агента.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-card__icon">👤</div>
+            <h3>Human-in-the-loop</h3>
+            <p>Критические решения можно оставить человеку.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-card__icon">🔒</div>
+            <h3>NDA</h3>
+            <p>Ваши данные не передаются третьим лицам. Работаю под NDA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          // Warning: цифры подозрительно маленькие (выручка < 50 000 ₽/месяц)
-          // Реальный малый бизнес не работает с такими оборотами — скорее всего ввод в тысячах
-          if (scaleWarning) {
-            scaleWarning.style.display = (revenue > 0 && revenue < 50000) ? 'block' : 'none';
-          }
+    <!-- ===== 13. INTEGRATIONS ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Интеграции</div>
+          <h2>Подключите свой бизнес</h2>
+        </div>
+        <div class="integrations-grid">
+          <span class="integration-item integration-item--primary">Avito</span>
+          <span class="integration-item">CRM</span>
+          <span class="integration-item">Telegram</span>
+          <span class="integration-item">Сайт</span>
+          <span class="integration-item">Wildberries</span>
+          <span class="integration-item">Ozon</span>
+          <span class="integration-item">1С</span>
+          <span class="integration-item">API</span>
+        </div>
+        <p style="text-align:center;margin-top:2rem;color:var(--text-2);font-size:0.95rem">
+          Если нужной интеграции нет — Гермес может создать агента под вашу задачу.
+        </p>
+      </div>
+    </section>
 
-          if (revenue <= 0) {
-            empty.style.display = 'block';
-            results.style.display = 'none';
-            return;
-          }
-          empty.style.display = 'none';
-          results.style.display = 'block';
-
-          const raw = getVal('raw'), logistics = getVal('logistics'), otherVar = getVal('other_var');
-          const variableCosts = raw + logistics + otherVar;
-          const marginIncome = revenue - variableCosts;
-          const kmd = marginIncome / revenue;
-
-          const payroll = getVal('payroll');
-          let insurance = getVal('insurance');
-          if (insurance === 0 && payroll > 0) insurance = payroll * 0.30;
-          const rent = getVal('rent'), depreciation = getVal('depreciation'), otherFixed = getVal('other_fixed');
-          const fixedCosts = payroll + insurance + rent + depreciation + otherFixed;
-
-          const operatingProfit = marginIncome - fixedCosts;
-          const interest = getVal('interest'), bonuses = getVal('bonuses');
-          const otherExpenses = interest + bonuses;
-          const profitBeforeTax = operatingProfit - otherExpenses;
-          const taxRate = (getVal('tax') || 20) / 100;
-          const tax = profitBeforeTax > 0 ? profitBeforeTax * taxRate : 0;
-          const netProfit = profitBeforeTax - tax;
-          const tbu = kmd > 0 ? fixedCosts / kmd : NaN;
-          const zfp = (revenue > 0 && isFinite(tbu)) ? (revenue - tbu) / revenue : NaN;
-
-          root.querySelector('[data-out="kmd"]').textContent = pct(kmd, 1);
-          root.querySelector('[data-out="tbu"]').textContent = isFinite(tbu) && tbu > 0 ? fmt(tbu, {compact:true, suffix:' ₽'}) : '—';
-          const variableRatio = revenue > 0 ? (variableCosts / revenue) : 0;
-          root.querySelector('[data-out="tbu_hint"]').textContent = isFinite(tbu) && tbu > 0
-            ? 'минимум выручки при доле переменных ' + pct(variableRatio, 0)
-            : 'нужны переменные < выручки';
-
-          const zfpEl = root.querySelector('[data-out="zfp"]');
-          const zfpBar = root.querySelector('[data-out="zfp_bar"]');
-          const zfpHint = root.querySelector('[data-out="zfp_hint"]');
-          if (isFinite(zfp)) {
-            zfpEl.textContent = pct(zfp, 0);
-            const pctVal = Math.max(0, Math.min(100, zfp * 100));
-            zfpBar.style.width = pctVal + '%';
-            zfpBar.className = 'zfp-bar__fill';
-            if (zfp < 0.1) {
-              zfpBar.classList.add('zfp-bar__fill--danger');
-              zfpHint.textContent = '⚠ Опасно: малейшее падение выручки уведёт в убыток';
-            } else if (zfp < 0.3) {
-              zfpBar.classList.add('zfp-bar__fill--warning');
-              zfpHint.textContent = 'Средний запас. Падение выручки на ' + Math.round(zfp*100) + '% уже критично';
-            } else {
-              zfpHint.textContent = 'Бизнес устойчив. Может пережить падение выручки на ' + Math.round(zfp*100) + '%';
-            }
-          } else {
-            zfpEl.textContent = '—'; zfpBar.style.width = '0%';
-            zfpHint.textContent = 'Введите все расходы для расчёта';
-          }
-
-          const profitEl = root.querySelector('[data-out="profit"]');
-          const profitYearEl = root.querySelector('[data-out="profit_year"]');
-          const profitMetric = root.querySelector('[data-metric-profit]');
-          profitEl.textContent = fmt(netProfit, {compact:true, suffix:' ₽'});
-          profitYearEl.textContent = 'в год: ' + fmt(netProfit * 12, {compact:true, suffix:' ₽'});
-          profitMetric.classList.remove('metric--positive','metric--negative');
-          if (netProfit > 0) profitMetric.classList.add('metric--positive');
-          else if (netProfit < 0) profitMetric.classList.add('metric--negative');
-
-          // Диагностика
-          const diags = [];
-          const logiPct = revenue > 0 ? logistics / revenue : 0;
-          if (logistics > 0) {
-            if (logiPct <= 0.07) diags.push({type:'ok', text:'<strong>Логистика в норме</strong>', sub: pct(logiPct, 1) + ' от выручки (норма 5–7%)'});
-            else if (logiPct <= 0.10) diags.push({type:'warn', text:'<strong>Логистика на грани</strong>', sub: pct(logiPct, 1) + ' от выручки. Норма до 7%, выше 10% — тревога'});
-            else diags.push({type:'bad', text:'<strong>Логистика съедает прибыль</strong>', sub: pct(logiPct, 1) + ' от выручки — главный источник убытка. Норма 5–7%'});
-          }
-          if (kmd >= 0.30) diags.push({type:'ok', text:'<strong>КМД здоровый</strong>', sub: 'Маржинальный доход покрывает постоянные расходы с запасом'});
-          else if (kmd >= 0.20) diags.push({type:'warn', text:'<strong>КМД низкий</strong>', sub: 'Менее 30% — устойчивость бизнеса под вопросом'});
-          else if (kmd > 0) diags.push({type:'bad', text:'<strong>КМД критически низкий</strong>', sub: 'Бизнес слишком чувствителен к падению выручки'});
-          else diags.push({type:'bad', text:'<strong>Отрицательный КМД</strong>', sub: 'Переменные расходы выше выручки — каждая продажа в минус'});
-
-          if (isFinite(tbu) && tbu > 0) {
-            if (revenue >= tbu * 1.3) diags.push({type:'ok', text:'<strong>Бизнес выше точки безубыточности</strong>', sub: 'Запас прочности ' + pct(zfp, 0)});
-            else if (revenue >= tbu) diags.push({type:'warn', text:'<strong>Бизнес у точки безубыточности</strong>', sub: 'Работает в ноль или с минимальным плюсом'});
-            else diags.push({type:'bad', text:'<strong>Бизнес ниже точки безубыточности</strong>', sub: 'Текущая выручка не покрывает все расходы'});
-          }
-          if (netProfit > 0) diags.push({type:'ok', text:'<strong>Есть чистая прибыль</strong>', sub: 'Рентабельность ' + pct(netProfit/revenue, 1) + ' от выручки'});
-          else if (netProfit === 0) diags.push({type:'warn', text:'<strong>Прибыль около нуля</strong>', sub: 'Бизнес работает на грани'});
-          else diags.push({type:'bad', text:'<strong>Бизнес в убытке</strong>', sub: 'Расходы превышают выручку на ' + fmt(Math.abs(netProfit), {compact:true, suffix:' ₽'}) + ' в месяц'});
-
-          if (bonuses > 0 && kmd < 0.30 && revenue > 0) {
-            const bonPct = bonuses / revenue;
-            diags.push({type:'warn', text:'<strong>Премии покупателям при низком КМД</strong>', sub: pct(bonPct, 1) + ' от выручки — скрытое снижение цены. Особо опасно'});
-          }
-
-          const diagBox = root.querySelector('[data-diagnostics]');
-          diagBox.innerHTML = diags.map(d => {
-            const icon = d.type === 'ok' ? '✓' : (d.type === 'warn' ? '!' : '×');
-            return '<div class="diag-row">' +
-              '<div class="diag-row__icon diag-row__icon--' + d.type + '">' + icon + '</div>' +
-              '<div><div class="diag-row__text">' + d.text + '</div><div class="diag-row__sub">' + d.sub + '</div></div>' +
-            '</div>';
-          }).join('');
-
-          // === Блок «Три пути» — управленческие сценарии ===
-          const pathsBox = root.querySelector('[data-paths]');
-          const pathsTitle = root.querySelector('[data-paths-title]');
-          const pathsList = root.querySelector('[data-paths-list]');
-          // Показываем только если операционная прибыль ≠ 0 и кмд > 0 (иначе формулы не работают)
-          if (kmd > 0 && Math.abs(operatingProfit) > 1) {
-            pathsBox.style.display = 'block';
-            const isLoss = operatingProfit < 0;
-            pathsTitle.textContent = isLoss ? 'Три пути выйти в ноль' : 'Три сценария чувствительности';
-
-            const paths = [];
-
-            if (isLoss) {
-              // Путь 1: увеличить выручку (при сохранении доли переменных)
-              const needRevenue = fixedCosts / kmd;  // = ТБУ
-              const revGap = needRevenue - revenue;
-              const revGapPct = revGap / revenue;
-              paths.push({
-                label: 'Поднять выручку',
-                value: '+' + pct(revGapPct, 0) + ' к выручке',
-                detail: 'до ' + fmt(needRevenue, {compact:true, suffix:' ₽'}) + ' (при сохранении доли переменных ' + pct(variableRatio, 0) + ')'
-              });
-
-              // Путь 2: сократить постоянные расходы
-              const needFixed = marginIncome;  // постоянные = МД → опер.прибыль = 0
-              const fixedCut = fixedCosts - needFixed;
-              if (fixedCut > 0 && needFixed > 0) {
-                const fixedCutPct = fixedCut / fixedCosts;
-                paths.push({
-                  label: 'Сократить постоянные',
-                  value: '−' + fmt(fixedCut, {compact:true, suffix:' ₽'}) + ' (' + pct(fixedCutPct, 0) + ')',
-                  detail: 'до ' + fmt(needFixed, {compact:true, suffix:' ₽'}) + ' в месяц'
-                });
-              }
-
-              // Путь 3: поднять КМД (сократить переменные)
-              const requiredKmd = fixedCosts / revenue;
-              if (requiredKmd > 0 && requiredKmd < 1) {
-                const neededVar = revenue * (1 - requiredKmd);
-                const varCut = variableCosts - neededVar;
-                if (varCut > 0) {
-                  paths.push({
-                    label: 'Поднять КМД',
-                    value: pct(kmd, 0) + ' → ' + pct(requiredKmd, 0),
-                    detail: 'сократить переменные на ' + fmt(varCut, {compact:true, suffix:' ₽'}) + ' (на цене или закупках)'
+    <!-- ===== AI NEWS ===== -->
+    <section class="section section-alt" id="news">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">AI-новости</div>
+          <h2>Что происходит в мире AI-агентов</h2>
+        </div>
+        <div class="news-feed" id="ai-news-feed">
+          <p style="text-align:center;color:var(--text-3)">Загрузка новостей...</p>
+        </div>
+        <script>
+        (function(){
+          const feed = document.getElementById('ai-news-feed');
+          const sources = [
+            {url:'https://habr.com/ru/flows/ai_and_ml/news/rss/', name:'Habr AI'},
+            {url:'https://www.automotiveworld.com/rss/', name:'Automotive World'},
+          ];
+          const items = [];
+          let loaded = 0;
+          sources.forEach(src => {
+            const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(src.url);
+            fetch(proxyUrl)
+              .then(r => r.json())
+              .then(d => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(d.contents, 'text/xml');
+                const entries = xml.querySelectorAll('item');
+                entries.forEach(entry => {
+                  items.push({
+                    title: entry.querySelector('title')?.textContent || '—',
+                    link: entry.querySelector('link')?.textContent || '#',
+                    source: src.name,
+                    date: entry.querySelector('pubDate')?.textContent?.slice(0,16) || ''
                   });
-                }
-              }
-            } else {
-              // Бизнес в плюсе — показываем чувствительность
-              // Путь 1: на сколько может упасть выручка
-              const safeDropPct = (revenue - tbu) / revenue;
-              paths.push({
-                label: 'Запас по выручке',
-                value: '−' + pct(safeDropPct, 0) + ' до нуля',
-                detail: 'падение ниже ' + fmt(tbu, {compact:true, suffix:' ₽'}) + ' уже в убыток'
-              });
-
-              // Путь 2: эффект роста выручки на 10%
-              const grow10Rev = revenue * 1.10;
-              const grow10Var = grow10Rev * variableRatio;
-              const grow10Op = grow10Rev - grow10Var - fixedCosts;
-              const opChange = grow10Op - operatingProfit;
-              paths.push({
-                label: 'Рост выручки +10%',
-                value: opChange >= 0 ? '+' + fmt(opChange, {compact:true, suffix:' ₽'}) : fmt(opChange, {compact:true, suffix:' ₽'}),
-                detail: 'к опер.прибыли (рычаг ' + (Math.abs(marginIncome / operatingProfit)).toFixed(1) + 'x)'
-              });
-
-              // Путь 3: эффект оптимизации переменных на 5%
-              const opt5Var = variableCosts * 0.95;
-              const opt5Op = revenue - opt5Var - fixedCosts;
-              const optChange = opt5Op - operatingProfit;
-              paths.push({
-                label: 'Снизить переменные −5%',
-                value: '+' + fmt(optChange, {compact:true, suffix:' ₽'}),
-                detail: 'к опер.прибыли в месяц'
-              });
-            }
-
-            pathsList.innerHTML = paths.map(p => (
-              '<div class="path-item">' +
-                '<div class="path-item__head">' +
-                  '<div class="path-item__label">' + p.label + '</div>' +
-                  '<div class="path-item__value">' + p.value + '</div>' +
-                '</div>' +
-                '<div class="path-item__detail">' + p.detail + '</div>' +
-              '</div>'
-            )).join('');
-          } else {
-            pathsBox.style.display = 'none';
-          }
-
-          const ctaText = root.querySelector('[data-cta-text]');
-          const badCount = diags.filter(d => d.type === 'bad').length;
-          const warnCount = diags.filter(d => d.type === 'warn').length;
-          const safeZfp = isFinite(zfp) ? zfp : 0;
-
-          // Новая логика: смотрим на фактическое состояние, не на счётчик флагов
-          if (netProfit < 0 && badCount >= 2) {
-            ctaText.innerHTML = '<strong style="color:#0F172A">У вашего бизнеса несколько критических зон.</strong> 45 минут разбора — найдём конкретные шаги.';
-          } else if (netProfit < 0) {
-            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес работает в убыток.</strong> Поговорим — найдём резервы и спланируем путь к нулю.';
-          } else if (netProfit > 0 && safeZfp < 0.15) {
-            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе, но на тонкой грани.</strong> Запас прочности менее 15% — малейшее падение выручки уведёт в минус.';
-          } else if (netProfit > 0 && badCount >= 1) {
-            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе, но есть зоны с потерями.</strong> Логистика, переменные или скрытые расходы съедают часть прибыли. Поговорим — найдём резервы.';
-          } else if (netProfit > 0) {
-            ctaText.innerHTML = '<strong style="color:#0F172A">Бизнес в плюсе на уровне P&amp;L.</strong> Часто 15-30% выручки уходит впустую внутри ассортимента — это видно только при разборе по SKU и наценкам.';
-          } else {
-            ctaText.textContent = 'Это срез на уровне агрегатов. Полный разбор по SKU и наценкам — на ваших данных за 6-12 месяцев.';
-          }
-
-          // Сохраняем все цифры для отправки в форме
-          const dataInput = root.querySelector('[data-leadform-data]');
-          const snapshot = {
-            inputs: {
-              revenue, raw, logistics, otherVar,
-              payroll, insurance, rent, depreciation, otherFixed,
-              interest, bonuses, taxRate: taxRate*100
-            },
-            results: {
-              KMD: pct(kmd, 1),
-              TBU: isFinite(tbu) ? Math.round(tbu) : null,
-              ZFP: isFinite(zfp) ? pct(zfp, 0) : null,
-              netProfitMonth: Math.round(netProfit),
-              netProfitYear: Math.round(netProfit * 12),
-              diagnostics: diags.map(d => '[' + d.type.toUpperCase() + '] ' + d.text.replace(/<[^>]+>/g, '') + ' — ' + d.sub)
-            }
-          };
-          dataInput.value = JSON.stringify(snapshot, null, 2);
-        }
-
-        fields.forEach(f => inputs[f].addEventListener('input', calc));
-
-        // Отправка mini-формы
-        const leadForm = root.querySelector('#calcLeadForm');
-        if (leadForm) {
-          leadForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const status = root.querySelector('[data-leadform-status]');
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Отправка...';
-            btn.disabled = true;
-            status.style.display = 'block';
-            status.textContent = 'Отправляем...';
-            status.style.color = '#64748b';
-            try {
-              const response = await fetch(this.action, {
-                method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: new FormData(this)
-              });
-              if (response.ok) {
-                if (typeof ym !== 'undefined') ym(108463875, 'reachGoal', 'CalcLeadCapture');
-                status.textContent = '✓ Заявка отправлена! Свяжусь в течение 2 часов в рабочее время.';
-                status.style.color = '#10b981';
-                this.reset();
-              } else throw new Error();
-            } catch (err) {
-              status.textContent = '✗ Ошибка отправки. Напишите на sergey.tsiunel@gmail.com';
-              status.style.color = '#ef4444';
-            } finally {
-              btn.textContent = originalText;
-              btn.disabled = false;
-              setTimeout(() => { status.style.display = 'none'; }, 8000);
-            }
+                });
+                loaded++;
+                if (loaded >= sources.length) render();
+              })
+              .catch(() => { loaded++; if (loaded >= sources.length) render(); });
           });
-        }
-
-        calc();
-      })();
-      </script>
-    </section>
-    <!-- ============ КОНЕЦ СЕКЦИИ КАЛЬКУЛЯТОРА ============ -->
-    <!-- ============ КОНЕЦ СЕКЦИИ КАЛЬКУЛЯТОРА ============ -->
-
-    <!-- КАК РАБОТАЮ — TIMELINE + ДВА ПУТИ -->
-    <section class="section section-alt" id="services">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Операция → Восстановление → Передача</div>
-          <h2>5 этапов за 3–6 месяцев</h2>
-          <p class="section-subtitle">Не консультирую и ухожу. Вхожу, делаю, передаю работающую систему.</p>
-        </div>
-
-        <style>
-          .timeline {
-            position: relative;
-            padding: 2rem 0 2.5rem;
-            overflow-x: auto;
+          function render() {
+            items.sort(() => Math.random() - 0.5);
+            const html = items.slice(0,8).map(item => 
+              '<div class="news-item">' +
+                '<div style="flex:1">' +
+                  '<div class="news-item__source">' + item.source + '</div>' +
+                  '<a href="' + item.link + '" target="_blank" rel="noopener" class="news-item__title">' + item.title + '</a>' +
+                  '<div class="news-item__date">' + item.date + '</div>' +
+                '</div>' +
+              '</div>'
+            ).join('');
+            feed.innerHTML = html || '<p style="text-align:center;color:var(--text-3)">Новости загружаются...</p>';
           }
-          .timeline-line {
-            position: absolute;
-            top: 2.75rem;
-            left: 5%;
-            right: 5%;
-            height: 3px;
-            background: linear-gradient(90deg, #e2e8f0 0%, #2563eb 100%);
-            border-radius: 99px;
-          }
-          .timeline-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            gap: 0.5rem;
-            min-width: 600px;
-          }
-          .timeline-step {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-          }
-          .timeline-dot {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            position: relative;
-            z-index: 2;
-            flex-shrink: 0;
-          }
-          .timeline-dot--inactive {
-            background: #f1f5f9;
-            border: 2px solid #e2e8f0;
-            color: #94a3b8;
-          }
-          .timeline-dot--active {
-            background: linear-gradient(135deg, #2563eb, #0ea5e9);
-            border: 2px solid #2563eb;
-            color: white;
-            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-          }
-          .timeline-dot--final {
-            background: linear-gradient(135deg, #10b981, #059669);
-            border: 2px solid #10b981;
-            color: white;
-            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
-          }
-          .timeline-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.25rem;
-            line-height: 1.3;
-          }
-          .timeline-duration {
-            font-size: 0.7rem;
-            color: #94a3b8;
-            margin-bottom: 0.4rem;
-          }
-          .timeline-desc {
-            font-size: 0.72rem;
-            color: #64748b;
-            line-height: 1.4;
-            max-width: 120px;
-          }
-          .timeline-ai-badge {
-            display: inline-block;
-            background: #eff6ff;
-            color: #2563eb;
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-top: 0.3rem;
-          }
-          @media (max-width: 768px) {
-            .timeline { overflow-x: scroll; padding-bottom: 1rem; }
-            .timeline-steps { min-width: 700px; }
-          }
-
-          /* Два пути */
-          .two-paths {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-          }
-          .path-card {
-            border-radius: 20px;
-            padding: 1.75rem;
-          }
-          .path-card--main {
-            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
-            border: 2px solid #2563eb;
-          }
-          .path-card--secondary {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-          }
-          .path-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 99px;
-            margin-bottom: 0.75rem;
-          }
-          .path-badge--main { background: #2563eb; color: white; }
-          .path-badge--secondary { background: #e2e8f0; color: #64748b; }
-          .path-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-          }
-          .path-desc {
-            font-size: 0.88rem;
-            color: #475569;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-          }
-          .path-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.25rem;
-          }
-          .path-list li {
-            font-size: 0.85rem;
-            color: #475569;
-            padding: 0.4rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            position: relative;
-            padding-left: 1.2rem;
-          }
-          .path-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.85rem;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #2563EB;
-          }
-          .path-card--secondary .path-list li::before {
-            background: #94A3B8;
-          }
-          .path-card__cta {
-            width: 100%;
-            text-align: center;
-            display: block;
-            box-sizing: border-box;
-          }
-          .path-card__note {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #94A3B8;
-            margin-top: 0.75rem;
-          }
-          @media (max-width: 768px) {
-            .two-paths { grid-template-columns: 1fr; }
-          }
-        </style>
-
-        <!-- Timeline -->
-        <div class="timeline">
-          <div class="timeline-line"></div>
-          <div class="timeline-steps">
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">1</div>
-              <div class="timeline-title">Диагностика</div>
-              <div class="timeline-duration">1–2 недели</div>
-              <div class="timeline-desc">Данные, команда, процессы. AI-анализ за неделю вместо месяца.</div>
-              <span class="timeline-ai-badge">🤖 AI-анализ</span>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">2</div>
-              <div class="timeline-title">Согласование целей</div>
-              <div class="timeline-duration">1 неделя</div>
-              <div class="timeline-desc">Фиксируем цели, сроки, ресурсы. Договариваемся до начала работ.</div>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">3</div>
-              <div class="timeline-title">Сценарное моделирование</div>
-              <div class="timeline-duration">1–2 недели</div>
-              <div class="timeline-desc">AI строит оптимальный сценарий под ваши ограничения: деньги / время / люди / рынок.</div>
-              <span class="timeline-ai-badge">🤖 ML-модели</span>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--active">4</div>
-              <div class="timeline-title">Внедрение</div>
-              <div class="timeline-duration">2–4 месяца</div>
-              <div class="timeline-desc">Вхожу как директор. Строю учёт, KPI, процессы, дашборды. Управляю командой.</div>
-              <span class="timeline-ai-badge">🤖 AI-дашборды</span>
-            </div>
-
-            <div class="timeline-step">
-              <div class="timeline-dot timeline-dot--final">✓</div>
-              <div class="timeline-title">Передача</div>
-              <div class="timeline-duration">Финальный месяц</div>
-              <div class="timeline-desc">Обучаю команду. Передаю бизнес который работает без меня.</div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Два пути -->
-        <div class="two-paths">
-
-          <div class="path-card path-card--main">
-            <span class="path-badge path-badge--main">Главный путь</span>
-            <div class="path-title">Вхожу и делаю — вы получаете результат</div>
-            <div class="path-desc">Для тех кто готов к изменениям. Вхожу как операционный директор на 3–6 месяцев. Строю систему руками с AI-инструментами. Ухожу когда бизнес работает сам.</div>
-            <ul class="path-list">
-              <li>AI-моделирование сценариев на ваших данных</li>
-              <li>Управленческий учёт и финансовые модели</li>
-              <li>Регламенты, KPI, обученная команда</li>
-              <li>Оклад + бонус за результат или доля</li>
-            </ul>
-            <a href="#contact" class="btn-primary path-card__cta">Обсудить проект →</a>
-          </div>
-
-          <div class="path-card path-card--secondary">
-            <span class="path-badge path-badge--secondary">Начать отсюда</span>
-            <div class="path-title">Сначала — бесплатная диагностика</div>
-            <div class="path-desc">Для тех кто хочет сначала разобраться. Пришлите ОСВ из 1С — получите карточку финансового здоровья с прогнозом на 9 месяцев. Бесплатно, без обязательств.</div>
-            <ul class="path-list">
-              <li>45 минут разбора вашей ситуации</li>
-              <li>Карточка финансового здоровья (6 индикаторов)</li>
-              <li>Прогноз на 3, 6 и 9 месяцев на ваших данных</li>
-              <li>Честный ответ: могу помочь или нет</li>
-            </ul>
-            <a href="#health-card" class="btn-secondary path-card__cta">Получить бесплатно →</a>
-            <p class="path-card__note">Никаких обязательств. Никакого давления.</p>
-          </div>
-
-        </div>
+        })();
+        </script>
       </div>
     </section>
 
-    <!-- ВИДЕНИЕ БИЗНЕСА: ВСЛЕПУЮ → В ФОКУСЕ -->
-    <section class="section" id="vision">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">До и после</div>
-          <h2>Что происходит с вашим бизнесом</h2>
-          <p class="section-subtitle">Большинство собственников управляют бизнесом вслепую. Деньги уходят, отчёты не сходятся, решения наугад. После — видят каждую цифру, каждый процесс, каждый риск.</p>
+    <!-- ===== ABOUT SERGEY ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Кто делает</div>
+          <h2>Почему я, а не IT-специалист?</h2>
         </div>
-
-        <style>
-          .vision-demo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2.5rem 0;
-          }
-          .vision-card {
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-          }
-          .vision-card--before {
-            background: #F1F5F9;
-            border: 1px solid #E2E8F0;
-          }
-          .vision-card--after {
-            background: #FFFFFF;
-            border: 1px solid rgba(37,99,235,0.18);
-            box-shadow: 0 8px 32px rgba(37,99,235,0.06);
-          }
-          .vision-card--after::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, #2563EB, transparent);
-          }
-          .vision-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            margin-bottom: 1.75rem;
-          }
-          .vision-card--before .vision-label { color: #94A3B8; }
-          .vision-card--after .vision-label { color: #2563EB; }
-          .vision-text-demo {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            line-height: 1.1;
-            margin-bottom: 1.75rem;
-          }
-          .vision-card--before .vision-text-demo {
-            color: #94A3B8;
-            opacity: 0.5;
-            user-select: none;
-          }
-          .vision-card--after .vision-text-demo {
-            color: #0F172A;
-          }
-          .vision-metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-          }
-          .vision-metric {
-            border-radius: 10px;
-            padding: 0.65rem 0.5rem;
-            font-size: 0.78rem;
-            font-weight: 600;
-          }
-          .vision-card--before .vision-metric {
-            background: #E2E8F0;
-            color: #94A3B8;
-          }
-          .vision-card--after .vision-metric {
-            background: #F8FAFC;
-            color: #0F172A;
-            border: 1px solid rgba(37,99,235,0.12);
-          }
-          .vision-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 99px;
-            font-size: 0.85rem;
-            font-weight: 600;
-          }
-          .vision-card--before .vision-tag {
-            background: #E2E8F0;
-            color: #94A3B8;
-          }
-          .vision-card--after .vision-tag {
-            background: #2563EB;
-            color: white;
-          }
-          .vision-caption {
-            margin-top: 1rem;
-            font-size: 0.82rem;
-            line-height: 1.55;
-          }
-          .vision-card--before .vision-caption { color: #94A3B8; }
-          .vision-card--after .vision-caption { color: #475569; }
-          @media (max-width: 768px) {
-            .vision-demo { grid-template-columns: 1fr; gap: 1rem; }
-            .vision-text-demo { font-size: 1.5rem; }
-          }
-          .vision-transform {
-            text-align: center;
-            margin: 0 0 2rem;
-          }
-          .vision-transform__pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: #fff;
-            border: 1px solid rgba(15,23,42,0.06);
-            border-radius: 99px;
-            padding: 0.75rem 1.5rem;
-            box-shadow: 0 2px 12px rgba(15,23,42,0.04);
-            flex-wrap: wrap;
-            justify-content: center;
-          }
-          .vision-transform__from {
-            font-size: 0.9rem;
-            color: #94A3B8;
-          }
-          .vision-transform__arrow {
-            font-size: 1.25rem;
-            color: #94A3B8;
-          }
-          .vision-transform__to {
-            font-size: 0.9rem;
-            color: #0F172A;
-            font-weight: 600;
-          }
-          .vision-transform__time {
-            font-size: 0.82rem;
-            color: #64748B;
-            letter-spacing: 0.02em;
-          }
-          .vision-cta-row {
-            text-align: center;
-          }
-        </style>
-
-        <div class="vision-demo">
-          <!-- До -->
-          <div class="vision-card vision-card--before">
-            <div class="vision-label">До входа · вслепую</div>
-            <div class="vision-text-demo">ВАШ<br>БИЗНЕС</div>
-            <div class="vision-metrics">
-              <div class="vision-metric">Маржа ???</div>
-              <div class="vision-metric">Касса ???</div>
-              <div class="vision-metric">Клиенты ???</div>
-              <div class="vision-metric">Риски ???</div>
-            </div>
-            <div class="vision-tag">Решения наугад</div>
-            <div class="vision-caption">
-              Деньги куда-то уходят. Отчёты показывают одно, ощущения — другое. Непонятно где терять перестать.
-            </div>
+        <div class="about-grid">
+          <div class="about-photo">
+            <img src="foto/photo_2026-01-13_19-19-47.jpg" alt="Сергей Циунель — Business Doctor">
+            <div class="about-photo__name">Сергей Циунель</div>
+            <div class="about-photo__role">Business Doctor</div>
           </div>
-
-          <!-- После -->
-          <div class="vision-card vision-card--after">
-            <div class="vision-label">После · фокус</div>
-            <div class="vision-text-demo">ВАШ<br>БИЗНЕС</div>
-            <div class="vision-metrics">
-              <div class="vision-metric">Маржа 34%</div>
-              <div class="vision-metric">Касса +2.4 млн</div>
-              <div class="vision-metric">ABC клиенты ✓</div>
-              <div class="vision-metric">Риски ✓</div>
-            </div>
-            <div class="vision-tag">Решения на цифрах</div>
-            <div class="vision-caption">
-              Каждый рубль на своём месте. Система работает без ручного контроля. Вы видите будущее — не прошлое.
-            </div>
-          </div>
-        </div>
-
-        <!-- Стрелка трансформации -->
-        <div class="vision-transform">
-          <div class="vision-transform__pill">
-            <span class="vision-transform__from">Решения наугад</span>
-            <span class="vision-transform__arrow">→</span>
-            <span class="vision-transform__to">Решения в цифрах</span>
-            <span class="vision-transform__time">за 3–6 месяцев</span>
-          </div>
-        </div>
-
-        <div class="vision-cta-row">
-          <a href="#contact" class="btn-primary">Хочу такой же результат →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- РЕАЛЬНЫЕ КЕЙСЫ -->
-    <section class="section cases-section" id="cases">
-      <div class="container narrow fade-up">
-        <div class="cases-section__header">
-          <div class="cases-section__eyebrow">Реальные кейсы</div>
-          <h2 class="cases-section__title">Результаты из практики</h2>
-          <p class="cases-section__subtitle">Конкретные цифры. Реальные компании. Никакого storytelling.</p>
-        </div>
-
-        <div class="cases-grid">
-
-          <!-- Кейс 1 -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Производство / Бытовая химия</div>
-              <div class="case-card-dark__company">ООО «ПрофиМилл» · Тверь</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Проблема</div>
-                <div class="case-card-dark__text">Оборот 4 млн ₽/мес, отрицательная EBITDA. Компания несла убытки несколько лет.</div>
-              </div>
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Что сделано</div>
-                <div class="case-card-dark__text">Реорганизация supply chain, производственного планирования, unit economics, построение B2B-системы продаж.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--3">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">35 млн</div>
-                  <div class="case-card-dark__metric-label">оборот/мес</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">×6</div>
-                  <div class="case-card-dark__metric-label">рост выпуска</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">1,5 г.</div>
-                  <div class="case-card-dark__metric-label">срок</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Кейс 2 -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Запуск производства / Greenfield</div>
-              <div class="case-card-dark__company">ООО «ПрофиХом» · Коломна</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Задача</div>
-                <div class="case-card-dark__text">Запустить завод бытовой химии с нуля в сжатые сроки. Выйти в федеральные сети.</div>
-              </div>
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Что сделано</div>
-                <div class="case-card-dark__text">Бизнес-план, инвестиции, площадка, оборудование, команда, производственные и логистические процессы.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--3">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">47 дн.</div>
-                  <div class="case-card-dark__metric-label">до запуска</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">40 млн</div>
-                  <div class="case-card-dark__metric-label">выручка/мес</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">8 мес.</div>
-                  <div class="case-card-dark__metric-label">федсети</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Кейс 3 -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Нефтегаз / Антикризис проекта</div>
-              <div class="case-card-dark__company">Газпромнефть-Восток</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Проблема</div>
-                <div class="case-card-dark__text">Отставание от графика строительного проекта на 100 дней. Штрафные санкции на 150 млн ₽.</div>
-              </div>
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__label">Что сделано</div>
-                <div class="case-card-dark__text">Пересборка calendar-network plan, перераспределение ресурсов, усиление контроля качества.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--2">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">В срок</div>
-                  <div class="case-card-dark__metric-label">сдан проект</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">150 млн ₽</div>
-                  <div class="case-card-dark__metric-label">штрафов предотвращено</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Кейс 4 — статистика -->
-          <article class="case-card-dark">
-            <header class="case-card-dark__header">
-              <div class="case-card-dark__tag">Практика в целом</div>
-              <div class="case-card-dark__company">Business Doctor · 2021 — настоящее время</div>
-            </header>
-            <div class="case-card-dark__body">
-              <div class="case-card-dark__block">
-                <div class="case-card-dark__text">Производство, торговля, нефтегаз, девелопмент, B2B-услуги. В среднем 7–18 млн ₽ находки на проект.</div>
-              </div>
-              <div class="case-card-dark__metrics case-card-dark__metrics--2">
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">50+</div>
-                  <div class="case-card-dark__metric-label">проектов</div>
-                </div>
-                <div class="case-card-dark__metric">
-                  <div class="case-card-dark__metric-value">380+ млн ₽</div>
-                  <div class="case-card-dark__metric-label">выявленных потерь</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ГАРАНТИИ -->
-    <section class="section">
-      <div class="container narrow fade-up">
-        <div class="guarantees-grid">
-          <div class="guarantee-card">
-            <div class="guarantee-card__num">01</div>
-            <div class="guarantee-card__title">Результат — не отчёт</div>
-            <p class="guarantee-card__text">Вы получаете регламенты, дашборды, обученную команду и финансовую модель — не PDF с рекомендациями.</p>
-          </div>
-          <div class="guarantee-card">
-            <div class="guarantee-card__num">02</div>
-            <div class="guarantee-card__title">Первый шаг — бесплатно</div>
-            <p class="guarantee-card__text">45 минут разбора ситуации. Если не вижу как помочь — скажу честно. Никаких обязательств.</p>
-          </div>
-          <div class="guarantee-card">
-            <div class="guarantee-card__num">03</div>
-            <div class="guarantee-card__title">NDA до начала работы</div>
-            <p class="guarantee-card__text">Подписываю соглашение о конфиденциальности до того как вы показываете данные. Данные не передаются третьим лицам.</p>
+          <div class="about-text">
+            <h3>Потому что поставить систему — это только начало</h3>
+            <p>Просто установить AI-агента — это даже не половина работы. Система должна <span class="highlight">действительно работать</span>, а не быть красивой картинкой на экране.</p>
+            <p>А это всегда <span class="highlight">код</span>. Всегда <span class="highlight">глубокая интеграция</span> с существующей экосистемой компании и с личным пространством бизнеса.</p>
+            <p>Реклама активная идёт — парсер из коробки хорош для узкого сегмента с чёткими артикулами. Но везде, где есть описание карточек товаров, нужен <span class="highlight">код под конкретную задачу</span>.</p>
+            <p>Ценность AI-агента в том, что он сам может всё: писать, править, запускать и коммитить.</p>
+            <p style="font-size:1.05rem;color:var(--text);font-weight:600">Агенты — это будущее. И оно уже здесь.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ФОРМАТЫ ВХОДА -->
-    <section class="section" id="pricing">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Форматы сотрудничества</div>
-          <h2>Как обсуждаем условия</h2>
-          <p class="section-subtitle">Формат входа — под вашу ситуацию. Оклад, доля, комбо — договариваемся после диагностики.</p>
+    <!-- ===== SOCIAL + TELEGRAM/INSTAGRAM ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Следите за новостями</div>
+          <h2>Telegram и Instagram</h2>
+          <p>Регулярно публикую кейсы, разборы и новости из мира AI-агентов.</p>
         </div>
-        <div class="formats-grid">
-          <div class="format-card format-card--featured">
-            <div class="format-card__badge">Популярный</div>
-            <div class="format-card__num">Формат A</div>
-            <div class="format-card__title">Оклад + бонус</div>
-            <div class="format-card__subtitle">Фиксированный + переменный</div>
-            <p class="format-card__text">Фиксированный оклад на период + бонус за достижение KPI. Срок: 3–6 месяцев.</p>
-          </div>
-          <div class="format-card">
-            <div class="format-card__num">Формат B</div>
-            <div class="format-card__title">Доля + оклад</div>
-            <div class="format-card__subtitle">Управляющий партнёр</div>
-            <p class="format-card__text">Вхожу как управляющий партнёр. Минимальный оклад + доля в бизнесе. Для компаний с высоким потенциалом.</p>
-          </div>
-          <div class="format-card">
-            <div class="format-card__num">Формат C</div>
-            <div class="format-card__title">Бонус за результат</div>
-            <div class="format-card__subtitle">% от прироста прибыли</div>
-            <p class="format-card__text">Небольшой оклад + процент от прироста прибыли сверх базового уровня. Максимальная мотивация на результат.</p>
-          </div>
-        </div>
-        <p class="formats-footer">Конкретные условия обсуждаем после бесплатной диагностики — когда понятна ситуация и объём работы.</p>
-      </div>
-    </section>
-
-    <!-- ЛИД-МАГНИТ: Карточка финансового здоровья -->
-    <section class="section health-card-section" id="health-card">
-      <div class="container narrow fade-up">
-        <div class="health-card-wrap">
-          <div class="health-card-header">
-            <div class="health-card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"/>
-                <path d="M7 14l4-4 4 4 5-5"/>
-              </svg>
-            </div>
-            <div>
-              <div class="health-card-eyebrow">Следующий шаг · Расширенный отчёт</div>
-              <h3 class="health-card-title">Карточка финансового здоровья + прогноз на 3, 6, 9 месяцев</h3>
-              <p class="health-card-desc">Уже посчитали базовые показатели в калькуляторе выше? Хотите глубже — с реальной дебиторкой, прогнозом 3-9 месяцев и ABC-разбором клиентов? Пришлите ОСВ из 1С за 3 месяца — за 1-2 рабочих дня лично подготовлю расширенный отчёт. Бесплатно. Без обязательств.</p>
-            </div>
-          </div>
-
-          <div class="health-card-grid">
-            <div class="hc-block">
-              <div class="hc-block-title">Что вы получите в PDF</div>
-              <ul class="hc-list">
-                <li>Маржинальность — текущая и динамика за 3 мес</li>
-                <li>Здоровье кассы — баланс поступлений и расходов</li>
-                <li>Дебиторская и долговая нагрузка</li>
-                <li>ФОТ к выручке — насколько бизнес «тяжёлый»</li>
-                <li>Доля постоянных затрат — запас прочности</li>
-                <li>ABC-разбор клиентов — кто реально приносит прибыль</li>
-              </ul>
-            </div>
-
-            <div class="hc-block hc-block--accent">
-              <div class="hc-block-title">Математический прогноз</div>
-              <p class="hc-prog">На основе динамики ваших данных — где будет бизнес через <strong>3, 6 и 9 месяцев</strong> при сохранении текущих тенденций. Не интуиция и не «вангование», а экстраполяция на ваших цифрах.</p>
-            </div>
-          </div>
-
-          <div class="health-card-cta">
-            <div class="hc-steps">
-              <div class="hc-step"><span class="hc-step-num">1</span> Выгрузите ОСВ за 3 месяца из 1С</div>
-              <div class="hc-step"><span class="hc-step-num">2</span> Пришлите файл на <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья">sergey.tsiunel@gmail.com</a></div>
-              <div class="hc-step"><span class="hc-step-num">3</span> За 1-2 рабочих дня получите PDF лично от меня</div>
-            </div>
-            <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья&body=Здравствуйте! Хочу получить карточку финансового здоровья. Прикладываю ОСВ за 3 месяца." class="btn-primary hc-btn">Прислать ОСВ на email</a>
-            <div class="hc-note">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
-              Работаю под NDA. Данные не передаются третьим лицам.
-            </div>
-          </div>
+        <div class="social-links">
+          <a href="https://t.me/SergeyTsiunel" target="_blank" rel="noopener" class="social-link">
+            <span>✈️</span> Telegram-канал
+          </a>
+          <a href="https://instagram.com/sergeytsiunel" target="_blank" rel="noopener" class="social-link">
+            <span>📸</span> Instagram
+          </a>
+          <a href="https://wa.me/79957740893" target="_blank" rel="noopener" class="social-link">
+            <span>💬</span> WhatsApp
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Вопросы</div>
-          <h2>Частые вопросы</h2>
-        </div>
-        <div class="faq-grid">
-          <div class="faq-item">
-            <div class="faq-question">А если я уже сократил всё, что можно? <span class="faq-icon">+</span></div>
-            <div class="faq-answer">Это нормальный сигнал — значит человеческий ресурс оптимизации исчерпан. AI ищет резервы там, куда глаз не достаёт: корреляции между процессами, скрытые потери в запасах, неочевидные перекосы маржи. За 50+ проектов средняя находка — 7-18 млн руб. даже после ручной оптимизации.</div>
+    <!-- ===== 14. FINAL CTA ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="final-cta">
+          <h2>Поставьте первую задачу AI-команде</h2>
+          <p>Расскажите, что вы хотите автоматизировать. Первая встреча — бесплатно.</p>
+          <div class="final-cta__examples">
+            <div class="final-cta__examples-label">Например</div>
+            <div class="final-cta__example">«Хочу, чтобы AI отвечал клиентам на Avito и доводил их до покупки»</div>
+            <div class="final-cta__example">«Хочу понять, почему падают продажи»</div>
+            <div class="final-cta__example">«Хочу следить за конкурентами»</div>
+            <div class="final-cta__example">«Хочу автоматизировать весь отдел продаж»</div>
           </div>
-          <div class="faq-item">
-            <div class="faq-question">Получу отчёт-кирпич или конкретный план? <span class="faq-icon">+</span></div>
-            <div class="faq-answer">Только план. Конкретный список действий: что сделать, в каком порядке, какой результат ожидать. Никаких 200 страниц теории. Помогаю внедрять.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Мои данные не утекут? <span class="faq-icon">+</span></div>
-            <div class="faq-answer">Работаю под NDA. Данные не хранятся после проекта и не передаются третьим лицам. Анализ выполняется на изолированной среде. Политика конфиденциальности — на сайте.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Как оплачивать поэтапно? <span class="faq-icon">+</span></div>
-            <div class="faq-answer">Первый этап — диагностика (45 минут). Если не увидите ценности — дальше не идём. После — оплата за каждый следующий этап отдельно. Никаких авансов за «работу вообще».</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Какие данные нужны для аудита? <span class="faq-icon">+</span></div>
-            <div class="faq-answer">Выгрузки из 1С/ERP по продажам, закупкам, остаткам за 6-12 месяцев. Конкретный список дам после первой встречи — зависит от вашей отрасли.</div>
-          </div>
+          <a href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20запустить%20AI-команду" target="_blank" rel="noopener" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem">Запустить Гермеса</a>
+          <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-3)">
+            Или напишите лично: <a href="https://t.me/SergeyTsiunel" style="color:var(--accent-2)">@SergeyTsiunel</a> · <a href="tel:+79957740893" style="color:var(--accent-2)">+7 995 774-08-93</a>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- КОНТАКТЫ -->
-    <section class="section section-dark" id="contact">
-      <div class="container narrow fade-up">
-        <div class="section-header text-center">
-          <div class="section-eyebrow">Контакт</div>
-          <h2>Расскажите о своей ситуации</h2>
-          <p class="section-subtitle">45 минут — разберём что происходит. Скажу честно: могу помочь или нет. Первая встреча бесплатно.</p>
-        </div>
-        
-        <div class="contact-grid">
-
-          <!-- Левая колонка: контакты -->
-          <div class="contact-direct">
-            <div class="contact-direct__label">Прямые контакты</div>
-            <div class="contact-direct__items">
-              <a href="tel:+79957740893" class="contact-tile">
-                <div class="contact-tile__label">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
-                  </svg>
-                  Телефон
-                </div>
-                <div class="contact-tile__value">+7 995 774-08-93</div>
-              </a>
-              <a href="mailto:sergey.tsiunel@gmail.com" class="contact-tile">
-                <div class="contact-tile__label">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                  Email
-                </div>
-                <div class="contact-tile__value contact-tile__value--email">sergey.tsiunel@gmail.com</div>
-              </a>
-            </div>
-            <p class="contact-direct__note">Отвечаю в течение 2 часов в рабочее время</p>
-          </div>
-
-          <!-- Правая колонка: форма -->
-          <div class="contact-form">
-            <h3 class="contact-form__title">Оставьте заявку</h3>
-            <p class="contact-form__desc">Перезвоню в течение 2 часов в рабочее время. Обсудим вашу ситуацию.</p>
-            <form id="callbackForm" action="https://formspree.io/f/mnjoyzyy" method="POST">
-              <input type="text" id="name" name="name" placeholder="Ваше имя" required class="contact-form__input">
-              <input type="tel" id="phone" name="phone" placeholder="Телефон *" required class="contact-form__input">
-              <input type="email" id="email" name="email" placeholder="Email (необязательно)" class="contact-form__input">
-              <textarea name="situation" placeholder="Кратко опишите ситуацию (необязательно)" rows="2" class="contact-form__input contact-form__textarea"></textarea>
-              <input type="hidden" name="page" value="https://businessdoc.pro/">
-              <button type="submit" class="contact-form__submit">Перезвоните мне →</button>
-              <div id="formStatus" class="contact-form__status"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
-    <div class="container narrow text-center">
-      <p class="footer__copy">© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
-      <p class="footer__links">
-        <a href="#pricing">Стоимость</a>
-        <a href="crisis.html">Антикризис</a>
-        <a href="vyhod.html">Продажа бизнеса</a>
-        <a href="tools.html">Технологии</a>
-        <a href="dashboard.html">Пример дашборда</a>
-        <a href="privacy.html" class="footer__privacy">Политика конфиденциальности</a>
+    <div class="container">
+      <p>© 2026 Business Doctor. AI-команда для продаж, аналитики и автоматизации бизнеса.</p>
+      <p style="margin-top:0.5rem">
+        <a href="#top">Главная</a> · <a href="#products">Продукты</a> · <a href="#about">Об авторе</a> · <a href="crisis.html">Антикризис</a> · <a href="privacy.html">Конфиденциальность</a>
       </p>
     </div>
   </footer>
 
-  <!-- Плавающая кнопка — ведёт к форме -->
-  <a href="#contact" class="floating-cta" title="Обсудить проект">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
-    </svg>
-    <span>Обсудить проект</span>
-  </a>
-
-  <script src="js/main.js" defer></script>
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
