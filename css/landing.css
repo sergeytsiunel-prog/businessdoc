@@ -831,3 +831,116 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
   .autonomy-demo { padding: 1rem; }
   .autonomy-demo__scenario { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
 }
+
+/* --- Flagship (парсинг + автоцены) --- */
+.flagship {
+  padding: 5rem 0;
+  background: var(--bg-2);
+}
+.flagship-header { text-align: center; margin-bottom: 3rem; }
+.flagship-header h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 1rem; }
+.flagship-header p { color: var(--text-2); max-width: 600px; margin: 0 auto; font-size: 1rem; line-height: 1.6; }
+.flagship-demo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.flagship-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+.flagship-step:hover { border-color: var(--border-hover); }
+.flagship-step__num {
+  font-size: 0.75rem; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.05em; margin-bottom: 0.5rem;
+}
+.flagship-step__title { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+.flagship-step__desc { font-size: 0.85rem; color: var(--text-2); line-height: 1.5; }
+.flagship-note {
+  text-align: center; padding: 1rem; border-radius: var(--radius);
+  background: var(--accent-dim); border: 1px solid var(--border-accent);
+  font-size: 0.9rem; color: var(--text-2);
+}
+.flagship-note strong { color: var(--accent-2); }
+
+/* --- Integrations + FAQ --- */
+.integrations-faq { padding: 4rem 0; }
+.integrations-header { text-align: center; margin-bottom: 2rem; }
+.integrations-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.integrations-header p { color: var(--text-2); }
+.integrations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.integration-chip {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-2);
+  transition: var(--transition);
+}
+.integration-chip:hover {
+  border-color: var(--border-accent);
+  color: var(--accent-2);
+}
+.integrations-note {
+  text-align: center;
+  color: var(--text-3);
+  font-size: 0.82rem;
+  margin-bottom: 3rem;
+}
+.faq-header { text-align: center; margin-bottom: 1.5rem; }
+.faq-header h3 { font-size: 1.3rem; }
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+.faq-item summary {
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  transition: var(--transition);
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* --- Hero goal example --- */
+.hero-goal {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  border-left: 2px solid var(--accent-dim);
+  padding-left: 0.8rem;
+}
+.hero-goal__label { font-weight: 600; color: var(--accent-2); }
+
+/* --- Mobile: Flagship --- */
+@media (max-width: 768px) {
+  .flagship-demo { grid-template-columns: 1fr; }
+}

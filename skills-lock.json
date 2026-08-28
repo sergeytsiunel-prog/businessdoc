@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "reflect": {
+      "source": "NeoLabHQ/context-engineering-kit",
+      "sourceType": "github",
+      "skillPath": "skills/reflect/SKILL.md",
+      "computedHash": "10f7903e09a328e583b06cc59930c3a786da6d54dfcb86f754ae5d28b4a35738"
+    }
+  }
+}
