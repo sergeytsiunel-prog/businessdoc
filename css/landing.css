@@ -8,12 +8,12 @@
   --bg-2: #0e1015;
   --bg-3: #14171d;
   --bg-card: #1a1d24;
-  --bg-card-hover: #20232b;
+  --bg-card-hover: #1e2129;
   --border: rgba(255,255,255,0.06);
   --border-hover: rgba(255,255,255,0.10);
   --border-accent: rgba(108,92,231,0.2);
   --text: #eceef2;
-  --text-2: #9ca0ab;
+  --text-2: #a0a4b0;
   --text-3: #60646e;
   --accent: #6c5ce7;
   --accent-2: #a78bfa;
@@ -28,14 +28,21 @@
   --radius-lg: 20px;
   --radius-xl: 28px;
   --shadow: 0 8px 40px rgba(0,0,0,0.4);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'SF Mono', 'JetBrains Mono', monospace;
+  --font-alt: 'Manrope', 'Inter', sans-serif;
+  --transition: 200ms ease;
+  --z-header: 100;
+  --z-overlay: 50;
+  --z-content: 10;
+  --z-decor: 0;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
-  font-family: var(--font);
+  font-family: var(--font-alt);
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
@@ -44,11 +51,42 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+h1, h2, h3, .logo { font-family: var(--font); }
 
 /* --- Container --- */
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 .container-full { width: 100%; padding: 0 48px; }
+
+/* --- Icon System --- */
+svg.icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+svg.icon--inline { vertical-align: -0.125em; }
+.trust-item__icon svg, .arch-module__icon svg { color: var(--accent-2); }
+.autonomy-level__icon svg { color: var(--text); }
+.cta-option svg { color: var(--accent-2); margin-right: 0.3rem; }
+.footer-social a svg { color: var(--text-2); margin-right: 0.2rem; }
+.dot-icon { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dot-icon--red { background: var(--red); }
+.dot-icon--amber { background: var(--amber); }
+.dot-icon--orange { background: #f97316; }
+.market-item__dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.market-item__dot--red { background: var(--red); }
+.market-item__dot--amber { background: var(--amber); }
+.market-item__dot--green { background: var(--green); }
+.market-item__dot--blue { background: var(--blue); }
 
 /* --- Typography --- */
 h1 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
@@ -62,7 +100,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 
 /* --- Header --- */
 .header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-header);
   background: rgba(8,9,12,0.88);
   backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
@@ -75,12 +113,12 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .logo { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; }
 .logo span { color: var(--accent-2); }
 .nav { display: flex; gap: 1.8rem; align-items: center; }
-.nav a { font-size: 0.85rem; color: var(--text-2); transition: color 0.2s; font-weight: 500; }
+.nav a { font-size: 0.85rem; color: var(--text-2); transition: var(--transition); font-weight: 500; cursor: pointer; }
 .nav a:hover { color: var(--text); }
 .nav-cta {
   background: var(--accent); color: #fff; padding: 0.45rem 1.3rem;
   border-radius: 8px; font-weight: 600; font-size: 0.82rem;
-  transition: all 0.2s;
+  transition: var(--transition); cursor: pointer;
 }
 .nav-cta:hover { background: var(--accent-2); }
 
@@ -88,18 +126,18 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .btn-primary {
   display: inline-block; background: var(--accent); color: #fff;
   padding: 0.9rem 2rem; border-radius: 10px; font-weight: 600; font-size: 1rem;
-  transition: all 0.2s; border: none; text-align: center;
+  transition: var(--transition); border: none; text-align: center; cursor: pointer;
 }
-.btn-primary:hover { background: #7c6df0; transform: translateY(-1px); box-shadow: 0 8px 30px var(--accent-glow); }
+.btn-primary:hover { background: #7c6df0; box-shadow: 0 8px 30px var(--accent-glow); }
 .btn-secondary {
   display: inline-block; background: transparent; color: var(--text);
   padding: 0.9rem 2rem; border-radius: 10px; font-weight: 600; font-size: 1rem;
-  border: 1px solid var(--border-hover); transition: all 0.2s;
+  border: 1px solid var(--border-hover); transition: var(--transition); cursor: pointer;
 }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent-2); }
 .btn-ghost {
   display: inline-block; background: transparent; color: var(--text-2);
-  padding: 0.9rem 2rem; font-weight: 500; font-size: 0.95rem; transition: color 0.2s;
+  padding: 0.9rem 2rem; font-weight: 500; font-size: 0.95rem; transition: var(--transition); cursor: pointer;
 }
 .btn-ghost:hover { color: var(--text); }
 
@@ -204,7 +242,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .command-center__action {
   background: var(--accent-dim); border: 1px solid var(--border-accent);
   border-radius: 8px; padding: 0.7rem 1rem; font-size: 0.82rem;
-  color: var(--accent-2); text-align: center; font-weight: 500;
+  color: var(--accent-2); text-align: center; font-weight: 500; cursor: pointer;
 }
 
 /* =============================================
@@ -331,7 +369,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
   margin-top: 0.8rem; background: var(--accent-dim);
   border: 1px solid var(--border-accent); border-radius: 8px;
   padding: 0.7rem 1rem; font-size: 0.82rem; color: var(--accent-2);
-  text-align: center; font-weight: 500;
+  text-align: center; font-weight: 500; cursor: pointer;
 }
 .sales-statement {
   text-align: center; margin-top: 2.5rem;
@@ -418,7 +456,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .analytics-case__action {
   background: var(--accent-dim); border: 1px solid var(--border-accent);
   border-radius: 10px; padding: 1rem 1.2rem;
-  font-size: 0.9rem; color: var(--accent-2); text-align: center; font-weight: 500;
+  font-size: 0.9rem; color: var(--accent-2); text-align: center; font-weight: 500; cursor: pointer;
 }
 .analytics-case__chain {
   display: flex; justify-content: center; gap: 0.3rem; flex-wrap: wrap;
@@ -467,7 +505,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .market-item__action {
   font-size: 0.78rem; color: var(--accent-2); font-weight: 600; flex-shrink: 0;
   padding: 0.3rem 0.8rem; border-radius: 6px; border: 1px solid var(--border-accent);
-  transition: all 0.2s; cursor: default;
+  transition: var(--transition); cursor: pointer;
 }
 .market-item__action:hover { background: var(--accent-dim); }
 
@@ -554,7 +592,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 }
 .arch-module {
   padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: var(--radius); transition: all 0.3s;
+  border-radius: var(--radius); transition: var(--transition);
 }
 .arch-module:hover { border-color: var(--accent); }
 .arch-module__icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
@@ -588,7 +626,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .autonomy-level__card {
   padding: 1.8rem; border-radius: var(--radius);
   border: 1px solid var(--border); background: var(--bg-card);
-  text-align: center; transition: all 0.3s;
+  text-align: center; transition: var(--transition);
 }
 .autonomy-level__card:hover { border-color: var(--accent); }
 .autonomy-level__card--active { border-color: var(--accent); background: var(--accent-dim); }
@@ -730,8 +768,7 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .cta-option {
   padding: 0.6rem 1.2rem; border-radius: 8px;
   background: var(--bg-card); border: 1px solid var(--border);
-  font-size: 0.88rem; color: var(--text-2); transition: all 0.2s;
-  cursor: default;
+  font-size: 0.88rem; color: var(--text-2); transition: var(--transition); cursor: pointer;
 }
 .cta-option:hover { border-color: var(--accent); color: var(--text); }
 .cta-block .btn-primary { font-size: 1.1rem; padding: 1rem 2.5rem; }
