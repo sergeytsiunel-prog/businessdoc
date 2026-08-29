@@ -1,11 +1,23 @@
 {
   "version": 1,
   "skills": {
+    "copywriting": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/copywriting/SKILL.md",
+      "computedHash": "779f05c8be67da475e6a7af78de3e0400b0038e371ce898dd6ff9d3331aab7db"
+    },
     "reflect": {
       "source": "NeoLabHQ/context-engineering-kit",
       "sourceType": "github",
       "skillPath": "skills/reflect/SKILL.md",
       "computedHash": "10f7903e09a328e583b06cc59930c3a786da6d54dfcb86f754ae5d28b4a35738"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-audit/SKILL.md",
+      "computedHash": "01f9f8a3feb3ea69c6c212d61189c610f96ef2cc363adc27fd314d78254bf6ae"
     }
   }
 }
