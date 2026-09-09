@@ -971,3 +971,109 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 @media (max-width: 768px) {
   .flagship-demo { grid-template-columns: 1fr; }
 }
+
+/* =============================================
+   SECTION — РАБОТА С СОБСТВЕННИКАМИ (.owners)
+   ============================================= */
+.owners {
+  padding: 100px 0;
+  background: var(--bg-2);
+}
+.owners-header { text-align: center; margin-bottom: 3.5rem; max-width: 760px; margin-left: auto; margin-right: auto; }
+.owners-header h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; margin-bottom: 1rem; }
+.owners-header p { color: var(--text-2); font-size: 1rem; line-height: 1.6; }
+.owners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.owners-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.8rem 1.6rem;
+  transition: border-color 0.2s ease;
+}
+.owners-card:hover { border-color: var(--accent-dim); }
+.owners-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-2);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.05em;
+}
+.owners-card h3 { font-size: 1.15rem; margin-bottom: 0.8rem; line-height: 1.3; }
+.owners-card p { color: var(--text-2); font-size: 0.92rem; line-height: 1.6; margin-bottom: 0.9rem; }
+.owners-card ul { list-style: none; padding: 0; margin: 0; }
+.owners-card li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--text-2);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 0.45rem;
+}
+.owners-card li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+.owners-cta {
+  margin-top: 3rem;
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.owners-cta h3 { font-size: 1.5rem; margin-bottom: 0.6rem; line-height: 1.3; }
+.owners-cta p { color: var(--text-2); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6; }
+
+/* --- Mobile: owners + founder photo fix --- */
+@media (max-width: 768px) {
+  .owners-grid { grid-template-columns: 1fr; }
+  .owners { padding: 60px 0; }
+  /* Фото основателя на мобильном: центр, не сползает вправо */
+  .founder-photo img {
+    margin: 0 auto;
+    display: block;
+  }
+  .founder-photo { text-align: center; width: 100%; }
+}
+
+/* =============================================
+   SECTION — TRUST OWNER (действующий владелец)
+   ============================================= */
+.trust-owner { padding: 80px 0; background: var(--bg); }
+.trust-owner__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+}
+.trust-owner__proof h3 { font-size: 1.5rem; margin-bottom: 0.8rem; line-height: 1.3; }
+.trust-owner__proof p { color: var(--text-2); font-size: 0.95rem; line-height: 1.6; }
+.trust-owner__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.trust-owner__stat {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+.trust-owner__stat-value { color: var(--accent-2); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.3rem; }
+.trust-owner__stat-label { color: var(--text-3); font-size: 0.78rem; line-height: 1.35; }
+@media (max-width: 768px) {
+  .trust-owner__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .trust-owner__stats { grid-template-columns: 1fr; }
+}
