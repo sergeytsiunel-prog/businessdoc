@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ценовой агент в работе — Business Doctor</title>
+  <meta name="description" content="Живая демонстрация: агент в реальном времени анализирует цены конкурентов, считает закупку, наценку, комиссию площадки и принимает решение по цене.">
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <meta property="og:title" content="Ценовой агент Business Doctor — в работе">
+  <meta property="og:description" content="Агент считает закупку, наценку, комиссию и прибыль — и сам принимает решение по цене.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0f16; --bg-2:#0f1620; --card:#131c28; --border:#1e2a3a;
+      --text:#e6edf5; --text-2:#93a5b8; --text-3:#5b6b7d;
+      --accent:#38bdf8; --accent-2:#4ade80; --accent-dim:#155e75;
+      --warn:#fbbf24; --danger:#f87171;
+      --font:'Inter',system-ui,sans-serif; --font-mono:'JetBrains Mono',monospace;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;min-height:100vh}
+    .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+
+    /* Header */
+    .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+    .logo{font-weight:800;letter-spacing:.04em;font-size:1.1rem;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    .back{color:var(--text-2);text-decoration:none;font-size:.9rem;border:1px solid var(--border);padding:8px 14px;border-radius:8px;transition:.2s}
+    .back:hover{color:var(--text);border-color:var(--accent-dim)}
+
+    /* Page title */
+    .hz__eyebrow{color:var(--accent);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600}
+    h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:10px}
+    .hz__sub{color:var(--text-2);font-size:1rem;max-width:640px;margin-bottom:20px}
+
+    /* Terminal window */
+    .term{background:#0b1119;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+    .term__bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#101823;border-bottom:1px solid var(--border)}
+    .term__dot{width:12px;height:12px;border-radius:50%}
+    .term__dot--r{background:#f87171}.term__dot--a{background:#fbbf24}.term__dot--g{background:#4ade80}
+    .term__title{margin-left:10px;color:var(--text-3);font-family:var(--font-mono);font-size:.78rem}
+    .term__live{margin-left:auto;color:var(--accent-2);font-size:.72rem;font-family:var(--font-mono);display:flex;align-items:center;gap:6px}
+    .term__live .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent-2);animation:blink 1.4s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+    .term__body{padding:20px 22px;font-family:var(--font-mono);font-size:.88rem;min-height:420px;max-height:70vh;overflow-y:auto;color:var(--text)}
+    .line{margin-bottom:4px;white-space:pre-wrap;word-break:break-word}
+    .line .t{color:var(--text-3)}
+    .cmd{color:var(--accent)}
+    .ok{color:var(--accent-2)}
+    .warn{color:var(--warn)}
+    .num{color:var(--accent);font-weight:600}
+    .act{color:var(--accent-2);font-weight:600}
+    .dim{color:var(--text-3)}
+    .cursor{display:inline-block;width:8px;height:1.1em;background:var(--accent);vertical-align:middle;animation:blink .8s infinite}
+
+    /* Controls */
+    .ctl{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .btn{background:var(--accent);color:#04121f;border:none;padding:12px 22px;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
+    .btn:hover{filter:brightness(1.1)}
+    .btn--ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .btn--ghost:hover{border-color:var(--accent-dim);color:var(--text)}
+
+    /* Metric strip */
+    .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:24px}
+    .m{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+    .m__label{color:var(--text-3);font-size:.75rem;margin-bottom:4px}
+    .m__value{font-family:var(--font-mono);font-size:1.2rem;font-weight:700;color:var(--text)}
+    .m__value.good{color:var(--accent-2)}
+    .m__desc{color:var(--text-3);font-size:.72rem;margin-top:2px}
+
+    .note{margin-top:26px;padding:14px 16px;border:1px dashed var(--border);border-radius:10px;color:var(--text-2);font-size:.85rem;line-height:1.6}
+    .note b{color:var(--text)}
+
+    .cta{text-align:center;margin-top:40px}
+    .cta h3{font-size:1.4rem;margin-bottom:10px}
+    .cta p{color:var(--text-2);margin-bottom:18px}
+
+    @media (max-width:640px){
+      .term__body{font-size:.76rem;padding:16px}
+      .metrics{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="top">
+      <a href="/" class="logo">BUSINESS <span>DOCTOR</span></a>
+      <a href="/" class="back">← На главную</a>
+    </header>
+
+    <div class="hz__eyebrow">Ценовой агент · живая демонстрация</div>
+    <h1>Как агент решает: поднять цену или остаться</h1>
+    <p class="hz__sub">Конкурент изменил цену. Смотрите, как агент считает закупку, наценку, комиссию площадки и прибыль — и принимает решение, которое соответствует стратегии плана продаж.</p>
+
+    <div class="term">
+      <div class="term__bar">
+        <span class="term__dot term__dot--r"></span>
+        <span class="term__dot term__dot--a"></span>
+        <span class="term__dot term__dot--g"></span>
+        <span class="term__title">pricing-agent · decision-live</span>
+        <span class="term__live"><span class="pulse"></span> LIVE · 9 СЕН 2026</span>
+      </div>
+      <div class="term__body" id="out" aria-live="polite"></div>
+    </div>
+
+    <div class="ctl">
+      <button class="btn" onclick="run()">▶ Перезапустить анализ</button>
+      <a class="btn btn--ghost" href="#cta">Хочу такого агента</a>
+    </div>
+
+    <div class="metrics">
+      <div class="m"><div class="m__label">Закупка</div><div class="m__value">340 ₽</div><div class="m__desc">цена поставщика</div></div>
+      <div class="m"><div class="m__label">Наценка</div><div class="m__value">25%</div><div class="m__desc">торговая надбавка</div></div>
+      <div class="m"><div class="m__label">Комиссия + логистика</div><div class="m__value">14%</div><div class="m__desc">площадка WB</div></div>
+      <div class="m"><div class="m__label">Прибыль с единицы</div><div class="m__value good">87 ₽</div><div class="m__desc">цена полки 475 ₽</div></div>
+    </div>
+
+    <div class="note">
+      <b>Демонстрация сценария.</b> Цифры условные — показаны как пример хода расчёта агента (закупка, наценка, комиссия, прибыль, влияние на спрос). В реальной системе цифры подставляются из ваших данных и логистики площадки. Агент всегда действует в рамках настроенной стратегии и ваших правил.
+    </div>
+
+    <div class="cta" id="cta">
+      <h3>Хотите такого агента на свой бизнес?</h3>
+      <p>Разберу вашу экономику, подключу агента под ваши правила ценообразования.</p>
+      <a class="btn" href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20узнать%20про%20ценового%20агента" target="_blank" rel="noopener">Обсудить с основателем</a>
+    </div>
+
+  </div>
+
+  <script>
+    const OUT = document.getElementById('out');
+    let runId = 0;
+
+    const script = [
+      {d:0, c:'# событие', x:x=>x+`<span class="t">обнаружено изменение цены</span>`},
+      {d:500, x:`<span class="cmd">$ market.watch --sku 1877484968 --platform wb</span>`},
+      {d:1300, ok:'✓ Конкурент поднял цену: 460 ₽ → 490 ₽ (+6,5%)'},
+      {d:2100, x:`<span class="dim">получаю закупку и наценку по этому SKU...</span>`},
+      {d:2800, ok:'✓ Закупка: 340 ₽ · Наценка: 25%'},
+      {d:3600, x:`<span class="dim">считаю комиссию и логистику площадки...</span>`},
+      {d:4300, ok:'✓ Комиссия WB 11% + логистика 3% = 14%'},
+      {d:5100, x:`<span class="dim">моделирую прибыль при нашей цене 475 ₽...</span>`},
+      {d:5900, ok:'✓ Прибыль с единицы: 87 ₽'},
+      {d:6700, x:`<span class="dim">оцениваю влияние на спрос, если останусь на цене...</span>`},
+      {d:7500, ok:'✓ Остаюсь на 475 ₽ → прогноз прироста продаж +9%'},
+      {d:8300, act:'→ РЕШЕНИЕ: цену НЕ поднимаем.'},
+      {d:9000, x:`<span class="t">причина: при 490 ₽ прибыль с единицы падает на 23%, спрос сокращается — это противоречит стратегии выполнения плана.</span>`},
+      {d:9900, act:'✓ Решение соответствует стратегии плана продаж.'},
+    ];
+    const TOTAL = 10800;
+
+    function escLine(obj){
+      if(obj.ok) return `<span class="ok">${obj.ok}</span>`;
+      if(obj.act) return `<span class="act">${obj.act}</span>`;
+      if(obj.x) return obj.x;
+      return obj.d;
+    }
+
+    function run(){
+      const my = ++runId;
+      OUT.innerHTML='';
+      // Линии с временными метками (t)
+      const now = new Date();
+      function stamp(){return now.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
+      script.forEach((s,i)=>{
+        setTimeout(()=>{
+          if(runId!==my) return;
+          const div=document.createElement('div');
+          div.className='line';
+          div.innerHTML=`<span class="t">[${stamp()}]</span> ${escLine(s)}`;
+          OUT.appendChild(div);
+          OUT.scrollTop=OUT.scrollHeight;
+          if(i===script.length-1){
+            setTimeout(()=>{
+              if(runId!==my) return;
+              const c=document.createElement('span');c.className='cursor';OUT.appendChild(c);
+              OUT.scrollTop=OUT.scrollHeight;
+            },300);
+          }
+        }, s.d);
+      });
+    }
+    run();
+  </script>
+</body>
+</html>
