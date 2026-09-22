@@ -26,6 +26,17 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108463875" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+  <style>
+    .back-home { padding: 10px 0 22px; }
+    .back-home .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .back-home__link { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem;
+      color: #475569; text-decoration: none; border: 1px solid rgba(15,23,42,.14);
+      background: #FFFFFF; border-radius: 10px; padding: 8px 14px; transition: .2s; }
+    .back-home__link:hover { color: #0F172A; border-color: #2563EB; }
+    .site-map { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: center; }
+    .site-map a { color: #a0a4b0; font-size: .85rem; text-decoration: none; }
+    .site-map a:hover { color: #eceef2; }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -38,17 +49,15 @@
       </button>
       <nav class="nav" data-menu>
         <div class="nav__inner">
-          <a href="index.html#services">Услуги</a>
-          <a href="index.html#industries">Отрасли</a>
-          <a href="index.html#simulator">Симулятор</a>
-          <a href="index.html#cases">Кейсы</a>
-          <a href="tools.html">Технологии</a>
-          <a href="dashboard.html" class="active">Дашборд</a>
-          <a href="index.html#about">Об авторе</a>
-          <a href="index.html#contact" class="nav-cta-mobile">Запросить аудит</a>
+          <a href="index.html#services">Что я могу</a>
+          <a href="index.html#process">Этапы работы</a>
+          <a href="index.html#cases">Результаты</a>
+          <a href="pricing-agent.html">Агент в деле</a>
+          <a href="index.html#about">Обо мне</a>
+          <a href="index.html#cta" class="nav-cta-mobile">Обсудить мой бизнес</a>
         </div>
       </nav>
-      <a href="index.html#contact" class="nav-cta-desktop">Запросить аудит</a>
+      <a href="index.html#cta" class="nav-cta-desktop">Обсудить мой бизнес</a>
     </div>
   </header>
 
@@ -182,17 +191,33 @@
         </div>
 
         <div style="text-align: center; margin-top: 2rem;">
-          <a href="index.html#contact" class="btn-primary">Получить такой же разбор по вашему бизнесу</a>
+          <a href="index.html#cta" class="btn-primary">Получить такой же разбор по вашему бизнесу</a>
         </div>
       </div>
     </section>
   </main>
+
+  <div class="back-home">
+    <div class="container"><a href="index.html" class="back-home__link">← На главную</a></div>
+  </div>
 
   <footer class="footer">
     <div class="container narrow text-center">
       <p>© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
       <p><a href="privacy.html">Политика конфиденциальности</a></p>
     </div>
+        <div class="site-map">
+        <a href="index.html">Главная</a>
+        <a href="marketplaces.html">Маркетплейсы</a>
+        <a href="vyhod.html">Выход из операционки</a>
+        <a href="crisis.html">Антикризис</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="dashboard.html">Дашборд</a>
+        <a href="food.html">Общепит</a>
+        <a href="chemistry.html">Производство</a>
+        <a href="pricing-agent.html">Агент в деле</a>
+        <a href="privacy.html">Конфиденциальность</a>
+      </div>
   </footer>
 
   <script src="js/main.js" defer></script>
