@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <title>Business Doctor — BD пульс</title>
+  <!-- Тёмный круг -->
+  <circle cx="100" cy="100" r="92" fill="#0c141e"/>
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#16304a" stroke-width="2"/>
+
+  <!-- BD немного выше центра -->
+  <text x="100" y="74" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="bold"
+        fill="#e6edf5" text-anchor="middle">BD</text>
+
+  <!-- Кардиограмма: пара колебаний (зубец вверх-вниз), внутри круга.
+       База ~ y=150, идёт вправо. Зубцы: +25 вверх, -18 вниз, не выходят за радиус.
+       x от 28 до 150 (в пределах круга 100±92 => до ~192) -->
+  <polyline fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+    points="
+      26,150
+      44,150
+      56,124
+      64,166
+      76,140
+      88,112
+      96,168
+      108,142
+      120,128
+      128,150
+      142,150
+    "/>
+
+  <!-- Прямая стрелка: от последней точки кардиограммы (142,150) вверх-вправо по 45°,
+       до (188,98), всё в пределах круга. Целая зелёная, с наконечником.
+       Наклон: dy=-6, dx=+6 => от (142,150) шагами */
+  -->
+  <g stroke="#4ade80" stroke-width="4" stroke-linecap="round" fill="none">
+    <polyline points="142,150 154,138 166,126 178,114"/>
+  </g>
+  <!-- наконечник стрелки (линия вниз-влево от конца) -->
+  <polygon points="178,114 188,104 169,120 189,106" fill="#4ade80"/>
+</svg>

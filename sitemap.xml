@@ -52,9 +52,18 @@
   </url>
   
   <url>
-    <loc>https://businessdoc.pro/testimonials.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <loc>https://businessdoc.pro/vyhod.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-  </urlset>
+  <url>
+    <loc>https://businessdoc.pro/crisis.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://businessdoc.pro/pricing-agent.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
