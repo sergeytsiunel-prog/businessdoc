@@ -1160,3 +1160,18 @@ h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .section-head .eyebrow { display: block; margin-bottom: 12px; }
 .section-head h2 { margin: 0 0 14px; }
 .section-head p { color: var(--text-2); font-size: 1rem; line-height: 1.65; margin: 0; }
+
+
+/* ===== Направления работы (хаб услуг) — добавлено 23.09.2026 ===== */
+.svc-hub { padding: 84px 0; background: var(--bg-2); }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.svc-card { display: flex; flex-direction: column; gap: 10px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 24px;
+  text-decoration: none; color: inherit; transition: border-color .25s, transform .25s, background .25s; }
+.svc-card:hover { border-color: var(--border-accent); background: var(--bg-card-hover); transform: translateY(-2px); }
+.svc-card__kicker { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2); }
+.svc-card__title { font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.35; }
+.svc-card__text { font-size: .9rem; line-height: 1.6; color: var(--text-2); margin: 0; }
+.svc-card__go { margin-top: auto; padding-top: 6px; font-size: .85rem; font-weight: 600; color: var(--accent-2); }
+@media (max-width: 1024px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } .svc-hub { padding: 60px 0; } }
