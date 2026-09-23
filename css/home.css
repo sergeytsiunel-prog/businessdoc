@@ -1,0 +1,103 @@
+/* ===== Главная страница Business Doctor — светлая версия (23.09.2026) =====
+   Опирается на токены css/main.css (система внутренних страниц): синий #1D4ED8,
+   фон #F6F7F9, текст #0F172A, приглушённое золото #C5A880.
+   Задача: короткая страница, много воздуха, ничего лишнего. */
+
+.home {
+  --pad: clamp(56px, 6.5vw, 96px);
+  background: #FFFFFF;
+}
+
+.home section { padding: var(--pad) 0; }
+.home .wrap { max-width: 1140px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); }
+
+/* ---------- типографика: плотнее, чем на внутренних страницах ---------- */
+.home h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 20px; }
+.home h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 14px; }
+.home p  { font-size: 1.02rem; line-height: 1.55; color: #475569; margin: 0 0 18px; }
+.home .eyebrow {
+  font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #8A6A2F; margin-bottom: 18px;
+}
+
+/* ---------- первый экран ---------- */
+.hero { padding-top: clamp(40px, 5vw, 72px) !important; background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero-lead { font-size: 1.12rem; color: #334155; max-width: 34em; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin: 30px 0 16px; }
+.hero-note { font-size: 0.92rem; color: #64748B; }
+.hero-photo { border-radius: 24px; overflow: hidden; box-shadow: 0 18px 50px rgba(15,23,42,0.12); }
+.hero-photo img { display: block; width: 100%; height: auto; }
+
+.btn-line {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 26px; border-radius: 999px; border: 1px solid rgba(15,23,42,0.16);
+  color: #0F172A; font-weight: 600; font-size: 0.98rem; background: #fff;
+}
+.btn-line:hover { border-color: #1D4ED8; color: #1D4ED8; }
+
+/* ---------- шаги: прихожу / делаю / передаю ---------- */
+.steps { background: #F8FAFC; }
+.steps-head { max-width: 640px; margin-bottom: clamp(28px, 4vw, 48px); }
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); }
+.step { background: #fff; border: 1px solid rgba(15,23,42,0.07); border-radius: 20px; padding: 30px 28px; }
+.step__num { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; color: #C5A880; margin-bottom: 14px; }
+.step h3 { font-size: 1.22rem; margin: 0 0 10px; letter-spacing: -0.02em; }
+.step p { margin: 0; font-size: 0.98rem; }
+
+/* ---------- плитки-направления ---------- */
+.tiles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.tile {
+  display: flex; flex-direction: column; gap: 12px; padding: 28px 24px 24px;
+  background: #fff; border: 1px solid rgba(15,23,42,0.08); border-radius: 20px;
+  color: inherit; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.tile:hover { transform: translateY(-3px); border-color: rgba(29,78,216,0.35); box-shadow: 0 16px 36px rgba(15,23,42,0.09); }
+.tile__icon { width: 30px; height: 30px; color: #1D4ED8; }
+.tile h3 { font-size: 1.06rem; margin: 0; letter-spacing: -0.02em; }
+.tile p { margin: 0; font-size: 0.95rem; color: #64748B; }
+.tile__go { margin-top: auto; padding-top: 8px; font-size: 0.9rem; font-weight: 600; color: #1D4ED8; }
+.home-extra { margin-top: 26px; font-size: 0.95rem; color: #64748B; }
+.home-extra a { font-weight: 600; }
+
+/* ---------- полоса доказательств ---------- */
+.proof { background: #F8FAFC; }
+.proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 3vw, 36px); margin-bottom: clamp(28px, 4vw, 44px); }
+.proof-item__num { font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.03em; color: #0F172A; }
+.proof-item__label { font-size: 0.92rem; color: #64748B; margin-top: 4px; }
+.proof-case { background: #fff; border-left: 3px solid #C5A880; border-radius: 16px; padding: 24px 28px; }
+.proof-case p { margin: 0 0 10px; font-size: 1rem; color: #334155; }
+.proof-case a { font-weight: 600; }
+
+/* ---------- призыв ---------- */
+.call { background: #0F172A; color: #E2E8F0; }
+.call h2 { color: #fff; }
+.call p { color: #A8B3C4; max-width: 34em; }
+.call-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+.call .btn-line { background: transparent; color: #fff; border-color: rgba(255,255,255,0.28); }
+.call .btn-line:hover { border-color: #fff; color: #fff; }
+
+/* ---------- подвал ---------- */
+.home-footer { padding: 34px 0 44px; background: #0F172A; border-top: 1px solid rgba(255,255,255,0.08); }
+.home-footer__row { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; justify-content: space-between; color: #94A3B8; font-size: 0.9rem; }
+.home-footer__links a { color: #CBD5E1; margin-right: 18px; }
+.home-footer__links a:hover { color: #fff; }
+
+/* ---------- адаптив ---------- */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-photo { max-width: 420px; }
+  .tiles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .hero { padding-top: 24px !important; }
+}
+@media (max-width: 520px) {
+  .tiles-grid { grid-template-columns: 1fr; }
+  .hero-cta a, .call-cta a { width: 100%; justify-content: center; }
+}
+
+/* совместимые якоря — не занимают места */
+.home span[id] { display: block; height: 0; overflow: hidden; }
