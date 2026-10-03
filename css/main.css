@@ -10,7 +10,7 @@
 
   /* ===== NEUTRALS ===== */
   --color-white: #FFFFFF;
-  --color-bg: #F6F7F9;
+  --color-bg: #F8FAFC;
   --color-off-white: #F1F5F9;
   --color-ice-blue: #F1F5F9;
   --color-light-gray: #F1F5F9;
@@ -22,8 +22,8 @@
   --color-text-light: #94A3B8;
 
   /* ===== ACCENTS ===== */
-  --color-accent-gold: #C5A880;       /* приглушённое матовое, без жёлтого */
-  --color-accent-gold-light: #E5D4BC;
+  --color-accent-gold: #7F6137;       /* приглушённое золото, тёмный тон: читается как текст (5,7 : 1 на белом) */
+  --color-accent-gold-light: #F3ECE0;  /* плашка под золотой значок */
   --color-accent-teal: #0d9488;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
@@ -37,7 +37,7 @@
   --gradient-primary: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
   --gradient-hero: linear-gradient(135deg, #F6F7F9 0%, #FFFFFF 100%);
   --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  --gradient-gold-subtle: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, rgba(127,97,55,0.06) 0%, transparent 100%);
   --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%);
   --gradient-blue-accent: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
   --gradient-medical: linear-gradient(135deg, #F6F7F9 0%, #F1F5F9 100%);
@@ -61,6 +61,8 @@
   /* первый экран внутренних страниц: высота шапки 72 + воздух 24→64 */
   --hero-top: calc(72px + clamp(24px, 5vw, 64px));
   --hero-bottom: clamp(48px, 6vw, 80px);
+  /* один фон первого экрана на всех страницах: светлый, спокойный синий отсвет справа сверху */
+  --hero-bg: radial-gradient(ellipse 60% 90% at 92% 0%, rgba(29,78,216,0.10) 0%, rgba(29,78,216,0) 70%), linear-gradient(180deg, #EEF4FF 0%, #F8FAFC 100%);
 }
 
 * {

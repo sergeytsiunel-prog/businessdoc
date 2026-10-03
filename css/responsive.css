@@ -54,10 +54,10 @@
     display: none;
   }
 
-  .nav-cta-mobile {
+  .nav a.nav-cta-mobile {
     display: inline-block !important;
-    background: var(--gradient-blue-accent);
-    color: white;
+    background: #1D4ED8;
+    color: #FFFFFF;
     padding: 16px 32px;
     border-radius: 12px;
     font-weight: 600;

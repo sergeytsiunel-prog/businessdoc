@@ -19,11 +19,11 @@
 .home p  { font-size: 16px; line-height: 1.6; color: #475569; margin: 0 0 16px; }
 .home .eyebrow {
   font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  color: #8A6A2F; margin-bottom: 20px;
+  color: #7F6137; margin-bottom: 20px;
 }
 
 /* ---------- первый экран ---------- */
-.hero { padding-top: clamp(20px, 3vw, 40px) !important; background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); }
+.hero { padding-top: clamp(20px, 3vw, 40px) !important; background: var(--hero-bg); }
 .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 .hero-lead { font-size: 18px; color: #475569; max-width: 34em; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; margin: 32px 0 16px; }
@@ -43,7 +43,7 @@
 .steps-head { max-width: 640px; margin-bottom: clamp(24px, 4vw, 48px); }
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .step { background: #fff; border: 1px solid rgba(15,23,42,0.07); border-radius: 16px; padding: 32px; }
-.step__num { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: #C5A880; margin-bottom: 16px; }
+.step__num { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: #7F6137; margin-bottom: 16px; }
 .step h3 { font-size: 20px; margin: 0 0 12px; letter-spacing: -0.02em; }
 .step p { margin: 0; font-size: 16px; }
 
@@ -77,9 +77,10 @@
 .tiles-grid--accent .tile__icon { width: 26px; height: 26px; color: var(--tile-accent, #1D4ED8); }
 .tiles-grid--accent .tile__go { color: var(--tile-accent, #1D4ED8); }
 .tiles-grid--accent .tile:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(15,23,42,0.12); }
-.tiles-grid--accent .tile:nth-child(2) { --tile-accent: #0F766E; --tile-plate: #D6F2EA; }
-.tiles-grid--accent .tile:nth-child(3) { --tile-accent: #B45309; --tile-plate: #FCEBD2; }
-.tiles-grid--accent .tile:nth-child(4) { --tile-accent: #6D28D9; --tile-plate: #EADFFE; }
+/* два акцента вместо пяти: синий (основной) и приглушённое золото, через одну */
+.tiles-grid--accent .tile:nth-child(2) { --tile-accent: #7F6137; --tile-plate: #F3ECE0; }
+.tiles-grid--accent .tile:nth-child(3) { --tile-accent: #1D4ED8; --tile-plate: #E0E9FD; }
+.tiles-grid--accent .tile:nth-child(4) { --tile-accent: #7F6137; --tile-plate: #F3ECE0; }
 .tiles-grid--accent .tile:nth-child(1) {
   background: #1D4ED8; border-color: #1D4ED8; box-shadow: 0 10px 26px rgba(29,78,216,0.22);
 }
@@ -97,10 +98,10 @@
 /* ---------- полоса доказательств ---------- */
 .proof { background: #F8FAFC; }
 .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: clamp(24px, 4vw, 48px); }
-.proof-item__num { font-size: clamp(24px, 3vw, 32px); font-weight: 700; letter-spacing: -0.03em; color: #0F172A; }
+.proof-item__num { font-size: clamp(24px, 3vw, 32px); font-weight: 700; letter-spacing: -0.03em; color: #1D4ED8; }
 .proof-item__label { font-size: 14px; color: #64748B; margin-top: 4px; }
-.proof-case { background: #fff; border-left: 3px solid #C5A880; border-radius: 16px; padding: 24px 32px; }
-.proof-case p { margin: 0 0 12px; font-size: 16px; color: #334155; }
+.proof-case { background: #fff; border-left: 4px solid #7F6137; border-radius: 16px; padding: 24px 32px; }
+.proof-case p { margin: 0 0 12px; font-size: 16px; color: #475569; }
 .proof-case a { font-weight: 600; }
 
 /* ---------- призыв ---------- */
@@ -108,6 +109,8 @@
 .call h2 { color: #fff; }
 .call p { color: #A8B3C4; max-width: 34em; }
 .call-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.call .btn-primary { background: #1D4ED8; box-shadow: 0 8px 24px rgba(29,78,216,0.35); }
+.call .btn-primary:hover { background: #2563EB; }
 .call .btn-line { background: transparent; color: #fff; border-color: rgba(255,255,255,0.28); }
 .call .btn-line:hover { border-color: #fff; color: #fff; }
 
@@ -116,6 +119,9 @@
 .home-footer__row { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; color: #94A3B8; font-size: 14px; }
 .home-footer__links a { color: #CBD5E1; margin-right: 20px; }
 .home-footer__links a:hover { color: #fff; }
+/* общий подвал на главной и investor: правило .home p не должно перекрашивать его в тёмно-серый */
+.home .footer__copy { color: #CBD5E1; font-size: 14px; margin: 0 0 12px; }
+.home .footer__links { color: #94A3B8; font-size: 14px; margin: 0; }
 
 /* ---------- адаптив ---------- */
 @media (max-width: 1024px) {
@@ -174,5 +180,5 @@
 .term-card__body div { color: #E6EDF5; margin-bottom: 4px; }
 .term-card__body .ok { color: #4ADE80; }
 .term-card__body .act { color: #38BDF8; font-weight: 500; }
-.term-card__body .dim { color: #5B6B7D; }
+.term-card__body .dim { color: #8B98A9; }
 @media (max-width: 900px) { .agent-grid { grid-template-columns: 1fr; } }
