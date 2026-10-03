@@ -106,6 +106,26 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
+    .symptom-icon--alert {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #EF4444;
+      margin-top: 5px;
+      margin-left: 2px;
+    }
+    .why-ai-mark--bad { color: #DC2626; font-weight: 700; }
+    .why-ai-mark--good { color: #059669; font-weight: 700; }
+    .health-card-icon--plate {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: #EBF1FE;
+      color: #1D4ED8;
+    }
+    .health-card-icon--plate svg { width: 32px; height: 32px; }
     .symptom-text {
       font-size: 0.95rem;
       color: #334155;
@@ -464,12 +484,12 @@
           <p class="section-subtitle">Если три и больше — пора смотреть глубже</p>
         </div>
         <div class="symptom-list">
-          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Выручка есть — на счету пусто. Деньги куда-то исчезают</div></div>
-          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Уже сократили всё что можно — легче не стало</div></div>
-          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Не понимаете на каком продукте или клиенте реально зарабатываете</div></div>
-          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Кассовые разрывы стали нормой, а не исключением</div></div>
-          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Налоги выросли, спрос упал, маржа на нуле</div></div>
-          <div class="symptom-item"><div class="symptom-icon">🔴</div><div class="symptom-text">Думаете закрыться или продать — хотя жалко того что строили</div></div>
+          <div class="symptom-item"><div class="symptom-icon symptom-icon--alert" aria-hidden="true"></div><div class="symptom-text">Выручка есть — на счету пусто. Деньги куда-то исчезают</div></div>
+          <div class="symptom-item"><div class="symptom-icon symptom-icon--alert" aria-hidden="true"></div><div class="symptom-text">Уже сократили всё что можно — легче не стало</div></div>
+          <div class="symptom-item"><div class="symptom-icon symptom-icon--alert" aria-hidden="true"></div><div class="symptom-text">Не понимаете на каком продукте или клиенте реально зарабатываете</div></div>
+          <div class="symptom-item"><div class="symptom-icon symptom-icon--alert" aria-hidden="true"></div><div class="symptom-text">Кассовые разрывы стали нормой, а не исключением</div></div>
+          <div class="symptom-item"><div class="symptom-icon symptom-icon--alert" aria-hidden="true"></div><div class="symptom-text">Налоги выросли, спрос упал, маржа на нуле</div></div>
+          <div class="symptom-item"><div class="symptom-icon symptom-icon--alert" aria-hidden="true"></div><div class="symptom-text">Думаете закрыться или продать — хотя жалко того что строили</div></div>
         </div>
       </div>
     </section>
@@ -485,17 +505,17 @@
         <div class="why-ai-grid">
           <div class="why-ai-human">
             <div class="why-ai-label">Человек</div>
-            <div class="why-ai-item"><span>❌</span><span>Держит в голове 7±2 переменных одновременно — это физиологический предел</span></div>
-            <div class="why-ai-item"><span>❌</span><span>Видит очевидные причины, не замечает корреляции между несвязанными на вид процессами</span></div>
-            <div class="why-ai-item"><span>❌</span><span>Принимает решения под давлением стресса — мозг в кризисе работает иначе</span></div>
-            <div class="why-ai-item"><span>❌</span><span>500 SKU × 30 поставщиков × сезонность × эластичность = невозможно вручную</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--bad">✕</span><span>Держит в голове 7±2 переменных одновременно — это физиологический предел</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--bad">✕</span><span>Видит очевидные причины, не замечает корреляции между несвязанными на вид процессами</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--bad">✕</span><span>Принимает решения под давлением стресса — мозг в кризисе работает иначе</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--bad">✕</span><span>500 SKU × 30 поставщиков × сезонность × эластичность = невозможно вручную</span></div>
           </div>
           <div class="why-ai-machine">
             <div class="why-ai-label">AI-анализ</div>
-            <div class="why-ai-item"><span>✅</span><span>Одновременно анализирует миллионы транзакций, все SKU, всех поставщиков</span></div>
-            <div class="why-ai-item"><span>✅</span><span>Находит неочевидные корреляции: скидка на А → падение маржи на Б через 3 недели</span></div>
-            <div class="why-ai-item"><span>✅</span><span>Просчитывает 1000 сценариев за секунды — без интуиции, только математика</span></div>
-            <div class="why-ai-item"><span>✅</span><span>Показывает где деньги застряли в системе — даже если вы уверены что оптимизировали всё</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--good">✓</span><span>Одновременно анализирует миллионы транзакций, все SKU, всех поставщиков</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--good">✓</span><span>Находит неочевидные корреляции: скидка на А → падение маржи на Б через 3 недели</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--good">✓</span><span>Просчитывает 1000 сценариев за секунды — без интуиции, только математика</span></div>
+            <div class="why-ai-item"><span class="why-ai-mark why-ai-mark--good">✓</span><span>Показывает где деньги застряли в системе — даже если вы уверены что оптимизировали всё</span></div>
           </div>
         </div>
         <div style="margin-top: 2rem; background: #fff; border-radius: 16px; padding: 1.5rem 2rem; border-left: 4px solid #2563eb; box-shadow: 0 2px 12px rgba(31,38,135,0.07);">
@@ -537,7 +557,7 @@
       <div class="container narrow fade-up">
         <div class="health-card-wrap">
           <div class="health-card-header">
-            <div class="health-card-icon">📊</div>
+            <div class="health-card-icon health-card-icon--plate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
             <div>
               <div class="health-card-eyebrow">Бесплатно — за 1-2 рабочих дня</div>
               <h3 class="health-card-title">Карточка финансового здоровья + прогноз на 3, 6, 9 месяцев</h3>
@@ -571,7 +591,7 @@
               <div class="hc-step"><span class="hc-step-num">3</span> За 1-2 рабочих дня получите PDF лично от меня</div>
             </div>
             <a href="mailto:sergey.tsiunel@gmail.com?subject=ОСВ для карточки финансового здоровья&body=Здравствуйте! Хочу получить карточку финансового здоровья. Прикладываю ОСВ за 3 месяца." class="btn-primary hc-btn">Прислать ОСВ на email</a>
-            <div class="hc-note">🔒 Работаю под NDA. Данные не передаются третьим лицам.</div>
+            <div class="hc-note">Работаю под NDA. Данные не передаются третьим лицам.</div>
           </div>
         </div>
       </div>
@@ -672,7 +692,7 @@
             body: JSON.stringify(formData)
           });
           if (res.ok) {
-            status.textContent = '✅ Принято! Позвоню в течение 2 часов в рабочее время.';
+            status.textContent = '✓ Принято! Позвоню в течение 2 часов в рабочее время.';
             status.style.color = '#60a5fa';
             crisisForm.reset();
             if (typeof ym !== 'undefined') { ym(108463875, 'reachGoal', 'form_submit'); }
@@ -682,7 +702,7 @@
         } catch {
           btn.textContent = 'Позвоните мне — обсудим ситуацию';
           btn.disabled = false;
-          status.textContent = '❌ Ошибка. Позвоните напрямую: +7 995 774-08-93';
+          status.textContent = '✕ Ошибка. Позвоните напрямую: +7 995 774-08-93';
           status.style.color = '#fca5a5';
         }
       });

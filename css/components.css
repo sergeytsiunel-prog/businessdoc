@@ -332,6 +332,31 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* --- Линейные значки карточек (вместо эмодзи) --- */
+.card-ic {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #EBF1FE;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+.card-ic svg { width: 24px; height: 24px; }
+
+.industry-hero__ic {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: #EBF1FE;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+}
+.industry-hero__ic svg { width: 32px; height: 32px; }
+
 /* --- Quotes --- */
 .quote-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);

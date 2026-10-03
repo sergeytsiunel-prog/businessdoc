@@ -125,7 +125,7 @@ if (callbackForm) {
           ym(108463875, 'reachGoal', 'form_submit');
         }
         if (formStatus) {
-          formStatus.textContent = '✅ Заявка отправлена! Свяжусь в течение 2 часов в рабочее время.';
+          formStatus.textContent = '✓ Заявка отправлена! Свяжусь в течение 2 часов в рабочее время.';
           formStatus.style.color = '#10b981';
         }
         callbackForm.reset();
@@ -134,7 +134,7 @@ if (callbackForm) {
       }
     } catch (error) {
       if (formStatus) {
-        formStatus.textContent = '❌ Ошибка отправки. Напишите на sergey.tsiunel@gmail.com';
+        formStatus.textContent = '✕ Ошибка отправки. Напишите на sergey.tsiunel@gmail.com';
         formStatus.style.color = '#ef4444';
       }
     } finally {
@@ -168,13 +168,13 @@ function sendLeadMagnet() {
     body: JSON.stringify({ email, type: 'lead_magnet', date: new Date().toLocaleString('ru-RU') })
   }).then(r => {
     if (r.ok) {
-      statusEl.textContent = '✅ Отправлено на ваш email!';
+      statusEl.textContent = '✓ Отправлено на ваш email!';
       statusEl.style.color = '#10b981';
       emailEl.value = '';
       if (typeof ym !== 'undefined') ym(108463875, 'reachGoal', 'LidMagnet');
     } else throw new Error();
   }).catch(() => {
-    statusEl.textContent = '❌ Ошибка. Напишите: sergey.tsiunel@gmail.com';
+    statusEl.textContent = '✕ Ошибка. Напишите: sergey.tsiunel@gmail.com';
     statusEl.style.color = '#ef4444';
   });
 }
