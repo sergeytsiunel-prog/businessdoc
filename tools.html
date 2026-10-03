@@ -79,12 +79,12 @@
           </div>
           <div class="premium-card">
             <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
-            <h3>Сценарное моделирование</h3>
+            <h3>Много переменных сразу</h3>
             <p>«Что если дать скидку 20%?» — нужно просчитать 50+ переменных одновременно. ML-модели делают это за секунды.</p>
           </div>
           <div class="premium-card">
             <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
-            <h3>Нормализация данных</h3>
+            <h3>Разнобой в названиях</h3>
             <p>Один товар = 10 названий от разных поставщиков. Автоматическая связка через ML, а не вручную.</p>
           </div>
         </div>
@@ -120,7 +120,7 @@
           <div class="tech-stack-card">
             <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
             <h3>ML-модели</h3>
-            <p>Прогнозирование спроса, классификация рисков, кластеризация клиентов. Обучаем на ваших данных.</p>
+            <p>Прогнозирование спроса, классификация рисков, кластеризация клиентов. Обучаю на ваших данных.</p>
             <ul>
               <li>Регрессия → прогноз прибыли</li>
               <li>Классификация → оценка рисков</li>
@@ -131,9 +131,9 @@
           <div class="tech-stack-card">
             <div class="card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
             <h3>Сценарное моделирование</h3>
-            <p>Монте-Карло, чувствительность, оптимизация. Просчитываю 100+ вариантов развития событий.</p>
+            <p>Монте-Карло, чувствительность, оптимизация. Просчитываю варианты развития событий.</p>
             <div class="code-block">
-              <code># 1000 сценариев<br>for i in range(1000):<br>&nbsp;&nbsp;discount = random.uniform(0, 0.3)<br>&nbsp;&nbsp;demand = elasticity * discount<br>&nbsp;&nbsp;profit = calc_profit(discount, demand)</code>
+              <code># перебор сценариев<br>for i in range(n_scenarios):<br>&nbsp;&nbsp;discount = random.uniform(0, 0.3)<br>&nbsp;&nbsp;demand = elasticity * discount<br>&nbsp;&nbsp;profit = calc_profit(discount, demand)</code>
             </div>
           </div>
 
@@ -177,7 +177,7 @@
           </div>
           <div class="process-step-card">
             <div class="process-step-number">2</div>
-            <h3>Очистка и нормализация</h3>
+            <h3>Очистка данных</h3>
             <p>Убираю дубли, связываю артикулы, привожу к единому формату. 80% времени — здесь.</p>
           </div>
           <div class="process-step-card">
@@ -187,8 +187,8 @@
           </div>
           <div class="process-step-card">
             <div class="process-step-number">4</div>
-            <h3>Сценарное моделирование</h3>
-            <p>«Что если...» — просчитываю 10-50 сценариев. Нахожу оптимальный путь.</p>
+            <h3>Расчёт вариантов</h3>
+            <p>«Что если...» — сравниваю сценарии и нахожу оптимальный путь.</p>
           </div>
           <div class="process-step-card">
             <div class="process-step-number">5</div>
@@ -202,7 +202,7 @@
     <section class="section section-dark sub-cta">
       <div class="container narrow">
         <h2 class="sub-cta__title">Готовы увидеть, как это работает на ваших данных?</h2>
-        <p class="sub-cta__desc">Первая консультация бесплатно. Покажем примеры дашбордов и моделей из похожих проектов.</p>
+        <p class="sub-cta__desc">Первая консультация бесплатно. Покажу примеры дашбордов и моделей из похожих проектов.</p>
         <a href="index.html#cta" class="btn-primary">Запросить демо</a>
       </div>
     </section>
