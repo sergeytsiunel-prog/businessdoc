@@ -59,6 +59,37 @@
 .tile h3 { font-size: 1.06rem; margin: 0; letter-spacing: -0.02em; }
 .tile p { margin: 0; font-size: 0.95rem; color: #64748B; }
 .tile__go { margin-top: auto; padding-top: 8px; font-size: 0.9rem; font-weight: 600; color: #1D4ED8; }
+
+/* ---------- плитки направлений на главной: плашки, цвет, акцентная первая карточка ---------- */
+.tiles-grid--accent { gap: 20px; }
+.tiles-grid--accent .tile {
+  position: relative; overflow: hidden; padding-top: 32px;
+  border-color: rgba(15,23,42,0.09); box-shadow: 0 2px 12px rgba(15,23,42,0.05);
+}
+.tiles-grid--accent .tile::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--tile-accent, #1D4ED8);
+}
+.tiles-grid--accent .tile__ic {
+  width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center;
+  background: var(--tile-plate, #DFE8FF);
+}
+.tiles-grid--accent .tile__icon { width: 26px; height: 26px; color: var(--tile-accent, #1D4ED8); }
+.tiles-grid--accent .tile__go { color: var(--tile-accent, #1D4ED8); }
+.tiles-grid--accent .tile:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(15,23,42,0.12); }
+.tiles-grid--accent .tile:nth-child(2) { --tile-accent: #0F766E; --tile-plate: #D6F2EA; }
+.tiles-grid--accent .tile:nth-child(3) { --tile-accent: #B45309; --tile-plate: #FCEBD2; }
+.tiles-grid--accent .tile:nth-child(4) { --tile-accent: #6D28D9; --tile-plate: #EADFFE; }
+.tiles-grid--accent .tile:nth-child(1) {
+  background: #1D4ED8; border-color: #1D4ED8; box-shadow: 0 10px 26px rgba(29,78,216,0.22);
+}
+.tiles-grid--accent .tile:nth-child(1)::before { background: transparent; }
+.tiles-grid--accent .tile:nth-child(1) h3 { color: #fff; }
+.tiles-grid--accent .tile:nth-child(1) p { color: #C7D7FB; }
+.tiles-grid--accent .tile:nth-child(1) .tile__ic { background: rgba(255,255,255,0.16); }
+.tiles-grid--accent .tile:nth-child(1) .tile__icon { color: #fff; }
+.tiles-grid--accent .tile:nth-child(1) .tile__go { color: #fff; }
+.tiles-grid--accent .tile:nth-child(1):hover { border-color: #1D4ED8; box-shadow: 0 18px 40px rgba(29,78,216,0.30); }
+.tiles-grid--accent .tile:nth-child(1):hover .tile__go { color: #fff; text-decoration: underline; }
 .home-extra { margin-top: 26px; font-size: 0.95rem; color: #64748B; }
 .home-extra a { font-weight: 600; }
 
@@ -118,6 +149,7 @@
   .home .eyebrow { margin-bottom: 12px; }
   .home h2 { font-size: clamp(1.5rem, 6vw, 1.95rem); }
   .step, .tile { padding: 24px 20px; }
+  .tiles-grid--accent .tile { padding-top: 30px; }
 }
 
 /* ---------- агент в деле: вход на живую демонстрацию ---------- */
