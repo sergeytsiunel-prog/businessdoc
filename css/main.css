@@ -58,6 +58,9 @@
   /* ===== LAYOUT ===== */
   --section-padding: clamp(48px, 6.5vw, 80px);
   --container-padding: clamp(20px, 5vw, 80px);
+  /* первый экран внутренних страниц: высота шапки 72 + воздух 24→64 */
+  --hero-top: calc(72px + clamp(24px, 5vw, 64px));
+  --hero-bottom: clamp(48px, 6vw, 80px);
 }
 
 * {

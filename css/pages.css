@@ -6,7 +6,7 @@
 /* ===== Антикризисная диагностика (crisis.html) ===== */
 .crisis-hero {
   background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 40%, #ffffff 100%);
-  padding: clamp(96px, 12vw, 140px) 0 clamp(48px, 6vw, 80px);
+  padding: var(--hero-top) 0 var(--hero-bottom);
   position: relative;
   overflow: hidden;
 }
@@ -406,7 +406,7 @@
 .tech-hero {
   background: var(--gradient-dark);
   color: white;
-  padding: clamp(96px, 12vw, 140px) 0 clamp(48px, 6vw, 80px);
+  padding: var(--hero-top) 0 var(--hero-bottom);
 }
 .tech-hero h1 {
   color: white;
@@ -481,7 +481,7 @@
 .pa-hero {
   background: linear-gradient(180deg, #F0F7FF 0%, #F6F7F9 70%, #F6F7F9 100%);
   border-bottom: 1px solid rgba(15, 23, 42, 0.05);
-  padding: clamp(96px, 12vw, 140px) 0 56px;
+  padding: var(--hero-top) 0 var(--hero-bottom);
 }
 .pa-hero h1 { max-width: 860px; }
 .pa-hero .pa-sub {
@@ -528,7 +528,12 @@
 
 .pa-ctl { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 
-.pa-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-top: 40px; }
+.pa-metrics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 40px; }
+/* планшет: две колонки, пятая карточка («Цена после решения») — во всю ширину, не висит одна */
+@media (max-width: 1100px) {
+  .pa-metrics { grid-template-columns: repeat(2, 1fr); }
+  .pa-metrics .pa-m:last-child { grid-column: 1 / -1; }
+}
 .pa-m {
   background: #FFFFFF; border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px;
 }
@@ -547,13 +552,14 @@
 .pa-cta p { color: #475569; margin-bottom: 20px; }
 
 @media (max-width: 768px) {
-  .pa-hero { padding-top: 96px; padding-bottom: 40px; }
   .term__body { font-size: 12px; padding: 16px; }
-  .pa-metrics { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pa-metrics { grid-template-columns: 1fr; gap: 12px; }
 }
 
 /* ===== Политика конфиденциальности (privacy.html) ===== */
-.page-hero { background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: clamp(96px, 12vw, 140px) 0 clamp(48px, 6vw, 60px); }
+.page-hero { background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: var(--hero-top) 0 var(--hero-bottom); }
 .privacy-content { max-width: 780px; margin: 0 auto; }
 .privacy-content h2 { font-size: 24px; margin-top: 40px; margin-bottom: 12px; color: #0f172a; }
 .privacy-content p, .privacy-content li { color: #475569; line-height: 1.6; font-size: 16px; }
@@ -566,8 +572,71 @@
 .hero-solo { max-width: 880px; }
 .hero-solo .hero-subtitle { max-width: 720px; }
 .sale-curve { width: 100%; max-width: 760px; margin: 32px auto 0; display: block; }
+/* подписи графика — обычным текстом под рисунком (внутри рисунка на телефоне выходило ~6 px) */
+.curve-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; font-size: 14px; font-weight: 600; color: #0F172A; }
+.curve-legend__item { display: inline-flex; align-items: center; gap: 8px; }
+.curve-legend__line { display: inline-block; width: 32px; height: 4px; border-radius: 2px; background: #94A3B8; }
+.curve-legend__line--new { background: #1D4ED8; }
+.thesis-block .curve-axes { font-size: 14px; color: #64748B; margin: 8px 0 0; }
 .thesis-block { text-align: center; max-width: 820px; margin: 0 auto; }
 .thesis-block .formula { font-size: clamp(24px, 4vw, 32px); font-weight: 700; letter-spacing: -0.02em; color: var(--color-text-dark); margin: 8px 0 12px; }
 .thesis-block .formula span { color: var(--color-primary); }
 .doplata-note { display:inline-block; margin-top:16px; padding:8px 16px; border-radius: 8px; background:rgba(239,68,68,0.08); color:#DC2626; font-size: 14px; font-weight:600; }
 .relief-line { font-size: 18px; color: var(--color-text-dark); max-width: 760px; margin: 24px auto 0; }
+
+/* ===== Пример дашборда (dashboard.html) ===== */
+.dash-hero { padding-top: var(--hero-top); }
+.pl-table-wrap { background: #FFFFFF; border-radius: 24px; box-shadow: 0 20px 36px -12px rgba(15,23,42,0.10); overflow: hidden; margin-bottom: 32px; }
+.pl-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+.pl-table thead th { text-align: right; padding: 16px; background: #F8FAFC; border-bottom: 2px solid #E2E8F0; font-size: 14px; color: #475569; font-weight: 600; }
+.pl-table thead th:first-child { text-align: left; }
+.pl-table tbody th { text-align: left; padding: 16px; font-weight: 600; color: #0F172A; }
+.pl-table td { text-align: right; padding: 16px; color: #0F172A; font-variant-numeric: tabular-nums; }
+.pl-table tbody tr { border-bottom: 1px solid #E2E8F0; }
+.pl-table tbody tr:last-child { border-bottom: none; }
+.pl-table tbody tr.pl-row--key { background: #EFF6FF; }
+.pl-row--key th, .pl-row--key td:nth-of-type(1), .pl-row--strong th, .pl-row--strong td:nth-of-type(1),
+.pl-row--total th, .pl-row--total td:nth-of-type(1) { font-weight: 700; }
+.pl-table tbody tr.pl-row--total { background: #F1F5F9; }
+.pl-table .pl-dyn { font-weight: 600; }
+.pl-table .pl-dyn--good { color: #047857; }
+.pl-table .pl-dyn--bad { color: #B91C1C; }
+
+.dash-card { background: #FFFFFF; border-radius: 16px; padding: 32px; border: 1px solid rgba(15,23,42,0.06); box-shadow: 0 8px 24px -8px rgba(15,23,42,0.06); margin-bottom: 32px; }
+.dash-card h3 { font-size: 20px; margin-bottom: 24px; }
+.dash-card--accent { background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%); border-left: 4px solid #1D4ED8; }
+.dash-card--soft { background: #F8FAFC; box-shadow: none; }
+.dash-card--dark { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: #E6EDF5; border: none; }
+.dash-card--dark h3 { color: #FFFFFF; margin-bottom: 0; }
+.dash-card--dark .dash-num { color: #FFFFFF; }
+.dash-card--dark .dash-note { color: #CBD5E1; }
+.dash-card__head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+.dash-tag { background: rgba(255,255,255,0.16); padding: 4px 12px; border-radius: 8px; font-size: 12px; color: #FFFFFF; }
+.dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.dash-grid--four { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.dash-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 32px; }
+.dash-pair .dash-card { margin-bottom: 0; }
+.dash-num { font-size: 24px; font-weight: 700; color: #1D4ED8; line-height: 1.25; margin: 4px 0; font-variant-numeric: tabular-nums; }
+.dash-num--plain { color: #0F172A; }
+.dash-num--xl { font-size: 32px; line-height: 1.1; margin: 0 0 8px; }
+.dash-label { font-weight: 600; color: #0F172A; }
+.dash-cap { font-size: 14px; color: #64748B; line-height: 1.4; }
+.dash-note { font-size: 14px; color: #475569; line-height: 1.4; margin: 8px 0 0; }
+.dash-note--dark { font-size: 16px; color: #0F172A; line-height: 1.6; }
+.dash-note--rule { margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(15,23,42,0.06); }
+.dash-bar { background: #E2E8F0; border-radius: 8px; height: 8px; overflow: hidden; margin-top: 16px; }
+.dash-bar__fill { background: #1D4ED8; height: 100%; border-radius: 8px; }
+.dash-cta { text-align: center; margin-top: 32px; }
+
+@media (max-width: 640px) {
+  .dash-card { padding: 24px; }
+  /* таблица → карточки: одна строка = один показатель */
+  .pl-table-wrap { background: transparent; box-shadow: none; border-radius: 0; overflow: visible; }
+  .pl-table, .pl-table tbody, .pl-table tr, .pl-table th, .pl-table td { display: block; width: 100%; }
+  .pl-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pl-table tbody tr { background-color: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 12px rgba(15,23,42,0.04); }
+  .pl-table tbody tr:last-child { border-bottom: 1px solid #E2E8F0; margin-bottom: 0; }
+  .pl-table tbody th { padding: 0 0 8px; font-size: 16px; }
+  .pl-table td { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; text-align: right; }
+  .pl-table td::before { content: attr(data-label); color: #64748B; font-weight: 400; font-size: 14px; text-align: left; }
+}

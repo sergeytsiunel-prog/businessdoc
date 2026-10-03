@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/components.css?v=20261003b">
   <link rel="stylesheet" href="css/sections.css?v=20261003b">
   <link rel="stylesheet" href="css/responsive.css?v=20261003b">
+  <link rel="stylesheet" href="css/pages.css?v=20261003c">
   <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -50,135 +51,109 @@
   </header>
 
   <main>
-    <section class="section" id="dashboard-demo">
+    <section class="section dash-hero" id="dashboard-demo">
       <div class="container narrow fade-up">
         <div class="section-header text-center">
           <div class="section-eyebrow">Как выглядит управленческий учёт</div>
-          <h1 style="font-size: clamp(40px, 5vw, 56px);">Пример управленческого дашборда</h1>
-          <p class="section-subtitle">Реальные данные одного из наших клиентов — производителя бытовой химии</p>
+          <h1>Пример управленческого дашборда</h1>
+          <p class="section-subtitle">Реальные данные одного из моих клиентов — производителя бытовой химии</p>
         </div>
 
-        <!-- Таблица P&L -->
-        <div style="background: #ffffff; border-radius: 24px; box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1); overflow-x: auto; margin-bottom: 32px;">
-          <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+        <!-- Таблица P&L (на телефоне — карточка на каждый показатель) -->
+        <div class="pl-table-wrap">
+          <table class="pl-table">
             <thead>
-              <tr><th style="text-align: left; padding: 16px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">Показатель</th>
-                <th style="text-align: right; padding: 16px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">Текущий месяц</th>
-                <th style="text-align: right; padding: 16px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">Прошлый месяц</th>
-                <th style="text-align: right; padding: 16px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">Динамика</th>
-              </tr>
+              <tr><th scope="col">Показатель</th><th scope="col">Текущий месяц</th><th scope="col">Прошлый месяц</th><th scope="col">Динамика</th></tr>
             </thead>
             <tbody>
-              <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 16px; font-weight: 600;">Выручка</td><td style="text-align: right; padding: 16px;">25 000 000 ₽</td><td style="text-align: right; padding: 16px;">22 400 000 ₽</td><td style="text-align: right; padding: 16px; color: #10b981;">+11.6% ↑</td></tr>
-              <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 16px; font-weight: 600;">Переменные расходы</td><td style="text-align: right; padding: 16px;">17 000 000 ₽</td><td style="text-align: right; padding: 16px;">16 000 000 ₽</td><td style="text-align: right; padding: 16px; color: #ef4444;">+6.3% ↑</td></tr>
-              <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 16px; font-weight: 600;">Маржинальный доход</td><td style="text-align: right; padding: 16px;">8 000 000 ₽</td><td style="text-align: right; padding: 16px;">6 400 000 ₽</td><td style="text-align: right; padding: 16px; color: #10b981;">+25.0% ↑</td></tr>
-              <tr style="border-bottom: 1px solid #e2e8f0; background: #f0fdf4;"><td style="padding: 16px; font-weight: 700;">КМД (коэффициент марж. дохода)</td><td style="text-align: right; padding: 16px; font-weight: 700;">32.0%</td><td style="text-align: right; padding: 16px;">28.6%</td><td style="text-align: right; padding: 16px; color: #10b981; font-weight: 700;">+3.4 п.п. ↑</td></tr>
-              <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 16px; font-weight: 600;">Постоянные расходы</td><td style="text-align: right; padding: 16px;">3 200 000 ₽</td><td style="text-align: right; padding: 16px;">3 100 000 ₽</td><td style="text-align: right; padding: 16px; color: #ef4444;">+3.2% ↑</td></tr>
-              <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 16px; font-weight: 700;">Точка безубыточности (ТБУ)</td><td style="text-align: right; padding: 16px; font-weight: 700;">10 000 000 ₽</td><td style="text-align: right; padding: 16px;">10 839 000 ₽</td><td style="text-align: right; padding: 16px; color: #10b981; font-weight: 700;">-7.7% ↓</td></tr>
-              <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 16px; font-weight: 600;">Запас фин. прочности (в %)</td><td style="text-align: right; padding: 16px;">60.0%</td><td style="text-align: right; padding: 16px;">51.6%</td><td style="text-align: right; padding: 16px; color: #10b981;">+8.4 п.п. ↑</td></tr>
-              <tr style="background: #f1f5f9;"><td style="padding: 16px; font-weight: 700;">Чистая прибыль</td><td style="text-align: right; padding: 16px; font-weight: 700;">4 800 000 ₽</td><td style="text-align: right; padding: 16px;">3 300 000 ₽</td><td style="text-align: right; padding: 16px; color: #10b981; font-weight: 700;">+45.5% ↑</td></tr>
+              <tr><th scope="row">Выручка</th><td data-label="Текущий месяц">25 000 000 ₽</td><td data-label="Прошлый месяц">22 400 000 ₽</td><td data-label="Динамика" class="pl-dyn pl-dyn--good">+11.6% ↑</td></tr>
+              <tr><th scope="row">Переменные расходы</th><td data-label="Текущий месяц">17 000 000 ₽</td><td data-label="Прошлый месяц">16 000 000 ₽</td><td data-label="Динамика" class="pl-dyn pl-dyn--bad">+6.3% ↑</td></tr>
+              <tr><th scope="row">Маржинальный доход</th><td data-label="Текущий месяц">8 000 000 ₽</td><td data-label="Прошлый месяц">6 400 000 ₽</td><td data-label="Динамика" class="pl-dyn pl-dyn--good">+25.0% ↑</td></tr>
+              <tr class="pl-row--key"><th scope="row">КМД (коэффициент марж. дохода)</th><td data-label="Текущий месяц">32.0%</td><td data-label="Прошлый месяц">28.6%</td><td data-label="Динамика" class="pl-dyn pl-dyn--good">+3.4 п.п. ↑</td></tr>
+              <tr><th scope="row">Постоянные расходы</th><td data-label="Текущий месяц">3 200 000 ₽</td><td data-label="Прошлый месяц">3 100 000 ₽</td><td data-label="Динамика" class="pl-dyn pl-dyn--bad">+3.2% ↑</td></tr>
+              <tr class="pl-row--strong"><th scope="row">Точка безубыточности (ТБУ)</th><td data-label="Текущий месяц">10 000 000 ₽</td><td data-label="Прошлый месяц">10 839 000 ₽</td><td data-label="Динамика" class="pl-dyn pl-dyn--good">-7.7% ↓</td></tr>
+              <tr><th scope="row">Запас фин. прочности (в %)</th><td data-label="Текущий месяц">60.0%</td><td data-label="Прошлый месяц">51.6%</td><td data-label="Динамика" class="pl-dyn pl-dyn--good">+8.4 п.п. ↑</td></tr>
+              <tr class="pl-row--total"><th scope="row">Чистая прибыль</th><td data-label="Текущий месяц">4 800 000 ₽</td><td data-label="Прошлый месяц">3 300 000 ₽</td><td data-label="Динамика" class="pl-dyn pl-dyn--good">+45.5% ↑</td></tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Аналитический блок с новыми метриками -->
-        <div style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); border-radius: 16px; padding: 32px; border-left: 4px solid #2563eb; margin-bottom: 32px;">
-          <h3 style="font-size: 20px; margin-bottom: 16px;">Ключевые инсайты по итогам месяца</h3>
-          
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+        <!-- Ключевые инсайты -->
+        <div class="dash-card dash-card--accent">
+          <h3>Ключевые инсайты по итогам месяца</h3>
+          <div class="dash-grid">
             <div>
-              <div style="color: #2563eb; font-weight: 700; font-size: 24px;">+3.4 п.п.</div>
-              <div style="font-weight: 600;">Рост КМД</div>
-              <div style="font-size: 14px; color: #64748b;">Коэффициент маржинального дохода вырос с 28.6% до 32% благодаря оптимизации закупок.</div>
+              <div class="dash-num">+3.4 п.п.</div>
+              <div class="dash-label">Рост КМД</div>
+              <p class="dash-note">Коэффициент маржинального дохода вырос с 28.6% до 32% благодаря оптимизации закупок.</p>
             </div>
-            
             <div>
-              <div style="color: #10b981; font-weight: 700; font-size: 24px;">10 млн ₽</div>
-              <div style="font-weight: 600;">Точка безубыточности (ТБУ)</div>
-              <div style="font-size: 14px; color: #64748b;">Снижение ТБУ на 7.7% означает, что бизнесу нужно меньше выручки для покрытия всех расходов.</div>
+              <div class="dash-num">10 млн ₽</div>
+              <div class="dash-label">Точка безубыточности (ТБУ)</div>
+              <p class="dash-note">Снижение ТБУ на 7.7% означает, что бизнесу нужно меньше выручки для покрытия всех расходов.</p>
             </div>
-            
             <div>
-              <div style="color: #2563eb; font-weight: 700; font-size: 24px;">2.5x</div>
-              <div style="font-weight: 600;">Запас финансовой прочности</div>
-              <div style="font-size: 14px; color: #64748b;">Текущая выручка в 2.5 раза превышает ТБУ. Бизнес устойчив даже при падении продаж на 60%.</div>
+              <div class="dash-num">2.5x</div>
+              <div class="dash-label">Запас финансовой прочности</div>
+              <p class="dash-note">Текущая выручка в 2.5 раза превышает ТБУ. Бизнес устойчив даже при падении продаж на 60%.</p>
             </div>
           </div>
         </div>
 
-        <!-- НОВЫЙ БЛОК: Юнит-экономика -->
-        <div style="background: #ffffff; border-radius: 16px; padding: 32px; box-shadow: 0 8px 25px -5px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); margin-bottom: 32px;">
-          <h3 style="font-size: 20px; margin-bottom: 24px;">Юнит-экономика (на 1 SKU)</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
-            <div>
-              <div style="color: #64748b; font-size: 14px;">Средняя цена реализации</div>
-              <div style="font-size: 24px; font-weight: 700; color: #0f172a;">580 ₽</div>
-            </div>
-            <div>
-              <div style="color: #64748b; font-size: 14px;">Себестоимость переменная</div>
-              <div style="font-size: 24px; font-weight: 700; color: #0f172a;">394 ₽</div>
-            </div>
-            <div>
-              <div style="color: #64748b; font-size: 14px;">Маржинальность на юнит</div>
-              <div style="font-size: 24px; font-weight: 700; color: #2563eb;">186 ₽</div>
-            </div>
-            <div>
-              <div style="color: #64748b; font-size: 14px;">КМД на юнит</div>
-              <div style="font-size: 24px; font-weight: 700; color: #2563eb;">32%</div>
-            </div>
+        <!-- Юнит-экономика -->
+        <div class="dash-card">
+          <h3>Юнит-экономика (на 1 SKU)</h3>
+          <div class="dash-grid dash-grid--four">
+            <div><div class="dash-cap">Средняя цена реализации</div><div class="dash-num dash-num--plain">580 ₽</div></div>
+            <div><div class="dash-cap">Себестоимость переменная</div><div class="dash-num dash-num--plain">394 ₽</div></div>
+            <div><div class="dash-cap">Маржинальность на юнит</div><div class="dash-num">186 ₽</div></div>
+            <div><div class="dash-cap">КМД на юнит</div><div class="dash-num">32%</div></div>
           </div>
-          <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.05);">
-            <p style="font-size: 14px; color: #64748b; margin-bottom: 0;">Чтобы увеличить маржинальность на юнит на 5%, достаточно повысить цену на 18 ₽ или снизить переменные расходы на 19 ₽.</p>
+          <p class="dash-note dash-note--rule">Чтобы увеличить маржинальность на юнит на 5%, достаточно повысить цену на 18 ₽ или снизить переменные расходы на 19 ₽.</p>
+        </div>
+
+        <!-- Прогноз CashFlow и корреляция трендов -->
+        <div class="dash-pair">
+          <div class="dash-card dash-card--dark">
+            <div class="dash-card__head">
+              <h3>Прогноз CashFlow</h3>
+              <span class="dash-tag">ML-модель</span>
+            </div>
+            <div class="dash-num dash-num--xl">+5.2 млн ₽</div>
+            <p class="dash-note">Ожидаемый чистый денежный поток в следующем месяце</p>
+            <p class="dash-note">Вероятность исполнения: 87% (на основе исторических данных и сезонности)</p>
+          </div>
+          <div class="dash-card">
+            <h3>Корреляция трендов</h3>
+            <div class="dash-num dash-num--xl">R² = 0.94</div>
+            <p class="dash-note">Месячная динамика vs годовой прогноз</p>
+            <div class="dash-bar"><div class="dash-bar__fill" style="width: 94%;"></div></div>
+            <p class="dash-note">Текущий тренд с высокой точностью коррелирует с годовым прогнозом. Отклонение в пределах 2.3%.</p>
           </div>
         </div>
 
-        <!-- НОВЫЙ БЛОК: Прогноз CashFlow и Корреляция трендов -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 32px;">
-          <!-- Прогноз CashFlow -->
-          <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 16px; padding: 24px; color: white;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-              <h3 style="color: white; margin-bottom: 0; font-size: 20px;">Прогноз CashFlow</h3>
-              <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 16px; font-size: 12px;">ML-модель</span>
-            </div>
-            <div style="font-size: 32px; font-weight: 700; margin-bottom: 8px;">+5.2 млн ₽</div>
-            <div style="font-size: 14px; opacity: 0.8;">Ожидаемый чистый денежный поток в следующем месяце</div>
-            <div style="margin-top: 16px; font-size: 14px; opacity: 0.7;">Вероятность исполнения: 87% (на основе исторических данных и сезонности)</div>
-          </div>
-
-          <!-- Корреляция трендов -->
-          <div style="background: #ffffff; border-radius: 16px; padding: 24px; border: 1px solid rgba(0,0,0,0.05);">
-            <h3 style="font-size: 20px; margin-bottom: 16px;">Корреляция трендов</h3>
-            <div style="font-size: 32px; font-weight: 700; color: #2563eb;">R² = 0.94</div>
-            <div style="font-size: 14px; color: #64748b; margin-top: 4px; margin-bottom: 16px;">Месячная динамика vs годовой прогноз</div>
-            <div style="background: #e2e8f0; border-radius: 12px; height: 8px; overflow: hidden;">
-              <div style="width: 94%; background: #2563eb; height: 100%; border-radius: 12px;"></div>
-            </div>
-            <p style="font-size: 14px; color: #64748b; margin-top: 16px; margin-bottom: 0;">Текущий тренд с высокой точностью коррелирует с годовым прогнозом. Отклонение в пределах 2.3%.</p>
-          </div>
-        </div>
-
-        <!-- Блок с аналитикой и выводами -->
-        <div style="background: #f8fafc; border-radius: 16px; padding: 32px; border: 1px solid rgba(0,0,0,0.05);">
-          <h3 style="font-size: 20px; margin-bottom: 16px;">Глубокая аналитика</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <!-- Глубокая аналитика -->
+        <div class="dash-card dash-card--soft">
+          <h3>Глубокая аналитика</h3>
+          <div class="dash-grid">
             <div>
-              <div style="font-weight: 600; color: #0f172a;">Операционный рычаг</div>
-              <div style="font-size: 20px; font-weight: 700; color: #2563eb;">2.4x</div>
-              <div style="font-size: 14px; color: #64748b;">Рост выручки на 1% даёт +2.4% к чистой прибыли</div>
+              <div class="dash-label">Операционный рычаг</div>
+              <div class="dash-num">2.4x</div>
+              <p class="dash-note">Рост выручки на 1% даёт +2.4% к чистой прибыли</p>
             </div>
             <div>
-              <div style="font-weight: 600; color: #0f172a;">Коэффициент покрытия</div>
-              <div style="font-size: 20px; font-weight: 700; color: #2563eb;">2.9x</div>
-              <div style="font-size: 14px; color: #64748b;">Маржинальный доход покрывает постоянные расходы в 2.9 раза</div>
+              <div class="dash-label">Коэффициент покрытия</div>
+              <div class="dash-num">2.9x</div>
+              <p class="dash-note">Маржинальный доход покрывает постоянные расходы в 2.9 раза</p>
             </div>
             <div>
-              <div style="font-weight: 600; color: #0f172a;">Рекомендация</div>
-              <div style="font-size: 14px; color: #0f172a;">Увеличение выручки на 20% при сохранении КМД даст рост чистой прибыли на 48%</div>
+              <div class="dash-label">Рекомендация</div>
+              <p class="dash-note dash-note--dark">Увеличение выручки на 20% при сохранении КМД даст рост чистой прибыли на 48%</p>
             </div>
           </div>
         </div>
 
-        <div style="text-align: center; margin-top: 32px;">
+        <div class="dash-cta">
           <a href="index.html#cta" class="btn-primary">Получить такой же разбор по вашему бизнесу</a>
         </div>
       </div>
