@@ -8,7 +8,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css?v=20260923f">
   <link rel="stylesheet" href="css/components.css?v=20260923f">
   <link rel="stylesheet" href="css/sections.css?v=20260923f">
@@ -30,25 +30,22 @@
 <body>
   <header class="header">
     <div class="container header-inner">
-      <div class="logo">BUSINESS DOCTOR</div>
+      <a href="index.html" class="logo">BUSINESS DOCTOR</a>
       <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
         <span class="menu-toggle__line"></span>
         <span class="menu-toggle__line"></span>
         <span class="menu-toggle__line"></span>
       </button>
-      <nav class="nav" data-menu>
+            <nav class="nav" data-menu>
         <div class="nav__inner">
-          <a href="index.html#services">Услуги</a>
-          <a href="index.html#industries">Отрасли</a>
-          <a href="pricing-agent.html">Симулятор</a>
-          <a href="index.html#cases">Кейсы</a>
-          <a href="tools.html">Технологии</a>
-          <a href="dashboard.html" class="active">Дашборд</a>
-          <a href="index.html#about">Об авторе</a>
-          <a href="index.html#cta" class="nav-cta-mobile">Запросить аудит</a>
+          <a href="index.html#process">Как я работаю</a>
+          <a href="index.html#napravleniya">Направления</a>
+          <a href="index.html#proof">Результаты</a>
+          <a href="index.html#contact">Контакты</a>
+          <a href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20обсудить%20мой%20бизнес" class="nav-cta-mobile" target="_blank" rel="noopener">Обсудить мой бизнес</a>
         </div>
       </nav>
-      <a href="index.html#cta" class="nav-cta-desktop">Запросить аудит</a>
+      <a href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20обсудить%20мой%20бизнес" class="nav-cta-desktop" target="_blank" rel="noopener">Обсудить мой бизнес</a>
     </div>
   </header>
 
@@ -190,8 +187,11 @@
 
   <footer class="footer">
     <div class="container narrow text-center">
-      <p>© 2026 Business Doctor. AI-аудит для диагностики и роста бизнеса.</p>
-      <p><a href="index.html">← На главную</a> · <a href="privacy.html">Политика конфиденциальности</a></p>
+      <p class="footer__copy">© 2026 Сергей Циунель · Business Doctor</p>
+      <p class="footer__links">
+        <a href="index.html">На главную</a>
+        <a href="privacy.html" class="footer__privacy">Политика конфиденциальности</a>
+      </p>
     </div>
   </footer>
 

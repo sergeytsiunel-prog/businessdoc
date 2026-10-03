@@ -298,6 +298,40 @@
   margin-bottom: 0.75rem;
 }
 
+/* --- Footer (единый на всех страницах) --- */
+.footer {
+  background: #0F172A;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer__copy {
+  color: #CBD5E1;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer__links {
+  margin: 0;
+  color: #94A3B8;
+  font-size: 14px;
+}
+
+.footer__links a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  margin: 0 12px;
+  transition: color 0.2s ease;
+}
+
+.footer__links a:hover {
+  color: white;
+}
+
+.footer__links a.footer__privacy {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* --- Quotes --- */
 .quote-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);

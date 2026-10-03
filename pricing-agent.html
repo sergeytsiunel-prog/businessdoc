@@ -8,79 +8,10 @@
   <link rel="icon" type="image/x-icon" href="favicon.svg">
   <meta property="og:title" content="Ценовой агент Business Doctor — в работе">
   <meta property="og:description" content="Агент считает закупку, наценку, комиссию и прибыль — и сам принимает решение по цене.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0a0f16; --bg-2:#0f1620; --card:#131c28; --border:#1e2a3a;
-      --text:#e6edf5; --text-2:#93a5b8; --text-3:#5b6b7d;
-      --accent:#38bdf8; --accent-2:#4ade80; --accent-dim:#155e75;
-      --warn:#fbbf24; --danger:#f87171;
-      --font:'Inter',system-ui,sans-serif; --font-mono:'JetBrains Mono',monospace;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;min-height:100vh}
-    .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
-
-    /* Header */
-    .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
-    .logo{font-weight:800;letter-spacing:.04em;font-size:1.1rem;color:var(--text);text-decoration:none}
-    .logo span{color:var(--accent)}
-    .back{color:var(--text-2);text-decoration:none;font-size:.9rem;border:1px solid var(--border);padding:8px 14px;border-radius:8px;transition:.2s}
-    .back:hover{color:var(--text);border-color:var(--accent-dim)}
-
-    /* Page title */
-    .hz__eyebrow{color:var(--accent);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:600}
-    h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:10px}
-    .hz__sub{color:var(--text-2);font-size:1rem;max-width:640px;margin-bottom:20px}
-
-    /* Terminal window */
-    .term{background:#0b1119;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.45)}
-    .term__bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#101823;border-bottom:1px solid var(--border)}
-    .term__dot{width:12px;height:12px;border-radius:50%}
-    .term__dot--r{background:#f87171}.term__dot--a{background:#fbbf24}.term__dot--g{background:#4ade80}
-    .term__title{margin-left:10px;color:var(--text-3);font-family:var(--font-mono);font-size:.78rem}
-    .term__live{margin-left:auto;color:var(--accent-2);font-size:.72rem;font-family:var(--font-mono);display:flex;align-items:center;gap:6px}
-    .term__live .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent-2);animation:blink 1.4s infinite}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-
-    .term__body{padding:20px 22px;font-family:var(--font-mono);font-size:.88rem;min-height:420px;max-height:70vh;overflow-y:auto;color:var(--text)}
-    .line{margin-bottom:4px;white-space:pre-wrap;word-break:break-word}
-    .line .t{color:var(--text-3)}
-    .cmd{color:var(--accent)}
-    .ok{color:var(--accent-2)}
-    .warn{color:var(--warn)}
-    .num{color:var(--accent);font-weight:600}
-    .act{color:var(--accent-2);font-weight:600}
-    .dim{color:var(--text-3)}
-    .cursor{display:inline-block;width:8px;height:1.1em;background:var(--accent);vertical-align:middle;animation:blink .8s infinite}
-
-    /* Controls */
-    .ctl{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-    .btn{background:var(--accent);color:#04121f;border:none;padding:12px 22px;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
-    .btn:hover{filter:brightness(1.1)}
-    .btn--ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
-    .btn--ghost:hover{border-color:var(--accent-dim);color:var(--text)}
-
-    /* Metric strip */
-    .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:24px}
-    .m{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
-    .m__label{color:var(--text-3);font-size:.75rem;margin-bottom:4px}
-    .m__value{font-family:var(--font-mono);font-size:1.2rem;font-weight:700;color:var(--text)}
-    .m__value.good{color:var(--accent-2)}
-    .m__desc{color:var(--text-3);font-size:.72rem;margin-top:2px}
-
-    .note{margin-top:26px;padding:14px 16px;border:1px dashed var(--border);border-radius:10px;color:var(--text-2);font-size:.85rem;line-height:1.6}
-    .note b{color:var(--text)}
-
-    .cta{text-align:center;margin-top:40px}
-    .cta h3{font-size:1.4rem;margin-bottom:10px}
-    .cta p{color:var(--text-2);margin-bottom:18px}
-
-    @media (max-width:640px){
-      .term__body{font-size:.76rem;padding:16px}
-      .metrics{grid-template-columns:1fr 1fr}
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=20260923f">
+  <link rel="stylesheet" href="css/components.css?v=20260923f">
+  <link rel="stylesheet" href="css/responsive.css?v=20260923f">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -93,54 +24,160 @@
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/108463875" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
+  <style>
+    /* Живая демонстрация агента — первый экран и окно терминала.
+       Окно терминала остаётся тёмным: это окно программы. */
+    .pa-hero {
+      background: linear-gradient(180deg, #F0F7FF 0%, #F6F7F9 70%, #F6F7F9 100%);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+      padding: 140px 0 56px;
+    }
+    .pa-hero h1 { max-width: 860px; }
+    .pa-hero .pa-sub {
+      font-size: 18px;
+      color: #475569;
+      max-width: 680px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .term {
+      background: #0A0F16;
+      border: 1px solid #1E2A3A;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 44px rgba(15,23,42,0.18);
+    }
+    .term__bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 16px; background: #101823; border-bottom: 1px solid #1E2A3A;
+    }
+    .term__dot { width: 12px; height: 12px; border-radius: 50%; }
+    .term__dot--r { background: #F87171; }
+    .term__dot--a { background: #FBBF24; }
+    .term__dot--g { background: #4ADE80; }
+    .term__title { margin-left: 10px; color: #5B6B7D; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+    .term__live { margin-left: auto; color: #4ADE80; font-size: 12px; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 6px; }
+    .term__live .pulse { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; animation: blink 1.4s infinite; }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
+
+    .term__body {
+      padding: 20px 22px; font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; min-height: 420px; max-height: 70vh; overflow-y: auto;
+      color: #E6EDF5; line-height: 1.6;
+    }
+    .line { margin-bottom: 4px; white-space: pre-wrap; word-break: break-word; }
+    .line .t { color: #5B6B7D; }
+    .cmd { color: #38BDF8; }
+    .ok { color: #4ADE80; }
+    .num { color: #38BDF8; font-weight: 600; }
+    .act { color: #4ADE80; font-weight: 600; }
+    .dim { color: #5B6B7D; }
+    .cursor { display: inline-block; width: 8px; height: 1.1em; background: #38BDF8; vertical-align: middle; animation: blink .8s infinite; }
+
+    .pa-ctl { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+
+    .pa-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-top: 40px; }
+    .pa-m {
+      background: #FFFFFF; border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px;
+    }
+    .pa-m__label { color: #64748B; font-size: 14px; margin-bottom: 8px; }
+    .pa-m__value { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: #0F172A; }
+    .pa-m__value.good { color: #1D4ED8; }
+    .pa-m__desc { color: #64748B; font-size: 14px; margin-top: 8px; line-height: 1.4; }
+
+    .pa-note {
+      margin-top: 32px; padding: 20px 24px; border: 1px dashed rgba(15,23,42,0.2);
+      border-radius: 16px; color: #475569; font-size: 16px; line-height: 1.6;
+    }
+    .pa-note b { color: #0F172A; }
+
+    .pa-cta { text-align: center; margin-top: 56px; }
+    .pa-cta p { color: #475569; margin-bottom: 20px; }
+
+    @media (max-width: 768px) {
+      .pa-hero { padding-top: 96px; }
+      .term__body { font-size: 12px; padding: 16px; }
+      .pa-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <header class="top">
-      <a href="/" class="logo">BUSINESS <span>DOCTOR</span></a>
-      <a href="/" class="back">← На главную</a>
-    </header>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">BUSINESS DOCTOR</a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Открыть меню">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
+      <nav class="nav" data-menu>
+        <div class="nav__inner">
+          <a href="index.html#process">Как я работаю</a>
+          <a href="index.html#napravleniya">Направления</a>
+          <a href="index.html#proof">Результаты</a>
+          <a href="index.html#contact">Контакты</a>
+          <a href="#cta" class="nav-cta-mobile">Обсудить мой бизнес</a>
+        </div>
+      </nav>
+      <a href="#cta" class="nav-cta-desktop">Обсудить мой бизнес</a>
+    </div>
+  </header>
 
-    <div class="hz__eyebrow">Ценовой агент · живая демонстрация</div>
-    <h1>Как агент решает: поднять цену или остаться</h1>
-    <p class="hz__sub">Конкурент изменил цену. Смотрите, как агент считает закупку, наценку, комиссию площадки и прибыль — и принимает решение, которое соответствует стратегии плана продаж.</p>
+  <main>
+    <section class="pa-hero">
+      <div class="container narrow">
+        <div class="eyebrow">Ценовой агент · живая демонстрация</div>
+        <h1>Как агент решает: поднять цену или остаться</h1>
+        <p class="pa-sub">Конкурент изменил цену. Смотрите, как агент считает закупку, наценку, комиссию площадки и прибыль — и принимает решение, которое соответствует стратегии плана продаж.</p>
 
-    <div class="term">
-      <div class="term__bar">
-        <span class="term__dot term__dot--r"></span>
-        <span class="term__dot term__dot--a"></span>
-        <span class="term__dot term__dot--g"></span>
-        <span class="term__title">pricing-agent · decision-live</span>
-        <span class="term__live"><span class="pulse"></span> ДЕМОНСТРАЦИЯ · запись решения агента</span>
+        <div class="term">
+          <div class="term__bar">
+            <span class="term__dot term__dot--r"></span>
+            <span class="term__dot term__dot--a"></span>
+            <span class="term__dot term__dot--g"></span>
+            <span class="term__title">pricing-agent · decision-live</span>
+            <span class="term__live"><span class="pulse"></span> ДЕМОНСТРАЦИЯ · запись решения агента</span>
+          </div>
+          <div class="term__body" id="out" aria-live="polite"></div>
+        </div>
+
+        <div class="pa-ctl">
+          <button class="btn-primary" onclick="run()">Перезапустить анализ</button>
+          <a class="btn-secondary" href="#cta">Хочу такого агента</a>
+        </div>
+
+        <div class="pa-metrics">
+          <div class="pa-m"><div class="pa-m__label">Закупка и доставка</div><div class="pa-m__value">395 ₽</div><div class="pa-m__desc">за единицу</div></div>
+          <div class="pa-m"><div class="pa-m__label">Вознаграждение площадки</div><div class="pa-m__value">19%</div><div class="pa-m__desc">по категории товара</div></div>
+          <div class="pa-m"><div class="pa-m__label">Площадка забирает всего</div><div class="pa-m__value">39%</div><div class="pa-m__desc">365 ₽: вознаграждение, логистика, приёмка, хранение, эквайринг, реклама</div></div>
+          <div class="pa-m"><div class="pa-m__label">Прибыль с единицы</div><div class="pa-m__value good">180 ₽</div><div class="pa-m__desc">при цене 940 ₽</div></div>
+          <div class="pa-m"><div class="pa-m__label">Цена после решения</div><div class="pa-m__value">966 ₽</div><div class="pa-m__desc">ниже конкурента на 24 ₽</div></div>
+        </div>
+
+        <div class="pa-note">
+          <b>Демонстрация сценария.</b> Цифры условные — пример хода расчёта: закупка, вознаграждение площадки, логистика, приёмка, хранение, эквайринг, реклама, прибыль и влияние на спрос. Тарифы площадок зависят от категории, склада и модели продаж и меняются по нескольку раз в год. В реальной системе цифры подставляются из ваших данных и логистики площадки. Агент всегда действует в рамках настроенной стратегии и ваших правил.
+        </div>
+
+        <div class="pa-cta" id="cta">
+          <h2>Хотите такого агента на свой бизнес?</h2>
+          <p>Разберу вашу экономику, подключу агента под ваши правила ценообразования.</p>
+          <a class="btn-primary" href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20узнать%20про%20ценового%20агента" target="_blank" rel="noopener">Обсудить с основателем</a>
+        </div>
       </div>
-      <div class="term__body" id="out" aria-live="polite"></div>
-    </div>
+    </section>
+  </main>
 
-    <div class="ctl">
-      <button class="btn" onclick="run()">▶ Перезапустить анализ</button>
-      <a class="btn btn--ghost" href="#cta">Хочу такого агента</a>
+  <footer class="footer">
+    <div class="container narrow text-center">
+      <p class="footer__copy">© 2026 Сергей Циунель · Business Doctor</p>
+      <p class="footer__links">
+        <a href="index.html">На главную</a>
+        <a href="privacy.html" class="footer__privacy">Политика конфиденциальности</a>
+      </p>
     </div>
-
-    <div class="metrics">
-      <div class="m"><div class="m__label">Закупка и доставка</div><div class="m__value">395 ₽</div><div class="m__desc">за единицу</div></div>
-      <div class="m"><div class="m__label">Вознаграждение площадки</div><div class="m__value">19%</div><div class="m__desc">по категории товара</div></div>
-      <div class="m"><div class="m__label">Площадка забирает всего</div><div class="m__value">39%</div><div class="m__desc">365 ₽: вознаграждение, логистика, приёмка, хранение, эквайринг, реклама</div></div>
-      <div class="m"><div class="m__label">Прибыль с единицы</div><div class="m__value good">180 ₽</div><div class="m__desc">при цене 940 ₽</div></div>
-      <div class="m"><div class="m__label">Цена после решения</div><div class="m__value">966 ₽</div><div class="m__desc">ниже конкурента на 24 ₽</div></div>
-    </div>
-
-    <div class="note">
-      <b>Демонстрация сценария.</b> Цифры условные — пример хода расчёта: закупка, вознаграждение площадки, логистика, приёмка, хранение, эквайринг, реклама, прибыль и влияние на спрос. Тарифы площадок зависят от категории, склада и модели продаж и меняются по нескольку раз в год. В реальной системе цифры подставляются из ваших данных и логистики площадки. Агент всегда действует в рамках настроенной стратегии и ваших правил.
-    </div>
-
-    <div class="cta" id="cta">
-      <h3>Хотите такого агента на свой бизнес?</h3>
-      <p>Разберу вашу экономику, подключу агента под ваши правила ценообразования.</p>
-      <a class="btn" href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20узнать%20про%20ценового%20агента" target="_blank" rel="noopener">Обсудить с основателем</a>
-    </div>
-
-  </div>
+  </footer>
 
   <script>
     const OUT = document.getElementById('out');
