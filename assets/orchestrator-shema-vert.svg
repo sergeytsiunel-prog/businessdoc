@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 838" width="350" height="838" font-family="Inter, 'DejaVu Sans', Arial, sans-serif">
+  <defs>
+    <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3E4E63"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="350" height="838" rx="16" fill="#0A0F16"/>
+  <rect x="0.5" y="0.5" width="349" height="837" rx="16" fill="none" stroke="#1E2A3A"/>
+
+  <text x="16" y="30" fill="#8B98A9" font-size="10.5" letter-spacing="1.2">АГЕНТ-ОРКЕСТРАТОР · КАК ИДЁТ ЗАДАЧА</text>
+  <text x="16" y="56" fill="#E6EDF5" font-size="15" font-weight="600">Вы ставите задачу словами —</text>
+  <text x="16" y="76" fill="#E6EDF5" font-size="15" font-weight="600">агент собирает под неё команду</text>
+
+  <!-- ШАГ 1 -->
+  <rect x="16" y="100" width="318" height="68" rx="10" fill="#131C28" stroke="#38BDF8" stroke-width="1.3"/>
+  <text x="30" y="122" fill="#38BDF8" font-size="10" letter-spacing="1.1">ШАГ 1</text>
+  <text x="30" y="144" fill="#E6EDF5" font-size="15" font-weight="600">Задача</text>
+  <text x="30" y="161" fill="#8B98A9" font-size="11">обычными словами</text>
+  <line x1="175" y1="176" x2="175" y2="198" stroke="#3E4E63" stroke-width="1.5" marker-end="url(#arv)"/>
+
+  <!-- ШАГ 2 -->
+  <rect x="16" y="204" width="318" height="68" rx="10" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="30" y="226" fill="#8B98A9" font-size="10" letter-spacing="1.1">ШАГ 2</text>
+  <text x="30" y="248" fill="#E6EDF5" font-size="15" font-weight="600">План и разбивка</text>
+  <text x="30" y="265" fill="#8B98A9" font-size="11">из чего состоит задача</text>
+  <line x1="175" y1="280" x2="175" y2="302" stroke="#3E4E63" stroke-width="1.5" marker-end="url(#arv)"/>
+
+  <!-- ШАГ 3 -->
+  <rect x="16" y="308" width="318" height="140" rx="10" fill="#0F1620" stroke="#1E2A3A" stroke-dasharray="4 4"/>
+  <text x="30" y="330" fill="#8B98A9" font-size="10" letter-spacing="1.1">ШАГ 3</text>
+  <text x="30" y="352" fill="#E6EDF5" font-size="15" font-weight="600">Исполнители</text>
+  <text x="30" y="369" fill="#8B98A9" font-size="11">параллельно, не по очереди</text>
+  <rect x="30" y="378" width="290" height="30" rx="8" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="42" y="397" fill="#8B98A9" font-size="11">Исполнитель 1 · своя часть, свои доступы</text>
+  <rect x="30" y="412" width="290" height="30" rx="8" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="42" y="431" fill="#8B98A9" font-size="11">Исполнитель 2 · работает одновременно</text>
+  <line x1="175" y1="456" x2="175" y2="478" stroke="#3E4E63" stroke-width="1.5" marker-end="url(#arv)"/>
+
+  <!-- ШАГ 4 -->
+  <rect x="16" y="484" width="318" height="68" rx="10" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="30" y="506" fill="#8B98A9" font-size="10" letter-spacing="1.1">ШАГ 4</text>
+  <text x="30" y="528" fill="#E6EDF5" font-size="15" font-weight="600">Проверка</text>
+  <text x="30" y="545" fill="#8B98A9" font-size="11">спорное — отбраковка, выдуманное не проходит</text>
+  <line x1="175" y1="560" x2="175" y2="582" stroke="#3E4E63" stroke-width="1.5" marker-end="url(#arv)"/>
+
+  <!-- ШАГ 5 -->
+  <rect x="16" y="588" width="318" height="68" rx="10" fill="#131C28" stroke="#4ADE80" stroke-width="1.3"/>
+  <text x="30" y="610" fill="#4ADE80" font-size="10" letter-spacing="1.1">ШАГ 5</text>
+  <text x="30" y="632" fill="#E6EDF5" font-size="15" font-weight="600">Результат и решение</text>
+  <text x="30" y="649" fill="#8B98A9" font-size="11">что сделано · что решаете вы</text>
+
+  <!-- подпись -->
+  <line x1="16" y1="684" x2="334" y2="684" stroke="#1E2A3A"/>
+  <text x="16" y="708" fill="#E6EDF5" font-size="11">Ничего не забывает · назначьте планёрку —</text>
+  <text x="16" y="726" fill="#E6EDF5" font-size="11">каждое утро приходит доклад ·</text>
+  <text x="16" y="744" fill="#E6EDF5" font-size="11">повторяющиеся задачи ведёт сам</text>
+  <text x="16" y="772" fill="#8B98A9" font-size="10.5">Решения про деньги, людей и сроки остаются</text>
+  <text x="16" y="790" fill="#8B98A9" font-size="10.5">за владельцем. Агент готовит и исполняет</text>
+  <text x="16" y="808" fill="#8B98A9" font-size="10.5">рутину — но не подписывает за вас.</text>
+</svg>

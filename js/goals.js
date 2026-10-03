@@ -15,6 +15,8 @@
     while (el && el.tagName !== 'A') { el = el.parentElement; }
     if (!el) { return; }
     var href = el.getAttribute('href') || '';
+    var mark = el.getAttribute('data-goal');
+    if (mark) { goal(mark, { label: label, page: location.pathname }); }
     var label = (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
     if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp') > -1) {
       goal('whatsapp_click', { label: label });

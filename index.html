@@ -10,10 +10,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://businessdoc.pro/">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20261003f">
-  <link rel="stylesheet" href="css/components.css?v=20261003f">
-  <link rel="stylesheet" href="css/responsive.css?v=20261003f">
-  <link rel="stylesheet" href="css/home.css?v=20261003f">
+  <link rel="stylesheet" href="css/main.css?v=20261003g">
+  <link rel="stylesheet" href="css/components.css?v=20261003g">
+  <link rel="stylesheet" href="css/responsive.css?v=20261003g">
+  <link rel="stylesheet" href="css/home.css?v=20261003g">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -101,15 +101,80 @@
     </section>
 
     <!-- 3. НАПРАВЛЕНИЯ -->
+    <section class="agent agent--orch" id="agent">
+      <span id="orchestrator"></span>
+      <div class="wrap">
+        <div class="steps-head">
+          <div class="eyebrow">Агент-оркестратор</div>
+          <h2>Вы говорите задачу словами — приходит готовый результат</h2>
+          <p>Это не помощник, который отвечает на вопросы. Это исполнитель, который берёт задачу целиком: сам разбивает её на части, раздаёт работу, проверяет сделанное и сводит в один ответ.</p>
+        </div>
+
+        <div class="steps-grid steps-grid--five">
+          <div class="step">
+            <div class="step__num">ШАГ 1</div>
+            <h3>Задача</h3>
+            <p>Вы описываете словами, что нужно: «разберись, почему просела маржа на маркетплейсе».</p>
+          </div>
+          <div class="step">
+            <div class="step__num">ШАГ 2</div>
+            <h3>План</h3>
+            <p>Агент разбивает её на части и говорит, что будет делать и в каком порядке.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">ШАГ 3</div>
+            <h3>Исполнители</h3>
+            <p>Под каждую часть он создаёт отдельного агента и запускает их одновременно — они работают параллельно, а не по очереди.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">ШАГ 4</div>
+            <h3>Проверка</h3>
+            <p>Каждый результат он проверяет и отбраковывает: цифры сверяет с первоисточником, спорное помечает, выдуманное не пропускает.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">ШАГ 5</div>
+            <h3>Отчёт</h3>
+            <p>Вам приходит итог: что нашёл, что сделал, что требует вашего решения.</p>
+          </div>
+        </div>
+
+        <figure class="orch-scheme">
+          <picture>
+            <source media="(max-width: 700px)" srcset="assets/orchestrator-shema-vert.svg">
+            <img src="assets/orchestrator-shema.svg" width="1200" height="464" loading="lazy"
+                 alt="Как идёт задача: постановка, план и разбивка, параллельные исполнители, проверка, результат">
+          </picture>
+        </figure>
+
+        <div class="orch-note">
+          <div>
+            <h3>Чем отличается от отраслевого агента</h3>
+            <p>Отраслевой агент делает одну работу — держит переписку на Авито, следит за ценами на маркетплейсах. Оркестратор снимает роль диспетчера: он ставит задачи, управляет исполнителями и отвечает за результат. Первый экономит часы. Второй освобождает вас как управленца.</p>
+          </div>
+          <div>
+            <h3>Ничего не забывает</h3>
+            <p>Всё, что вы поручили, остаётся у него в работе. Назначьте планёрку — и каждое утро приходит доклад: что сделано, что не получилось, что требует вашего решения. Повторяющиеся задачи он ведёт сам.</p>
+          </div>
+        </div>
+
+        <div class="orch-cta">
+          <a href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20узнать%20про%20агента-оркестратора" class="btn-primary" data-goal="orchestrator_click">Показать агента на моей задаче</a>
+          <a href="orchestrator.html" class="btn-line" data-goal="orchestrator_read">Как устроен агент</a>
+          <a href="pricing-agent.html" class="btn-line" data-goal="orchestrator_demo">Посмотреть, как агент принимает решение</a>
+        </div>
+        <p class="orch-caveat">Решения про деньги, людей и сроки остаются за вами. Агент готовит, считает и исполняет рутину — но не подписывает за вас.</p>
+      </div>
+    </section>
+
     <section id="napravleniya">
       <span id="services"></span><span id="industries"></span>
       <div class="wrap">
         <div class="steps-head">
           <div class="eyebrow">Направления</div>
           <h2>С чем я работаю</h2>
-          <p>Четыре ситуации, в которые меня зовут чаще всего. Если вашей здесь нет — напишите, разберусь.</p>
+          <p>Три ситуации, в которые меня зовут чаще всего. Если вашей здесь нет — напишите, разберусь.</p>
         </div>
-        <div class="tiles-grid tiles-grid--accent">
+        <div class="tiles-grid tiles-grid--accent tiles-grid--three">
 
           <a class="tile" href="crisis.html">
             <span class="tile__ic"><svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 2.4 17a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
@@ -125,13 +190,6 @@
             <div class="tile__go">Открыть →</div>
           </a>
 
-          <a class="tile" href="food.html">
-            <span class="tile__ic"><svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20v-9l4.5 3V11l4.5 3V8l5 3v9"/><path d="M9 20v-3h4v3"/></svg></span>
-            <h3>Производство и себестоимость</h3>
-            <p>Рецептуры, запасы, скоропорт, себестоимость по партиям.</p>
-            <div class="tile__go">Открыть →</div>
-          </a>
-
           <a class="tile" href="vyhod.html">
             <span class="tile__ic"><svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 4.8V3H3v9h1.8l8.6 8.6a2 2 0 0 0 2.8 0l4.4-4.4a2 2 0 0 0 0-2.8z"/><path d="M7.5 7.5h.01"/></svg></span>
             <h3>Продажа и вывод бизнеса</h3>
@@ -140,33 +198,12 @@
           </a>
 
         </div>
-        <p class="home-extra">Ещё: <a href="chemistry.html">бытовая химия</a> · <a href="dashboard.html">пример управленческого дашборда</a> · <a href="tools.html">инструменты и технологии</a></p>
+        <p class="home-extra">Ещё: <a href="food.html">производство и себестоимость</a> · <a href="chemistry.html">бытовая химия</a> · <a href="dashboard.html">пример управленческого дашборда</a> · <a href="tools.html">инструменты и технологии</a></p>
       </div>
     </section>
 
 
     <!-- АГЕНТ В ДЕЛЕ -->
-    <section class="agent" id="agent">
-      <span id="simulator"></span>
-      <div class="wrap agent-grid">
-        <div>
-          <div class="eyebrow">Живая демонстрация</div>
-          <h2>Посмотрите, как агент принимает решение</h2>
-          <p>Агент сам следит за ценами на площадке: замечает изменение у конкурента, считает всё, что забирает площадка — вознаграждение, логистику, приёмку, хранение, эквайринг и рекламу — и решает, поднимать цену или нет. Покажу разбор одной позиции от начала до решения.</p>
-          <a href="pricing-agent.html" class="btn-primary">Посмотреть агента в деле →</a>
-        </div>
-        <div class="term-card">
-          <div class="term-card__bar"><i></i><i></i><i></i><span>pricing-agent · decision-live</span></div>
-          <div class="term-card__body">
-            <div class="dim">$ market.watch --sku 1877484968 --platform wb</div>
-            <div class="ok">✓ Конкурент поднял цену: 940 ₽ → 990 ₽ (+5,3%)</div>
-            <div class="ok">✓ Площадка забирает 365 ₽ — 39% от цены</div>
-            <div class="ok">✓ Прибыль с единицы: 180 ₽</div>
-            <div class="act">→ РЕШЕНИЕ: поднимаем до 966 ₽ — ниже конкурента</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- 4. РЕЗУЛЬТАТЫ -->
     <section class="proof" id="proof">
@@ -223,7 +260,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20261003f" defer></script>
-  <script src="js/goals.js?v=20261003f" defer></script>
+  <script src="js/main.js?v=20261003g" defer></script>
+  <script src="js/goals.js?v=20261003g" defer></script>
 </body>
 </html>

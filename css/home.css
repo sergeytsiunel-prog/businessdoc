@@ -182,3 +182,23 @@
 .term-card__body .act { color: #38BDF8; font-weight: 500; }
 .term-card__body .dim { color: #8B98A9; }
 @media (max-width: 900px) { .agent-grid { grid-template-columns: 1fr; } }
+
+/* ===== Блок агента-оркестратора (главная) ===== */
+.agent--orch { background: #FFFFFF; }
+.steps-grid--five { grid-template-columns: repeat(5, 1fr); }
+.agent--orch .step { padding: 24px; }
+.agent--orch .step h3 { font-size: 18px; }
+.agent--orch .step p { font-size: 14px; line-height: 1.4; }
+.orch-scheme { margin: clamp(24px, 4vw, 40px) 0 0; padding: 0; }
+.orch-scheme img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.orch-note { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 40px); margin-top: clamp(24px, 4vw, 40px); }
+.orch-note h3 { font-size: 18px; margin: 0 0 8px; letter-spacing: -0.01em; }
+.orch-note p { margin: 0; font-size: 16px; line-height: 1.4; }
+.orch-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: clamp(20px, 3vw, 32px); }
+.orch-caveat { margin: 12px 0 0; font-size: 14px; color: #64748B; }
+.tiles-grid--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1024px) { .steps-grid--five { grid-template-columns: repeat(3, 1fr); } .tiles-grid--three { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .orch-note { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .steps-grid--five { grid-template-columns: 1fr 1fr; } .tiles-grid--three { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .steps-grid--five { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .orch-scheme img { max-width: 380px; margin: 0 auto; aspect-ratio: 350 / 838; } }

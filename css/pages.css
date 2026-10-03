@@ -633,3 +633,22 @@
   .pl-table td { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; text-align: right; }
   .pl-table td::before { content: attr(data-label); color: #64748B; font-weight: 400; font-size: 14px; text-align: left; }
 }
+
+/* ===== Страница агента-оркестратора ===== */
+.orch-hero-btns { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+.orch-shema-img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 18px 40px rgba(15,23,42,0.16); }
+.orch-two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.orch-two__col { background: #FFFFFF; border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 32px; }
+.orch-two__col h3 { font-size: 20px; margin: 0 0 16px; letter-spacing: -0.02em; }
+.orch-two__col--accent { border-color: rgba(29,78,216,0.28); box-shadow: 0 10px 26px rgba(29,78,216,0.10); }
+.orch-two__col--accent h3 { color: #1D4ED8; }
+.orch-list { margin: 0; padding-left: 20px; }
+.orch-list li { margin-bottom: 10px; font-size: 16px; line-height: 1.4; color: #475569; }
+.orch-list li:last-child { margin-bottom: 0; }
+.orch-limits { background: #FFFFFF; border: 1px solid rgba(15,23,42,0.08); border-left: 4px solid #7F6137; border-radius: 16px; padding: 32px; }
+.orch-limits p { margin: 0 0 16px; font-size: 16px; line-height: 1.4; color: #475569; }
+.orch-limits p:last-child { margin-bottom: 0; }
+.orch-limits strong { color: #0F172A; }
+@media (max-width: 900px) { .orch-two { grid-template-columns: 1fr; } .orch-two__col, .orch-limits { padding: 24px; } }
+@media (max-width: 700px) { .orch-hero-btns { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+.orch-shema-img { max-width: 380px; margin: 0 auto; aspect-ratio: 350 / 838; } }

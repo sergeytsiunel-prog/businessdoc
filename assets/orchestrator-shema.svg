@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 464" width="1200" height="464" font-family="Inter, 'DejaVu Sans', Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3E4E63"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="464" rx="20" fill="#0A0F16"/>
+  <rect x="0.5" y="0.5" width="1199" height="463" rx="20" fill="none" stroke="#1E2A3A"/>
+  <text x="32" y="42" fill="#8B98A9" font-size="12.5" letter-spacing="1.6">АГЕНТ-ОРКЕСТРАТОР · КАК ИДЁТ ЗАДАЧА</text>
+  <text x="32" y="72" fill="#E6EDF5" font-size="18" font-weight="600">Вы ставите задачу словами — агент собирает под неё команду</text>
+
+  <!-- 1. Задача -->
+  <rect x="32" y="176" width="176" height="92" rx="12" fill="#131C28" stroke="#38BDF8" stroke-width="1.4"/>
+  <text x="50" y="208" fill="#38BDF8" font-size="12" letter-spacing="1.2">ШАГ 1</text>
+  <text x="50" y="232" fill="#E6EDF5" font-size="17" font-weight="600">Задача</text>
+  <text x="50" y="252" fill="#8B98A9" font-size="12">обычными словами</text>
+
+  <!-- 2. План -->
+  <rect x="248" y="176" width="176" height="92" rx="12" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="266" y="208" fill="#8B98A9" font-size="12" letter-spacing="1.2">ШАГ 2</text>
+  <text x="266" y="232" fill="#E6EDF5" font-size="17" font-weight="600">План и разбивка</text>
+  <text x="266" y="252" fill="#8B98A9" font-size="12">из чего состоит задача</text>
+
+  <!-- 3. Исполнители -->
+  <rect x="464" y="104" width="212" height="236" rx="12" fill="#0F1620" stroke="#1E2A3A" stroke-dasharray="4 4"/>
+  <text x="482" y="132" fill="#8B98A9" font-size="12" letter-spacing="1.2">ШАГ 3 · ПАРАЛЛЕЛЬНО</text>
+  <rect x="482" y="146" width="176" height="52" rx="10" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="498" y="168" fill="#E6EDF5" font-size="14">Исполнитель 1</text>
+  <text x="498" y="186" fill="#8B98A9" font-size="11">своя часть, свои доступы</text>
+  <rect x="482" y="206" width="176" height="52" rx="10" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="498" y="228" fill="#E6EDF5" font-size="14">Исполнитель 2</text>
+  <text x="498" y="246" fill="#8B98A9" font-size="11">работает одновременно</text>
+  <rect x="482" y="266" width="176" height="52" rx="10" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="498" y="288" fill="#E6EDF5" font-size="14">Исполнитель 3</text>
+  <text x="498" y="306" fill="#8B98A9" font-size="11">и сколько ещё понадобится</text>
+
+  <!-- 4. Проверка -->
+  <rect x="716" y="176" width="176" height="92" rx="12" fill="#131C28" stroke="#1E2A3A"/>
+  <text x="734" y="208" fill="#8B98A9" font-size="12" letter-spacing="1.2">ШАГ 4</text>
+  <text x="734" y="232" fill="#E6EDF5" font-size="17" font-weight="600">Проверка</text>
+  <text x="734" y="252" fill="#8B98A9" font-size="12">спорное — отбраковка</text>
+
+  <!-- 5. Результат -->
+  <rect x="932" y="176" width="236" height="92" rx="12" fill="#131C28" stroke="#4ADE80" stroke-width="1.4"/>
+  <text x="950" y="208" fill="#4ADE80" font-size="12" letter-spacing="1.2">ШАГ 5</text>
+  <text x="950" y="232" fill="#E6EDF5" font-size="17" font-weight="600">Результат и решение</text>
+  <text x="950" y="252" fill="#8B98A9" font-size="12">что сделано · что решаете вы</text>
+
+  <!-- связи -->
+  <line x1="208" y1="222" x2="242" y2="222" stroke="#3E4E63" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="424" y1="222" x2="456" y2="222" stroke="#3E4E63" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="676" y1="222" x2="710" y2="222" stroke="#3E4E63" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="892" y1="222" x2="926" y2="222" stroke="#3E4E63" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <!-- нижняя подпись -->
+  <line x1="32" y1="366" x2="1168" y2="366" stroke="#1E2A3A"/>
+  <text x="32" y="396" fill="#E6EDF5" font-size="13">Ничего не забывает · назначьте планёрку — каждое утро приходит доклад · повторяющиеся задачи ведёт сам</text>
+  <text x="32" y="424" fill="#8B98A9" font-size="12">Решения про деньги, людей и сроки остаются за владельцем. Агент готовит, считает и исполняет рутину — но не подписывает за вас.</text>
+</svg>
