@@ -24,7 +24,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 32px;
     transition: right 0.3s ease;
     z-index: 1000;
     padding: 80px 20px 40px;
@@ -41,12 +41,12 @@
     justify-content: center;
     height: 100%;
     width: 100%;
-    gap: 2rem;
+    gap: 32px;
   }
 
   .nav a {
-    font-size: 1.25rem;
-    padding: 0.5rem 1rem;
+    font-size: 20px;
+    padding: 8px 16px;
     text-align: center;
   }
 
@@ -58,11 +58,11 @@
     display: inline-block !important;
     background: var(--gradient-blue-accent);
     color: white;
-    padding: 1rem 2rem;
+    padding: 16px 32px;
     border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
-    margin-top: 2rem;
+    margin-top: 32px;
     box-shadow: var(--shadow-subtle);
   }
 
@@ -97,7 +97,7 @@
 
   .process-step {
     flex-direction: column;
-    gap: 1rem;
+    gap: 16px;
   }
 
   .step-number {
@@ -126,7 +126,7 @@
   .problem-card,
   .industry-card,
   .testimonial-card {
-    padding: 1.5rem;
+    padding: 24px;
   }
 
   .btn-primary {
@@ -149,7 +149,7 @@
   .vital-signs {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
+    gap: 16px !important;
   }
   
   /* Скрываем 5-й блок (Поставщики) на мобильных */
@@ -159,14 +159,14 @@
   
   /* Делаем карточки шире и удобнее */
   .vital-card {
-    padding: 1rem !important;
+    padding: 16px !important;
     min-width: 0 !important;
   }
   
   /* Иконки чуть крупнее */
   .vital-card > div:first-child {
     font-size: 24px !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 8px !important;
   }
   
   /* Текст статуса не режется */
@@ -184,7 +184,7 @@
   
   /* Шкала нормальной высоты */
   .vital-bar {
-    margin: 0.5rem 0 !important;
+    margin: 8px 0 !important;
   }
 }
 /* Фикс формы на мобильных */
@@ -192,24 +192,24 @@
   /* Блок контактов и форма — в колонку */
   #contact > div > div {
     grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
+    gap: 24px !important;
   }
   
   /* Форма на всю ширину */
   .contact-form {
-    padding: 1rem !important;
+    padding: 16px !important;
   }
   
   /* Поля ввода — нормальный размер */
   .contact-form input,
   .contact-form textarea {
     font-size: 16px !important; /* Предотвращает зум на iOS */
-    padding: 0.7rem !important;
+    padding: 12px !important;
   }
   
   /* Кнопка */
   .contact-form button {
-    padding: 0.7rem !important;
+    padding: 12px !important;
     font-size: 16px !important;
   }
   
@@ -224,7 +224,7 @@
   section .content-grid[style*="grid-template-columns: repeat(3, 1fr)"],
   div[style*="grid-template-columns: repeat(3, 1fr)"] {
     grid-template-columns: 1fr !important;
-    gap: 1rem !important;
+    gap: 16px !important;
   }
 }
 
@@ -235,7 +235,7 @@
 @media (max-width: 768px) {
   .timeline {
     overflow: visible !important;
-    padding: 1rem 0 0.5rem !important;
+    padding: 16px 0 8px !important;
   }
   .timeline-line {
     display: none !important;
@@ -253,11 +253,11 @@
   .timeline-step {
     display: grid !important;
     grid-template-columns: 44px 1fr !important;
-    column-gap: 1rem !important;
+    column-gap: 16px !important;
     row-gap: 0 !important;
     align-items: start !important;
     text-align: left !important;
-    padding: 0 0 1.75rem 0 !important;
+    padding: 0 0 32px 0 !important;
     position: relative !important;
     width: 100% !important;
     max-width: none !important;
@@ -301,13 +301,13 @@
     font-size: 16px !important;
     font-weight: 700 !important;
     line-height: 1.25 !important;
-    margin: 0.5rem 0 0.15rem 0 !important;
+    margin: 8px 0 4px 0 !important;
     color: #0f172a !important;
   }
   .timeline-duration {
     font-size: 14px !important;
     color: #94a3b8 !important;
-    margin: 0 0 0.4rem 0 !important;
+    margin: 0 0 8px 0 !important;
   }
   .timeline-desc {
     font-size: 14px !important;
@@ -317,7 +317,7 @@
   }
   .timeline-ai-badge {
     font-size: 12px !important;
-    margin: 0.6rem 0 0 0 !important;
+    margin: 8px 0 0 0 !important;
     width: fit-content !important;
     align-self: flex-start !important;
   }

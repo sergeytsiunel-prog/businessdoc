@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/main.css?v=20261003b">
   <link rel="stylesheet" href="css/components.css?v=20261003b">
   <link rel="stylesheet" href="css/responsive.css?v=20261003b">
+  <link rel="stylesheet" href="css/pages.css?v=20261003c">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -24,83 +25,6 @@
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/108463875" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
-  <style>
-    /* Живая демонстрация агента — первый экран и окно терминала.
-       Окно терминала остаётся тёмным: это окно программы. */
-    .pa-hero {
-      background: linear-gradient(180deg, #F0F7FF 0%, #F6F7F9 70%, #F6F7F9 100%);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
-      padding: clamp(96px, 12vw, 140px) 0 56px;
-    }
-    .pa-hero h1 { max-width: 860px; }
-    .pa-hero .pa-sub {
-      font-size: 18px;
-      color: #475569;
-      max-width: 680px;
-      line-height: 1.6;
-      margin-bottom: 32px;
-    }
-
-    .term {
-      background: #0A0F16;
-      border: 1px solid #1E2A3A;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 44px rgba(15,23,42,0.18);
-    }
-    .term__bar {
-      display: flex; align-items: center; gap: 8px;
-      padding: 12px 16px; background: #101823; border-bottom: 1px solid #1E2A3A;
-    }
-    .term__dot { width: 12px; height: 12px; border-radius: 50%; }
-    .term__dot--r { background: #F87171; }
-    .term__dot--a { background: #FBBF24; }
-    .term__dot--g { background: #4ADE80; }
-    .term__title { margin-left: 10px; color: #5B6B7D; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
-    .term__live { margin-left: auto; color: #4ADE80; font-size: 12px; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 6px; }
-    .term__live .pulse { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; animation: blink 1.4s infinite; }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
-
-    .term__body {
-      padding: 20px 22px; font-family: 'JetBrains Mono', monospace;
-      font-size: 14px; min-height: 420px; max-height: 70vh; overflow-y: auto;
-      color: #E6EDF5; line-height: 1.6;
-    }
-    .line { margin-bottom: 4px; white-space: pre-wrap; word-break: break-word; }
-    .line .t { color: #5B6B7D; }
-    .cmd { color: #38BDF8; }
-    .ok { color: #4ADE80; }
-    .num { color: #38BDF8; font-weight: 600; }
-    .act { color: #4ADE80; font-weight: 600; }
-    .dim { color: #5B6B7D; }
-    .cursor { display: inline-block; width: 8px; height: 1.1em; background: #38BDF8; vertical-align: middle; animation: blink .8s infinite; }
-
-    .pa-ctl { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
-
-    .pa-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-top: 40px; }
-    .pa-m {
-      background: #FFFFFF; border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px;
-    }
-    .pa-m__label { color: #64748B; font-size: 14px; margin-bottom: 8px; }
-    .pa-m__value { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: #0F172A; }
-    .pa-m__value.good { color: #1D4ED8; }
-    .pa-m__desc { color: #64748B; font-size: 14px; margin-top: 8px; line-height: 1.4; }
-
-    .pa-note {
-      margin-top: 32px; padding: 20px 24px; border: 1px dashed rgba(15,23,42,0.2);
-      border-radius: 16px; color: #475569; font-size: 16px; line-height: 1.6;
-    }
-    .pa-note b { color: #0F172A; }
-
-    .pa-cta { text-align: center; margin-top: 56px; }
-    .pa-cta p { color: #475569; margin-bottom: 20px; }
-
-    @media (max-width: 768px) {
-      .pa-hero { padding-top: 96px; padding-bottom: 40px; }
-      .term__body { font-size: 12px; padding: 16px; }
-      .pa-metrics { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
