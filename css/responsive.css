@@ -59,7 +59,7 @@
     background: var(--gradient-blue-accent);
     color: white;
     padding: 1rem 2rem;
-    border-radius: 50px;
+    border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
     margin-top: 2rem;
@@ -121,14 +121,6 @@
     --container-padding: 20px;
   }
 
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
   .premium-card,
   .contact-direct,
   .problem-card,
@@ -173,20 +165,20 @@
   
   /* Иконки чуть крупнее */
   .vital-card > div:first-child {
-    font-size: 1.75rem !important;
+    font-size: 24px !important;
     margin-bottom: 0.5rem !important;
   }
   
   /* Текст статуса не режется */
   .vital-status {
-    font-size: 0.75rem !important;
+    font-size: 12px !important;
     white-space: nowrap !important;
     overflow: visible !important;
   }
   
   /* Дополнительный текст */
   .vital-probability {
-    font-size: 0.65rem !important;
+    font-size: 12px !important;
     white-space: nowrap !important;
   }
   
@@ -218,12 +210,12 @@
   /* Кнопка */
   .contact-form button {
     padding: 0.7rem !important;
-    font-size: 1rem !important;
+    font-size: 16px !important;
   }
   
   /* Заголовок формы */
   .contact-form h3 {
-    font-size: 1.1rem !important;
+    font-size: 18px !important;
   }
 }
 /* Фикс для трёхколоночных кейсов на мобильных */
@@ -306,25 +298,25 @@
   }
 
   .timeline-title {
-    font-size: 1rem !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
-    line-height: 1.3 !important;
+    line-height: 1.25 !important;
     margin: 0.5rem 0 0.15rem 0 !important;
     color: #0f172a !important;
   }
   .timeline-duration {
-    font-size: 0.8rem !important;
+    font-size: 14px !important;
     color: #94a3b8 !important;
     margin: 0 0 0.4rem 0 !important;
   }
   .timeline-desc {
-    font-size: 0.88rem !important;
-    line-height: 1.55 !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
     color: #475569 !important;
     margin: 0 !important;
   }
   .timeline-ai-badge {
-    font-size: 0.72rem !important;
+    font-size: 12px !important;
     margin: 0.6rem 0 0 0 !important;
     width: fit-content !important;
     align-self: flex-start !important;

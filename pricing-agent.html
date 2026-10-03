@@ -9,9 +9,9 @@
   <meta property="og:title" content="Ценовой агент Business Doctor — в работе">
   <meta property="og:description" content="Агент считает закупку, наценку, комиссию и прибыль — и сам принимает решение по цене.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260923f">
-  <link rel="stylesheet" href="css/components.css?v=20260923f">
-  <link rel="stylesheet" href="css/responsive.css?v=20260923f">
+  <link rel="stylesheet" href="css/main.css?v=20261003b">
+  <link rel="stylesheet" href="css/components.css?v=20261003b">
+  <link rel="stylesheet" href="css/responsive.css?v=20261003b">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -30,7 +30,7 @@
     .pa-hero {
       background: linear-gradient(180deg, #F0F7FF 0%, #F6F7F9 70%, #F6F7F9 100%);
       border-bottom: 1px solid rgba(15, 23, 42, 0.05);
-      padding: 140px 0 56px;
+      padding: clamp(96px, 12vw, 140px) 0 56px;
     }
     .pa-hero h1 { max-width: 860px; }
     .pa-hero .pa-sub {
@@ -96,7 +96,7 @@
     .pa-cta p { color: #475569; margin-bottom: 20px; }
 
     @media (max-width: 768px) {
-      .pa-hero { padding-top: 96px; }
+      .pa-hero { padding-top: 96px; padding-bottom: 40px; }
       .term__body { font-size: 12px; padding: 16px; }
       .pa-metrics { grid-template-columns: 1fr; }
     }
@@ -234,6 +234,6 @@
     }
     run();
   </script>
-  <script src="js/goals.js?v=20260923f" defer></script>
+  <script src="js/goals.js?v=20261003b" defer></script>
 </body>
 </html>

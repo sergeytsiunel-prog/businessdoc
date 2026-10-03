@@ -26,7 +26,7 @@
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 700;
   color: var(--color-slate);
   position: relative;
@@ -72,15 +72,16 @@
 .nav-cta-desktop {
   background: #0F172A;
   color: white;
-  padding: 0.65rem 1.5rem;
+  padding: 8px 16px;
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: var(--shadow-subtle);
   white-space: nowrap;
-  font-size: 0.9rem;
+  font-size: 14px;
   letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
 .nav-cta-desktop:hover {
@@ -121,15 +122,15 @@
   display: inline-block;
   background: #0F172A;
   color: white;
-  padding: 0.9rem 2.2rem;
-  border-radius: 14px;
+  padding: 12px 24px;
+  border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: 0 2px 12px rgba(15,23,42,0.15);
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 16px;
   text-align: center;
   letter-spacing: -0.01em;
 }
@@ -145,13 +146,13 @@
   display: inline-block;
   background: transparent;
   color: #0F172A;
-  padding: 0.9rem 2rem;
-  border-radius: 14px;
+  padding: 12px 24px;
+  border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   border: 1.5px solid rgba(15,23,42,0.2);
   transition: all 0.25s ease;
-  font-size: 1rem;
+  font-size: 16px;
   letter-spacing: -0.01em;
 }
 
@@ -182,13 +183,13 @@
 .premium-card ul {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.95rem;
+  font-size: 16px;
   color: var(--color-text-gray);
   line-height: 1.6;
 }
 
 .premium-card p {
-  font-size: 0.95rem;
+  font-size: 16px;
   line-height: 1.6;
   margin-bottom: 0;
 }
@@ -253,7 +254,7 @@
 }
 
 .section-subtitle {
-  font-size: 1.125rem;
+  font-size: 18px;
   color: var(--color-text-gray);
 }
 
@@ -267,14 +268,14 @@
 .content-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 24px;
   margin: 3rem 0;
 }
 
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  gap: 24px;
   margin: 3rem 0;
 }
 
@@ -392,7 +393,7 @@
 .process-steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 24px;
   margin: 3rem 0;
 }
 
@@ -420,19 +421,19 @@
   border-radius: 50%;
   background: var(--gradient-primary);
   color: white;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
 .process-step-card h3 {
-  font-size: 1.15rem;
+  font-size: 20px;
   letter-spacing: -0.015em;
   margin-bottom: 0.75rem;
 }
 
 .process-step-card p {
-  font-size: 0.95rem;
+  font-size: 16px;
   color: var(--color-text-gray);
   line-height: 1.6;
   margin-bottom: 0;
@@ -442,7 +443,7 @@
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 24px;
   margin: 3rem 0;
 }
 
@@ -475,20 +476,20 @@
   background: var(--gradient-primary);
   color: white;
   padding: 0.25rem 1rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  border-radius: 16px;
+  font-size: 12px;
   font-weight: 600;
 }
 
 .pricing-price {
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 700;
   color: var(--color-text-dark);
   margin: 1.5rem 0;
 }
 
 .pricing-price span {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   color: var(--color-text-gray);
 }
@@ -548,7 +549,7 @@
 }
 
 .faq-icon {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: var(--color-primary);
   transition: transform 0.3s ease;
 }

@@ -51,8 +51,9 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 3.75rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 24px;
   background: linear-gradient(135deg, var(--color-steel-blue-dark) 0%, var(--color-steel-blue) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -84,7 +85,7 @@
 }
 
 .hero-accent {
-  font-size: 1.125rem;
+  font-size: 18px;
   color: var(--color-text-dark);
   line-height: 1.6;
 }
@@ -168,7 +169,7 @@
   border: 1px solid rgba(212, 175, 55, 0.45);
   color: var(--color-gold);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 16px;
   margin-bottom: 1.25rem;
   background: rgba(255,255,255,0.8);
 }
@@ -352,9 +353,9 @@
 }
 
 .comparison-badge {
-  font-size: 0.8rem;
+  font-size: 14px;
   padding: 0.4rem 0.8rem;
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(58,123,213,0.08);
   color: var(--color-steel-blue);
   font-weight: 600;
@@ -414,7 +415,7 @@
   font-weight: 600;
   color: var(--color-steel-blue);
   margin-bottom: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -455,7 +456,7 @@
 }
 
 .testimonial-quote {
-  font-size: 1.125rem;
+  font-size: 18px;
   line-height: 1.6;
   color: var(--color-text-dark);
   margin-bottom: 2rem;
@@ -465,7 +466,7 @@
 
 .testimonial-quote::before {
   content: '"';
-  font-size: 4rem;
+  font-size: 40px;
   color: var(--color-gold);
   opacity: 0.2;
   position: absolute;
@@ -487,12 +488,12 @@
 
 .author-info strong {
   color: var(--color-steel-blue-dark);
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .author-info span {
   color: var(--color-text-gray);
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 /* --- Process Section --- */
@@ -519,7 +520,7 @@
 }
 
 .step-number {
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: 700;
   color: var(--color-steel-blue);
   opacity: 0.3;
@@ -544,11 +545,11 @@
 }
 
 .contact-direct__label {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #94A3B8;
+  color: #64748B;
   margin-bottom: 1rem;
 }
 
@@ -575,11 +576,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #94A3B8;
+  color: #64748B;
   margin-bottom: 0.35rem;
 }
 
@@ -588,21 +589,21 @@
 }
 
 .contact-tile__value {
-  font-size: 1.05rem;
+  font-size: 16px;
   color: #0F172A;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 .contact-tile__value--email {
-  font-size: 0.98rem;
+  font-size: 16px;
   word-break: break-all;
 }
 
 .contact-direct__note {
-  margin: 1rem 0 0;
-  font-size: 0.82rem;
-  color: #94A3B8;
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: #64748B;
   text-align: center;
 }
 
@@ -618,7 +619,7 @@
 .contact-form__title {
   margin: 0 0 0.4rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: 700;
   color: #0F172A;
   letter-spacing: -0.02em;
@@ -626,7 +627,7 @@
 
 .contact-form__desc {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 14px;
   color: #64748B;
   margin-bottom: 1.1rem;
 }
@@ -636,7 +637,7 @@
   padding: 0.85rem 1rem;
   border: 1px solid rgba(15,23,42,0.1);
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 16px;
   margin-bottom: 0.75rem;
   box-sizing: border-box;
   font-family: inherit;
@@ -667,7 +668,7 @@
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
@@ -682,7 +683,7 @@
 .contact-form__status {
   margin-top: 1rem;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 14px;
   display: none;
 }
 
@@ -702,20 +703,20 @@
 /* Hero внутренних страниц (marketplaces, etc.) */
 .industry-hero {
   background: linear-gradient(180deg, #F0F7FF 0%, #F6F7F9 70%, #F6F7F9 100%);
-  padding: 140px 0 80px;
+  padding: clamp(96px, 12vw, 140px) 0 clamp(48px, 6vw, 80px);
   border-bottom: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .industry-hero h1 {
-  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   letter-spacing: -0.025em;
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .industry-hero .section-subtitle {
   max-width: 800px;
-  font-size: 1.1rem;
+  font-size: 18px;
   color: #475569;
   line-height: 1.6;
 }
@@ -726,7 +727,7 @@
   margin-bottom: 2rem;
   color: #475569;
   font-weight: 500;
-  font-size: 0.92rem;
+  font-size: 14px;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -766,7 +767,7 @@
 
 .sub-cta__contacts {
   color: #64748B;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 .sub-cta__contacts a {
@@ -787,12 +788,12 @@
   background: #25D366;
   color: white;
   padding: 0.9rem 2rem;
-  border-radius: 14px;
+  border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   border: 1.5px solid #25D366;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  font-size: 1rem;
+  font-size: 16px;
   letter-spacing: -0.01em;
 }
 
@@ -812,13 +813,13 @@
 .case-triplet {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 24px;
+  margin-bottom: 32px;
 }
 
 .case-triplet__card {
   background: #FFFFFF;
-  padding: 1.75rem;
+  padding: 24px;
   border-radius: var(--radius-md);
   border: 1px solid rgba(15,23,42,0.06);
   border-left-width: 4px;
@@ -837,7 +838,7 @@
 .case-triplet__card--result  { border-left-color: #10B981; }
 
 .case-triplet__card h3 {
-  font-size: 1.15rem;
+  font-size: 20px;
   margin-bottom: 0.85rem;
   letter-spacing: -0.015em;
 }
@@ -849,7 +850,7 @@
 .case-triplet__card ul {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.95rem;
+  font-size: 16px;
   color: #475569;
   line-height: 1.6;
 }
@@ -870,7 +871,7 @@
 .case-quote {
   background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
   border-radius: var(--radius-md);
-  padding: 1.75rem 2rem;
+  padding: 24px;
   border-left: 4px solid #2563EB;
   margin-top: 1rem;
 }
@@ -879,7 +880,7 @@
   font-style: italic;
   color: #0F172A;
   margin-bottom: 0.75rem;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -887,7 +888,7 @@
   font-weight: 600;
   color: #475569;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 /* Highlight-метка под списком решений */
@@ -895,10 +896,10 @@
   margin-top: 0.85rem;
   padding-top: 0.85rem;
   border-top: 1px solid rgba(37,99,235,0.1);
-  font-size: 0.88rem;
+  font-size: 14px;
   color: #2563EB;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -916,7 +917,7 @@
   padding: 12px 18px;
   background: #0F172A;
   color: white;
-  border-radius: 14px;
+  border-radius: 12px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -924,7 +925,7 @@
   z-index: 9999;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 14px;
   letter-spacing: -0.01em;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
@@ -941,7 +942,7 @@
     bottom: 16px;
     right: 16px;
     padding: 10px 14px;
-    font-size: 0.85rem;
+    font-size: 14px;
   }
 }
 /* ========================================
@@ -994,7 +995,7 @@
   }
   
   .metric-value {
-    font-size: 1.5rem !important;
+    font-size: 24px !important;
   }
 }
 
@@ -1035,7 +1036,7 @@
   margin: 2.5rem 0 0;
   padding: 1.75rem 2.5rem;
   background: #FFFFFF;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid rgba(15,23,42,0.06);
   box-shadow: 0 2px 16px rgba(15,23,42,0.04);
   flex-wrap: wrap;
@@ -1052,7 +1053,7 @@
 
 .hero-stat-label {
   color: var(--color-text-gray);
-  font-size: 0.95rem;
+  font-size: 16px;
 }
 
 /* Адаптив для мобильных */
@@ -1063,11 +1064,11 @@
   }
   
   .hero-stat-value {
-    font-size: 2rem;
+    font-size: 32px;
   }
   
   .hero-stat-label {
-    font-size: 0.85rem;
+    font-size: 14px;
   }
 }
 
@@ -1079,12 +1080,12 @@
   }
   
   .hero-stat-value {
-    font-size: 1.5rem !important;
+    font-size: 24px !important;
     line-height: 1.1;
   }
   
   .hero-stat-label {
-    font-size: 0.8rem !important;
+    font-size: 14px !important;
   }
   
   .hero-stat-item {
@@ -1136,7 +1137,7 @@
 }
 
 .cases-section__eyebrow {
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1146,16 +1147,16 @@
 
 .cases-section__title {
   color: #F8FAFC;
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.025em;
-  line-height: 1.15;
+  line-height: 1.1;
   margin-bottom: 0.75rem;
 }
 
 .cases-section__subtitle {
   color: #94A3B8;
-  font-size: 1rem;
+  font-size: 16px;
   max-width: 560px;
   margin: 0 auto;
 }
@@ -1169,7 +1170,7 @@
 .case-card-dark {
   background: #1E293B;
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   transition: border-color 0.25s ease, transform 0.25s ease;
 }
@@ -1185,7 +1186,7 @@
 }
 
 .case-card-dark__tag {
-  font-size: 0.7rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1194,7 +1195,7 @@
 }
 
 .case-card-dark__company {
-  font-size: 1.05rem;
+  font-size: 16px;
   font-weight: 600;
   color: #F1F5F9;
   letter-spacing: -0.01em;
@@ -1213,7 +1214,7 @@
 }
 
 .case-card-dark__label {
-  font-size: 0.7rem;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1222,7 +1223,7 @@
 }
 
 .case-card-dark__text {
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #94A3B8;
   line-height: 1.6;
 }
@@ -1238,7 +1239,7 @@
 .case-card-dark__metrics--3 { grid-template-columns: repeat(3, 1fr); }
 
 .case-card-dark__metric-value {
-  font-size: 1.4rem;
+  font-size: 24px;
   font-weight: 700;
   color: #F1F5F9;
   letter-spacing: -0.025em;
@@ -1246,7 +1247,7 @@
 }
 
 .case-card-dark__metric-label {
-  font-size: 0.7rem;
+  font-size: 12px;
   color: #475569;
   margin-top: 0.25rem;
 }
@@ -1285,7 +1286,7 @@
 }
 
 .guarantee-card__num {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1297,12 +1298,12 @@
   font-weight: 600;
   color: #0F172A;
   margin-bottom: 0.5rem;
-  font-size: 1.02rem;
+  font-size: 16px;
   letter-spacing: -0.01em;
 }
 
 .guarantee-card__text {
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #64748B;
   margin: 0;
   line-height: 1.6;
@@ -1345,16 +1346,16 @@
   transform: translateX(-50%);
   background: #0F172A;
   color: white;
-  font-size: 0.68rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 4px 14px;
-  border-radius: 99px;
+  border-radius: 8px;
 }
 
 .format-card__num {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1365,20 +1366,20 @@
 .format-card__title {
   font-weight: 700;
   color: #0F172A;
-  font-size: 1.1rem;
+  font-size: 18px;
   letter-spacing: -0.015em;
   margin-bottom: 0.25rem;
 }
 
 .format-card__subtitle {
-  font-size: 0.95rem;
+  font-size: 16px;
   font-weight: 500;
   color: #2563EB;
   margin-bottom: 0.85rem;
 }
 
 .format-card__text {
-  font-size: 0.88rem;
+  font-size: 14px;
   color: #64748B;
   margin: 0;
   line-height: 1.6;
@@ -1386,7 +1387,7 @@
 
 .formats-footer {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 14px;
   color: #94A3B8;
   margin-top: 1.5rem;
 }
@@ -1398,10 +1399,10 @@
 .hero .hero-title {
   display: block;
   color: #0F172A;
-  font-size: clamp(2.25rem, 5vw, 3.2rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.08;
+  line-height: 1.1;
   background: none;
   -webkit-text-fill-color: initial;
   margin-bottom: 0.75rem;
@@ -1409,7 +1410,7 @@
 
 .hero .hero-subtitle {
   color: #475569;
-  font-size: 1.15rem;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 1.75rem;
@@ -1420,7 +1421,7 @@
   color: #0F172A;
   background: none;
   -webkit-text-fill-color: initial;
-  font-size: 2.25rem;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -1453,7 +1454,7 @@ h1, h2 {
 }
 
 h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.1;
@@ -1473,7 +1474,7 @@ h2 {
 }
 
 .calc-title {
-  font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.1;
@@ -1482,11 +1483,11 @@ h2 {
 }
 
 .calc-subtitle {
-  font-size: 1.05rem;
+  font-size: 16px;
   color: #475569;
   max-width: 680px;
   margin: 0 auto;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .calc-grid {
@@ -1498,14 +1499,14 @@ h2 {
 
 .calc-card {
   background: #FFFFFF;
-  border-radius: 18px;
+  border-radius: 16px;
   border: 1px solid rgba(15,23,42,0.06);
   box-shadow: 0 2px 12px rgba(15,23,42,0.04);
   padding: 1.75rem;
 }
 
 .calc-card__title {
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1528,13 +1529,13 @@ h2 {
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 0.4rem;
-  font-size: 0.88rem;
+  font-size: 14px;
   color: #0F172A;
   font-weight: 500;
 }
 
 .calc-field__norm {
-  font-size: 0.72rem;
+  font-size: 12px;
   color: #94A3B8;
   font-weight: 400;
   letter-spacing: 0;
@@ -1548,9 +1549,9 @@ h2 {
   width: 100%;
   padding: 0.72rem 3rem 0.72rem 0.85rem;
   border: 1px solid rgba(15,23,42,0.06);
-  border-radius: 10px;
+  border-radius: 12px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 500;
   color: #0F172A;
   background: #FAFBFC;
@@ -1581,7 +1582,7 @@ h2 {
   right: 0.85rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.82rem;
+  font-size: 14px;
   color: #94A3B8;
   pointer-events: none;
 }
@@ -1593,10 +1594,10 @@ h2 {
   padding: 0.75rem;
   background: transparent;
   border: 1px dashed rgba(15,23,42,0.14);
-  border-radius: 10px;
+  border-radius: 12px;
   color: #1D4ED8;
   font-family: inherit;
-  font-size: 0.88rem;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease;
@@ -1644,10 +1645,10 @@ h2 {
 }
 
 .results-empty__text {
-  font-size: 0.95rem;
+  font-size: 16px;
   max-width: 240px;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Метрики (KPI) */
@@ -1681,7 +1682,7 @@ h2 {
 }
 
 .metric__label {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1690,7 +1691,7 @@ h2 {
 }
 
 .metric__value {
-  font-size: 1.45rem;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.1;
@@ -1701,7 +1702,7 @@ h2 {
 .metric--positive .metric__value { color: #047857; }
 
 .metric__hint {
-  font-size: 0.74rem;
+  font-size: 12px;
   color: #94A3B8;
   margin-top: 0.35rem;
   letter-spacing: 0;
@@ -1725,7 +1726,7 @@ h2 {
 }
 
 .zfp-row__label {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1733,7 +1734,7 @@ h2 {
 }
 
 .zfp-row__value {
-  font-size: 1.1rem;
+  font-size: 18px;
   font-weight: 700;
   color: #0F172A;
   letter-spacing: -0.02em;
@@ -1742,14 +1743,14 @@ h2 {
 .zfp-bar {
   height: 8px;
   background: #E2E8F0;
-  border-radius: 99px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .zfp-bar__fill {
   height: 100%;
   background: #10B981;
-  border-radius: 99px;
+  border-radius: 8px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
   width: 0%;
 }
@@ -1758,10 +1759,10 @@ h2 {
 .zfp-bar__fill--danger { background: #EF4444; }
 
 .zfp-row__hint {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #475569;
   margin-top: 0.6rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Диагностика — светофор */
@@ -1789,7 +1790,7 @@ h2 {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   color: white;
   background: #94A3B8;
@@ -1801,7 +1802,7 @@ h2 {
 .diag-row__icon--bad { background: #EF4444; }
 
 .diag-row__text {
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #0F172A;
   line-height: 1.4;
 }
@@ -1811,10 +1812,10 @@ h2 {
 }
 
 .diag-row__sub {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #94A3B8;
   margin-top: 0.15rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 /* Блок «Три пути» — управленческие сценарии */
@@ -1825,7 +1826,7 @@ h2 {
 }
 
 .paths-row__title {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1834,10 +1835,10 @@ h2 {
 }
 
 .paths-row__hint {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #94A3B8;
   margin-bottom: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .paths-list {
@@ -1850,7 +1851,7 @@ h2 {
   padding: 0.75rem 0.9rem;
   background: #F8FAFC;
   border: 1px solid rgba(15,23,42,0.05);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .path-item__head {
@@ -1862,13 +1863,13 @@ h2 {
 }
 
 .path-item__label {
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 600;
   color: #0F172A;
 }
 
 .path-item__value {
-  font-size: 0.92rem;
+  font-size: 14px;
   font-weight: 700;
   color: #1D4ED8;
   letter-spacing: -0.01em;
@@ -1876,9 +1877,9 @@ h2 {
 }
 
 .path-item__detail {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #475569;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 /* Mini-форма захвата лида */
@@ -1889,10 +1890,10 @@ h2 {
 }
 
 .calc-leadform__text {
-  font-size: 0.92rem;
+  font-size: 14px;
   color: #475569;
   margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .calc-leadform__row {
@@ -1905,9 +1906,9 @@ h2 {
   min-width: 0;
   padding: 0.8rem 1rem;
   border: 1px solid rgba(15,23,42,0.1);
-  border-radius: 10px;
+  border-radius: 12px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 16px;
   color: #0F172A;
   background: #FFFFFF;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -1928,9 +1929,9 @@ h2 {
   background: #0F172A;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-family: inherit;
-  font-size: 0.92rem;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -1951,15 +1952,15 @@ h2 {
 
 .calc-leadform__note {
   margin-top: 0.6rem;
-  font-size: 0.74rem;
+  font-size: 12px;
   color: #94A3B8;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .calc-leadform__status {
   display: none;
   margin-top: 0.75rem;
-  font-size: 0.85rem;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -1977,7 +1978,7 @@ h2 {
     gap: 0.75rem;
   }
   .metric__value {
-    font-size: 1.3rem;
+    font-size: 20px;
   }
   .calc-leadform__row {
     flex-direction: column;
@@ -1992,11 +1993,11 @@ h2 {
    ======================================== */
 
 .calc-disclaimer {
-  font-size: 0.85rem;
+  font-size: 14px;
   color: #94A3B8;
   max-width: 680px;
   margin: 0.85rem auto 0;
-  line-height: 1.5;
+  line-height: 1.6;
   padding: 0.6rem 1rem;
   background: rgba(15,23,42,0.025);
   border-radius: 8px;
@@ -2011,7 +2012,7 @@ h2 {
 }
 
 .paths-row__title {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2020,10 +2021,10 @@ h2 {
 }
 
 .paths-row__hint {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #94A3B8;
   margin-bottom: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .paths-list {
@@ -2036,7 +2037,7 @@ h2 {
   padding: 0.75rem 0.9rem;
   background: #F8FAFC;
   border: 1px solid rgba(15,23,42,0.05);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .path-item__head {
@@ -2048,13 +2049,13 @@ h2 {
 }
 
 .path-item__label {
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 600;
   color: #0F172A;
 }
 
 .path-item__value {
-  font-size: 0.92rem;
+  font-size: 14px;
   font-weight: 700;
   color: #1D4ED8;
   letter-spacing: -0.01em;
@@ -2062,9 +2063,9 @@ h2 {
 }
 
 .path-item__detail {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #475569;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 /* ========================================
    КАЛЬКУЛЯТОР: блок «Три пути» — управленческие сценарии
@@ -2072,11 +2073,11 @@ h2 {
    ======================================== */
 
 .calc-disclaimer {
-  font-size: 0.85rem;
+  font-size: 14px;
   color: #94A3B8;
   max-width: 680px;
   margin: 0.85rem auto 0;
-  line-height: 1.5;
+  line-height: 1.6;
   padding: 0.6rem 1rem;
   background: rgba(15,23,42,0.025);
   border-radius: 8px;
@@ -2091,7 +2092,7 @@ h2 {
 }
 
 .paths-row__title {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2100,10 +2101,10 @@ h2 {
 }
 
 .paths-row__hint {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #94A3B8;
   margin-bottom: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .paths-list {
@@ -2116,7 +2117,7 @@ h2 {
   padding: 0.75rem 0.9rem;
   background: #F8FAFC;
   border: 1px solid rgba(15,23,42,0.05);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .path-item__head {
@@ -2128,13 +2129,13 @@ h2 {
 }
 
 .path-item__label {
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 600;
   color: #0F172A;
 }
 
 .path-item__value {
-  font-size: 0.92rem;
+  font-size: 14px;
   font-weight: 700;
   color: #1D4ED8;
   letter-spacing: -0.01em;
@@ -2142,9 +2143,9 @@ h2 {
 }
 
 .path-item__detail {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #475569;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 /* ========================================
    КАЛЬКУЛЯТОР: блок «Три пути» — управленческие сценарии
@@ -2152,11 +2153,11 @@ h2 {
    ======================================== */
 
 .calc-disclaimer {
-  font-size: 0.85rem;
+  font-size: 14px;
   color: #94A3B8;
   max-width: 680px;
   margin: 0.85rem auto 0;
-  line-height: 1.5;
+  line-height: 1.6;
   padding: 0.6rem 1rem;
   background: rgba(15,23,42,0.025);
   border-radius: 8px;
@@ -2171,7 +2172,7 @@ h2 {
 }
 
 .paths-row__title {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2180,10 +2181,10 @@ h2 {
 }
 
 .paths-row__hint {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #94A3B8;
   margin-bottom: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .paths-list {
@@ -2196,7 +2197,7 @@ h2 {
   padding: 0.75rem 0.9rem;
   background: #F8FAFC;
   border: 1px solid rgba(15,23,42,0.05);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .path-item__head {
@@ -2208,13 +2209,13 @@ h2 {
 }
 
 .path-item__label {
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 600;
   color: #0F172A;
 }
 
 .path-item__value {
-  font-size: 0.92rem;
+  font-size: 14px;
   font-weight: 700;
   color: #1D4ED8;
   letter-spacing: -0.01em;
@@ -2222,9 +2223,9 @@ h2 {
 }
 
 .path-item__detail {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #475569;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 /* ========================================
    КАЛЬКУЛЯТОР: блок «Три пути» — управленческие сценарии
@@ -2232,11 +2233,11 @@ h2 {
    ======================================== */
 
 .calc-disclaimer {
-  font-size: 0.85rem;
+  font-size: 14px;
   color: #94A3B8;
   max-width: 680px;
   margin: 0.85rem auto 0;
-  line-height: 1.5;
+  line-height: 1.6;
   padding: 0.6rem 1rem;
   background: rgba(15,23,42,0.025);
   border-radius: 8px;
@@ -2248,9 +2249,9 @@ h2 {
   max-width: 680px;
   margin: 0.85rem auto 0;
   padding: 0.75rem 1rem;
-  font-size: 0.88rem;
+  font-size: 14px;
   color: #92400E;
-  line-height: 1.5;
+  line-height: 1.6;
   background: #FEF3C7;
   border-radius: 8px;
   border-left: 3px solid #F59E0B;
@@ -2267,7 +2268,7 @@ h2 {
 }
 
 .paths-row__title {
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2276,10 +2277,10 @@ h2 {
 }
 
 .paths-row__hint {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #94A3B8;
   margin-bottom: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .paths-list {
@@ -2292,7 +2293,7 @@ h2 {
   padding: 0.75rem 0.9rem;
   background: #F8FAFC;
   border: 1px solid rgba(15,23,42,0.05);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .path-item__head {
@@ -2304,13 +2305,13 @@ h2 {
 }
 
 .path-item__label {
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 600;
   color: #0F172A;
 }
 
 .path-item__value {
-  font-size: 0.92rem;
+  font-size: 14px;
   font-weight: 700;
   color: #1D4ED8;
   letter-spacing: -0.01em;
@@ -2318,7 +2319,7 @@ h2 {
 }
 
 .path-item__detail {
-  font-size: 0.78rem;
+  font-size: 12px;
   color: #475569;
-  line-height: 1.45;
+  line-height: 1.4;
 }

@@ -16,10 +16,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260923f">
-  <link rel="stylesheet" href="css/components.css?v=20260923f">
-  <link rel="stylesheet" href="css/sections.css?v=20260923f">
-  <link rel="stylesheet" href="css/responsive.css?v=20260923f">
+  <link rel="stylesheet" href="css/main.css?v=20261003b">
+  <link rel="stylesheet" href="css/components.css?v=20261003b">
+  <link rel="stylesheet" href="css/sections.css?v=20261003b">
+  <link rel="stylesheet" href="css/responsive.css?v=20261003b">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -35,7 +35,7 @@
     /* ── CRISIS PAGE STYLES ── */
     .crisis-hero {
       background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 40%, #ffffff 100%);
-      padding: 140px 0 80px;
+      padding: clamp(96px, 12vw, 140px) 0 clamp(48px, 6vw, 80px);
       position: relative;
       overflow: hidden;
     }
@@ -51,10 +51,10 @@
       background: #fef2f2;
       color: #dc2626;
       border: 1px solid #fecaca;
-      font-size: 0.8rem;
+      font-size: 14px;
       font-weight: 600;
       padding: 4px 14px;
-      border-radius: 99px;
+      border-radius: 8px;
       margin-bottom: 1.25rem;
       letter-spacing: 0.06em;
     }
@@ -71,7 +71,7 @@
     }
     .crisis-hero p {
       color: #475569;
-      font-size: 1.1rem;
+      font-size: 18px;
       max-width: 680px;
       line-height: 1.6;
       margin-bottom: 2rem;
@@ -127,9 +127,9 @@
     }
     .health-card-icon--plate svg { width: 32px; height: 32px; }
     .symptom-text {
-      font-size: 0.95rem;
+      font-size: 16px;
       color: #334155;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* ── WHY AI ── */
@@ -154,7 +154,7 @@
       padding: 1.75rem;
     }
     .why-ai-label {
-      font-size: 0.75rem;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -166,9 +166,9 @@
       display: flex;
       gap: 10px;
       margin-bottom: 0.75rem;
-      font-size: 0.9rem;
+      font-size: 14px;
       color: #475569;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     .why-ai-item:last-child { margin-bottom: 0; }
 
@@ -198,11 +198,11 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 18px;
       margin: 0 auto 1rem;
     }
     .crisis-step h3 {
-      font-size: 1rem;
+      font-size: 16px;
       font-weight: 600;
       color: #0f172a;
       margin-bottom: 0.5rem;
@@ -210,7 +210,7 @@
     .crisis-step p {
       font-size: 0.875rem;
       color: #64748b;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     /* ── OBJECTIONS ── */
@@ -229,7 +229,7 @@
     .objection-q::before { content: '— '; color: #ef4444; }
     .objection-a {
       color: #475569;
-      font-size: 0.9rem;
+      font-size: 14px;
       line-height: 1.6;
       padding-left: 1rem;
     }
@@ -243,16 +243,16 @@
       max-width: 560px;
       margin: 0 auto;
     }
-    .crisis-form-wrap h2 { color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .crisis-form-wrap p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .crisis-form-wrap h2 { color: white; font-size: 24px; margin-bottom: 0.5rem; }
+    .crisis-form-wrap p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 16px; }
     .crisis-input {
       width: 100%;
       padding: 0.875rem 1rem;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.15);
       background: rgba(255,255,255,0.08);
       color: white;
-      font-size: 1rem;
+      font-size: 16px;
       margin-bottom: 0.75rem;
       outline: none;
       transition: border 0.2s;
@@ -266,8 +266,8 @@
       background: linear-gradient(135deg, #2563eb, #1d4ed8);
       color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 1rem;
+      border-radius: 12px;
+      font-size: 16px;
       font-weight: 600;
       cursor: pointer;
       transition: opacity 0.2s, transform 0.1s;
@@ -275,12 +275,12 @@
     }
     .crisis-submit:hover { opacity: 0.92; transform: translateY(-1px); }
     .crisis-form-note {
-      font-size: 0.8rem;
+      font-size: 14px;
       color: rgba(255,255,255,0.45);
       text-align: center;
       margin-top: 0.75rem;
     }
-    #crisisStatus { font-size: 0.9rem; margin-top: 0.75rem; text-align: center; min-height: 1.2em; }
+    #crisisStatus { font-size: 14px; margin-top: 0.75rem; text-align: center; min-height: 1.2em; }
   </style>
   <style>
     /* Карточка финансового здоровья */
@@ -303,7 +303,7 @@
       flex-shrink: 0;
     }
     .health-card-eyebrow {
-      font-size: 0.78rem;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -311,7 +311,7 @@
       margin-bottom: 0.6rem;
     }
     .health-card-title {
-      font-size: 1.4rem;
+      font-size: 24px;
       font-weight: 700;
       color: #0f172a;
       margin: 0 0 0.75rem;
@@ -319,7 +319,7 @@
     }
     .health-card-desc {
       color: #475569;
-      font-size: 1rem;
+      font-size: 16px;
       line-height: 1.6;
       margin: 0;
     }
@@ -332,7 +332,7 @@
     }
     .hc-block {
       background: #f8fafc;
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 1.25rem 1.5rem;
       border: 1px solid #e2e8f0;
     }
@@ -343,7 +343,7 @@
     .hc-block-title {
       font-weight: 700;
       color: #0f172a;
-      font-size: 0.95rem;
+      font-size: 16px;
       margin-bottom: 0.85rem;
     }
     .hc-list {
@@ -355,8 +355,8 @@
       padding: 0.4rem 0 0.4rem 1.25rem;
       position: relative;
       color: #475569;
-      font-size: 0.88rem;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.6;
     }
     .hc-list li::before {
       content: '✓';
@@ -368,7 +368,7 @@
     .hc-prog {
       margin: 0;
       color: #334155;
-      font-size: 0.92rem;
+      font-size: 14px;
       line-height: 1.6;
     }
     .hc-prog strong {
@@ -403,7 +403,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
+      font-size: 12px;
       font-weight: 700;
       flex-shrink: 0;
     }
@@ -414,10 +414,10 @@
     .hc-btn {
       display: inline-block !important;
       padding: 0.95rem 2rem !important;
-      font-size: 1rem !important;
+      font-size: 16px !important;
     }
     .hc-note {
-      font-size: 0.78rem;
+      font-size: 12px;
       color: #94a3b8;
       margin-top: 0.85rem;
     }
@@ -425,8 +425,8 @@
     @media (max-width: 768px) {
       .health-card-wrap { padding: 1.5rem; }
       .health-card-header { flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
-      .health-card-icon { font-size: 2rem; }
-      .health-card-title { font-size: 1.2rem; }
+      .health-card-icon { font-size: 32px; }
+      .health-card-title { font-size: 20px; }
       .health-card-grid { grid-template-columns: 1fr; gap: 0.75rem; }
       .hc-steps { flex-direction: column; gap: 0.5rem; align-items: flex-start; text-align: left; }
       .hc-step { width: 100%; }
@@ -519,7 +519,7 @@
           </div>
         </div>
         <div style="margin-top: 2rem; background: #fff; border-radius: 16px; padding: 1.5rem 2rem; border-left: 4px solid #2563eb; box-shadow: 0 2px 12px rgba(31,38,135,0.07);">
-          <p style="margin: 0; color: #334155; font-size: 0.95rem; line-height: 1.65;"><strong style="color: #0f172a;">Реальный пример:</strong> Собственник пищевого комбината с оборотом 2,1 млрд/год был уверен что знает все потери. Первая находка за 45 минут — 18 млн руб., замороженных в излишках сырья — корреляция между сезонными закупками и реальным потреблением, которую невозможно увидеть в обычных отчётах. Без единого увольнения.</p>
+          <p style="margin: 0; color: #334155; font-size: 16px; line-height: 1.65;"><strong style="color: #0f172a;">Реальный пример:</strong> Собственник пищевого комбината с оборотом 2,1 млрд/год был уверен что знает все потери. Первая находка за 45 минут — 18 млн руб., замороженных в излишках сырья — корреляция между сезонными закупками и реальным потреблением, которую невозможно увидеть в обычных отчётах. Без единого увольнения.</p>
         </div>
       </div>
     </section>
@@ -668,8 +668,8 @@
     <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
-  <script src="js/main.js?v=20260923f" defer></script>
-  <script src="js/goals.js?v=20260923f" defer></script>
+  <script src="js/main.js?v=20261003b" defer></script>
+  <script src="js/goals.js?v=20261003b" defer></script>
   <script>
     const crisisForm = document.getElementById('crisisForm');
     if (crisisForm) {
