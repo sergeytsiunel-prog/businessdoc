@@ -62,37 +62,21 @@
 .tile p { margin: 0; font-size: 16px; color: #64748B; }
 .tile__go { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; color: #1D4ED8; }
 
-/* ---------- плитки направлений на главной: плашки, цвет, акцентная первая карточка ---------- */
+/* ---------- плитки направлений на главной: единый строгий стиль ---------- */
 .tiles-grid--accent { gap: 20px; }
 .tiles-grid--accent .tile {
-  position: relative; overflow: hidden; padding-top: 32px;
-  border-color: rgba(15,23,42,0.09); box-shadow: 0 2px 12px rgba(15,23,42,0.05);
-}
-.tiles-grid--accent .tile::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--tile-accent, #1D4ED8);
+  padding: 28px; border-color: rgba(15,23,42,0.10); box-shadow: none;
 }
 .tiles-grid--accent .tile__ic {
-  width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center;
-  background: var(--tile-plate, #DFE8FF);
+  width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+  background: #EEF2F7;
 }
-.tiles-grid--accent .tile__icon { width: 26px; height: 26px; color: var(--tile-accent, #1D4ED8); }
-.tiles-grid--accent .tile__go { color: var(--tile-accent, #1D4ED8); }
-.tiles-grid--accent .tile:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(15,23,42,0.12); }
-/* два акцента вместо пяти: синий (основной) и приглушённое золото, через одну */
-.tiles-grid--accent .tile:nth-child(2) { --tile-accent: #7F6137; --tile-plate: #F3ECE0; }
-.tiles-grid--accent .tile:nth-child(3) { --tile-accent: #1D4ED8; --tile-plate: #E0E9FD; }
-.tiles-grid--accent .tile:nth-child(4) { --tile-accent: #7F6137; --tile-plate: #F3ECE0; }
-.tiles-grid--accent .tile:nth-child(1) {
-  background: #1D4ED8; border-color: #1D4ED8; box-shadow: 0 10px 26px rgba(29,78,216,0.22);
+.tiles-grid--accent .tile__icon { width: 22px; height: 22px; color: #1D4ED8; }
+.tiles-grid--accent .tile:hover {
+  transform: translateY(-2px); border-color: rgba(15,23,42,0.18);
+  box-shadow: 0 12px 28px rgba(15,23,42,0.07);
 }
-.tiles-grid--accent .tile:nth-child(1)::before { background: transparent; }
-.tiles-grid--accent .tile:nth-child(1) h3 { color: #fff; }
-.tiles-grid--accent .tile:nth-child(1) p { color: #C7D7FB; }
-.tiles-grid--accent .tile:nth-child(1) .tile__ic { background: rgba(255,255,255,0.16); }
-.tiles-grid--accent .tile:nth-child(1) .tile__icon { color: #fff; }
-.tiles-grid--accent .tile:nth-child(1) .tile__go { color: #fff; }
-.tiles-grid--accent .tile:nth-child(1):hover { border-color: #1D4ED8; box-shadow: 0 18px 40px rgba(29,78,216,0.30); }
-.tiles-grid--accent .tile:nth-child(1):hover .tile__go { color: #fff; text-decoration: underline; }
+.tiles-grid--accent .tile:hover .tile__go { text-decoration: underline; }
 .home-extra { margin-top: 24px; font-size: 16px; color: #64748B; }
 .home-extra a { font-weight: 600; }
 
@@ -104,6 +88,8 @@
 .proof-case { background: #fff; border-left: 4px solid #7F6137; border-radius: 16px; padding: 24px 32px; }
 .proof-case p { margin: 0 0 12px; font-size: 16px; color: #475569; }
 .proof-case a { font-weight: 600; }
+/* если кейса в секции нет (главная) — числа стоят последними и лишнего отступа не нужно */
+.proof-grid:last-child { margin-bottom: 0; }
 
 /* ---------- призыв ---------- */
 .call { background: #0F172A; color: #E2E8F0; }
