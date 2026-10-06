@@ -202,4 +202,4 @@
 @media (max-width: 900px) { .orch-note { grid-template-columns: 1fr; } }
 @media (max-width: 768px) { .steps-grid--five { grid-template-columns: 1fr 1fr; } .tiles-grid--three { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .steps-grid--five { grid-template-columns: 1fr; } }
-@media (max-width: 700px) { .orch-scheme img { max-width: 380px; margin: 0 auto; aspect-ratio: 350 / 838; } }
+@media (max-width: 700px) { .orch-scheme img { max-width: 380px; margin: 0 auto; aspect-ratio: 350 / 680; } }

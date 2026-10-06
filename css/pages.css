@@ -653,4 +653,4 @@
 .orch-limits strong { color: #0F172A; }
 @media (max-width: 900px) { .orch-two { grid-template-columns: 1fr; } .orch-two__col, .orch-limits { padding: 24px; } }
 @media (max-width: 700px) { .orch-hero-btns { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
-.orch-shema-img { max-width: 380px; margin: 0 auto; aspect-ratio: 350 / 838; } }
+.orch-shema-img { max-width: 380px; margin: 0 auto; aspect-ratio: 350 / 680; } }
