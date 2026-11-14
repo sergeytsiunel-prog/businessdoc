@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Юнит-экономика и учёт для селлеров WB / Ozon | Business Doctor</title>
+  <meta name="description" content="Разбираю, почему продажи есть, а денег нет: юнит-экономика по SKU, единый учёт, авто-выгрузки из WB и Ozon, сценарии скидок. Три дня — диагностика, дальше по шагам.">
+  <meta property="og:title" content="Продажи есть — денег нет. Разберём по SKU">
+  <meta property="og:description" content="Юнит-экономика по каждому SKU на ваших данных, единый учёт из WB и Ozon, сценарии скидок с рублём в ответе.">
+  <meta property="og:image" content="https://businessdoc.pro/foto/photo_2026-01-13_19-19-47.jpg">
+  <meta property="og:url" content="https://businessdoc.pro/wb-ozon.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css?v=20261006c">
+  <link rel="stylesheet" href="../css/components.css?v=20261006c">
+  <link rel="stylesheet" href="../css/sections.css?v=20261006c">
+  <link rel="stylesheet" href="../css/responsive.css?v=20261006c">
+  <style>
+    .lp-wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+    .lp-hero{padding:120px 0 56px;background:#F6F7F9}
+    .lp-hero h1{font-size:44px;line-height:1.12;margin:0 0 18px;color:#0F172A}
+    .lp-hero .lead{font-size:19px;line-height:1.55;color:#334155;max-width:720px;margin:0 0 26px}
+    .lp-kicker{display:inline-block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#7F6137;font-weight:600;margin-bottom:18px}
+    .lp-facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:34px}
+    .lp-fact b{display:block;font-size:26px;color:#1D4ED8;font-family:'Playfair Display',serif}
+    .lp-fact span{font-size:14px;color:#475569}
+    .lp-btn{display:inline-block;background:#1D4ED8;color:#fff;padding:15px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px}
+    .lp-btn--line{background:transparent;color:#1D4ED8;border:1.5px solid #1D4ED8;margin-left:10px}
+    .lp-sec{padding:64px 0}
+    .lp-sec--alt{background:#F6F7F9}
+    .lp-sec h2{font-size:32px;line-height:1.2;margin:0 0 10px;color:#0F172A}
+    .lp-sec .sub{color:#475569;font-size:17px;max-width:760px;margin:0 0 34px}
+    .pain{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:22px 24px;margin-bottom:14px}
+    .pain__top{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:baseline}
+    .pain__q{font-size:18px;line-height:1.45;color:#0F172A;font-weight:600;margin:0 0 6px;max-width:640px}
+    .pain__src{font-size:13px;color:#94A3B8}
+    .pain__price{font-size:20px;font-weight:700;color:#1D4ED8;white-space:nowrap}
+    .pain__time{font-size:13px;color:#7F6137;text-align:right}
+    .pain__how{margin:14px 0 0;padding-top:14px;border-top:1px dashed #E2E8F0;color:#334155;font-size:15.5px;line-height:1.6}
+    .pain__how b{color:#0F172A}
+    .lp-code{background:#0F172A;border-radius:14px;padding:22px 24px;color:#CBD5E1;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;line-height:1.7;overflow-x:auto}
+    .lp-code .c{color:#64748B}
+    .lp-code .k{color:#93C5FD}
+    .lp-note{font-size:15px;color:#475569;line-height:1.6;margin:16px 0 0}
+    .lp-case{display:flex;gap:26px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:26px}
+    .lp-case__num{font-family:'Playfair Display',serif;font-size:42px;color:#1D4ED8;line-height:1}
+    .lp-case__txt{flex:1;min-width:260px;color:#334155;line-height:1.6;font-size:15.5px}
+    .lp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .lp-step{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:22px}
+    .lp-step b{display:block;color:#1D4ED8;font-size:13px;letter-spacing:.1em;margin-bottom:8px}
+    .lp-step h3{margin:0 0 8px;font-size:19px;color:#0F172A}
+    .lp-step p{margin:0;color:#475569;font-size:15px;line-height:1.55}
+    .lp-cta{background:#0F172A;color:#fff;padding:56px 0;text-align:center}
+    .lp-cta h2{color:#fff;margin-bottom:12px}
+    .lp-cta p{color:#CBD5E1;margin:0 auto 26px;max-width:620px}
+    .lp-foot{padding:26px 0;font-size:13px;color:#64748B;text-align:center}
+    @media(max-width:760px){
+      .lp-hero{padding:96px 0 40px}
+      .lp-hero h1{font-size:30px}
+      .lp-steps{grid-template-columns:1fr}
+      .pain__top{flex-direction:column;gap:6px}
+      .pain__time{text-align:left}
+      .lp-btn--line{margin:10px 0 0}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">BUSINESS DOCTOR</a>
+      <nav class="nav">
+        <a href="#marketplace">Боли</a>
+        <a href="#live">Из чатов</a>
+        <a href="#code">Кто считает</a>
+        <a href="#case">Кейс</a>
+        <a href="#start">С чего начать</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="lp-hero">
+    <div class="lp-wrap">
+      <span class="lp-kicker">Селлерам Wildberries и Ozon</span>
+      <h1>Продажи есть.<br>Денег нет.<br>Разберём по каждому SKU.</h1>
+      <p class="lead">Считаю на ваших выгрузках: где в карточке остаётся минус, сколько съедают комиссия, логистика, возвраты и реклама, сработает ли скидка. Не «аудит ради отчёта» — цифры, по которым принимается решение.</p>
+      <a class="lp-btn" href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20диагностику%20юнит-экономики%20по%20SKU">Диагностика за 3 дня — 5 000 ₽</a>
+      <a class="lp-btn lp-btn--line" href="#marketplace">Сначала посмотреть боли</a>
+      <div class="lp-facts">
+        <div class="lp-fact"><b>30 лет</b><span>управленческой практики</span></div>
+        <div class="lp-fact"><b>50+</b><span>проектов</span></div>
+        <div class="lp-fact"><b>380+ млн ₽</b><span>выявленных потерь</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-sec" id="pains">
+    <div class="lp-wrap">
+      <h2>Двенадцать болей — и что я с ними делаю</h2>
+      <p class="sub">Формулировки взяты из разговоров селлеров и публичных разборов 2025–2026. У каждой — что делаю, сколько это занимает и сколько стоит.</p>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«В отчёте прибыль, а на счёте пусто»</p>
+          <div class="pain__src">формулировка селлеров, разбор юнит-экономики Ozon — vc.ru, 2025</div></div>
+          <div><div class="pain__price">5 000 ₽</div><div class="pain__time">3 рабочих дня</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Беру выгрузку продаж и отчёт о реализации, раскладываю выручку на строки: комиссия по факту, логистика, обратная логистика, хранение, реклама, эквайринг, упаковка, налог, себестоимость. На выходе — таблица «сколько реально осталось с каждого SKU» и список позиций, которые продаются в минус. Это и есть диагностика.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Боюсь запускать новинку — вдруг она убыточная»</p>
+          <div class="pain__src">разбор юнит-экономики, vc.ru, 2025</div></div>
+          <div><div class="pain__price">5 000 ₽</div><div class="pain__time">входит в диагностику</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Считаю плановую юнит-экономику до закупки: цена с учётом СПП и акций, комиссия по категории, логистика по габаритам, доля возвратов, реклама на вывод в топ. Вы видите прибыль на единицу до того, как товар куплен, а не после сезона.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Не понимаю, какая скидка сработает, а какая уведёт в минус»</p>
+          <div class="pain__src">практика селлеров: «ориентируются на цену конкурентов или ставят на глаз» — vc.ru, 2025</div></div>
+          <div><div class="pain__price">9 900 ₽</div><div class="pain__time">2 дня на одно промо</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Строю модель сценариев: скидка 10/15/20 % → ожидаемый объём → маржа в рублях. Как в кейсе ниже: скидка 20 % давала объём +35 %, но прибыль −12 %; скидка 12 % дала объём +18 % и прибыль +4 %. Отвечаю рублём, а не «попробуем».</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Свожу всё вручную из двух кабинетов, к концу месяца ненавижу таблицы»</p>
+          <div class="pain__src">кейс на 6 кабинетов, 45 млн ₽/мес — vc.ru, 2026</div></div>
+          <div><div class="pain__price">60 000 ₽</div><div class="pain__time">2–3 недели</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Единый справочник SKU: артикулы поставщиков связываются с карточками WB и Ozon, дубли и расхождения гасятся автоматически. Дальше авто-выгрузки по API в одну базу — обновление раз в сутки без ручной работы. В том кейсе на сборку уходило 270 человеко-часов в месяц.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Реклама работает, а прибыли нет»</p>
+          <div class="pain__src">разбор Ozon-аналитики: 79 тыс. ₽ за 20 дней без разложения по товарам — vc.ru, 2026</div></div>
+          <div><div class="pain__price">входит в учёт</div><div class="pain__time">вместе с п. 4</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Привязываю расходы на рекламу к каждому SKU и считаю ДРР по товару, а не по кабинету. Видно, какие позиции реклама вытягивает, а какие просто сжигает бюджет. Отключать или докручивать — решение по цифре.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Списали штраф, а за что — непонятно»</p>
+          <div class="pain__src">перечень штрафов WB ~30 оснований; разбор удержаний — vc.ru, 2026</div></div>
+          <div><div class="pain__price">входит в учёт</div><div class="pain__time">вместе с п. 4</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Штрафы и удержания — отдельные строки в юнит-экономике, а не «прочие расходы». Раз в месяц свожу все списания за период, показываю, сколько ушло на упаковку, разворот поставки, занижение габаритов, и какие можно оспорить по документам.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Остатки в кабинете не совпадают с тем, что на складе»</p>
+          <div class="pain__src">мониторинг запросов селлеров WB — EcomHub, август 2026</div></div>
+          <div><div class="pain__price">входит в учёт</div><div class="pain__time">вместе с п. 4</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Сверка остатков кабинета с фактическим складом по каждому SKU, отдельно статусы «возвращается», «перемещается», «на приёмке». Товар, который висит в этих статусах, блокирует продажи — его видно списком, а не по памяти.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Комплект продаётся, а себестоимость его никто не считал»</p>
+          <div class="pain__src">маркировка наборов и комплектов — mertech.ru, 2026</div></div>
+          <div><div class="pain__price">входит в учёт</div><div class="pain__time">вместе с п. 4</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Техкарта комплекта: из каких компонентов состоит, что списывается при продаже, какая маржа у набора против продажи тех же товаров по отдельности. Если набор убыточный — это видно до того, как он уйдёт в продвижение.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Взял товар под сезон — остался с мёртвым грузом»</p>
+          <div class="pain__src">случай «крем-воск с запасом на 1 128 дней» — vc.ru, 2025</div></div>
+          <div><div class="pain__price">35 000 ₽</div><div class="pain__time">1–2 недели</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Считаю оборачиваемость и скорость продаж по каждому SKU, показываю, сколько дней осталось до нуля и сколько единиц «зависнет» к концу сезона. Закупка планируется по цифре, а не по чутью: видно, когда заказывать и сколько.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Работаю через несколько ИП — общей картины нет»</p>
+          <div class="pain__src">кейс: маржа одинаковых товаров в разных кабинетах 13 % и 25 % — vc.ru, 2026</div></div>
+          <div><div class="pain__price">60 000 ₽</div><div class="pain__time">2–3 недели</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Собираю все кабинеты и юрлица в одну модель: где какой товар, какая на нём маржа, где логистика дороже на тех же габаритах (в кейсе 98,6 ₽ против 62,2 ₽). Дальше видно, что перевозить между кабинетами, а что закрывать.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Деньги заработали, а вывести не можем»</p>
+          <div class="pain__src">«Мы заработали деньги, но пользоваться ими не можем» — Т—Бизнес, 14.08.2026</div></div>
+          <div><div class="pain__price">35 000 ₽</div><div class="pain__time">1–2 недели</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Планирование денежного потока по площадкам: когда придёт выплата, сколько висит в ручной обработке, какой кассовый разрыв образуется в ближайшие недели. Отдельно — сколько денег «нарисовано» в отчёте, но ещё не пришло на счёт, чтобы не платить ими зарплату.</p>
+      </div>
+
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Не понимаю, за что платит подписчик и почему падают показы»</p>
+          <div class="pain__src">СПП и соинвест: 27,8 % запросов селлеров Ozon за июль 2026 — EcomHub</div></div>
+          <div><div class="pain__price">входит в диагностику</div><div class="pain__time">3 дня</div></div>
+        </div>
+        <p class="pain__how"><b>Как закрываю.</b> Показываю, как СПП и соинвест меняют фактическую цену и маржу по каждому SKU, и что происходит с прибылью при падении соинвеста с 60 % до 45 %. Решение — по деньгам, а не по ощущению «стало хуже продаваться».</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-sec lp-sec--alt" id="live">
+    <div class="lp-wrap">
+      <h2>Что селлеры пишут в чатах сами</h2>
+      <p class="sub">Не цитаты из статей — живые сообщения из пяти чатов Wildberries и Ozon, октябрь–ноябрь 2026. Орфография сохранена, имена убраны.</p>
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«товар себес: 800. Комиссия озон: 52. Налоговая ставка УСН 8 %. Плюс доставка, эквайринг и так далее. Чтобы продать товар с чистой прибылью 800–1000, нужно вы…»</p>
+          <div class="pain__src">чат Ozon/WB, 05.11.2026 — человек считает вручную и не сходится</div></div>
+          <div><div class="pain__price">5 000 ₽</div><div class="pain__time">3 дня</div></div>
+        </div>
+        <p class="pain__how"><b>Что здесь происходит.</b> Селлер складывает юнит-экономику на салфетке и всё равно не понимает, какая цена даёт прибыль. Это ровно та задача, которую закрывает расчёт по SKU: цена, при которой единица приносит деньги, с учётом комиссии категории, логистики, эквайринга и налога.</p>
+      </div>
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«ВБ берёт с продаж очень большую комиссию. Просто уже невыносимо. Например сегодня продажи на 4.000, а начислили 1.300»</p>
+          <div class="pain__src">чат «Wildberries Поставщики», 14.10.2026</div></div>
+          <div><div class="pain__price">входит в диагностику</div><div class="pain__time">3 дня</div></div>
+        </div>
+        <p class="pain__how"><b>Что здесь происходит.</b> Человек видит итог, но не видит состава. Разложение выплаты на строки показывает, сколько ушло на комиссию по факту, сколько на логистику и удержания — и какие позиции после этого убыточные.</p>
+      </div>
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Подскажите, у всех 4 выплаты висят на обработке или это только у меня?»</p>
+          <div class="pain__src">чат Ozon/WB, 13.11.2026</div></div>
+          <div><div class="pain__price">35 000 ₽</div><div class="pain__time">1–2 недели</div></div>
+        </div>
+        <p class="pain__how"><b>Что здесь происходит.</b> Человек не знает, сколько его денег и когда придёт. Планирование денежного потока по площадкам отвечает на это заранее: какая выплата когда ожидается и какой разрыв образуется.</p>
+      </div>
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«Закупщик второй раз за квартал заказал позицию, которой на складе лежит на год вперёд, а вижу я это уже по приходу. Табличку с остатками обновляем раз в месяц, толку мало»</p>
+          <div class="pain__src">чат Ozon/WB, 04.11.2026</div></div>
+          <div><div class="pain__price">60 000 ₽</div><div class="pain__time">2–3 недели</div></div>
+        </div>
+        <p class="pain__how"><b>Что здесь происходит.</b> Остатки живут в таблице, которая обновляется раз в месяц, — значит закупка идёт вслепую. Авто-выгрузка и оборачиваемость по SKU показывают «хватит на год» до того, как заказ сделан, а не после прихода.</p>
+      </div>
+      <div class="pain">
+        <div class="pain__top">
+          <div><p class="pain__q">«У меня просто сжирает деньги на рекламе, а толку никакого»</p>
+          <div class="pain__src">чат Ozon/WB, 19.10.2026</div></div>
+          <div><div class="pain__price">входит в учёт</div><div class="pain__time">вместе с п. 4</div></div>
+        </div>
+        <p class="pain__how"><b>Что здесь происходит.</b> Реклама не привязана к товару: бюджет общий, ДРР по SKU не считается. Привязка расходов к карточкам показывает, что реклама вытягивает, а что просто жжёт деньги.</p>
+      </div>
+      <p class="lp-note">Ещё одно наблюдение из чатов: в них уже сидят конкуренты, которые предлагают «посмотреть отчёт бесплатно» ради первых кейсов. Бесплатный аудит — не преимущество, а фон. Наш первый шаг за 5 000 ₽ отличается тем, что вы получаете расчёт по SKU и список минусовых позиций, с которым можно идти к поставщику и в закупку.</p>
+    </div>
+  </section>
+
+  <section class="lp-sec lp-sec--alt" id="code">
+    <div class="lp-wrap">
+      <h2>Почему не «бизнес-аналитик с презентацией»</h2>
+      <p class="sub">Я не только смотрю на цифры — я пишу код, который их считает. Ниже настоящий фрагмент из моей работы: так выглядит расчёт маржи по SKU и сценария скидки. Это не картинка для солидности, это то, что реально исполняется.</p>
+      <pre class="lp-code"><code><span class="c"># маржа по каждому SKU после комиссии, логистики, рекламы и возвратов</span>
+df[<span class="k">"net"</span>] = (df.price
+    - df.commission - df.logistics - df.returns_cost
+    - df.ads_per_sku - df.storage - df.tax - df.cogs)
+
+negative = df[df.net &lt; 0][[<span class="k">"sku"</span>, <span class="k">"net"</span>]].sort_values(<span class="k">"net"</span>)
+
+<span class="c"># сценарии скидки: объём растёт, маржа может падать</span>
+<span class="k">for</span> d <span class="k">in</span> (0.10, 0.15, 0.20):
+    demand = df.units * elasticity(d)
+    profit = (df.price*(1-d) - df.cogs - df.commission - df.logistics) * demand
+    print(d, profit.sum())</code></pre>
+      <p class="lp-note">Из этого и рождается ответ «скидка 12 % или 20 %»: не мнение, а сумма прибыли по каждому варианту. Такой же код собирает выгрузки из API Wildberries и Ozon, сводит артикулы поставщиков и обновляет дашборд без ручного переноса.</p>
+    </div>
+  </section>
+
+  <section class="lp-sec" id="case">
+    <div class="lp-wrap">
+      <h2>Кейс: скидка, которую не взяли</h2>
+      <p class="sub">Селлер WB/Ozon, оборот 50 млн ₽ в месяц. Маркетолог предлагал скидку 20 % «чтобы подняться в выдаче», собственник сомневался: «а не сработаем в минус?»</p>
+      <div class="lp-case">
+        <div class="lp-case__num">1,8 млн ₽</div>
+        <div class="lp-case__txt">Посчитали четыре сценария. Скидка 20 % давала объём +35 %, но прибыль −12 %. Скидка 12 % дала объём +18 % и прибыль +4 %. Выбрали 12 %. Сохранённая прибыль за квартал — 1,8 млн ₽. Теперь все промо считаются через модель, а не через интуицию.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-sec lp-sec--alt" id="start">
+    <div class="lp-wrap">
+      <h2>С чего начинаем</h2>
+      <p class="sub">Три шага. На каждом понятно, что вы получаете и сколько это стоит.</p>
+      <div class="lp-steps">
+        <div class="lp-step"><b>ШАГ 1</b><h3>Выгрузка и разбор</h3><p>Вы даёте отчёт о реализации и выгрузку продаж за 1–3 месяца. Я считаю юнит-экономику по SKU и присылаю таблицу с минусовыми позициями. 3 рабочих дня, 5 000 ₽.</p></div>
+        <div class="lp-step"><b>ШАГ 2</b><h3>Учёт и автоматизация</h3><p>Если проблема системная — собираю единый справочник SKU, авто-выгрузки и дашборд, чтобы цифры обновлялись сами. 2–3 недели, 60 000 ₽.</p></div>
+        <div class="lp-step"><b>ШАГ 3</b><h3>Решения каждую неделю</h3><p>Сценарии скидок, ассортимент, остатки, реклама — по цифре. Дальше либо ваша команда ведёт по модели, либо я на сопровождении: 25 000 ₽ в месяц.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta">
+    <div class="lp-wrap">
+      <h2>Пришлите выгрузку — скажу, где теряются деньги</h2>
+      <p>Первые выводы — по одной площадке за 3 дня. Если по вашим данным окажется, что проблема не в учёте, скажу прямо и не буду ничего продавать.</p>
+      <a class="lp-btn" href="https://wa.me/79957740893?text=Здравствуйте!%20Хочу%20диагностику%20юнит-экономики%20по%20SKU">Написать в WhatsApp</a>
+      <a class="lp-btn lp-btn--line" style="color:#fff;border-color:#64748B" href="https://t.me/SergeyTsiunel">Telegram</a>
+    </div>
+  </section>
+
+  <footer class="lp-foot">
+    Сергей Циунель · управление производством и торговлей · <a href="../index.html">businessdoc.pro</a> · <a href="../privacy.html">Политика конфиденциальности</a>
+  </footer>
+</body>
+</html>
