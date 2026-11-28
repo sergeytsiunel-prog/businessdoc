@@ -242,3 +242,37 @@
   .left-card { transition: none; }
   .left-card:hover { transform: none; box-shadow: none; }
 }
+
+/* ===== 28.11.2026: якорная плашка «управленец, который пишет код» =====
+   Красная, живая: точка пульсирует. Не мигает всем блоком — мигающая заливка
+   читается как тревога и роняет доверие. Гасится prefers-reduced-motion. */
+.codepill {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin: 0 0 22px; padding: 12px 16px; border-radius: 12px;
+  background: #FEF2F2; border: 1px solid #FCA5A5;
+  border-left: 4px solid #DC2626;
+  text-decoration: none; color: #7F1D1D;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.codepill:hover { border-color: #DC2626; box-shadow: 0 10px 26px rgba(220,38,38,0.16); }
+.codepill__dot {
+  width: 9px; height: 9px; border-radius: 50%; background: #DC2626; flex: 0 0 auto;
+  box-shadow: 0 0 0 0 rgba(220,38,38,0.55);
+  animation: codepill-pulse 2s ease-out infinite;
+}
+@keyframes codepill-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(220,38,38,0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(220,38,38,0); }
+  100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+}
+.codepill__text { flex: 1 1 240px; font-size: 14.5px; line-height: 1.45; color: #7F1D1D; }
+.codepill__text b { color: #991B1B; font-weight: 700; }
+.codepill__go { font-size: 13px; font-weight: 600; color: #DC2626; white-space: nowrap; }
+@media (max-width: 700px) {
+  .codepill { gap: 8px; padding: 12px 14px; }
+  .codepill__text { flex-basis: 100%; font-size: 14px; }
+  .codepill__go { margin-left: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .codepill__dot { animation: none; }
+}
