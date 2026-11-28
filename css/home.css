@@ -189,3 +189,56 @@
 @media (max-width: 768px) { .steps-grid--five { grid-template-columns: 1fr 1fr; } .tiles-grid--three { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .steps-grid--five { grid-template-columns: 1fr; } }
 @media (max-width: 700px) { .orch-scheme img { max-width: 380px; margin: 0 auto; aspect-ratio: 350 / 680; } }
+
+/* ===== 28.11.2026: маркетинговый слой главной =====
+   Боли в первом экране, полоса доказательства со счётчиком, блок «что остаётся у вас».
+   Всё на CSS-анимации, гасится prefers-reduced-motion. */
+
+/* боли: четыре строки, читаются за три секунды */
+.hero-pains { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; max-width: 34em; }
+.hero-pains li {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 10px 14px; border-radius: 10px;
+  background: #FFFFFF; border: 1px solid rgba(15,23,42,0.09);
+  border-left: 3px solid #1D4ED8;
+}
+.hero-pains__k { font-weight: 600; color: #0F172A; font-size: 15px; }
+.hero-pains__v { font-size: 13px; color: #64748B; text-align: right; }
+
+/* полоса доказательства */
+.statbar { background: #0F172A; }
+.home .statbar { padding: 34px 0; }
+.statbar__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 3vw, 40px); }
+.statbar__item { text-align: center; }
+.statbar__num {
+  font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; letter-spacing: -0.02em;
+  color: #FFFFFF; line-height: 1.1; font-variant-numeric: tabular-nums;
+}
+.statbar__num span { color: #C5A880; }
+.statbar__label { margin-top: 6px; font-size: 13px; color: rgba(255,255,255,0.72); }
+@media (max-width: 700px) {
+  .statbar__grid { grid-template-columns: 1fr 1fr; gap: 22px 12px; }
+  .hero-pains li { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .hero-pains__v { text-align: left; }
+}
+
+/* что остаётся у вас */
+.left-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 34px; }
+.left-card {
+  background: #FFFFFF; border: 1px solid rgba(15,23,42,0.10); border-radius: 16px;
+  padding: 26px 24px; transition: transform .18s ease, box-shadow .18s ease;
+}
+.left-card:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(15,23,42,0.10); }
+.left-card__ic {
+  width: 44px; height: 44px; border-radius: 12px; background: #EEF2F7; color: #1D4ED8;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+}
+.left-card__ic svg { width: 22px; height: 22px; }
+.left-card h3 { font-size: 19px; line-height: 1.25; margin: 0 0 8px; color: #0F172A; }
+.left-card p { font-size: 15px; color: #475569; margin: 0; }
+@media (max-width: 900px) { .left-grid { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .left-card { transition: none; }
+  .left-card:hover { transform: none; box-shadow: none; }
+}
